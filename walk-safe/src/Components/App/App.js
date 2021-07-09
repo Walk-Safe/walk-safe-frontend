@@ -1,4 +1,6 @@
 import React from 'react';
+import Login from '../Login/Login';
+import Form from '../Form/Form';
 
 function App() {
   return (
@@ -8,30 +10,7 @@ function App() {
           WALK SAFE
         </h1>
       </header>
-      <main className='login-container'>
-        <form className='login-form'>
-          <input
-            username='username'
-            className='username'
-            type='text'
-            placeholder='enter username'
-            name='input'
-          />
-          <input
-            password='password'
-            className='password'
-            type='text'
-            placeholder='enter password'
-            name='input'
-          />
-          <button>
-            LOGIN
-          </button>
-          <button>
-            CONTINUE AS GUEST
-          </button>
-        </form>
-      </main>
+      <Login />
     </div>
   );
 }
