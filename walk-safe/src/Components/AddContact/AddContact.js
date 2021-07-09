@@ -6,6 +6,8 @@ function AddContact() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
 
+  /*postContact method here for GraphQL data*/
+
   return(
     <form>
       <div className='form-container'>
