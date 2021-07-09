@@ -1,8 +1,10 @@
 import React from 'react';
+import Header from '../Header/Header';
 
 function Login() {
   return (
     <main className='login-container'>
+      <Header />
       <form className='login-form'>
         <input
           username='username'

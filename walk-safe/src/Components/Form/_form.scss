@@ -1,0 +1,40 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.trip-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 40%;
+  width: 40%;
+  border: 3px solid rgba(41, 19, 6, 0.522);
+  background-color: darkslategray;
+
+  input {
+    width: 50%;
+    height: 10%;
+    padding: 3px;
+    margin: 0.5em;
+  }
+
+  button {
+    width: 30%;
+    height: 15%;
+    padding: 3px;
+    margin: 0.5em;
+  }
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 25%;
+  color: black;
+}
