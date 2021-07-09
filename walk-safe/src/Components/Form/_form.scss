@@ -13,28 +13,34 @@
   justify-content: space-evenly;
   height: 40%;
   width: 40%;
+  padding: 0.5em;
   border: 3px solid rgba(41, 19, 6, 0.522);
+  border-radius: 5px;
   background-color: darkslategray;
 
   input {
+    text-align: center;
     width: 50%;
     height: 10%;
-    padding: 3px;
+    padding: 5px;
     margin: 0.5em;
+    border-radius: 5px;
   }
 
   button {
-    width: 30%;
+    width: 40%;
     height: 15%;
     padding: 3px;
     margin: 0.5em;
+    border-radius: 5px;
   }
 }
 
 .dropdown {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 60%;
   height: 25%;
+  padding: 0.5em;
   color: black;
 }
