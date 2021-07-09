@@ -1,0 +1,16 @@
+.app-header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  justify-self: flex-start;
+  align-items: center;
+  color: cornflowerblue;
+  height: 20%;
+  width: 100%;
+  font-size: 2em;
+}
+
+.welcome-msg {
+  padding: 1em;
+  align-self: flex-start;
+}
