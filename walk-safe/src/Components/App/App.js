@@ -5,18 +5,33 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
+        <h1>
           WALK SAFE
-        </p>
+        </h1>
       </header>
-      <main>
-        <section>
-          <form>
-            <button>
-              USERNAME
-            </button>
-          </form>
-        </section>
+      <main className='login-container'>
+        <form className='login-form'>
+          <input
+            username='username'
+            className='username'
+            type='text'
+            placeholder='enter username'
+            name='input'
+          />
+          <input
+            password='password'
+            className='password'
+            type='text'
+            placeholder='enter password'
+            name='input'
+          />
+          <button>
+            LOGIN
+          </button>
+          <button>
+            CONTINUE AS GUEST
+          </button>
+        </form>
       </main>
     </div>
   );
