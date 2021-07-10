@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from "@apollo/react-hooks";
+/*dependencies still need to be installed in index.js see Apollo setup*/
 
 /* defining the mutation */
 const ADD_CONTACT = gql`
