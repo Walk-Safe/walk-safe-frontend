@@ -1,0 +1,21 @@
+.navbar {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 15%;
+}
+
+.welcome-msg {
+  padding: 1em;
+  align-self: flex-start;
+  font-size: 1.75em;
+  font-family: $roboto;
+  font-style: italic;
+}
+
+.hamburger-container {
+  padding: 1em;
+  margin-right: 1em;
+}
