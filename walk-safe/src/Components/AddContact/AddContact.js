@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AddContact.scss';
+
 
 
 function AddContact() {
@@ -9,8 +9,8 @@ function AddContact() {
   /*postContact method here for GraphQL data*/
 
   return(
-    <form>
-      <div className='form-container'>
+    <form className='contact-form'>
+      <div className='contact-input-container'>
         <h1>Add Contact</h1>
         <input
           title='name'
@@ -23,7 +23,7 @@ function AddContact() {
           onChange={(event) => setPhone(event.target.value)}
         />
       </div>
-      <button onClick={postContact}>Add Contact</button>
+      <button>Add Contact</button>
     </form>
   )
 }
