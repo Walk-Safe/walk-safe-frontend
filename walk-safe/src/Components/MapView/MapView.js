@@ -27,8 +27,8 @@ export class MapView extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyDweAuIohkVmSN7rYmcZltu9r_yuMzFzqg'
+  apiKey: 'Message-Bryan-For-It'
 })(MapView);
 
 
-// google map api test key - AIzaSyDweAuIohkVmSN7rYmcZltu9r_yuMzFzqg
+// google map api test key -'Message-Bryan-For-It'
