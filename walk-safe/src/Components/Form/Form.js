@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
+import TripETA from '../TripETA/TripETA';
+// import TripDuration from '../TripDuration/TripDuration';
 
-function Form({ openModal }) {
+function Form() {
+
+  const [etaModalIsOpen, setEtaModalIsOpen] = useState(true);
+
+  // useEffect(() => {
+  //   setEtaModalIsOpen(false);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [setEtaModalIsOpen]);
+
+  function openModal() {
+    setEtaModalIsOpen(true);
+  }
+
+  function closeModal() {
+    setEtaModalIsOpen(false);
+  }
+
   return (
     <form className='trip-form'>
       <input
@@ -38,6 +56,8 @@ function Form({ openModal }) {
       <button onClick={openModal} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
+      <TripETA modalIsOpen={etaModalIsOpen} closeModal={closeModal} />
+      {/* <TripDuration /> */}
     </form>
   )
 }

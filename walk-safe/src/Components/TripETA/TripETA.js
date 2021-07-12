@@ -14,17 +14,13 @@ const customStyles = {
   },
 };
 
-function TripETA( { modalIsOpen } ) {
+function TripETA( { modalIsOpen, closeModal } ) {
 
   let subtitle;
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
     subtitle.style.color = '#f00';
-  }
-
-  function closeModal() {
-    modalIsOpen = false;
   }
 
   return (
