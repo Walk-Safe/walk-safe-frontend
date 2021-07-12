@@ -9,6 +9,8 @@ const customStyles = {
     left: '50%',
     right: 'auto',
     bottom: 'auto',
+    height: '10em',
+    width: '10em',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
   },
@@ -16,34 +18,19 @@ const customStyles = {
 
 function TripETA( { modalIsOpen, closeModal } ) {
 
-  let subtitle;
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
-  }
-
   return (
-    <div>
-      <ReactModal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
-      </ReactModal>
-    </div>
+    <ReactModal
+      isOpen={modalIsOpen}
+      onRequestClose={closeModal}
+      style={customStyles}
+      contentLabel="trip ETA modal"
+      preventScroll={true}
+    >
+      <div>
+        <p>Your ETA for this trip is X minutes.</p>
+        <button>BEGIN TRIP</button>
+      </div>
+    </ReactModal>
   )
 }
 
