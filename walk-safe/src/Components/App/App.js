@@ -1,14 +1,14 @@
 import React from 'react';
-// import Login from '../Login/Login';
-import Form from '../Form/Form';
-import MapView from '../MapView/MapView';
+// import LoginView from '../LoginView/LoginView';
+import MainView from '../MainView/MainView';
+// import TripView from '../TripView/TripView';
 
 function App() {
   return (
     <div className="App">
-      {/* <Login /> */}
-      <Form />
-      <MapView />
+      {/* <LoginView /> */}
+      <MainView />
+      {/* <TripView /> */}
     </div>
   );
 }

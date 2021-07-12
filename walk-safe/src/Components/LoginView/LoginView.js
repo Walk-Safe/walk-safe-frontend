@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../Header/Header';
 
-function Login() {
+function LoginView() {
   return (
     <main className='login-container'>
       <Header />
@@ -31,4 +31,4 @@ function Login() {
   )
 }
 
-export default Login;
+export default LoginView;
