@@ -10,8 +10,10 @@ function MainView() {
     <main className='main-page'>
       <NavBar />
       <Header />
-      <Form />
-      <MapDisplay />
+      <section className='main-column'>
+        <Form />
+        <MapDisplay />
+      </section>
     </main>
   )
 }
