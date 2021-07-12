@@ -7,7 +7,7 @@ import { gql, useQuery } from '@apollo/client';
 
 const GET_USER = gql`
 query GetUser {
-  oneUser(id: 1) {
+  oneUser(id: 2) {
     firstName
     lastName
     username
@@ -24,13 +24,12 @@ function MainView() {
 
  if (loading) return 'Loading...';
  if (error) return `Error! ${error.message}`;
- if (data) return `${console.log(data)}`;
 
   return (
     <main className='main-page'>
       <NavBar />
-      <Header />
-      <Form />
+      <Header user={data.oneUser}/>
+      <Form contacts={data.oneUser.contacts}/>
       <MapDisplay />
     </main>
   )
