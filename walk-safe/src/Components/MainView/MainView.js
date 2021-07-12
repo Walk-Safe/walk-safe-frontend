@@ -3,6 +3,7 @@ import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import Form from '../Form/Form';
 import MapDisplay from '../MapDisplay/MapDisplay';
+import TripETA from '../TripETA/TripETA';
 
 function MainView() {
   return (
@@ -11,6 +12,7 @@ function MainView() {
       <Header />
       <Form />
       <MapDisplay />
+      {/* <TripETA /> */}
     </main>
   )
 }
