@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 
-function Form() {
+function Form({ openModal }) {
   return (
     <form className='trip-form'>
       <input
@@ -35,8 +35,8 @@ function Form() {
         // onChange={setSelectedContact}
         // options={contacts}
       />
-      <button className='start-trip-btn'>
-        START TRIP
+      <button onClick={openModal} className='submit-trip-btn'>
+        SUBMIT TRIP
       </button>
     </form>
   )
