@@ -1,8 +1,9 @@
 @import './variables';
 @import './Components/App/app';
+@import './Components/LoginView/login';
 @import './Components/NavBar/navbar';
 @import './Components/Header/header';
-@import './Components/Login/login';
 @import './Components/Form/form';
+@import './Components/MapDisplay/map';
+@import './Components/TripETA/_trip-eta';
 @import './Components/AddContact/addcontact';
-@import './Components/MapView/mapview';

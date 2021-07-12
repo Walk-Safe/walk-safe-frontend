@@ -6,7 +6,7 @@ const mapStyles = {
   height: '40%'
 };
 
-export class MapView extends Component {
+export class MapDisplay extends Component {
   render() {
     return (
       <div className='map-container'>
@@ -27,8 +27,9 @@ export class MapView extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'Message-Bryan-For-It'
-})(MapView);
+  apiKey: 'AIzaSyDweAuIohkVmSN7rYmcZltu9r_yuMzFzqg'
+})(MapDisplay);
 
 
 // google map api test key -'Message-Bryan-For-It'
+// AIzaSyDweAuIohkVmSN7rYmcZltu9r_yuMzFzqg
