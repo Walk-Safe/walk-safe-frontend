@@ -27,8 +27,8 @@ function MainView() {
 
   return (
     <main className='main-page'>
-      <NavBar />
-      <Header user={data.oneUser}/>
+      <NavBar user={data.oneUser.firstName}/>
+      <Header />
       <Form contacts={data.oneUser.contacts}/>
       <MapDisplay />
     </main>
