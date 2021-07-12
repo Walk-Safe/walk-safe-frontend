@@ -5,7 +5,7 @@ import TripETA from '../TripETA/TripETA';
 
 function Form() {
 
-  const [etaModalIsOpen, setEtaModalIsOpen] = useState(true);
+  const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
 
   // useEffect(() => {
   //   setEtaModalIsOpen(false);

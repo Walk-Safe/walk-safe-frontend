@@ -1,4 +1,5 @@
 import React from 'react';
+import { slide as Menu } from 'react-burger-menu'
 
 function NavBar() {
   return (
@@ -7,7 +8,11 @@ function NavBar() {
         <h2 className='welcome-msg'>Welcome, user's name!</h2>
       </div>
       <div className='hamburger-container'>
-        <i className='fas fa-bars fa-2x' style={{width: '100%', height: '100%'}}></i>
+        <Menu right>
+          <a id="home" className="menu-item" href="/">Add Contact</a>
+          <a id="about" className="menu-item" href="/about">Plan Trip</a>
+          <a id="contact" className="menu-item" href="/contact">About</a>
+        </Menu>
       </div>
     </nav>
 
