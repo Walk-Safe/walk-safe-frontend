@@ -15,16 +15,16 @@
     "node-sass": "^6.0.1",
     "react-bootstrap": "^1.6.1",
     "react-google-maps": "^9.4.5",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^4.0.3",
     "react-select": "^4.3.1",
     "select": "^1.1.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "cy:run": "cypress run",
-    "test": "start-server-and-test start http://localhost:3000 cy:run",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test start http://localhost:3000 cy:run",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
