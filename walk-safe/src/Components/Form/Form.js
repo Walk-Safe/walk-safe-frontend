@@ -3,9 +3,10 @@ import Select from 'react-select';
 import TripETA from '../TripETA/TripETA';
 // import TripDuration from '../TripDuration/TripDuration';
 
-function Form() {
+function Form({contacts}) {
 
-  const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
+  const [etaModalIsOpen, setEtaModalIsOpen] = useState(true);
+  const [selectedContact, setSelectedContact] = useState([]);
 
   // useEffect(() => {
   //   setEtaModalIsOpen(false);
@@ -49,9 +50,9 @@ function Form() {
       <Select
         className='dropdown'
         placeholder='Select contact'
-        // defaultValue={selectedContact}
-        // onChange={setSelectedContact}
-        // options={contacts}
+        defaultValue={selectedContact}
+        onChange={setSelectedContact}
+        options={contacts}
       />
       <button onClick={openModal} className='submit-trip-btn'>
         SUBMIT TRIP
