@@ -1,8 +1,27 @@
+import { aliasQuery, aliasMutation } from '../utils/graphql-test-utils';
+
 describe('Show main view of walk-safe App', () => {
+
+beforeEach(() => {
+    cy.intercept('POST', 'http://localhost:3000/graphql', (req) => {
+      // Queries
+      aliasQuery(req, 'GetUser')
+
+      // Mutations
+      // aliasMutation(req, 'PlanTrip')
+    })
+  })
 
   it('Should be able to visit the main page', () => {
     cy.visit('http://localhost:3000')
     cy.url().should('eq', 'http://localhost:3000/')
+
+    // cy.intercept('POST', 'https://walk-safe-backend.herokuapp.com/graphql', {
+    //     statusCode: 200,
+    //     body: {
+    //       name: '',
+    //     },
+    // })
   });
 
   it('Should display title on main page view', () => {
