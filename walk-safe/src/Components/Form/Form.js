@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
+import transportOptions from '../../assets/travelModeData';
 import TripETA from '../TripETA/TripETA';
 // import TripDuration from '../TripDuration/TripDuration';
 
