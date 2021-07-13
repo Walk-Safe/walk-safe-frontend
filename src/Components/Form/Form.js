@@ -28,6 +28,7 @@ function Form({contacts}) {
   }
 
   function openModal() {
+    console.log(process.env.REACT_APP_GOGGLE_API_KEY)
     setEtaModalIsOpen(true);
   }
 
