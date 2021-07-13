@@ -1,8 +1,3 @@
-.ReactModal__Overlay 
-.ReactModal__Overlay--after-open {
-  background-color:rgb(55, 92, 117) !important;
-}
-
 .eta-modal {
   display: flex;
   flex-direction: column;
@@ -10,7 +5,7 @@
   justify-content: space-evenly;
   width: 100%;
   height: 100%;
-  background-color: rgba(96, 245, 183, 0.568);
+  background-color: rgba(241, 192, 112, 0.289);
   font-family: $roboto;
 }
 
