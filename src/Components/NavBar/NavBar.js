@@ -10,6 +10,7 @@ function NavBar({user}) {
         <Menu 
           right
           width={'20%'}
+          className='hamburger-menu'
         >
           <a id="contact" className="menu-item" href="/">Add Contact</a>
           <a id="trip" className="menu-item" href="/">Plan New Trip</a>
