@@ -21,11 +21,11 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "walk-safe/node_modules/.bin/react-scripts start",
-    "build": "walk-safe/node_modules/.bin/react-scripts build",
-    "cy:run": "walk-safe/node_modules/.bin/cypress run",
-    "test": "walk-safe/node_modules/.bin/start-server-and-test start https://git.heroku.com/walk-safe-frontend.git cy:run",
-    "eject": "walk-safe/node_modules/.bin/react-scripts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test start https://git.heroku.com/walk-safe-frontend.git cy:run",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
