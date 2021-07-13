@@ -13,6 +13,7 @@ query GetUser {
     username
     contacts {
       firstName
+      lastName
       phoneNumber
     }
   }

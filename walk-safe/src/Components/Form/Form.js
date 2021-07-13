@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import TripETA from '../TripETA/TripETA';
 // import TripDuration from '../TripDuration/TripDuration';
@@ -6,7 +6,20 @@ import TripETA from '../TripETA/TripETA';
 function Form({contacts}) {
 
   const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
+  const [formattedContacts, setFormattedContacts] = useState([]);
   const [selectedContact, setSelectedContact] = useState([]);
+
+  useEffect(() => {
+    formatContacts()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function formatContacts() {
+    const formatted = contacts.map(contact => {
+      return `${contact.firstName} ${contact.lastName}`;
+    })
+    setFormattedContacts(formatted);
+  }
 
   function openModal() {
     setEtaModalIsOpen(true);
@@ -15,6 +28,7 @@ function Form({contacts}) {
   function closeModal() {
     setEtaModalIsOpen(false);
   }
+
 
   return (
     <form className='trip-form'>
@@ -43,7 +57,7 @@ function Form({contacts}) {
         value={selectedContact}
         defaultValue={selectedContact}
         onChange={setSelectedContact}
-        options={contacts}
+        options={formattedContacts}
       />
       <button onClick={openModal} className='submit-trip-btn'>
         SUBMIT TRIP
