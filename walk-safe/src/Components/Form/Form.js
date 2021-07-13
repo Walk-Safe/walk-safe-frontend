@@ -36,12 +36,6 @@ function Form({contacts}) {
         className='transport-type'
         placeholder='Mode of Transportation'
       />
-      <input
-        type='text'
-        name='input'
-        className='eta'
-        placeholder='ETA'
-      />
       <Select
         className='dropdown'
         placeholder='Select contact'
