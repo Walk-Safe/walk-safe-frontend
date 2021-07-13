@@ -9,10 +9,12 @@ const customStyles = {
     left: '50%',
     right: 'auto',
     bottom: 'auto',
-    height: '10em',
-    width: '10em',
+    height: '40%',
+    width: '45%',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    backgroundColor: 'ghostwhite',
+    overlayClassName: 'eta-modal-overlay'
   },
 };
 
@@ -26,9 +28,12 @@ function TripETA( { modalIsOpen, closeModal } ) {
       contentLabel="trip ETA modal"
       preventScroll={true}
     >
-      <div>
-        <p>Your ETA for this trip is X minutes.</p>
-        <button>BEGIN TRIP</button>
+      <div className='eta-modal'>
+        <p className='eta-message'>
+          <span>Your ETA for this trip is</span>
+          <span>X hour and Y minutes.</span>
+        </p>
+        <button className='begin-trip-btn'>BEGIN TRIP</button>
       </div>
     </ReactModal>
   )

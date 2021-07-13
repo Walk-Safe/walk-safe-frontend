@@ -6,7 +6,7 @@ import TripETA from '../TripETA/TripETA';
 
 function Form({contacts}) {
 
-  const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
+  const [etaModalIsOpen, setEtaModalIsOpen] = useState(true);
   const [formattedContacts, setFormattedContacts] = useState([]);
   const [selectedContact, setSelectedContact] = useState('');
   const [selectedTransport, setSelectedTransport] = useState('');
