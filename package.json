@@ -9,22 +9,34 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "apollo-server": "^2.25.2",
-    "bootstrap": "^4.6.0",
     "google-maps-react": "^2.0.6",
     "graphql": "^15.5.1",
     "node-sass": "^6.0.1",
-    "react-bootstrap": "^1.6.1",
+    "react-burger-menu": "^3.0.6",
     "react-google-maps": "^9.4.5",
+<<<<<<< HEAD:package.json
     "react-scripts": "^4.0.3",
+=======
+    "react-modal": "^3.14.3",
+    "react-scripts": "4.0.3",
+>>>>>>> 00f9f4200fd4d65fb40f84b8e22c06d05494ac1a:walk-safe/package.json
     "react-select": "^4.3.1",
     "select": "^1.1.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+<<<<<<< HEAD:package.json
     "start": "react-scripts start",
     "build": "react-scripts build",
     "cy:run": "cypress run",
     "test": "start-server-and-test start http://localhost:3000 cy:run",
+=======
+    "cypress:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test start http://localhost:3000 cy:run",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+>>>>>>> 00f9f4200fd4d65fb40f84b8e22c06d05494ac1a:walk-safe/package.json
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
