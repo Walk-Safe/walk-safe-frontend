@@ -7,7 +7,8 @@ function Form({contacts}) {
 
   const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
   const [formattedContacts, setFormattedContacts] = useState([]);
-  const [selectedContact, setSelectedContact] = useState([]);
+  const [selectedContact, setSelectedContact] = useState('');
+  const [selectedTransport, setSelectedTransport] = useState('');
 
   useEffect(() => {
     formatContacts()
@@ -16,7 +17,10 @@ function Form({contacts}) {
 
   function formatContacts() {
     const formatted = contacts.map(contact => {
-      return `${contact.firstName} ${contact.lastName}`;
+      const name = `${contact.firstName} ${contact.lastName}`;
+  // once we're receiving dynamic contact IDs via variables, 
+  // we'll want to assign 'contact.id' to the 'value' key below
+      return { value: name, label: name };
     })
     setFormattedContacts(formatted);
   }
@@ -28,7 +32,6 @@ function Form({contacts}) {
   function closeModal() {
     setEtaModalIsOpen(false);
   }
-
 
   return (
     <form className='trip-form'>
@@ -47,9 +50,9 @@ function Form({contacts}) {
       <Select
         className='dropdown'
         placeholder='Select transportation type'
-        // defaultValue={selectedTransport}
-        // onChange={setSelectedTransport}
-        // options={transportation}
+        defaultValue={selectedTransport}
+        onChange={setSelectedTransport}
+        options={transportOptions}
       />
       <Select
         className='dropdown'
