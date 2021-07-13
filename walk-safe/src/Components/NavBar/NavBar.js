@@ -9,11 +9,11 @@ function NavBar({user}) {
       </div>
         <Menu 
           right
-          width={'25%'}
+          width={'20%'}
         >
-          <a id="home" className="menu-item" href="/">Add New Contact</a>
-          <a id="about" className="menu-item" href="/about">Plan New Trip</a>
-          <a id="contact" className="menu-item" href="/contact">About Us</a>
+          <a id="contact" className="menu-item" href="/">Add Contact</a>
+          <a id="trip" className="menu-item" href="/">Plan New Trip</a>
+          <a id="about" className="menu-item" href="/">About Us</a>
         </Menu>
     </nav>
 

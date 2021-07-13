@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select';
 import TripETA from '../TripETA/TripETA';
 // import TripDuration from '../TripDuration/TripDuration';
 
 function Form({contacts}) {
 
-  const [etaModalIsOpen, setEtaModalIsOpen] = useState(true);
+  const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
   const [selectedContact, setSelectedContact] = useState([]);
-
-  // useEffect(() => {
-  //   setEtaModalIsOpen(false);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [setEtaModalIsOpen]);
 
   function openModal() {
     setEtaModalIsOpen(true);

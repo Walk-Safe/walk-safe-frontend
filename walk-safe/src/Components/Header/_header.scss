@@ -2,12 +2,11 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  letter-spacing: 0.75em;
   justify-self: flex-start;
   align-items: center;
   height: 20%;
   width: 100%;
-  font-family: $roboto;
   color: cornflowerblue;
-  font-size: 2em;
-  border: 5px solid rgb(29, 15, 70);
+  font-size: 2.2em;
 }

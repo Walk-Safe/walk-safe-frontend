@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import Form from '../Form/Form';
-import MapDisplay from '../MapDisplay/MapDisplay';
+// import MapDisplay from '../MapDisplay/MapDisplay';
 import { gql, useQuery } from '@apollo/client';
 
 const GET_USER = gql`
@@ -30,7 +30,7 @@ function MainView() {
       <NavBar user={data.oneUser.firstName}/>
       <Header />
       <Form contacts={data.oneUser.contacts}/>
-      <MapDisplay />
+      {/* <MapDisplay /> */}
     </main>
   )
 }
