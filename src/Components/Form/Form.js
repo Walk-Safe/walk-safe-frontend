@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import transportOptions from '../../assets/travelModeData';
 import TripETA from '../TripETA/TripETA';
+import SearchLocationInput from '../SearchLocationInput/SearchLocationInput';
 // import TripDuration from '../TripDuration/TripDuration';
 
 function Form({contacts}) {
@@ -19,7 +20,7 @@ function Form({contacts}) {
   function formatContacts() {
     const formatted = contacts.map(contact => {
       const name = `${contact.firstName} ${contact.lastName}`;
-  // once we're receiving dynamic contact IDs via variables, 
+  // once we're receiving dynamic contact IDs via variables,
   // we'll want to assign 'contact.id' to the 'value' key below
       return { value: name, label: name };
     })
@@ -36,18 +37,7 @@ function Form({contacts}) {
 
   return (
     <form className='trip-form'>
-      <input
-        type='text'
-        name='input'
-        className='start-point'
-        placeholder='Start Point'
-      />
-      <input
-        type='text'
-        name='input'
-        className='end-point'
-        placeholder='End Point'
-      />
+      <SearchLocationInput onChange={() => null}/>
       <Select
         className='dropdown'
         placeholder='Select transportation type'

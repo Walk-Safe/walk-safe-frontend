@@ -1,3 +1,6 @@
+import React, { useState, useEffect, useRef } from "react";
+let autoComplete;
+
 const loadScript = (url, callback) => {
   let script = document.createElement("script");
   script.type = "text/javascript";
@@ -38,3 +41,30 @@ async function handlePlaceSelect(updateQuery) {
   updateQuery(query);
   console.log(addressObject);
 }
+
+function SearchLocationInput() {
+  const [query, setQuery] = useState("");
+  const autoCompleteRef = useRef(null);
+
+  useEffect(() => {
+    loadScript(
+      `https://maps.googleapis.com/maps/api/js?key=AIzaSyBxwntV6ATE5J6P2XobNF597RegYrTQex4&libraries=places`,
+      () => handleScriptLoad(setQuery, autoCompleteRef)
+    );
+  }, []);
+
+  return (
+    <div className="search-location-input">
+      <input
+        ref={autoCompleteRef}
+        onChange={event => setQuery(event.target.value)}
+        placeholder="address"
+        value={query}
+        className='location-input'
+        required
+      />
+    </div>
+  );
+}
+
+export default SearchLocationInput;

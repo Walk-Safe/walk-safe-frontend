@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+{/* import React, { Component } from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 const mapStyles = {
@@ -31,5 +31,6 @@ export default GoogleApiWrapper({
 })(MapDisplay);
 
 
-// google map api test key -'Message-Bryan-For-It'
-// AIzaSyDweAuIohkVmSN7rYmcZltu9r_yuMzFzqg
+google map api test key -'Message-Bryan-For-It'
+AIzaSyDweAuIohkVmSN7rYmcZltu9r_yuMzFzqg
+*/}
