@@ -23,16 +23,16 @@
   input {
     text-align: center;
     width: 50%;
-    height: 10%;
+    height: 8%;
     padding: 5px;
-    margin: 0.75em;
+    margin: 0.5em;
     border-radius: 5px;
     font-size: 1em;
   }
 
   button {
     width: 40%;
-    height: 20%;
+    height: 15%;
     padding: 3px;
     margin: 1.5em auto 0.75em auto;
     border-radius: 5px;
@@ -52,7 +52,7 @@
   display: flex;
   flex-direction: column;
   width: 60%;
-  height: 15%;
+  // height: 10%;
   padding: 0.5em;
   color: black;
 }

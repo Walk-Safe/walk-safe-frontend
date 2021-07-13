@@ -30,15 +30,17 @@ function Form({contacts}) {
         className='end-point'
         placeholder='End Point'
       />
-      <input
-        type='text'
-        name='input'
-        className='transport-type'
-        placeholder='Mode of Transportation'
+      <Select
+        className='dropdown'
+        placeholder='Select transportation type'
+        // defaultValue={selectedTransport}
+        // onChange={setSelectedTransport}
+        // options={transportation}
       />
       <Select
         className='dropdown'
         placeholder='Select contact'
+        value={selectedContact}
         defaultValue={selectedContact}
         onChange={setSelectedContact}
         options={contacts}
