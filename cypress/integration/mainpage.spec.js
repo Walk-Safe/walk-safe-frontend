@@ -15,13 +15,6 @@ beforeEach(() => {
   it('Should be able to visit the main page', () => {
     cy.visit('http://localhost:3000')
     cy.url().should('eq', 'http://localhost:3000/')
-
-    // cy.intercept('POST', 'https://walk-safe-backend.herokuapp.com/graphql', {
-    //     statusCode: 200,
-    //     body: {
-    //       name: '',
-    //     },
-    // })
   });
 
   it('Should display title on main page view', () => {
@@ -29,11 +22,12 @@ beforeEach(() => {
   });
 
   it('Should greet user on main page view', () => {
-    cy.get('.welcome-msg').should('contain', 'Welcome, user\'s name!')
+    cy.get('.welcome-msg').should('contain', 'Welcome')
   });
   
-  it('Should have a dropdown menu on click', () => {
-    cy.get('.hamburger-container').click()
+  it('Should display a dropdown menu on burger button click', () => {
+    cy.get('#react-burger-menu-btn').click()
+    cy.get('.hamburger-menu').find('a').should('have.length', 3)
   });
   
   it('Should render main form from its component', () => {
