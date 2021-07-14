@@ -34,9 +34,9 @@ beforeEach(() => {
     cy.get('.trip-form').should('be.visible')
     cy.get('.start-point').should('be.visible')
     cy.get('.end-point').should('be.visible')
-    cy.get('.transport-type').should('be.visible',)
-    cy.get('.eta').should('be.visible')
-    cy.get('.dropdown').should('be.visible')
+    cy.get('.select-transport').should('be.visible',)
+    cy.get('.select-contact').should('be.visible')
+    cy.get('.submit-trip-btn').should('be.visible')
   });
 
 
@@ -63,10 +63,6 @@ beforeEach(() => {
   })
   
   it('Should be able to click start trip button', () => {
-    cy.get('.start-trip-btn').click()
+    cy.get('.submit-trip-btn').click()
   })
-
-  // it('Should display mapView on the map page', () => {
-  //   cy.get('.map-container').should('be.visible')
-  // });
 })
