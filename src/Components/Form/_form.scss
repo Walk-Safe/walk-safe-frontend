@@ -20,16 +20,6 @@
   background-color: darkslategray;
   box-shadow: $shadow-heavy;
 
-  input {
-    text-align: center;
-    width: 50%;
-    height: 8%;
-    padding: 5px;
-    margin: 0.5em;
-    border-radius: 5px;
-    font-size: 1em;
-  }
-
   button {
     width: 40%;
     height: 15%;
@@ -46,6 +36,20 @@
       background-color: rgb(160, 192, 252);
     }
   }
+}
+
+.location-input {
+  text-align: center;
+  padding: 5px;
+  margin: 0.5em;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.search-location-input {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .dropdown {

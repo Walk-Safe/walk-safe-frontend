@@ -14,6 +14,7 @@ function Form({contacts}) {
 
   useEffect(() => {
     formatContacts()
+    console.log(process.env.REACT_APP_AUTOCOMPLETE_API_KEY)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -28,7 +29,6 @@ function Form({contacts}) {
   }
 
   function openModal() {
-    console.log(process.env.REACT_APP_GOGGLE_API_KEY)
     setEtaModalIsOpen(true);
   }
 
@@ -38,7 +38,10 @@ function Form({contacts}) {
 
   return (
     <form className='trip-form'>
-      <SearchLocationInput onChange={() => null}/>
+      <SearchLocationInput 
+        className='location-input' 
+        onChange={() => null}
+      />
       <Select
         className='dropdown'
         placeholder='Select transportation type'
