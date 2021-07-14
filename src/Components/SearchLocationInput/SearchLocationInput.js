@@ -56,12 +56,20 @@ function SearchLocationInput() {
   }, []);
 
   return (
-    <div className="search-location-input">
+    <div className="search-location-section">
       <input
         ref={autoCompleteRef}
         onChange={event => setQuery(event.target.value)}
-        placeholder="address"
+        placeholder="Starting address"
         value={query}
+        className='location-input'
+        required
+      />
+      <input
+        ref={autoCompleteRef}
+        // onChange={event => setQuery(event.target.value)}
+        placeholder="Ending address"
+        // value={query}
         className='location-input'
         required
       />

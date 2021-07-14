@@ -29,7 +29,7 @@ function Form({contacts}) {
   }
 
   function openModal() {
-    setEtaModalIsOpen(true);
+    setEtaModalIsOpen(false);
   }
 
   function closeModal() {
