@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-let autoComplete;
+let searchBox;
 
 const loadScript = (url, callback) => {
   let script = document.createElement("script");
@@ -24,33 +24,33 @@ const loadScript = (url, callback) => {
 
 function handleScriptLoad(updateQuery, autoCompleteRef) {
 
-  autoComplete = new window.google.maps.places.Autocomplete(
+  searchBox = new window.google.maps.places.SearchBox(
     autoCompleteRef.current,
   // specify location type below, in 'types' array
     { types: ["address"], componentRestrictions: { country: "us" } }
   );
 
-  autoComplete.setFields(["address_components", "formatted_address"]);
+  searchBox.getBounds(["address_components", "formatted_address"]);
 
-  autoComplete.addListener("place_changed", () =>
+  searchBox.addListener("places_changed", () =>
     handlePlaceSelect(updateQuery)
   );
 }
 
 async function handlePlaceSelect(updateQuery) {
-  const addressObject = autoComplete.getPlace();
+  const addressObject = searchBox.getPlaces();
   const query = addressObject.formatted_address;
   updateQuery(query);
   console.log(addressObject);
 }
 
-function SearchLocationInput() {
+export function SearchLocationInput() {
   const [query, setQuery] = useState("");
   const autoCompleteRef = useRef(null);
 
   useEffect(() => {
     loadScript(
-      `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_AUTOCOMPLETE_API_KEY}&libraries=places`,
+      `https://maps.googleapis.com/maps/api/js?key=AIzaSyBxwntV6ATE5J6P2XobNF597RegYrTQex4&libraries=places`,
       () => handleScriptLoad(setQuery, autoCompleteRef)
     );
   }, []);
@@ -65,16 +65,36 @@ function SearchLocationInput() {
         className='location-input'
         required
       />
-      <input
-        // ref={autoCompleteRef}
-        // onChange={event => setQuery(event.target.value)}
-        placeholder="Ending address"
-        // value={query}
-        className='location-input'
-        // required
-      />
     </div>
   );
 }
+//
+// export function SearchLocationInput2() {
+//   const [query, setQuery] = useState("");
+//   const autoCompleteRef2 = useRef(null);
+//
+//   useEffect(() => {
+//     loadScript(
+//         `https://maps.googleapis.com/maps/api/js?key=AIzaSyBxwntV6ATE5J6P2XobNF597RegYrTQex4&libraries=places`,
+//         () => handleScriptLoad(setQuery, autoCompleteRef2)
+//     );
+//   }, []);
+//
+//   return (
+//       <div className="search-location-section">
+//         <input
+//             ref={autoCompleteRef2}
+//             onChange={event => setQuery(event.target.value)}
+//             placeholder="Ending address"
+//             value={query}
+//             className='location-input'
+//             required
+//         />
+//       </div>
+//   );
+// }
 
-export default SearchLocationInput;
+// export {
+//   SearchLocationInput1,
+//   SearchLocationInput2,
+// }
