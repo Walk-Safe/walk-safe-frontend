@@ -34,8 +34,12 @@ function Form({contacts}) {
     setEtaModalIsOpen(false);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
-    <form className='trip-form'>
+    <form className='trip-form' onSubmit={handleSubmit}>
       <input
         type='text'
         name='input'
