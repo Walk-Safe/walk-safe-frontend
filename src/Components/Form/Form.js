@@ -6,7 +6,7 @@ import TripETA from '../TripETA/TripETA';
 
 function Form({contacts}) {
 
-  const [etaModalIsOpen, setEtaModalIsOpen] = useState(true);
+  const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
   const [formattedContacts, setFormattedContacts] = useState([]);
   const [selectedContact, setSelectedContact] = useState('');
   const [selectedTransport, setSelectedTransport] = useState('');
@@ -34,8 +34,12 @@ function Form({contacts}) {
     setEtaModalIsOpen(false);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
-    <form className='trip-form'>
+    <form className='trip-form' onSubmit={handleSubmit}>
       <input
         type='text'
         name='input'
