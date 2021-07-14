@@ -7,7 +7,7 @@ import SearchLocationInput from '../SearchLocationInput/SearchLocationInput';
 
 function Form({contacts}) {
 
-  const [etaModalIsOpen, setEtaModalIsOpen] = useState(true);
+  const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
   const [formattedContacts, setFormattedContacts] = useState([]);
   const [selectedContact, setSelectedContact] = useState('');
   const [selectedTransport, setSelectedTransport] = useState('');
@@ -29,7 +29,7 @@ function Form({contacts}) {
   }
 
   function openModal() {
-    setEtaModalIsOpen(false);
+    setEtaModalIsOpen(true);
   }
 
   function closeModal() {

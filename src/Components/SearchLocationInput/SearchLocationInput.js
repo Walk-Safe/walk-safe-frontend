@@ -66,12 +66,12 @@ function SearchLocationInput() {
         required
       />
       <input
-        ref={autoCompleteRef}
+        // ref={autoCompleteRef}
         // onChange={event => setQuery(event.target.value)}
         placeholder="Ending address"
         // value={query}
         className='location-input'
-        required
+        // required
       />
     </div>
   );
