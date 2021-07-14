@@ -49,14 +49,14 @@ function Form({contacts}) {
         placeholder='End Point'
       />
       <Select
-        className='dropdown'
+        className='dropdown select-transport'
         placeholder='Select transportation type'
         defaultValue={selectedTransport}
         onChange={setSelectedTransport}
         options={transportOptions}
       />
       <Select
-        className='dropdown'
+        className='dropdown select-contact'
         placeholder='Select contact'
         value={selectedContact}
         defaultValue={selectedContact}
