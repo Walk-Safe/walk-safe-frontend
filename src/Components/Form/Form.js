@@ -36,21 +36,33 @@ function Form({contacts}) {
     setEtaModalIsOpen(false);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
-    <form className='trip-form'>
-      <SearchLocationInput 
-        className='location-input' 
-        onChange={() => null}
+    <form className='trip-form' onSubmit={handleSubmit}>
+      <input
+        type='text'
+        name='input'
+        className='start-point'
+        placeholder='Start Point'
+      />
+      <input
+        type='text'
+        name='input'
+        className='end-point'
+        placeholder='End Point'
       />
       <Select
-        className='dropdown'
+        className='dropdown select-transport'
         placeholder='Select transportation type'
         defaultValue={selectedTransport}
         onChange={setSelectedTransport}
         options={transportOptions}
       />
       <Select
-        className='dropdown'
+        className='dropdown select-contact'
         placeholder='Select contact'
         value={selectedContact}
         defaultValue={selectedContact}
