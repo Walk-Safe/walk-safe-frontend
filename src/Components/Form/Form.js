@@ -46,7 +46,11 @@ function Form({contacts}) {
   return (
     <form className='trip-form' onSubmit={handleSubmit}>
       <Autocomplete
+          onPlaceSelected={(place,) => {
+            console.log(place);
+          }}
           onChange={event => setQuery(event.target.value)}
+          options={{types: ["address"]}}
           placeholder='Starting address'
           className='location-input'
           required
@@ -55,6 +59,8 @@ function Form({contacts}) {
           onPlaceSelected={(place,) => {
             console.log(place);
           }}
+          onChange={event => setQuery(event.target.value)}
+          options={{types: ["address"]}}
           placeholder='Ending address'
           className='location-input'
           required
@@ -62,6 +68,7 @@ function Form({contacts}) {
       <Select
         className='dropdown select-transport'
         placeholder='Select transportation type'
+        value={selectedTransport}
         defaultValue={selectedTransport}
         onChange={setSelectedTransport}
         options={transportOptions}
