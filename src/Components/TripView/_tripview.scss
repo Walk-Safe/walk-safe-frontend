@@ -14,7 +14,8 @@
   margin-top: 4em;
   width: 50%;
   height: 50%;
-  background-color: rgb(49, 121, 121);
+  background-color: rgba(86, 165, 249, 0.686);
+
   box-shadow: $shadow-heavy;
 }
 
@@ -24,7 +25,6 @@
   align-items: center;
   height: 50%;
   width: 50%;
-  background-color: ghostwhite;
 }
 
 .end-walk-btn {
@@ -32,10 +32,10 @@
   height: 20%;
   font-size: 1.5rem;
   letter-spacing: 0.20em;
-  background-color: rgb(122, 165, 243);
+  background-color: rgba(233, 166, 111, 0.808);
 
   &:hover {
     color: rgb(60, 60, 94);
-    background-color: rgb(160, 192, 252);
+    background-color: rgb(252, 230, 160);
   }
 }
