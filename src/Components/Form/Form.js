@@ -27,6 +27,8 @@ function Form({contacts}) {
   const [selectedContact, setSelectedContact] = useState('');
   const [selectedTransport, setSelectedTransport] = useState('');
   const [query, setQuery] = useState('');
+  const [endPoint, setEndPoint] = useState('');
+  const [startPoint, setStartPoint] = useState('');
 
   useEffect(() => {
     formatContacts()
@@ -58,9 +60,7 @@ function Form({contacts}) {
   return (
     <form className='trip-form' onSubmit={handleSubmit}>
       <Autocomplete
-          onPlaceSelected={(place) => {
-            console.log(place.formatted_address);
-          }}
+          onPlaceSelected={(place) => setStartPoint(place.formatted_address)}
           onChange={event => setQuery(event.target.value)}
           options={{types: ["address"]}}
           placeholder='Starting address'
@@ -68,9 +68,7 @@ function Form({contacts}) {
           required
       />
       <Autocomplete
-          onPlaceSelected={(place,) => {
-            console.log(place);
-          }}
+          onPlaceSelected={(place) => setEndPoint(place.formatted_address)}
           onChange={event => setQuery(event.target.value)}
           options={{types: ["address"]}}
           placeholder='Final address'
