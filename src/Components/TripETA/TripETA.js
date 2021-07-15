@@ -18,7 +18,7 @@ const customStyles = {
   },
 };
 
-function TripETA( { modalIsOpen, closeModal } ) {
+function TripETA( { modalIsOpen, closeModal, eta } ) {
 
   return (
     <ReactModal
@@ -31,7 +31,7 @@ function TripETA( { modalIsOpen, closeModal } ) {
       <div className='eta-modal'>
         <p className='eta-message'>
           <span>Your ETA for this trip is</span>
-          <span>X hour and Y minutes.</span>
+          {eta && <span>{eta.createTrip.trip.eta}</span>}
         </p>
         <button className='begin-trip-btn'>BEGIN TRIP</button>
       </div>

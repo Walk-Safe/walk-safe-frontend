@@ -31,16 +31,16 @@ function Form({contacts}) {
   const [query, setQuery] = useState('');
   const [endPoint, setEndPoint] = useState('');
   const [startPoint, setStartPoint] = useState('');
-  const [createTrip, { loading, error, data }] = useMutation(CREATE_TRIP);
+  const [createTrip, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_TRIP);
 
   useEffect(() => {
     formatContacts()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
-  if (data) return `${console.log(data)}`;
+  // if (loading) return 'Loading...';
+  // if (error) return `Error! ${error.message}`;
+  // if (data) return `${console.log(data.createTrip.trip.eta)}`;
 
   function formatContacts() {
     const formatted = contacts.map(contact => {
@@ -108,8 +108,10 @@ function Form({contacts}) {
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
-      <TripETA modalIsOpen={etaModalIsOpen} eta={data.trip.eta} closeModal={closeModal} />
+      <TripETA modalIsOpen={etaModalIsOpen} eta={data} closeModal={closeModal} />
       {/* <TripDuration /> */}
+      {mutationLoading && <p>Loading...</p>}
+      {mutationError && <p>Error Please try again</p>}
     </form>
   )
 }
