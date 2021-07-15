@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import transportOptions from '../../assets/travelModeData';
 import TripETA from '../TripETA/TripETA';
+import Autocomplete from 'react-google-autocomplete';
+
+// import {SearchLocationInput} from '../SearchLocationInput/SearchLocationInput.js'
+// import {SearchLocationInput2} from '../SearchLocationInput2/SearchLocationInput2.js'
 // import TripDuration from '../TripDuration/TripDuration';
 
 function Form({contacts}) {
@@ -10,6 +14,7 @@ function Form({contacts}) {
   const [formattedContacts, setFormattedContacts] = useState([]);
   const [selectedContact, setSelectedContact] = useState('');
   const [selectedTransport, setSelectedTransport] = useState('');
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     formatContacts()
@@ -19,7 +24,7 @@ function Form({contacts}) {
   function formatContacts() {
     const formatted = contacts.map(contact => {
       const name = `${contact.firstName} ${contact.lastName}`;
-  // once we're receiving dynamic contact IDs via variables, 
+  // once we're receiving dynamic contact IDs via variables,
   // we'll want to assign 'contact.id' to the 'value' key below
       return { value: name, label: name };
     })
@@ -40,21 +45,30 @@ function Form({contacts}) {
 
   return (
     <form className='trip-form' onSubmit={handleSubmit}>
-      <input
-        type='text'
-        name='input'
-        className='start-point'
-        placeholder='Start Point'
+      <Autocomplete
+          onPlaceSelected={(place,) => {
+            console.log(place);
+          }}
+          onChange={event => setQuery(event.target.value)}
+          options={{types: ["address"]}}
+          placeholder='Starting address'
+          className='location-input'
+          required
       />
-      <input
-        type='text'
-        name='input'
-        className='end-point'
-        placeholder='End Point'
+      <Autocomplete
+          onPlaceSelected={(place,) => {
+            console.log(place);
+          }}
+          onChange={event => setQuery(event.target.value)}
+          options={{types: ["address"]}}
+          placeholder='Ending address'
+          className='location-input'
+          required
       />
       <Select
         className='dropdown select-transport'
         placeholder='Select transportation type'
+        value={selectedTransport}
         defaultValue={selectedTransport}
         onChange={setSelectedTransport}
         options={transportOptions}
