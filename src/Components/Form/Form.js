@@ -7,6 +7,18 @@ import Autocomplete from 'react-google-autocomplete';
 // import {SearchLocationInput} from '../SearchLocationInput/SearchLocationInput.js'
 // import {SearchLocationInput2} from '../SearchLocationInput2/SearchLocationInput2.js'
 // import TripDuration from '../TripDuration/TripDuration';
+const CREATE_TRIP = gpl `
+  mutation createTrip(input: {startPoint: $startPoint, endPoint: $endPoint, travelMode: $selectedTransport, userId: 2}) {
+    trip {
+      userId
+      startPoint
+      endPoint
+      eta
+      travelMode
+    }
+    errors
+  }
+`
 
 function Form({contacts}) {
 
