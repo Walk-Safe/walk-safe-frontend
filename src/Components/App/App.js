@@ -1,6 +1,6 @@
 import React from 'react';
 // import LoginView from '../LoginView/LoginView';
-import MainView from '../MainView/MainView';
+// import MainView from '../MainView/MainView';
 import TripView from '../TripView/TripView';
 
 function App() {
