@@ -25,13 +25,13 @@ function TripETA( { modalIsOpen, closeModal } ) {
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
       style={customStyles}
-      contentLabel="trip ETA modal"
+      contentLabel='trip ETA modal'
       preventScroll={true}
     >
       <div className='eta-modal'>
         <p className='eta-message'>
           <span>Your ETA for this trip is</span>
-          <span>X hour and Y minutes.</span>
+          <span>X hours and Y minutes.</span>
         </p>
         <button className='begin-trip-btn'>BEGIN TRIP</button>
       </div>
