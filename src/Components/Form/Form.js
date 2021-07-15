@@ -45,7 +45,7 @@ function Form({contacts}) {
   }
 
   return (
-    <form className='trip-form'>
+    <form className='trip-form' onSubmit={handleSubmit}>
       <Autocomplete
           onChange={event => setQuery(event.target.value)}
           placeholder="Starting address"
