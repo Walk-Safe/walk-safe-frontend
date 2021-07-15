@@ -3,7 +3,7 @@ import Header from '../Header/Header';
 
 function LoginView() {
   return (
-    <main className='login-container'>
+    <main className='login-page'>
       <Header />
       <form className='login-form'>
         <input

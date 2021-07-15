@@ -25,7 +25,7 @@ function TripETA( { modalIsOpen, closeModal, eta } ) {
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
       style={customStyles}
-      contentLabel="trip ETA modal"
+      contentLabel='trip ETA modal'
       preventScroll={true}
     >
       <div className='eta-modal'>

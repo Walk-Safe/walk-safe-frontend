@@ -4,9 +4,6 @@ import transportOptions from '../../assets/travelModeData';
 import TripETA from '../TripETA/TripETA';
 import Autocomplete from 'react-google-autocomplete';
 import { gql, useMutation } from '@apollo/client';
-// import {SearchLocationInput} from '../SearchLocationInput/SearchLocationInput.js'
-// import {SearchLocationInput2} from '../SearchLocationInput2/SearchLocationInput2.js'
-// import TripDuration from '../TripDuration/TripDuration';
 
 const CREATE_TRIP = gql `
   mutation CreateTrip($startPoint: String!, $endPoint: String!, $travelMode: String!){
@@ -21,6 +18,7 @@ const CREATE_TRIP = gql `
   }
 }
 `
+
 
 function Form({contacts}) {
 
