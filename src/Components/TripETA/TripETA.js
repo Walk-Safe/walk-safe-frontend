@@ -31,7 +31,7 @@ function TripETA( { modalIsOpen, closeModal, eta } ) {
       <div className='eta-modal'>
         <p className='eta-message'>
           <span>Your ETA for this trip is</span>
-          {eta && <span>{eta.createTrip.trip.eta}</span>}
+          {eta && <span>{eta.createTrip.trip.eta} minutes</span>}
         </p>
         <button className='begin-trip-btn'>BEGIN TRIP</button>
       </div>
