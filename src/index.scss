@@ -1,8 +1,11 @@
-@import 'variables';
+@import 'sassStyles/variables';
 @import 'Components/App/app';
 @import 'Components/NavBar/navbar';
 @import 'Components/Header/header';
-@import 'Components/Login/login';
+@import 'Components/LoginView/login';
+@import 'Components/MainView/mainview';
 @import 'Components/Form/form';
-@import 'Components/AddContact/AddContact';
-@import 'Components/MapView/mapview';
+@import 'Components/TripETA/trip-eta';
+@import 'Components/TripView/tripview';
+@import 'Components/AddContact/_addcontact';
+@import 'Components/MapDisplay/map';

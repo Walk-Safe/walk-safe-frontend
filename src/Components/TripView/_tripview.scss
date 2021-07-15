@@ -1,0 +1,45 @@
+.trip-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.trip-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 4em;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(86, 165, 249, 0.686);
+
+  box-shadow: $shadow-heavy;
+}
+
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  width: 50%;
+  font-size: 3em;
+}
+
+.end-walk-btn {
+  width: 40%;
+  height: 20%;
+  font-size: 1.5rem;
+  letter-spacing: 0.20em;
+  color: ghostwhite;
+  border: 1px solid ghostwhite;
+  background-color: rgba(233, 166, 111, 0.808);
+
+  &:hover {
+    color: rgb(75, 75, 134);
+    border: 1px solid rgb(110, 110, 194);
+    background-color: rgb(252, 230, 160);
+  }
+}
