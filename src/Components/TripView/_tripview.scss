@@ -33,10 +33,11 @@
   height: 20%;
   font-size: 1.5rem;
   letter-spacing: 0.20em;
+  color: ghostwhite;
   background-color: rgba(233, 166, 111, 0.808);
 
   &:hover {
-    color: rgb(60, 60, 94);
+    color: rgb(75, 75, 134);
     background-color: rgb(252, 230, 160);
   }
 }
