@@ -34,10 +34,12 @@
   font-size: 1.5rem;
   letter-spacing: 0.20em;
   color: ghostwhite;
+  border: 1px solid ghostwhite;
   background-color: rgba(233, 166, 111, 0.808);
 
   &:hover {
     color: rgb(75, 75, 134);
+    border: 1px solid rgb(110, 110, 194);
     background-color: rgb(252, 230, 160);
   }
 }
