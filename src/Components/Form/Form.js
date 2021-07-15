@@ -56,7 +56,7 @@ function Form({contacts}) {
     console.log(endPoint);
     console.log(startPoint);
     openModal();
-    createTrip({ variables: {startPoint: "1007 York St Denver CO", endPoint: "1048 Josephine St Denver CO", travelMode: "walking"}});
+    createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}});
   }
 
   function openModal() {
