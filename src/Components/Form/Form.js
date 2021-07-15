@@ -7,18 +7,18 @@ import Autocomplete from 'react-google-autocomplete';
 // import {SearchLocationInput} from '../SearchLocationInput/SearchLocationInput.js'
 // import {SearchLocationInput2} from '../SearchLocationInput2/SearchLocationInput2.js'
 // import TripDuration from '../TripDuration/TripDuration';
-const CREATE_TRIP = gpl `
-  mutation createTrip(input: {startPoint: $startPoint, endPoint: $endPoint, travelMode: $selectedTransport, userId: 2}) {
-    trip {
-      userId
-      startPoint
-      endPoint
-      eta
-      travelMode
-    }
-    errors
-  }
-`
+// const CREATE_TRIP = gpl `
+//   mutation createTrip(input: {startPoint: $startPoint, endPoint: $endPoint, travelMode: $selectedTransport, userId: 2}) {
+//     trip {
+//       userId
+//       startPoint
+//       endPoint
+//       eta
+//       travelMode
+//     }
+//     errors
+//   }
+// `
 
 function Form({contacts}) {
 
@@ -58,8 +58,8 @@ function Form({contacts}) {
   return (
     <form className='trip-form' onSubmit={handleSubmit}>
       <Autocomplete
-          onPlaceSelected={(place,) => {
-            console.log(place);
+          onPlaceSelected={(place) => {
+            console.log(place.formatted_address);
           }}
           onChange={event => setQuery(event.target.value)}
           options={{types: ["address"]}}
