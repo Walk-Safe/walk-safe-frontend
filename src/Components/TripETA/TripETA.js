@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import TripStartMessage from '../sendSms/send_sms'
 
 ReactModal.setAppElement('#root');
 
@@ -18,6 +19,10 @@ const customStyles = {
   },
 };
 
+function handleSubmit(e) {
+  e.preventDefault();
+}
+
 function TripETA( { modalIsOpen, closeModal } ) {
 
   return (
@@ -28,12 +33,13 @@ function TripETA( { modalIsOpen, closeModal } ) {
       contentLabel="trip ETA modal"
       preventScroll={true}
     >
-      <div className='eta-modal'>
+      <div className='eta-modal' onSubmit={handleSubmit}>
         <p className='eta-message'>
           <span>Your ETA for this trip is</span>
           <span>X hour and Y minutes.</span>
         </p>
-        <button className='begin-trip-btn'>BEGIN TRIP</button>
+        <button onClick={TripStartMessage}
+                className='begin-trip-btn'>BEGIN TRIP</button>
       </div>
     </ReactModal>
   )
