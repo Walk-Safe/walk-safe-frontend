@@ -4,12 +4,13 @@ import transportOptions from '../../assets/travelModeData';
 import TripETA from '../TripETA/TripETA';
 import Autocomplete from 'react-google-autocomplete';
 import { gql, useMutation } from '@apollo/client';
-import {SearchLocationInput} from '../SearchLocationInput/SearchLocationInput.js'
-import {SearchLocationInput2} from '../SearchLocationInput2/SearchLocationInput2.js'
-import TripDuration from '../TripDuration/TripDuration';
+// import {SearchLocationInput} from '../SearchLocationInput/SearchLocationInput.js'
+// import {SearchLocationInput2} from '../SearchLocationInput2/SearchLocationInput2.js'
+// import TripDuration from '../TripDuration/TripDuration';
 
-const CREATE_TRIP = gpl `
-  mutation createTrip(input: {startPoint: $startPoint, endPoint: $endPoint, travelMode: $selectedTransport, userId: 2}) {
+const CREATE_TRIP = gql `
+  mutation {
+    createTrip(input: {startPoint: $startPoint, endPoint: $endPoint, travelMode: $selectedTransport, userId: 2}) {
     trip {
       userId
       startPoint
@@ -18,6 +19,7 @@ const CREATE_TRIP = gpl `
       travelMode
     }
   }
+}
 `
 
 function Form({contacts}) {
@@ -29,11 +31,16 @@ function Form({contacts}) {
   const [query, setQuery] = useState('');
   const [endPoint, setEndPoint] = useState('');
   const [startPoint, setStartPoint] = useState('');
+  const [createTrip, { loading, error, data }] = useMutation(CREATE_TRIP);
 
   useEffect(() => {
     formatContacts()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+  if (data) return `${console.log(data)}`;
 
   function formatContacts() {
     const formatted = contacts.map(contact => {
@@ -47,8 +54,8 @@ function Form({contacts}) {
 
   function sendTripData() {
     openModal();
-    //mutation
-  } 
+    createTrip({ variables: {startPoint: startPoint.value, endPoint: endPoint.value, travelMode: selectedTransport.value} })
+  }
 
   function openModal() {
     setEtaModalIsOpen(true);
