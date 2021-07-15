@@ -3,22 +3,22 @@ import Select from 'react-select';
 import transportOptions from '../../assets/travelModeData';
 import TripETA from '../TripETA/TripETA';
 import Autocomplete from 'react-google-autocomplete';
+import { gql, useMutation } from '@apollo/client';
+import {SearchLocationInput} from '../SearchLocationInput/SearchLocationInput.js'
+import {SearchLocationInput2} from '../SearchLocationInput2/SearchLocationInput2.js'
+import TripDuration from '../TripDuration/TripDuration';
 
-// import {SearchLocationInput} from '../SearchLocationInput/SearchLocationInput.js'
-// import {SearchLocationInput2} from '../SearchLocationInput2/SearchLocationInput2.js'
-// import TripDuration from '../TripDuration/TripDuration';
-// const CREATE_TRIP = gpl `
-//   mutation createTrip(input: {startPoint: $startPoint, endPoint: $endPoint, travelMode: $selectedTransport, userId: 2}) {
-//     trip {
-//       userId
-//       startPoint
-//       endPoint
-//       eta
-//       travelMode
-//     }
-//     errors
-//   }
-// `
+const CREATE_TRIP = gpl `
+  mutation createTrip(input: {startPoint: $startPoint, endPoint: $endPoint, travelMode: $selectedTransport, userId: 2}) {
+    trip {
+      userId
+      startPoint
+      endPoint
+      eta
+      travelMode
+    }
+  }
+`
 
 function Form({contacts}) {
 
@@ -44,6 +44,11 @@ function Form({contacts}) {
     })
     setFormattedContacts(formatted);
   }
+
+  function sendTripData() {
+    openModal();
+    //mutation
+  } 
 
   function openModal() {
     setEtaModalIsOpen(true);
@@ -91,7 +96,7 @@ function Form({contacts}) {
         onChange={setSelectedContact}
         options={formattedContacts}
       />
-      <button onClick={openModal} className='submit-trip-btn'>
+      <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
       <TripETA modalIsOpen={etaModalIsOpen} closeModal={closeModal} />
