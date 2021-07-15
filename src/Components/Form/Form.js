@@ -52,7 +52,7 @@ function Form({contacts}) {
           onChange={event => setQuery(event.target.value)}
           options={{types: ["address"]}}
           placeholder='Starting address'
-          className='location-input'
+          className='location-input start-point'
           required
       />
       <Autocomplete
@@ -61,8 +61,8 @@ function Form({contacts}) {
           }}
           onChange={event => setQuery(event.target.value)}
           options={{types: ["address"]}}
-          placeholder='Ending address'
-          className='location-input'
+          placeholder='Final address'
+          className='location-input end-point'
           required
       />
       <Select
