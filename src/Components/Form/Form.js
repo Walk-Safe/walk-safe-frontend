@@ -10,7 +10,7 @@ import { gql, useMutation } from '@apollo/client';
 
 const CREATE_TRIP = gql `
   mutation {
-    createTrip(input: {startPoint: "2300 Steele St Denver CO", endPoint: "1940 Blake St Denver CO", travelMode: "walking", userId: 2}) {
+    createTrip(input: {startPoint: $startPoint, endPoint: $endPoint, travelMode: $travelMode, userId: 2}) {
     trip {
       userId
       startPoint
@@ -27,7 +27,7 @@ function Form({contacts}) {
   const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
   const [formattedContacts, setFormattedContacts] = useState([]);
   const [selectedContact, setSelectedContact] = useState('');
-  const [selectedTransport, setSelectedTransport] = useState('');
+  const [travelMode, setTravelMode] = useState('');
   const [query, setQuery] = useState('');
   const [endPoint, setEndPoint] = useState('');
   const [startPoint, setStartPoint] = useState('');
@@ -53,8 +53,10 @@ function Form({contacts}) {
   }
 
   function sendTripData() {
+    console.log(endPoint);
+    console.log(startPoint);
     openModal();
-    createTrip();
+    createTrip({ variables: {startPoint: "1007 York St Denver CO", endPoint: "1048 Josephine St Denver CO", travelMode: "walking"}});
   }
 
   function openModal() {
@@ -90,9 +92,9 @@ function Form({contacts}) {
       <Select
         className='dropdown select-transport'
         placeholder='Select transportation type'
-        value={selectedTransport}
-        defaultValue={selectedTransport}
-        onChange={setSelectedTransport}
+        value={travelMode}
+        defaultValue={travelMode}
+        onChange={setTravelMode}
         options={transportOptions}
       />
       <Select
