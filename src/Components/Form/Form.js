@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import transportOptions from '../../assets/travelModeData';
 import TripETA from '../TripETA/TripETA';
-import Autocomplete from "react-google-autocomplete";
+import Autocomplete from 'react-google-autocomplete';
 
 // import {SearchLocationInput} from '../SearchLocationInput/SearchLocationInput.js'
 // import {SearchLocationInput2} from '../SearchLocationInput2/SearchLocationInput2.js'
@@ -14,11 +14,10 @@ function Form({contacts}) {
   const [formattedContacts, setFormattedContacts] = useState([]);
   const [selectedContact, setSelectedContact] = useState('');
   const [selectedTransport, setSelectedTransport] = useState('');
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     formatContacts()
-    console.log(process.env.REACT_APP_AUTOCOMPLETE_API_KEY)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -48,18 +47,18 @@ function Form({contacts}) {
     <form className='trip-form' onSubmit={handleSubmit}>
       <Autocomplete
           onChange={event => setQuery(event.target.value)}
-          placeholder="Starting address"
+          placeholder='Starting address'
           className='location-input'
           required
-      />;
+      />
       <Autocomplete
           onPlaceSelected={(place,) => {
             console.log(place);
           }}
-          placeholder="Ending address"
+          placeholder='Ending address'
           className='location-input'
           required
-      />;
+      />
       <Select
         className='dropdown select-transport'
         placeholder='Select transportation type'
