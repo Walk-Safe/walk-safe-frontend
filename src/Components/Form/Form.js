@@ -3,19 +3,42 @@ import Select from 'react-select';
 import transportOptions from '../../assets/travelModeData';
 import TripETA from '../TripETA/TripETA';
 import Autocomplete from 'react-google-autocomplete';
+import { gql, useMutation } from '@apollo/client';
+
+const CREATE_TRIP = gql `
+  mutation CreateTrip($startPoint: String!, $endPoint: String!, $travelMode: String!){
+    createTrip(input: {startPoint: $startPoint, endPoint: $endPoint, travelMode: $travelMode, userId: 2}) {
+    trip {
+      userId
+      startPoint
+      endPoint
+      eta
+      travelMode
+    }
+  }
+}
+`
+
 
 function Form({contacts}) {
 
   const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
   const [formattedContacts, setFormattedContacts] = useState([]);
   const [selectedContact, setSelectedContact] = useState('');
-  const [selectedTransport, setSelectedTransport] = useState('');
+  const [travelMode, setTravelMode] = useState('');
   const [query, setQuery] = useState('');
+  const [endPoint, setEndPoint] = useState('');
+  const [startPoint, setStartPoint] = useState('');
+  const [createTrip, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_TRIP);
 
   useEffect(() => {
     formatContacts()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // if (loading) return 'Loading...';
+  // if (error) return `Error! ${error.message}`;
+  // if (data) return `${console.log(data.createTrip.trip.eta)}`;
 
   function formatContacts() {
     const formatted = contacts.map(contact => {
@@ -25,6 +48,13 @@ function Form({contacts}) {
       return { value: name, label: name };
     })
     setFormattedContacts(formatted);
+  }
+
+  function sendTripData() {
+    console.log(endPoint);
+    console.log(startPoint);
+    openModal();
+    createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}});
   }
 
   function openModal() {
@@ -42,9 +72,7 @@ function Form({contacts}) {
   return (
     <form className='trip-form' onSubmit={handleSubmit}>
       <Autocomplete
-          onPlaceSelected={(place,) => {
-            console.log(place);
-          }}
+          onPlaceSelected={(place) => setStartPoint(place.formatted_address)}
           onChange={event => setQuery(event.target.value)}
           options={{types: ["address"]}}
           placeholder='Starting address'
@@ -52,9 +80,7 @@ function Form({contacts}) {
           required
       />
       <Autocomplete
-          onPlaceSelected={(place,) => {
-            console.log(place);
-          }}
+          onPlaceSelected={(place) => setEndPoint(place.formatted_address)}
           onChange={event => setQuery(event.target.value)}
           options={{types: ["address"]}}
           placeholder='Final address'
@@ -64,9 +90,9 @@ function Form({contacts}) {
       <Select
         className='dropdown select-transport'
         placeholder='Select transportation type'
-        value={selectedTransport}
-        defaultValue={selectedTransport}
-        onChange={setSelectedTransport}
+        value={travelMode}
+        defaultValue={travelMode}
+        onChange={setTravelMode}
         options={transportOptions}
       />
       <Select
@@ -77,11 +103,13 @@ function Form({contacts}) {
         onChange={setSelectedContact}
         options={formattedContacts}
       />
-      <button onClick={openModal} className='submit-trip-btn'>
+      <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
-      <TripETA modalIsOpen={etaModalIsOpen} closeModal={closeModal} />
+      <TripETA modalIsOpen={etaModalIsOpen} eta={data} closeModal={closeModal} />
       {/* <TripDuration /> */}
+      {mutationLoading && <p>Loading...</p>}
+      {mutationError && <p>Error Please try again</p>}
     </form>
   )
 }
