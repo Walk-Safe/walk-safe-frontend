@@ -41,15 +41,13 @@ beforeEach(() => {
 
 
   it("Should contain a start-point input", () => {
-    cy.get('input[placeholder="Start Point"]')
+    cy.get('input[placeholder="Starting address"]')
         .get('input[type="text"]')
-        .get('input[name="input"]')
   })
   
   it("Should contain a end-point input", () => {
-    cy.get('input[placeholder="End Point"]')
+    cy.get('input[placeholder="Final address"]')
         .get('input[type="text"]')
-        .get('input[name="input"]')
   })
 
   it('Should be able to type into the search input and see that value in the start point input', () => {
