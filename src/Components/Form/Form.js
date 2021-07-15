@@ -9,8 +9,8 @@ import { gql, useMutation } from '@apollo/client';
 // import TripDuration from '../TripDuration/TripDuration';
 
 const CREATE_TRIP = gql `
-  mutation CreateTrip($startPoint: String!, $endPoint: String!){
-    createTrip(input: {startPoint: $startPoint, endPoint: $endPoint, travelMode: "walking", userId: 2}) {
+  mutation CreateTrip($startPoint: String!, $endPoint: String!, $travelMode: String!){
+    createTrip(input: {startPoint: $startPoint, endPoint: $endPoint, travelMode: $travelMode, userId: 2}) {
     trip {
       userId
       startPoint
@@ -56,7 +56,7 @@ function Form({contacts}) {
     console.log(endPoint);
     console.log(startPoint);
     openModal();
-    createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint}});
+    createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}});
   }
 
   function openModal() {
@@ -108,7 +108,7 @@ function Form({contacts}) {
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
-      <TripETA modalIsOpen={etaModalIsOpen} closeModal={closeModal} />
+      <TripETA modalIsOpen={etaModalIsOpen} eta={data.trip.eta} closeModal={closeModal} />
       {/* <TripDuration /> */}
     </form>
   )
