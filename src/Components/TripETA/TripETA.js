@@ -21,22 +21,23 @@ const customStyles = {
 
 function handleSubmit(e) {
   e.preventDefault();
-}
 
-function TripETA( { modalIsOpen, closeModal } ) {
+
+function TripETA( { modalIsOpen, closeModal, eta } ) {
+
 
   return (
     <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
       style={customStyles}
-      contentLabel="trip ETA modal"
+      contentLabel='trip ETA modal'
       preventScroll={true}
     >
       <div className='eta-modal' onSubmit={handleSubmit}>
         <p className='eta-message'>
           <span>Your ETA for this trip is</span>
-          <span>X hour and Y minutes.</span>
+          {eta && <span>{eta.createTrip.trip.eta} minutes</span>}
         </p>
         <button onClick={TripStartMessage}
                 className='begin-trip-btn'>BEGIN TRIP</button>
