@@ -11,11 +11,10 @@ function App() {
     setETA(time);
   }
 
-  // render() {
     return (
-      <div className="App">
+      <div className='App'>
         {/* <LoginView /> */}
-        <MainView 
+        <MainView
           handleEtaChange={handleEtaChange}
         />
         {/* <TripView 
@@ -23,7 +22,6 @@ function App() {
         /> */}
       </div>
     );
-  // }
 }
 
 export default App;
