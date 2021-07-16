@@ -20,7 +20,7 @@ const CREATE_TRIP = gql `
 `
 
 
-function Form({ contacts, eta, handleEtaChange }) {
+function Form({ contacts, handleEtaChange }) {
 
   const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
   const [formattedContacts, setFormattedContacts] = useState([]);

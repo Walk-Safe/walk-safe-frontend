@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../Header/Header';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
-function TripView() {
+function TripView({ eta }) {
 
   // add conditional rendering
 

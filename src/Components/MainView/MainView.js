@@ -19,7 +19,7 @@ query GetUser {
 }
 `
 
-function MainView({ eta, handleEtaChange }) {
+function MainView({ handleEtaChange }) {
  const { loading, error, data } = useQuery(GET_USER);
 
  if (loading) return 'Loading...';
@@ -31,7 +31,6 @@ function MainView({ eta, handleEtaChange }) {
       <Header />
       <Form 
         contacts={data.oneUser.contacts}
-        eta={eta}
         handleEtaChange={handleEtaChange}
       />
     </main>
