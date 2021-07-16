@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 // import LoginView from '../LoginView/LoginView';
-import MainView from '../MainView/MainView';
-// import TripView from '../TripView/TripView';
+// import MainView from '../MainView/MainView';
+import TripView from '../TripView/TripView';
 
 class App extends Component {
   constructor() {
     super()
-    // this.handleEtaChange = this.handleEtaChange.bind(this)
     this.state = {
       eta: '',
     }
@@ -20,11 +19,12 @@ class App extends Component {
     return (
       <div className="App">
         {/* <LoginView /> */}
-        <MainView 
-          eta={this.state.eta} 
+        {/* <MainView 
           handleEtaChange={this.handleEtaChange}
+        /> */}
+        <TripView 
+          eta={this.state.eta}
         />
-        {/* <TripView /> */}
       </div>
     );
   }
