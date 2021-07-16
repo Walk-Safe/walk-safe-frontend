@@ -36,9 +36,11 @@ function Form({ contacts, eta, handleEtaChange }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // useEffect(() => {
-  //   handleEtaChange(data.createTrip.trip.eta);
-  // }, [data.createTrip.trip.eta]);
+  useEffect(() => {
+    if (data) {
+      handleEtaChange(data.createTrip.trip.eta);
+    }
+  }, [data]);
 
   function formatContacts() {
     const formatted = contacts.map(contact => {
