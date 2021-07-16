@@ -19,7 +19,7 @@ query GetUser {
 }
 `
 
-function MainView() {
+function MainView({ handleEtaChange }) {
  const { loading, error, data } = useQuery(GET_USER);
 
  if (loading) return 'Loading...';
@@ -29,7 +29,10 @@ function MainView() {
     <main className='main-page'>
       <NavBar user={data.oneUser.firstName}/>
       <Header />
-      <Form contacts={data.oneUser.contacts}/>
+      <Form 
+        contacts={data.oneUser.contacts}
+        handleEtaChange={handleEtaChange}
+      />
     </main>
   )
 }
