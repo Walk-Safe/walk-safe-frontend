@@ -7,19 +7,29 @@ function TripView({ eta }) {
   const [ hours, setHours ] = useState('');
   const [ minutes, setMinutes ] = useState('');
   const [ seconds, setSeconds ] = useState('');
+  const mockETA = 136;
 
   useEffect(() => {
-    reduceMinutes();
+    reduceTime();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const reduceMinutes = () => {
-    console.log(eta);
+  const reduceTime = () => {
+    if (mockETA > 60) {
+      setHours(Math.floor(mockETA / 60 ));
+      setMinutes(mockETA % 60);
+    }
   }
 
-  // add conditional rendering
+  const renderTime = (unit, time) => {
+    return (
+      <div className='time-wrapper'>
+        <div className='time-amt'>{time}</div>
+        <div>{unit}</div>
+      </div>
+    );
+};
 
-  // REFERENCE
   // npm package: https://www.npmjs.com/package/react-countdown-circle-timer
   // Days, hours, minutes, seconds countdown: https://codesandbox.io/s/musing-davinci-mqssz?fontsize=14&hidenavigation=1&theme=dark
 
@@ -29,28 +39,16 @@ function TripView({ eta }) {
       <section className='trip-container'>
         <article className='timer-container'>
           <CountdownCircleTimer
-            isPlaying
             className={'hours-timer'}
-            duration={10}
-            colors={[
-              ['#004777', 0.33],
-              ['#F7B801', 0.33],
-              ['#A30000', 0.33],
-            ]}
+            colors={[["#D14081"]]}
           >
-            {({ remainingTime }) => remainingTime}
+            {({ remainingTime }) => renderTime('hours', hours)}
           </CountdownCircleTimer>
           <CountdownCircleTimer
-            isPlaying
             className={'minutes-timer'}
-            duration={10}
-            colors={[
-              ['#004777', 0.33],
-              ['#F7B801', 0.33],
-              ['#A30000', 0.33],
-            ]}
+            colors={[["#EF798A"]]}
           >
-            {({ remainingTime }) => remainingTime}
+            {({ remainingTime }) => renderTime('minutes', minutes)}
           </CountdownCircleTimer>
           <CountdownCircleTimer
             isPlaying
@@ -62,7 +60,7 @@ function TripView({ eta }) {
               ['#A30000', 0.33],
             ]}
           >
-            {({ remainingTime }) => remainingTime}
+            {({ remainingTime }) => renderTime('seconds', seconds)}
           </CountdownCircleTimer>
         </article>
         <button className='end-walk-btn'>
