@@ -62,7 +62,7 @@ function TripView({ user, eta }) {
           <CountdownCircleTimer
             {...timerProps}
             className={'timer minutes-timer'}
-            colors={[["#FA4677"]]}
+            colors={[["#FF2727"]]}
             duration={hourSeconds}
             initialRemainingTime={etaSeconds % hourSeconds}
             onComplete={(totalElapsedTime) => [
@@ -75,10 +75,10 @@ function TripView({ user, eta }) {
             {...timerProps}
             className={'timer seconds-timer'}
             colors={[
-              ['#4687FA', 0.25],
-              ['#9D46FA', 0.25],
-              ['#FD3023', 0.25],
+              ['#FEBA17', 0.25],
               ['#E3FD23', 0.25],
+              ['#34FF27', 0.25],
+              ['#C780FC', 0.25],
             ]}
             duration={minuteSeconds}
             initialRemainingTime={etaSeconds % minuteSeconds}
