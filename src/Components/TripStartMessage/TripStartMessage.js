@@ -30,7 +30,7 @@ function TripStartMessage() {
       },
       body: JSON.stringify(smsObj)
     })
-        .then(resp => resp.json())
+        .then(result => result.text())
         .then(resp => console.log(resp))
   }
   //
