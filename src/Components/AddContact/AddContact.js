@@ -24,7 +24,10 @@ function AddContact() {
   function addContact(e) {
     e.preventDefault();
     createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: phoneNumber}});
-    console.log(data);
+    console.log('data', data);
+    console.log('phone#', phoneNumber);
+    console.log('name', firstName);
+    console.log('lastname', lastName);
   }
 
   return(
