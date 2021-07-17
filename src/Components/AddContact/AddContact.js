@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from "@apollo/react-hooks";
-/*dependencies still need to be installed in index.js see Apollo setup*/
 
-/* defining the mutation */
 const CREATE_CONTACT = gql`
  mutation CreateContact($firstName: String!, $lastName: String!, $phoneNumber: String!){
    createContact(input: {firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, userId: 2}) {
@@ -17,17 +15,16 @@ const CREATE_CONTACT = gql`
  }
 `
 
-function AddContact({id}) {
-  const [first, setFirst] = useState('')
-  const [last, setLast] = useState('')
-  const [phone, setPhone] = useState('')
+function AddContact() {
+  const [firstName, setFirst] = useState('')
+  const [lastName, setLast] = useState('')
+  const [phoneNumber, setPhone] = useState('')
   const [createContact, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_CONTACT)
 
-  /*useMutation accepts options - here it is accepting the variables option */
-
-  /* addContact is our mutate function that gets called when we are ready for the mutation to execute*/
-
-  /* Refs in React give us a means of storing mutable values throughout a component's lifecycle, and are often used for interacting with the DOM without the need of re-rendering a component. In other words, we do not need to rely on state management to update an element with Refs. (used when you are not using useState) */
+  function addContact(e) {
+    e.preventDefault();
+    createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: phoneNumber}})
+  }
 
   return(
     <form className='contact-form'>
