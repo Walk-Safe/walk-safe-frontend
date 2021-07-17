@@ -33,19 +33,9 @@ function TripStartMessage() {
         .then(result => result.text())
         .then(resp => console.log(resp))
   }
-  //
-  // const handleChange = (event) => {
-  //   if (event.target.name === 'number') {
-  //     setContactNumber(event.target.value);
-  //   } else if (event.target.name === 'sms') {
-  //     setSms(event.target.value);
-  //   }
-  // }
 
   return (
-
           <button onClick={sendSms}>Submit</button>
-
   );
 }
 
