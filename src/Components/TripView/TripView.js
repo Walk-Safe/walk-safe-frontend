@@ -6,14 +6,11 @@ import { NavLink } from 'react-router-dom';
 
 function TripView({ user, eta }) {
 
-  // replace all instances of mockEta with eta once Router is connected
-  const mockEta = 136;
-
   const [etaSeconds, setEtaSeconds] = useState('');
 
   useEffect(() => {
-    setEtaSeconds(mockEta * 60);
-  }, [mockEta]);
+    setEtaSeconds(eta * 60);
+  }, [eta]);
 
   const minuteSeconds = 60;
   const hourSeconds = 3600;
@@ -39,7 +36,7 @@ function TripView({ user, eta }) {
   };
 
   if (!etaSeconds) {
-    return <p>Loading...</p>;
+    return <p className='loading'>Loading...</p>;
   }
 
   return (

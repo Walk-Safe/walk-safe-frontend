@@ -28,7 +28,7 @@ function MainView({ setCurrentUser, handleEtaChange }) {
    }
  }, [data]);
 
- if (loading) return 'Loading...';
+ if (loading) return <p className='loading'>Loading...</p>;
  if (error) return `Error! ${error.message}`;
 
   return (
