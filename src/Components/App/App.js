@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 import LoginView from '../LoginView/LoginView';
 import MainView from '../MainView/MainView';
 import TripView from '../TripView/TripView';
+import AddContact from '../AddContact/AddContact';
 
 function App() {
 
@@ -26,10 +27,13 @@ function App() {
           />
         </Route>
         <Route exact path='/trip'>
-          <TripView 
+          <TripView
             eta={eta}
             user={currentUser}
           />
+        </Route>
+        <Route exact path='/addcontact'>
+          <AddContact />
         </Route>
       </div>
     </Router>

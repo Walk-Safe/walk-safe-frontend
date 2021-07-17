@@ -16,7 +16,6 @@ function NavBar({user}) {
         >
           <NavLink exact to='/addcontact' className='menu-item'>
             <span>Add Contact</span>
-            <AddContact />
           </NavLink>
           <NavLink exact to='/' className='menu-item'>
             <span>Plan New Trip</span>
