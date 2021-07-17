@@ -24,6 +24,7 @@ function AddContact() {
   function addContact(e) {
     e.preventDefault();
     createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: phoneNumber}});
+    console.log(data);
   }
 
   return(
