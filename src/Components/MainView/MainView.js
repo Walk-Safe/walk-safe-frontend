@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import Form from '../Form/Form';
@@ -19,8 +19,12 @@ query GetUser {
 }
 `
 
-function MainView({ handleEtaChange }) {
+function MainView({ setCurrentUser, handleEtaChange }) {
  const { loading, error, data } = useQuery(GET_USER);
+
+ useEffect(() => {
+  setCurrentUser(data.oneUser);
+ }, [data]);
 
  if (loading) return 'Loading...';
  if (error) return `Error! ${error.message}`;

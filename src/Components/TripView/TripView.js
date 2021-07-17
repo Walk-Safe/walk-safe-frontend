@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
-function TripView({ eta }) {
+function TripView({ user, eta }) {
 
   // replace all instances of mockEta with eta once Router is connected
   const mockEta = 136;
@@ -24,7 +25,7 @@ function TripView({ eta }) {
   const renderTime = (unit, time) => {
     return (
       <div className='timer-wrapper'>
-        <div className='time-amt'>{Math.round(time)}</div>
+        <div className='time-amt'>{Math.floor(time)}</div>
         <div className='time-unit'>{unit}</div>
       </div>
     )
@@ -42,6 +43,7 @@ function TripView({ eta }) {
 
   return (
     <main className='trip-page'>
+      <NavBar user={user.firstName}/>
       <Header />
       <section className='trip-container'>
         <article className='timers-container'>

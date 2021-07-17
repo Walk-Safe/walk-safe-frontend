@@ -19,7 +19,6 @@ const CREATE_TRIP = gql `
 }
 `
 
-
 function Form({ contacts, handleEtaChange }) {
 
   const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
@@ -76,7 +75,7 @@ function Form({ contacts, handleEtaChange }) {
       <Autocomplete
           onPlaceSelected={(place) => setStartPoint(place.formatted_address)}
           onChange={event => setQuery(event.target.value)}
-          options={{types: ["address"]}}
+          options={{types: ['address']}}
           placeholder='Starting address'
           className='location-input start-point'
           required
@@ -84,7 +83,7 @@ function Form({ contacts, handleEtaChange }) {
       <Autocomplete
           onPlaceSelected={(place) => setEndPoint(place.formatted_address)}
           onChange={event => setQuery(event.target.value)}
-          options={{types: ["address"]}}
+          options={{types: ['address']}}
           placeholder='Final address'
           className='location-input end-point'
           required
