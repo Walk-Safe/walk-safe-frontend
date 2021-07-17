@@ -55,6 +55,12 @@ function CurrentTrip({ user, eta }) {
     setModalIsOpen(false);
   }
 
+  const timerProps = {
+    isPlaying: true,
+    size: 180,
+    strokeWidth: 6,
+  };
+
   const renderTime = (unit, time) => {
     return (
       <div className='timer-wrapper'>
@@ -63,12 +69,6 @@ function CurrentTrip({ user, eta }) {
       </div>
     )
   }
-
-  const timerProps = {
-    isPlaying: true,
-    size: 180,
-    strokeWidth: 6,
-  };
 
   if (!etaSeconds) {
     return <p className='loading'>Loading...</p>;

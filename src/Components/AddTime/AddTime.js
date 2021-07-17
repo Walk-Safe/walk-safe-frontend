@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import ReactModal from 'react-modal';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink } from 'react-router-dom';
 
 ReactModal.setAppElement('#root');
@@ -34,6 +35,21 @@ function AddTime( { modalIsOpen, closeModal } ) {
     setBackupActive(false);
   }
 
+  const timerProps = {
+    isPlaying: true,
+    size: 180,
+    strokeWidth: 6,
+  };
+
+  const renderTime = (unit, time) => {
+    return (
+      <div className='timer-wrapper'>
+        <div className='time-amt'>{Math.floor(time)}</div>
+        <div className='time-unit'>{unit}</div>
+      </div>
+    )
+  }
+
   return (
     <ReactModal
       isOpen={modalIsOpen}
@@ -44,11 +60,11 @@ function AddTime( { modalIsOpen, closeModal } ) {
     >
       <div className='add-time-modal'>
         <p className='timeout-message'>
-          <span>Your ETA for this trip:</span>
+          You've surpassed your ETA, do you need more time?
         </p>
           <CountdownCircleTimer
             {...timerProps}
-            className={'timer seconds-timer'}
+            className={'timer backup-timer'}
             colors={[
               ['#FEBA17', 0.25],
               ['#E3FD23', 0.25],
@@ -59,15 +75,17 @@ function AddTime( { modalIsOpen, closeModal } ) {
             // initialRemainingTime={60}
             onComplete={handleExpiration}
           >
-            {({ elapsedTime }) => renderTime('seconds', getTimeSeconds(elapsedTime))}
+            {({ elapsedTime }) => renderTime('seconds', elapsedTime)}
           </CountdownCircleTimer>
-        <NavLink exact to='/trip'>
-          <button onClick={closeModal} className='begin-trip-btn'>BEGIN TRIP</button>
-        </NavLink>
         <NavLink exact to='/'>
-          <button className='end-trip-btn'>
+          {/* route to TripComplete page */}
+          <button onClick={closeModal} className='end-trip-btn'>
             END TRIP
           </button>
+        </NavLink>
+        <NavLink exact to='/trip'>
+          {/* route to TimeExtend page */}
+          <button onClick={closeModal} className='extend-time-btn'>EXTEND TIME</button>
         </NavLink>
       </div>
     </ReactModal>
