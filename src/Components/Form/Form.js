@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import transportOptions from '../../assets/travelModeData';
-import TripETA from '../TripETA/TripETA';
 import Autocomplete from 'react-google-autocomplete';
 import { gql, useMutation } from '@apollo/client';
+import TripETA from '../TripETA/TripETA';
 
 const CREATE_TRIP = gql `
   mutation CreateTrip($startPoint: String!, $endPoint: String!, $travelMode: String!){
@@ -18,7 +18,6 @@ const CREATE_TRIP = gql `
   }
 }
 `
-
 
 function Form({ contacts, handleEtaChange }) {
 
@@ -40,13 +39,12 @@ function Form({ contacts, handleEtaChange }) {
     if (data) {
       handleEtaChange(data.createTrip.trip.eta);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   function formatContacts() {
     const formatted = contacts.map(contact => {
       const name = `${contact.firstName} ${contact.lastName}`;
-  // once we're receiving dynamic contact IDs via variables,
-  // we'll want to assign 'contact.id' to the 'value' key below
       return { value: name, label: name };
     })
     setFormattedContacts(formatted);
@@ -74,7 +72,7 @@ function Form({ contacts, handleEtaChange }) {
       <Autocomplete
           onPlaceSelected={(place) => setStartPoint(place.formatted_address)}
           onChange={event => setQuery(event.target.value)}
-          options={{types: ["address"]}}
+          options={{types: ['address']}}
           placeholder='Starting address'
           className='location-input start-point'
           required
@@ -82,7 +80,7 @@ function Form({ contacts, handleEtaChange }) {
       <Autocomplete
           onPlaceSelected={(place) => setEndPoint(place.formatted_address)}
           onChange={event => setQuery(event.target.value)}
-          options={{types: ["address"]}}
+          options={{types: ['address']}}
           placeholder='Final address'
           className='location-input end-point'
           required
@@ -106,12 +104,12 @@ function Form({ contacts, handleEtaChange }) {
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
-      <TripETA modalIsOpen={etaModalIsOpen} eta={data} closeModal={closeModal} />
-      {/* <TripDuration /> */}
-      {mutationLoading && <p>Loading...</p>}
+      {etaModalIsOpen && <TripETA modalIsOpen={etaModalIsOpen} eta={data} closeModal={closeModal} />}
+      {mutationLoading && <p className='loading'>Loading...</p>}
       {mutationError && <p>Error: Please try again</p>}
     </form>
   )
 }
+
 
 export default Form;
