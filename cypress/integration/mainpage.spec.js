@@ -8,7 +8,7 @@ beforeEach(() => {
       aliasQuery(req, 'GetUser')
 
       // Mutations
-      // aliasMutation(req, 'PlanTrip')
+      aliasMutation(req, 'CreateTrip')
     })
   })
 

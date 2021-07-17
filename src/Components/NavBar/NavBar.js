@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu'
 
 function NavBar({user}) {
@@ -12,9 +13,15 @@ function NavBar({user}) {
           width={'20%'}
           className='hamburger-menu'
         >
-          <a id="contact" className="menu-item" href="/">Add Contact</a>
-          <a id="trip" className="menu-item" href="/">Plan New Trip</a>
-          <a id="about" className="menu-item" href="/">About Us</a>
+          <NavLink exact to='/' className='menu-item'>
+            <span>Add Contact</span>
+          </NavLink>
+          <NavLink exact to='/' className='menu-item'>
+            <span>Plan New Trip</span>
+          </NavLink>
+          <NavLink exact to='/' className='menu-item'>
+            <span>About Us</span>
+          </NavLink>
         </Menu>
     </nav>
 

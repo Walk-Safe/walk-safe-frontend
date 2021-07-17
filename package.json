@@ -19,6 +19,7 @@
     "react-google-maps": "^9.4.5",
     "react-google-places-autocomplete": "^3.3.1",
     "react-modal": "^3.14.3",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-select": "^4.3.1",
     "select": "^1.1.2",

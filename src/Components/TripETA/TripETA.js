@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import { NavLink } from 'react-router-dom';
 
 ReactModal.setAppElement('#root');
 
@@ -20,6 +21,10 @@ const customStyles = {
 
 function TripETA( { modalIsOpen, closeModal, eta } ) {
 
+  if (!eta) {
+    return <></>;
+  }
+
   return (
       <ReactModal
           isOpen={modalIsOpen}
@@ -29,11 +34,18 @@ function TripETA( { modalIsOpen, closeModal, eta } ) {
           preventScroll={true}
       >
         <div className='eta-modal'>
-          <p className='eta-message'>
-            <span>Your ETA for this trip is</span>
-            {eta && <span>{eta.createTrip.trip.eta} minutes</span>}
-          </p>
-          <button className='begin-trip-btn'>BEGIN TRIP</button>
+          {!eta && <p className='loading'>Loading...</p>}
+          {eta &&
+          <>
+            <p className='eta-message'>
+              <span>Your ETA for this trip:</span>
+              <span>{eta.createTrip.trip.eta} minutes</span>
+            </p>
+            <NavLink exact to='/trip'>
+              <button onClick={closeModal} className='begin-trip-btn'>BEGIN TRIP</button>
+            </NavLink>
+          </>
+          }
         </div>
       </ReactModal>
   )
