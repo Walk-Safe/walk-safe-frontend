@@ -4,13 +4,15 @@ import { useMutation } from "@apollo/react-hooks";
 /*dependencies still need to be installed in index.js see Apollo setup*/
 
 /* defining the mutation */
-const ADD_CONTACT = gql`
- mutation addContact($first: String!, $last: String!, $phone: String!, $id: Integer!) {
-   addContact(first_name: $first, last_name: $last, phone_number: $phone, user_id: $id) {
-     first_name
-     last_name
-     phone_number
-     user_id
+const CREATE_CONTACT = gql`
+ mutation CreateContact($firstName: String!, $lastName: String!, $phoneNumber: String!){
+   createContact(input: {firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, userId: 2}) {
+     contact {
+       id
+       firstName
+       lastName
+       phoneNumber
+     }
    }
  }
 `
@@ -19,7 +21,7 @@ function AddContact({id}) {
   const [first, setFirst] = useState('')
   const [last, setLast] = useState('')
   const [phone, setPhone] = useState('')
-  const [addContact] = useMutation(ADD_CONTACT, { variables: { first, last, phone, id }})
+  const [createContact] = useMutation(CREATE_CONTACT)
 
   /*useMutation accepts options - here it is accepting the variables option */
 
