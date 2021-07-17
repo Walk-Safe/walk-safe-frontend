@@ -20,27 +20,34 @@ const customStyles = {
 };
 
 function TripETA( { modalIsOpen, closeModal, eta } ) {
+
+  if (!eta) {
+    return <></>;
+  }
+
   return (
-    <>
-      {!eta && <p className='loading'>Loading...</p>}
-      <ReactModal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel='trip ETA modal'
-        preventScroll={true}
-      >
-        <div className='eta-modal'>
-          <p className='eta-message'>
-            <span>Your ETA for this trip:</span>
-            <span>{eta.createTrip.trip.eta} minutes</span>
-          </p>
-          <NavLink exact to='/trip'>
-            <button onClick={closeModal} className='begin-trip-btn'>BEGIN TRIP</button>
-          </NavLink>
-        </div>
-      </ReactModal>
-    </>
+    <ReactModal
+      isOpen={modalIsOpen}
+      onRequestClose={closeModal}
+      style={customStyles}
+      contentLabel='trip ETA modal'
+      preventScroll={true}
+    >
+      <div className='eta-modal'>
+        {!eta && <p className='loading'>Loading...</p>}
+        {eta && 
+          <>
+            <p className='eta-message'>
+              <span>Your ETA for this trip:</span>
+              <span>{eta.createTrip.trip.eta} minutes</span>
+            </p>
+            <NavLink exact to='/trip'>
+              <button onClick={closeModal} className='begin-trip-btn'>BEGIN TRIP</button>
+            </NavLink>
+          </>
+        }
+      </div>
+    </ReactModal>
   )
 }
 
