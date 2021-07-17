@@ -23,7 +23,7 @@ function AddContact() {
 
   function addContact(e) {
     e.preventDefault();
-    createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: phoneNumber}})
+    createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: phoneNumber}});
   }
 
   return(
@@ -44,6 +44,8 @@ function AddContact() {
            value={phone}
            onChange={(event) => setPhone(event.target.value)}
          />
+      {mutationLoading && <p className='loading'>Loading...</p>}
+      {mutationError && <p>Error: Please try again</p>}
       <button onClick={addContact}>Add Contact</button>
     </form>
   )
