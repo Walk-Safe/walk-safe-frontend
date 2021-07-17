@@ -5,7 +5,10 @@ import AddTime from '../AddTime/AddTime';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink } from 'react-router-dom';
 
-function CurrentTrip({ user, eta }) {
+// function CurrentTrip({ user, eta }) {
+function CurrentTrip({ user }) {
+
+  const eta = 245;
 
   const [etaSeconds, setEtaSeconds] = useState('');
   const [tripIsActive, setTripIsActive] = useState(true);
@@ -13,7 +16,7 @@ function CurrentTrip({ user, eta }) {
   const [hoursActive, setHoursActive ] = useState(true)
   const [minutesActive, setMinutesActive ] = useState(true)
   const [secondsActive, setSecondsActive ] = useState(true)
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(true);
 
   const minuteSeconds = 60;
   const hourSeconds = 3600;
@@ -131,7 +134,8 @@ function CurrentTrip({ user, eta }) {
           </button>
         </NavLink>
       </section>
-      {!tripIsActive && <AddTime modalIsOpen={modalIsOpen} closeModal={closeModal} />}
+      {/* {!tripIsActive && <AddTime modalIsOpen={modalIsOpen} closeModal={closeModal} />} */}
+      <AddTime modalIsOpen={modalIsOpen} closeModal={closeModal} />
     </main>
   )
 }

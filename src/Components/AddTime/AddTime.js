@@ -3,21 +3,44 @@ import Select from 'react-select';
 import ReactModal from 'react-modal';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink } from 'react-router-dom';
+import extendedTimeOptions from '../../assets/extendedTimeOptions';
 
 ReactModal.setAppElement('#root');
 
-const customStyles = {
+const customModalStyles = {
   content: {
     top: '50%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
-    height: '40%',
-    width: '45%',
+    height: '50%',
+    width: '55%',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    backgroundColor: 'ghostwhite',
-    overlayClassName: 'eta-modal-overlay'
+    backgroundColor: '27849b',
+  },
+};
+
+const customDropdownStyles = {
+  control: () => ({
+    display: 'flex',
+    minHeight: '30px',
+    height: '55px',
+  }),
+  input: () => ({
+    color: 'transparent',
+  }),
+  placeholder: (defaultStyles) => {
+    return {
+      ...defaultStyles,
+      alignSelf: 'center',
+      justifySelf: 'center',
+      fontSize: '1.5em',
+      textJustify: 'center',
+      marginLeft: '12%',
+      letterSpacing: '3px',
+      color: '#2b2f30'
+    }
   },
 };
 
@@ -25,6 +48,7 @@ function AddTime( { modalIsOpen, closeModal } ) {
 
   const [backupActive, setBackupActive] = useState(true);
   const [ emergency, setEmergency] = useState(false);
+  const [selectedTime, setSelectedTime] = useState('');
 
   function handleExpiration() {
     setBackupActive(false);
@@ -54,39 +78,44 @@ function AddTime( { modalIsOpen, closeModal } ) {
     <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
-      style={customStyles}
-      contentLabel='trip ETA modal'
+      style={customModalStyles}
+      contentLabel='add time modal'
       preventScroll={true}
     >
       <div className='add-time-modal'>
         <p className='timeout-message'>
-          You've surpassed your ETA, do you need more time?
+          You've surpassed your ETA, <br></br>do you need more time?
         </p>
           <CountdownCircleTimer
             {...timerProps}
             className={'timer backup-timer'}
             colors={[
-              ['#FEBA17', 0.25],
-              ['#E3FD23', 0.25],
-              ['#34FF27', 0.25],
-              ['#C780FC', 0.25],
+              ['#26A7F9', 0.33],
+              ['#24CE21', 0.33],
+              ['#FF0000', 0.33],
             ]}
-            duration={60}
-            // initialRemainingTime={60}
+            duration={30}
             onComplete={handleExpiration}
           >
-            {({ elapsedTime }) => renderTime('seconds', elapsedTime)}
+            {({ remainingTime }) => renderTime('seconds', remainingTime)}
           </CountdownCircleTimer>
-        <NavLink exact to='/'>
-          {/* route to TripComplete page */}
-          <button onClick={closeModal} className='end-trip-btn'>
-            END TRIP
-          </button>
-        </NavLink>
-        <NavLink exact to='/trip'>
-          {/* route to TimeExtend page */}
-          <button onClick={closeModal} className='extend-time-btn'>EXTEND TIME</button>
-        </NavLink>
+          <section className='add-time-response'>
+            <NavLink exact to='/'>
+              {/* route to TripComplete page */}
+              <button onClick={closeModal} className='end-trip-btn'>
+                END TRIP
+              </button>
+            </NavLink>
+            <Select
+              className='extend-time'
+              placeholder='EXTEND TIME'
+              styles={customDropdownStyles}
+              value={selectedTime}
+              defaultValue={selectedTime}
+              onChange={setSelectedTime}
+              options={extendedTimeOptions}
+            />
+          </section>
       </div>
     </ReactModal>
   )
