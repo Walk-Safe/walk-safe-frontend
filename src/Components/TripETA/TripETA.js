@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import { NavLink } from 'react-router-dom';
+import TripStartMessage from '../TripStartMessage/TripStartMessage'
 
 ReactModal.setAppElement('#root');
 
@@ -43,6 +44,7 @@ function TripETA( { modalIsOpen, closeModal, eta } ) {
             </p>
             <NavLink exact to='/trip'>
               <button onClick={closeModal} className='begin-trip-btn'>BEGIN TRIP</button>
+            <TripStartMessage/>
             </NavLink>
           </>
           }
