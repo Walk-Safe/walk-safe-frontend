@@ -36,7 +36,7 @@ function AddContact({ user }) {
   }
 
   return(
-    <section>
+    <section className='add-contact'>
       <NavBar user={user.firstName}/>
       <Header />
       <form className='contact-form'>
