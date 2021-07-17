@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import gql from 'graphql-tag';
-import { useMutation } from "@apollo/react-hooks";
+import { NavLink } from 'react-router-dom';
+import { gql, useMutation } from '@apollo/client';
 
 const CREATE_CONTACT = gql`
  mutation CreateContact($firstName: String!, $lastName: String!, $phoneNumber: String!){
@@ -31,18 +31,18 @@ function AddContact() {
     <form className='contact-form'>
       <h1>Add Contact</h1>
          <input
-           title='first'
-           value={first}
+           title='firstName'
+           value={firstName}
            onChange={(event) => setFirst(event.target.value)}
          />
          <input
-           title='last'
-           value={last}
+           title='lastName'
+           value={lastName}
            onChange={(event) => setLast(event.target.value)}
          />
          <input
-           title='phone'
-           value={phone}
+           title='phoneNumber'
+           value={phoneNumber}
            onChange={(event) => setPhone(event.target.value)}
          />
       {mutationLoading && <p className='loading'>Loading...</p>}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { slide as Menu } from 'react-burger-menu'
+import { slide as Menu } from 'react-burger-menu';
+import AddContact from '../AddContact/AddContact';
 
 function NavBar({user}) {
   return (
@@ -8,13 +9,14 @@ function NavBar({user}) {
       <div className='welcome-container'>
         <h2 className='welcome-msg'>Welcome, {user}</h2>
       </div>
-        <Menu 
+        <Menu
           right
           width={'20%'}
           className='hamburger-menu'
         >
-          <NavLink exact to='/' className='menu-item'>
+          <NavLink exact to='/addcontact' className='menu-item'>
             <span>Add Contact</span>
+            <AddContact />
           </NavLink>
           <NavLink exact to='/' className='menu-item'>
             <span>Plan New Trip</span>
