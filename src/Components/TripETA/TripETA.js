@@ -14,7 +14,9 @@ const customStyles = {
     width: '45%',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    backgroundColor: 'ghostwhite',
+    backgroundColor: '27849b',
+    overflow: 'visible',
+    position: 'absolute'
   },
 };
 

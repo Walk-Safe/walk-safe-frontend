@@ -9,15 +9,17 @@ ReactModal.setAppElement('#root');
 
 const customModalStyles = {
   content: {
-    top: '50%',
+    top: '45%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     height: '50%',
-    width: '55%',
+    width: '50%',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     backgroundColor: '27849b',
+    overflow: 'visible',
+    position: 'absolute'
   },
 };
 
@@ -37,7 +39,7 @@ const customDropdownStyles = {
       justifySelf: 'center',
       fontSize: '1.5em',
       textJustify: 'center',
-      marginLeft: '12%',
+      marginLeft: '17%',
       letterSpacing: '3px',
       color: '#2b2f30'
     }
@@ -90,8 +92,8 @@ function AddTime( { modalIsOpen, closeModal } ) {
             {...timerProps}
             className={'timer backup-timer'}
             colors={[
-              ['#26A7F9', 0.33],
               ['#24CE21', 0.33],
+              ['#26A7F9', 0.33],
               ['#FF0000', 0.33],
             ]}
             duration={30}
@@ -99,6 +101,9 @@ function AddTime( { modalIsOpen, closeModal } ) {
           >
             {({ remainingTime }) => renderTime('seconds', remainingTime)}
           </CountdownCircleTimer>
+        <p className='warning-message'>
+          Your contact will be notified if you do not select an option in the remaining time.
+        </p>
           <section className='add-time-response'>
             <NavLink exact to='/'>
               {/* route to TripComplete page */}
@@ -114,6 +119,7 @@ function AddTime( { modalIsOpen, closeModal } ) {
               defaultValue={selectedTime}
               onChange={setSelectedTime}
               options={extendedTimeOptions}
+              // menuPlacement='top'
             />
           </section>
       </div>

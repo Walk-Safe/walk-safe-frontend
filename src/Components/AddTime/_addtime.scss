@@ -7,6 +7,7 @@
   height: 100%;
   background-color: ghostwhite;
   font-family: $roboto;
+  font-weight: 500;
 
   a {
     height: 20%;
@@ -33,6 +34,11 @@
   }
 }
 
+.warning-message {
+  font-style: italic;
+  font-size: 1.25vw;
+}
+
 .add-time-response {
   display: flex;
   justify-content: space-evenly;
@@ -49,7 +55,7 @@
 .end-trip-btn {
   height: 100%;
   width: 100%;
-  font-size: 1.5em;
+  font-size: 1.5vw;
   letter-spacing: 5px;
   color: ghostwhite;
   background-color: rgb(83, 150, 196);
@@ -66,8 +72,8 @@
 .extend-time {
   display: flex;
   flex-direction: column;
-  background-color: rgba(249, 250, 193, 0.945);
-  font-size: 1em;
+  background-color: rgba(198, 252, 128, 0.74);
+  font-size: 1vw;
   border: 1px solid rgba(158, 136, 136, 0.616);
   border-radius: 5px;
   width: 45%;
