@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 // import LoginView from '../LoginView/LoginView';
-import MainView from '../MainView/MainView';
-// import TripView from '../TripView/TripView';
+// import MainView from '../MainView/MainView';
+import TripView from '../TripView/TripView';
 
 function App() {
 
@@ -14,12 +14,12 @@ function App() {
     return (
       <div className='App'>
         {/* <LoginView /> */}
-        <MainView
+        {/* <MainView
           handleEtaChange={handleEtaChange}
-        />
-        {/* <TripView 
-          eta={eta}
         /> */}
+        <TripView 
+          eta={eta}
+        />
       </div>
     );
 }
