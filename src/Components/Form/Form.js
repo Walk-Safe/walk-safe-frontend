@@ -53,8 +53,6 @@ function Form({ contacts, handleEtaChange }) {
   }
 
   function sendTripData() {
-    console.log(endPoint);
-    console.log(startPoint);
     openModal();
     createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}});
   }

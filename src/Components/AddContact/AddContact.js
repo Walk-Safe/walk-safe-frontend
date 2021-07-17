@@ -21,7 +21,7 @@ function AddContact({id}) {
   const [first, setFirst] = useState('')
   const [last, setLast] = useState('')
   const [phone, setPhone] = useState('')
-  const [createContact] = useMutation(CREATE_CONTACT)
+  const [createContact, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_CONTACT)
 
   /*useMutation accepts options - here it is accepting the variables option */
 
