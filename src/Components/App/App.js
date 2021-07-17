@@ -6,22 +6,25 @@ import TripView from '../TripView/TripView';
 function App() {
 
   const [eta, setETA] = useState('');
+  const [ currentUser, setCurrentUser] = useState('');
 
   const handleEtaChange = (time) => {
     setETA(time);
   }
 
-    return (
-      <div className='App'>
-        {/* <LoginView /> */}
-        {/* <MainView
-          handleEtaChange={handleEtaChange}
-        /> */}
-        <TripView 
-          eta={eta}
-        />
-      </div>
-    );
+  return (
+    <div className='App'>
+      {/* <LoginView /> */}
+      {/* <MainView
+        handleEtaChange={handleEtaChange}
+        setCurrentUser={setCurrentUser}
+      /> */}
+      <TripView 
+        eta={eta}
+        user={currentUser}
+      />
+    </div>
+  );
 }
 
 export default App;
