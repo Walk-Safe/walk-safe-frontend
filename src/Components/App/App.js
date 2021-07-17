@@ -1,27 +1,39 @@
-import React, { Component, useState } from 'react';
-// import LoginView from '../LoginView/LoginView';
+import React, { useState } from 'react';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import LoginView from '../LoginView/LoginView';
 import MainView from '../MainView/MainView';
-// import TripView from '../TripView/TripView';
+import TripView from '../TripView/TripView';
 
 function App() {
 
   const [eta, setETA] = useState('');
+  const [ currentUser, setCurrentUser] = useState('');
 
   const handleEtaChange = (time) => {
     setETA(time);
   }
 
-    return (
+  return (
+    <Router>
       <div className='App'>
-        {/* <LoginView /> */}
-        <MainView
-          handleEtaChange={handleEtaChange}
-        />
-        {/* <TripView 
-          eta={eta}
-        /> */}
+        <Route exact path='/login'>
+          <LoginView />
+        </Route>
+        <Route exact path='/'>
+          <MainView
+            handleEtaChange={handleEtaChange}
+            setCurrentUser={setCurrentUser}
+          />
+        </Route>
+        <Route exact path='/trip'>
+          <TripView 
+            eta={eta}
+            user={currentUser}
+          />
+        </Route>
       </div>
-    );
+    </Router>
+  );
 }
 
 export default App;

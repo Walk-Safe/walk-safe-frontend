@@ -27,7 +27,7 @@ function AddContact({id}) {
 
   /* Refs in React give us a means of storing mutable values throughout a component's lifecycle, and are often used for interacting with the DOM without the need of re-rendering a component. In other words, we do not need to rely on state management to update an element with Refs. (used when you are not using useState) */
 
-  return(
+  return (
     <form className='contact-form'>
       <h1>Add Contact</h1>
          <input
