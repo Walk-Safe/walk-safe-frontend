@@ -4,40 +4,27 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 function TripView({ eta }) {
 
-  const [ hours, setHours ] = useState('');
-  const [ minutes, setMinutes ] = useState('');
-  const [ seconds, setSeconds ] = useState('');
+  // replace all instances of mockEta with eta once Router is connected
+  const mockEta = 136;
+
+  const [etaSeconds, setEtaSeconds] = useState('');
+
+  useEffect(() => {
+    setEtaSeconds(mockEta * 60);
+  }, [mockEta]);
 
   const minuteSeconds = 60;
   const hourSeconds = 3600;
   const daySeconds = 86400;
 
-  const startTime = Date.now() / 1000; // use UNIX timestamp in seconds
-  const endTime = startTime + 243248; // use UNIX timestamp in seconds
-  const remainingTime = endTime - startTime;
-
-  const getTimeSeconds = (time) => (minuteSeconds - time) | 0;
-  const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) | 0;
-  const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) | 0;
-
-  const mockETA = 136;
-
-  useEffect(() => {
-    reduceTime();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const reduceTime = () => {
-    if (mockETA > 60) {
-      setHours(Math.floor(mockETA / 60 ));
-      setMinutes(mockETA % 60);
-    }
-  }
+  const getTimeSeconds = (time) => (minuteSeconds - time) || 0;
+  const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) || 0;
+  const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) || 0;
 
   const renderTime = (unit, time) => {
     return (
       <div className='timer-wrapper'>
-        <div className='time-amt'>{time}</div>
+        <div className='time-amt'>{Math.round(time)}</div>
         <div className='time-unit'>{unit}</div>
       </div>
     )
@@ -49,8 +36,9 @@ function TripView({ eta }) {
     strokeWidth: 6,
   };
 
-  // npm package: https://www.npmjs.com/package/react-countdown-circle-timer
-  // Days, hours, minutes, seconds countdown: https://codesandbox.io/s/musing-davinci-mqssz?fontsize=14&hidenavigation=1&theme=dark
+  if (!etaSeconds) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <main className='trip-page'>
@@ -60,11 +48,11 @@ function TripView({ eta }) {
           <CountdownCircleTimer
             {...timerProps}
             className={'timer hours-timer'}
-            colors={[["#18F315"]]}
+            colors={[["#4687FA"]]}
             duration={daySeconds}
-            initialRemainingTime={remainingTime % daySeconds}
+            initialRemainingTime={etaSeconds % daySeconds}
             onComplete={(totalElapsedTime) => [
-              remainingTime - totalElapsedTime > hourSeconds
+              etaSeconds - totalElapsedTime > hourSeconds
             ]}
           >
             {({ elapsedTime }) => renderTime('hours', getTimeHours(daySeconds - elapsedTime))}
@@ -74,9 +62,9 @@ function TripView({ eta }) {
             className={'timer minutes-timer'}
             colors={[["#FA4677"]]}
             duration={hourSeconds}
-            initialRemainingTime={remainingTime % hourSeconds}
+            initialRemainingTime={etaSeconds % hourSeconds}
             onComplete={(totalElapsedTime) => [
-              remainingTime - totalElapsedTime > minuteSeconds
+              etaSeconds - totalElapsedTime > minuteSeconds
             ]}
           >
             {({ elapsedTime }) => renderTime('minutes', getTimeMinutes(hourSeconds - elapsedTime))}
@@ -85,16 +73,15 @@ function TripView({ eta }) {
             {...timerProps}
             className={'timer seconds-timer'}
             colors={[
-              ['#4687FA', 0.20],
-              ['#9D46FA', 0.20],
-              ['#FD3023', 0.20],
-              ['#E3FD23', 0.20],
-              ['#0CF3FE', 0.20],
+              ['#4687FA', 0.25],
+              ['#9D46FA', 0.25],
+              ['#FD3023', 0.25],
+              ['#E3FD23', 0.25],
             ]}
             duration={minuteSeconds}
-            initialRemainingTime={remainingTime % minuteSeconds}
+            initialRemainingTime={etaSeconds % minuteSeconds}
             onComplete={(totalElapsedTime) => [
-              remainingTime - totalElapsedTime > 0
+              etaSeconds - totalElapsedTime > 0
             ]}
           >
             {({ elapsedTime }) => renderTime('seconds', getTimeSeconds(elapsedTime))}
