@@ -1,24 +1,9 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import { NavLink } from 'react-router-dom';
+import etaModalStyles from './jsxStyles/etaModalStyles';
 
 ReactModal.setAppElement('#root');
-
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    height: '40%',
-    width: '45%',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '27849b',
-    overflow: 'visible',
-    position: 'absolute'
-  },
-};
 
 function TripETA( { modalIsOpen, closeModal, eta } ) {
 
@@ -30,7 +15,7 @@ function TripETA( { modalIsOpen, closeModal, eta } ) {
     <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
-      style={customStyles}
+      style={etaModalStyles}
       contentLabel='trip ETA modal'
       preventScroll={true}
     >

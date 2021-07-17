@@ -4,47 +4,10 @@ import ReactModal from 'react-modal';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink } from 'react-router-dom';
 import extendedTimeOptions from '../../assets/extendedTimeOptions';
+import addTimeModalStyles from './jsxStyles/addTimeModalStyles';
+import addTimeDropdownStyles from './jsxStyles/dropdownStyles';
 
 ReactModal.setAppElement('#root');
-
-const customModalStyles = {
-  content: {
-    top: '45%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    height: '50%',
-    width: '50%',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '27849b',
-    overflow: 'visible',
-    position: 'absolute'
-  },
-};
-
-const customDropdownStyles = {
-  control: () => ({
-    display: 'flex',
-    minHeight: '30px',
-    height: '55px',
-  }),
-  input: () => ({
-    color: 'transparent',
-  }),
-  placeholder: (defaultStyles) => {
-    return {
-      ...defaultStyles,
-      alignSelf: 'center',
-      justifySelf: 'center',
-      fontSize: '1.5em',
-      textJustify: 'center',
-      marginLeft: '17%',
-      letterSpacing: '3px',
-      color: '#2b2f30'
-    }
-  },
-};
 
 function AddTime( { modalIsOpen, closeModal } ) {
 
@@ -80,7 +43,7 @@ function AddTime( { modalIsOpen, closeModal } ) {
     <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
-      style={customModalStyles}
+      style={addTimeModalStyles}
       contentLabel='add time modal'
       preventScroll={true}
     >
@@ -114,7 +77,7 @@ function AddTime( { modalIsOpen, closeModal } ) {
             <Select
               className='extend-time'
               placeholder='EXTEND TIME'
-              styles={customDropdownStyles}
+              styles={addTimeDropdownStyles}
               value={selectedTime}
               defaultValue={selectedTime}
               onChange={setSelectedTime}
