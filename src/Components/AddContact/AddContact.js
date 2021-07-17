@@ -40,7 +40,7 @@ function AddContact({ user }) {
       <NavBar user={user.firstName}/>
       <Header />
       <form className='contact-form'>
-        <h1>Add Contact</h1>
+        <h2>Add Contact</h2>
            <input
              title='firstName'
              placeholder='First Name'
@@ -53,7 +53,8 @@ function AddContact({ user }) {
              value={lastName}
              onChange={(event) => setLast(event.target.value)}
            />
-           <div className='phoneNumber'>
+           <h3>Phone Number</h3>
+           <div className='phone-number'>
              <input
                title='countryCode'
                placeholder='Country Code'
