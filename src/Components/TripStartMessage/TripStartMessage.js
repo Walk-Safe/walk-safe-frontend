@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TripStartMessage() {
+function TripStartMessage( user, eta ) {
   // const [sms, setSms] = useState('');
   // const [contactNumber, setContactNumber] = useState('');
 
