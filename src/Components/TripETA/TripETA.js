@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import { NavLink } from 'react-router-dom';
 
 ReactModal.setAppElement('#root');
 
@@ -30,10 +31,12 @@ function TripETA( { modalIsOpen, closeModal, eta } ) {
     >
       <div className='eta-modal'>
         <p className='eta-message'>
-          <span>Your ETA for this trip is</span>
+          <span>Your ETA for this trip:</span>
           {eta && <span>{eta.createTrip.trip.eta} minutes</span>}
         </p>
-        <button className='begin-trip-btn'>BEGIN TRIP</button>
+        <NavLink exact to='/trip'>
+          <button onClick={closeModal} className='begin-trip-btn'>BEGIN TRIP</button>
+        </NavLink>
       </div>
     </ReactModal>
   )

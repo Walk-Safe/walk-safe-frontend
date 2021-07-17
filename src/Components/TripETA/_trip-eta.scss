@@ -7,6 +7,11 @@
   height: 100%;
   background-color: rgba(241, 192, 112, 0.289);
   font-family: $roboto;
+
+  a {
+    height: 20%;
+    width: 30%;
+  }
 }
 
 .eta-message {
@@ -18,7 +23,7 @@
   span:nth-of-type(1n) {
     font-size: 1.2em;
     font-weight: 500;
-    margin-bottom: 0.75em;
+    margin: 0.5em;
   }
 
   span:nth-of-type(2n) {
@@ -29,8 +34,8 @@
 }
 
 .begin-trip-btn {
-  height: 20%;
-  width: 30%;
+  height: 100%;
+  width: 100%;
   font-size: 1.5em;
   color: ghostwhite;
   background-color: rgb(83, 150, 196);
