@@ -8,9 +8,10 @@ import { NavLink } from 'react-router-dom';
 // function CurrentTrip({ user, eta }) {
 function CurrentTrip({ user }) {
 
-  const eta = 245;
+  const eta = 300;
 
   const [etaSeconds, setEtaSeconds] = useState('');
+  const [extention, setExtention] = useState(0);
   const [tripIsActive, setTripIsActive] = useState(true);
   const [tripEnded, setTripEnded] = useState(false);
   const [hoursActive, setHoursActive ] = useState(true)
@@ -27,8 +28,12 @@ function CurrentTrip({ user }) {
   const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) || 0;
   
   useEffect(() => {
-    setEtaSeconds(eta * 60);
-  }, [eta]);
+    if (extention > 0) {
+      setEtaSeconds(extention);
+    } else {
+      setEtaSeconds(eta * 60);
+    }
+  }, [eta, extention]);
 
   useEffect(() => {
     if (!hoursActive && !minutesActive && !secondsActive) {
@@ -135,7 +140,11 @@ function CurrentTrip({ user }) {
         </NavLink>
       </section>
       {/* {!tripIsActive && <AddTime modalIsOpen={modalIsOpen} closeModal={closeModal} />} */}
-      <AddTime modalIsOpen={modalIsOpen} closeModal={closeModal} />
+      <AddTime 
+        setExtention={setExtention} 
+        modalIsOpen={modalIsOpen} 
+        closeModal={closeModal} 
+      />
     </main>
   )
 }

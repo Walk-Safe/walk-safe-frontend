@@ -9,7 +9,7 @@ import addTimeDropdownStyles from './jsxStyles/dropdownStyles';
 
 ReactModal.setAppElement('#root');
 
-function AddTime( { modalIsOpen, closeModal } ) {
+function AddTime( { setExtention, modalIsOpen, closeModal } ) {
 
   const [backupActive, setBackupActive] = useState(true);
   const [ emergency, setEmergency] = useState(false);
@@ -20,8 +20,11 @@ function AddTime( { modalIsOpen, closeModal } ) {
     setEmergency(true);
   }
 
-  function handleExtension() {
+  function handleExtension(timeAmt) {
+    setSelectedTime(timeAmt);
+    setExtention(timeAmt);
     setBackupActive(false);
+    closeModal();
   }
 
   const timerProps = {
@@ -80,9 +83,10 @@ function AddTime( { modalIsOpen, closeModal } ) {
               styles={addTimeDropdownStyles}
               value={selectedTime}
               defaultValue={selectedTime}
-              onChange={setSelectedTime}
+              onChange={selectedTime => {
+                handleExtension(selectedTime.value)
+              }}
               options={extendedTimeOptions}
-              // menuPlacement='top'
             />
           </section>
       </div>
