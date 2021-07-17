@@ -19,7 +19,7 @@ function App() {
         <Route exact path='/login'>
           <LoginView />
         </Route>
-        <Route path='/'>
+        <Route exact path='/'>
           <MainView
             handleEtaChange={handleEtaChange}
             setCurrentUser={setCurrentUser}
