@@ -1,27 +1,28 @@
-require('dotenv').config();
+const accountSid = 'ACc28ba49220aef1159538a4bd0d88631e'
+const authToken = 'a526dda4accdd62fd0aaf328f9d6b5a5'
 
-const twilio = require('twilio');
-const client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+let client = require('twilio')(accountSid, authToken);
+
 
   client.messages
       .create({
-        body: `{user.firstName + user.lastName} has started their trip. Please be on the look out for a message. You will be notified once their trip is complete, or if you need to contact them.`,
-        from: '+18284758343',
+        body: `{user.firstName + user.lastName} has started their trip. Please be on the look out for a message. 
+      You will be notified once their trip is complete, or if you need to contact them.`,
+        from: '+12406075663',
         to: '+17083630654',
       }, function (err, message) {
         if (err) {
           console.error('Text failed because: ' + err.message);
         } else {
-          console.log('Message sending completed. Enjoy your walk!');
+          console.log('TripStartMessage sending completed. Enjoy your walk!');
         }
       });
-
 
 
   client.messages
       .create({
         body: `{user.firstName + user.lastName} has confirmed their trip is completed.`,
-        from: '+18284758343',
+        from: '+12406075663',
         to: '+17083630654',
       }, function (err, message) {
         if (err) {
@@ -35,7 +36,7 @@ const client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUT
   client.messages
       .create({
         body: `{user.firstName + user.lastName} has not confirmed their trip is complete. Please contact them now.`,
-        from: '+18284758343',
+        from: '+12406075663',
         to: '+17083630654',
       }, function (err, message) {
         if (err) {
