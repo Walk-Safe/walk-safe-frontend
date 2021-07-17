@@ -23,7 +23,9 @@ function MainView({ setCurrentUser, handleEtaChange }) {
  const { loading, error, data } = useQuery(GET_USER);
 
  useEffect(() => {
-  setCurrentUser(data.oneUser);
+   if (data) {
+     setCurrentUser(data.oneUser);
+   }
  }, [data]);
 
  if (loading) return 'Loading...';

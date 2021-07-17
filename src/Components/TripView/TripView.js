@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import { NavLink } from 'react-router-dom';
 
 function TripView({ user, eta }) {
 
@@ -89,9 +90,11 @@ function TripView({ user, eta }) {
             {({ elapsedTime }) => renderTime('seconds', getTimeSeconds(elapsedTime))}
           </CountdownCircleTimer>
         </article>
-        <button className='end-walk-btn'>
-          END WALK
-        </button>
+        <NavLink exact to='/'>
+          <button className='end-walk-btn'>
+            END WALK
+          </button>
+        </NavLink>
       </section>
     </main>
   )

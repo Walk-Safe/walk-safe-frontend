@@ -1,6 +1,7 @@
-import React, { Component, useState } from 'react';
-// import LoginView from '../LoginView/LoginView';
-// import MainView from '../MainView/MainView';
+import React, { useState } from 'react';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import LoginView from '../LoginView/LoginView';
+import MainView from '../MainView/MainView';
 import TripView from '../TripView/TripView';
 
 function App() {
@@ -13,17 +14,25 @@ function App() {
   }
 
   return (
-    <div className='App'>
-      {/* <LoginView /> */}
-      {/* <MainView
-        handleEtaChange={handleEtaChange}
-        setCurrentUser={setCurrentUser}
-      /> */}
-      <TripView 
-        eta={eta}
-        user={currentUser}
-      />
-    </div>
+    <Router>
+      <div className='App'>
+        <Route exact path='/login'>
+          <LoginView />
+        </Route>
+        <Route path='/'>
+          <MainView
+            handleEtaChange={handleEtaChange}
+            setCurrentUser={setCurrentUser}
+          />
+        </Route>
+        <Route exact path='/trip'>
+          <TripView 
+            eta={eta}
+            user={currentUser}
+          />
+        </Route>
+      </div>
+    </Router>
   );
 }
 

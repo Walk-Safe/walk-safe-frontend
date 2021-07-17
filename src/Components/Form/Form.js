@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import transportOptions from '../../assets/travelModeData';
-import TripETA from '../TripETA/TripETA';
 import Autocomplete from 'react-google-autocomplete';
 import { gql, useMutation } from '@apollo/client';
+import TripETA from '../TripETA/TripETA';
 
 const CREATE_TRIP = gql `
   mutation CreateTrip($startPoint: String!, $endPoint: String!, $travelMode: String!){
