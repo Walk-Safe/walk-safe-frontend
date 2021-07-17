@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import LoginView from '../LoginView/LoginView';
 import MainView from '../MainView/MainView';
-import TripView from '../CurrentTrip/CurrentTrip';
+import CurrentTrip from '../CurrentTrip/CurrentTrip';
 
 function App() {
 
@@ -26,7 +26,7 @@ function App() {
           />
         </Route>
         <Route exact path='/trip'>
-          <TripView 
+          <CurrentTrip 
             eta={eta}
             user={currentUser}
           />

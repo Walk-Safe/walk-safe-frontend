@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
+import AddTime from '../AddTime/AddTime';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink } from 'react-router-dom';
 
-function TripView({ user, eta }) {
+function CurrentTrip({ user, eta }) {
 
   const [etaSeconds, setEtaSeconds] = useState('');
-
-  useEffect(() => {
-    setEtaSeconds(eta * 60);
-  }, [eta]);
+  const [tripIsActive, setTripIsActive] = useState(true);
+  const [tripEnded, setTripEnded] = useState(false);
+  const [hoursActive, setHoursActive ] = useState(true)
+  const [minutesActive, setMinutesActive ] = useState(true)
+  const [secondsActive, setSecondsActive ] = useState(true)
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const minuteSeconds = 60;
   const hourSeconds = 3600;
@@ -19,6 +22,38 @@ function TripView({ user, eta }) {
   const getTimeSeconds = (time) => (minuteSeconds - time) || 0;
   const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) || 0;
   const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) || 0;
+  
+  useEffect(() => {
+    setEtaSeconds(eta * 60);
+  }, [eta]);
+
+  useEffect(() => {
+    if (!hoursActive && !minutesActive && !secondsActive) {
+      setTripIsActive(false);
+    }
+  }, [hoursActive, minutesActive, secondsActive]);
+
+  useEffect(() => {
+    if (!tripIsActive && tripEnded) {
+      // trigger "Trip Complete" routing here
+    }
+  }, [tripEnded]);
+
+  useEffect(() => {
+    if (!tripIsActive && !tripEnded) {
+      setModalIsOpen(true);
+    }
+  }, [tripIsActive]);
+
+  function endTrip() {
+    setTripEnded(true);
+    setTripIsActive(false);
+    setModalIsOpen(false);
+  }
+
+  function closeModal() {
+    setModalIsOpen(false);
+  }
 
   const renderTime = (unit, time) => {
     return (
@@ -51,9 +86,10 @@ function TripView({ user, eta }) {
             colors={[["#4687FA"]]}
             duration={daySeconds}
             initialRemainingTime={etaSeconds % daySeconds}
-            onComplete={(totalElapsedTime) => [
-              etaSeconds - totalElapsedTime > hourSeconds
-            ]}
+            onComplete={(totalElapsedTime) => {
+              setHoursActive(etaSeconds - totalElapsedTime > hourSeconds);
+              return [etaSeconds - totalElapsedTime > hourSeconds]
+            }}
           >
             {({ elapsedTime }) => renderTime('hours', getTimeHours(daySeconds - elapsedTime))}
           </CountdownCircleTimer>
@@ -63,9 +99,10 @@ function TripView({ user, eta }) {
             colors={[["#FF2727"]]}
             duration={hourSeconds}
             initialRemainingTime={etaSeconds % hourSeconds}
-            onComplete={(totalElapsedTime) => [
-              etaSeconds - totalElapsedTime > minuteSeconds
-            ]}
+            onComplete={(totalElapsedTime) => {
+              setMinutesActive(etaSeconds - totalElapsedTime > minuteSeconds);
+              return [etaSeconds - totalElapsedTime > minuteSeconds]
+            }}
           >
             {({ elapsedTime }) => renderTime('minutes', getTimeMinutes(hourSeconds - elapsedTime))}
           </CountdownCircleTimer>
@@ -80,21 +117,23 @@ function TripView({ user, eta }) {
             ]}
             duration={minuteSeconds}
             initialRemainingTime={etaSeconds % minuteSeconds}
-            onComplete={(totalElapsedTime) => [
-              etaSeconds - totalElapsedTime > 0
-            ]}
+            onComplete={(totalElapsedTime) => {
+              setSecondsActive(etaSeconds - totalElapsedTime > 0);
+              return [etaSeconds - totalElapsedTime > 0]
+            }}
           >
             {({ elapsedTime }) => renderTime('seconds', getTimeSeconds(elapsedTime))}
           </CountdownCircleTimer>
         </article>
         <NavLink exact to='/'>
-          <button className='end-walk-btn'>
-            END WALK
+          <button onClick={endTrip} className='end-walk-btn'>
+            END TRIP
           </button>
         </NavLink>
       </section>
+      {!tripIsActive && <AddTime modalIsOpen={modalIsOpen} closeModal={closeModal} />}
     </main>
   )
 }
 
-export default TripView;
+export default CurrentTrip;
