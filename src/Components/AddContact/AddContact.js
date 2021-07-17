@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import NavBar from '../NavBar/NavBar';
+import Header from '../Header/Header';
 import { NavLink } from 'react-router-dom';
 import { gql, useMutation } from '@apollo/client';
 
@@ -15,7 +17,7 @@ const CREATE_CONTACT = gql`
  }
 `
 
-function AddContact() {
+function AddContact({ user }) {
   const [firstName, setFirst] = useState('')
   const [lastName, setLast] = useState('')
   const [countryCode, setCountry] = useState('')
@@ -27,10 +29,6 @@ function AddContact() {
     e.preventDefault();
     let number = `+${countryCode}${areaCode}${phoneNumber}`;
     createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: number}});
-    console.log('data', data);
-    console.log('phone#', number);
-    console.log('name', firstName);
-    console.log('lastname', lastName);
   }
 
   function modifyNumberInput(event) {
@@ -38,44 +36,48 @@ function AddContact() {
   }
 
   return(
-    <form className='contact-form'>
-      <h1>Add Contact</h1>
-         <input
-           title='firstName'
-           placeholder='First Name'
-           value={firstName}
-           onChange={(event) => setFirst(event.target.value)}
-         />
-         <input
-           title='lastName'
-           placeholder='Last Name'
-           value={lastName}
-           onChange={(event) => setLast(event.target.value)}
-         />
-         <div className='phoneNumber'>
+    <section>
+      <NavBar user={user.firstName}/>
+      <Header />
+      <form className='contact-form'>
+        <h1>Add Contact</h1>
            <input
-             title='countryCode'
-             placeholder='Country Code'
-             value={countryCode}
-             onChange={(event) => setCountry(event.target.value)}
+             title='firstName'
+             placeholder='First Name'
+             value={firstName}
+             onChange={(event) => setFirst(event.target.value)}
            />
            <input
-             title='areaCode'
-             placeholder='Area Code'
-             value={areaCode}
-             onChange={(event) => setArea(event.target.value)}
+             title='lastName'
+             placeholder='Last Name'
+             value={lastName}
+             onChange={(event) => setLast(event.target.value)}
            />
-           <input
-             title='phoneNumber'
-             placeholder='Phone Number'
-             value={phoneNumber}
-             onChange={(event) => setPhone(event.target.value)}
-           />
-         </div>
-      {mutationLoading && <p className='loading'>Loading...</p>}
-      {mutationError && <p>Error: Please try again</p>}
-      <button onClick={addContact}>Add Contact</button>
-    </form>
+           <div className='phoneNumber'>
+             <input
+               title='countryCode'
+               placeholder='Country Code'
+               value={countryCode}
+               onChange={(event) => setCountry(event.target.value)}
+             />
+             <input
+               title='areaCode'
+               placeholder='Area Code'
+               value={areaCode}
+               onChange={(event) => setArea(event.target.value)}
+             />
+             <input
+               title='phoneNumber'
+               placeholder='Phone Number'
+               value={phoneNumber}
+               onChange={(event) => setPhone(event.target.value)}
+             />
+           </div>
+        {mutationLoading && <p className='loading'>Loading...</p>}
+        {mutationError && <p>Error: Please try again</p>}
+        <button onClick={addContact}>Add Contact</button>
+      </form>
+    </section>
   )
 }
 

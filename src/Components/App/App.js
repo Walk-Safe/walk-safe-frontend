@@ -33,7 +33,9 @@ function App() {
           />
         </Route>
         <Route exact path='/addcontact'>
-          <AddContact />
+          <AddContact
+          user={currentUser}
+          />
         </Route>
       </div>
     </Router>
