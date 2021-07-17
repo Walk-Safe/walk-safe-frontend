@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import LoginView from '../LoginView/LoginView';
 import MainView from '../MainView/MainView';
-import TripView from '../TripView/TripView';
+import TripView from '../CurrentTrip/CurrentTrip';
 
 function App() {
 
