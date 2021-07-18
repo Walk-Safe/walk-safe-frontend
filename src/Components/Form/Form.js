@@ -19,7 +19,7 @@ const CREATE_TRIP = gql `
 }
 `
 
-function Form({ contacts, handleEtaChange }) {
+function Form({ contacts, handleEtaChange, userInfo }) {
 
   const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
   const [formattedContacts, setFormattedContacts] = useState([]);
@@ -42,28 +42,20 @@ function Form({ contacts, handleEtaChange }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
-  console.log(data)
 
   function formatContacts() {
     const formatted = contacts.map(contact => {
-      const name = `${contact.firstName} ${contact.lastName}`;
-      return { value: name, label: name };
+      const name = `${contact.firstName} ${contact.lastName}`
+      const number= contact.phoneNumber;
+      return { value: name, label: name, phone: number };
     })
     setFormattedContacts(formatted);
   }
 
   function sendTripData() {
-    console.log(endPoint);
-    console.log(startPoint);
     openModal();
     createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}});
-    formatTripInformation(createTrip)
   }
-
-  function formatTripInformation (tripInfo) {
-   console.log(tripInfo)
-  }
-
 
   function openModal() {
     setEtaModalIsOpen(true);
@@ -114,7 +106,7 @@ function Form({ contacts, handleEtaChange }) {
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
-      {etaModalIsOpen && <TripETA modalIsOpen={etaModalIsOpen} eta={data} tripInfo={data} contact={selectedContact} closeModal={closeModal} />}
+      {etaModalIsOpen && <TripETA modalIsOpen={etaModalIsOpen} eta={data} tripDetails={data} contact={selectedContact} userName={userInfo} closeModal={closeModal}  />}
       {mutationLoading && <p className='loading'>Loading...</p>}
       {mutationError && <p>Error: Please try again</p>}
     </form>
