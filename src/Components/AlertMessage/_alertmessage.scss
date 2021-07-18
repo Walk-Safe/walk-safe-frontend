@@ -10,19 +10,20 @@
   font-weight: 500;
 }
 
-.alert-exit-link {
+.alert-nav {
   display: flex;
-  align-self: flex-end;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  margin-top: 1%;
+  width: 95%;
+}
+
+.alert-exit-link {
   text-decoration: none;
-  margin: 0.25em;
 }
 
 .alert-exit-btn {
   width: 100%;
   height: 100%;
-  margin: 1rem 1.5rem auto auto;
   color: rgb(0, 0, 0);
 
   &:active {
@@ -41,7 +42,7 @@
   width: 100%;
   font-size: 4rem;
   color: white;
-  text-shadow: 0 1px 1px black;
+  text-shadow: 0 1px 2px rgb(37, 34, 34);
 }
 
 .alert-message {
@@ -53,6 +54,5 @@
   margin: 1em;
   font-size: 2.5rem;
   color:rgb(255, 255, 255);
-  text-shadow: 0 1px 1px black;
-  // font-style: italic;
+  text-shadow: 0 1px 2px rgb(37, 34, 34);
 }
