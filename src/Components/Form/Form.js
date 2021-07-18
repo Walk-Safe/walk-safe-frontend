@@ -21,7 +21,7 @@ const CREATE_TRIP = gql `
 
 function Form({ contacts, handleEtaChange, userInfo }) {
 
-  const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [formattedContacts, setFormattedContacts] = useState([]);
   const [selectedContact, setSelectedContact] = useState('');
   const [travelMode, setTravelMode] = useState('');
@@ -58,11 +58,11 @@ function Form({ contacts, handleEtaChange, userInfo }) {
   }
 
   function openModal() {
-    setEtaModalIsOpen(true);
+    setModalIsOpen(true);
   }
 
   function closeModal() {
-    setEtaModalIsOpen(false);
+    setModalIsOpen(false);
   }
 
   function handleSubmit(e) {
@@ -106,7 +106,7 @@ function Form({ contacts, handleEtaChange, userInfo }) {
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
-      {etaModalIsOpen && <TripETA modalIsOpen={etaModalIsOpen} eta={data} tripDetails={data} contact={selectedContact} userName={userInfo} closeModal={closeModal}  />}
+      {modalIsOpen && <TripETA modalIsOpen={modalIsOpen} eta={data} tripDetails={data} contact={selectedContact} userName={userInfo} closeModal={closeModal}  />}
       {mutationLoading && <p className='loading'>Loading...</p>}
       {mutationError && <p>Error: Please try again</p>}
     </form>
