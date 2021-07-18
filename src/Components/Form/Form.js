@@ -15,6 +15,7 @@ const CREATE_TRIP = gql `
       eta
       travelMode
     }
+    errors
   }
 }
 `
@@ -28,7 +29,7 @@ function Form({ contacts, handleEtaChange, userInfo }) {
   const [query, setQuery] = useState('');
   const [endPoint, setEndPoint] = useState('');
   const [startPoint, setStartPoint] = useState('');
-  const [createTrip, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_TRIP);
+  const [createTrip, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_TRIP, { errorPolicy: 'all' });
 
   useEffect(() => {
     formatContacts()
@@ -36,6 +37,9 @@ function Form({ contacts, handleEtaChange, userInfo }) {
   }, []);
 
   useEffect(() => {
+    if(!data) {
+      return
+    }
     if (data) {
       handleEtaChange(data.createTrip.trip.eta);
     }
@@ -69,8 +73,15 @@ function Form({ contacts, handleEtaChange, userInfo }) {
     e.preventDefault();
   }
 
+  if (mutationLoading) return <p className='loading'>Loading...</p>;
+  if (mutationError) return `Error! ${mutationError.message}`;
+
   return (
     <form className='trip-form' onSubmit={handleSubmit}>
+    {mutationError && <pre>Bad: {mutationError.graphQLErrors.map(({ message }, i) => (
+        <span key={i}>{message}</span>
+      ))}
+      </pre>}
       <Autocomplete
           onPlaceSelected={(place) => setStartPoint(place.formatted_address)}
           onChange={event => setQuery(event.target.value)}
@@ -108,7 +119,7 @@ function Form({ contacts, handleEtaChange, userInfo }) {
       </button>
       {modalIsOpen && <TripETA modalIsOpen={modalIsOpen} eta={data} tripDetails={data} contact={selectedContact} userName={userInfo} closeModal={closeModal}  />}
       {mutationLoading && <p className='loading'>Loading...</p>}
-      {mutationError && <p>Error: Please try again</p>}
+      // {mutationError && <p>Error: Please try again</p>}
     </form>
   )
 }
