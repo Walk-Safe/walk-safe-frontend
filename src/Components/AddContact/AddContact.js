@@ -1,52 +1,84 @@
 import React, { useState } from 'react';
-import gql from 'graphql-tag';
-import { useMutation } from "@apollo/react-hooks";
-/*dependencies still need to be installed in index.js see Apollo setup*/
+import NavBar from '../NavBar/NavBar';
+import Header from '../Header/Header';
+import { NavLink } from 'react-router-dom';
+import { gql, useMutation } from '@apollo/client';
 
-/* defining the mutation */
-const ADD_CONTACT = gql`
- mutation addContact($first: String!, $last: String!, $phone: String!, $id: Integer!) {
-   addContact(first_name: $first, last_name: $last, phone_number: $phone, user_id: $id) {
-     first_name
-     last_name
-     phone_number
-     user_id
+const CREATE_CONTACT = gql`
+ mutation CreateContact($firstName: String!, $lastName: String!, $phoneNumber: String!){
+   createContact(input: {firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, userId: 2}) {
+     contact {
+       id
+       firstName
+       lastName
+       phoneNumber
+     }
    }
  }
 `
 
-function AddContact({id}) {
-  const [first, setFirst] = useState('')
-  const [last, setLast] = useState('')
-  const [phone, setPhone] = useState('')
-  const [addContact] = useMutation(ADD_CONTACT, { variables: { first, last, phone, id }})
+function AddContact({ user }) {
+  const [firstName, setFirst] = useState('')
+  const [lastName, setLast] = useState('')
+  const [countryCode, setCountry] = useState('')
+  const [areaCode, setArea] = useState('')
+  const [phoneNumber, setPhone] = useState('')
+  const [createContact, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_CONTACT)
 
-  /*useMutation accepts options - here it is accepting the variables option */
+  function addContact(e) {
+    e.preventDefault();
+    let number = `+${countryCode}${areaCode}${phoneNumber}`;
+    createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: number}});
+  }
 
-  /* addContact is our mutate function that gets called when we are ready for the mutation to execute*/
+  function modifyNumberInput(event) {
+    setPhone(toString(event.target.value));
+  }
 
-  /* Refs in React give us a means of storing mutable values throughout a component's lifecycle, and are often used for interacting with the DOM without the need of re-rendering a component. In other words, we do not need to rely on state management to update an element with Refs. (used when you are not using useState) */
-
-  return (
-    <form className='contact-form'>
-      <h1>Add Contact</h1>
-         <input
-           title='first'
-           value={first}
-           onChange={(event) => setFirst(event.target.value)}
-         />
-         <input
-           title='last'
-           value={last}
-           onChange={(event) => setLast(event.target.value)}
-         />
-         <input
-           title='phone'
-           value={phone}
-           onChange={(event) => setPhone(event.target.value)}
-         />
-      <button onClick={addContact}>Add Contact</button>
-    </form>
+  return(
+    <section className='add-contact'>
+      <NavBar user={user.firstName}/>
+      <Header />
+      <form className='contact-form'>
+        <h2>Add Contact</h2>
+           <input
+             title='firstName'
+             placeholder='First Name'
+             value={firstName}
+             onChange={(event) => setFirst(event.target.value)}
+           />
+           <input
+             title='lastName'
+             placeholder='Last Name'
+             value={lastName}
+             onChange={(event) => setLast(event.target.value)}
+           />
+           <h3>Phone Number</h3>
+           <div className='phone-number'>
+             <input
+               title='countryCode'
+               placeholder='Country Code'
+               value={countryCode}
+               onChange={(event) => setCountry(event.target.value)}
+             />
+             <input
+               title='areaCode'
+               placeholder='Area Code'
+               value={areaCode}
+               onChange={(event) => setArea(event.target.value)}
+             />
+             <input
+               title='phoneNumber'
+               placeholder='Phone Number'
+               value={phoneNumber}
+               onChange={(event) => setPhone(event.target.value)}
+             />
+           </div>
+        {mutationLoading && <p className='loading'>Loading...</p>}
+        {mutationError && <p>Error: Please try again</p>}
+        <button onClick={addContact}>Add Contact</button>
+      </form>
+    </section>
   )
 }
 
