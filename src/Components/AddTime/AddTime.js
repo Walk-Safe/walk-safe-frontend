@@ -12,8 +12,14 @@ ReactModal.setAppElement('#root');
 function AddTime( { setExtension, setEtaSeconds, modalIsOpen, closeModal } ) {
 
   const [backupActive, setBackupActive] = useState(true);
-  const [ emergency, setEmergency] = useState(false);
+  const [emergency, setEmergency] = useState(false);
   const [selectedTime, setSelectedTime] = useState('');
+
+  useEffect(() => {
+    if (emergency && !backupActive) {
+      // route to ALERT! display
+    }
+  }, [emergency])
 
   function handleExpiration() {
     setBackupActive(false);
@@ -71,25 +77,24 @@ function AddTime( { setExtension, setEtaSeconds, modalIsOpen, closeModal } ) {
         <p className='warning-message'>
           Your contact will be notified if you do not select an option in the remaining time.
         </p>
-          <section className='add-time-response'>
-            <NavLink exact to='/'>
-              {/* route to TripComplete page */}
-              <button onClick={closeModal} className='end-trip-btn'>
-                END TRIP
-              </button>
-            </NavLink>
-            <Select
-              className='extend-time'
-              placeholder='EXTEND TIME'
-              styles={addTimeDropdownStyles}
-              value={selectedTime}
-              defaultValue={selectedTime}
-              onChange={selectedTime => {
-                handleExtension(selectedTime.value)
-              }}
-              options={extendedTimeOptions}
-            />
-          </section>
+        <section className='add-time-response'>
+          <NavLink exact to='/'>
+            <button onClick={closeModal} className='end-trip-btn'>
+              END TRIP
+            </button>
+          </NavLink>
+          <Select
+            className='extend-time'
+            placeholder='EXTEND TIME'
+            styles={addTimeDropdownStyles}
+            value={selectedTime}
+            defaultValue={selectedTime}
+            onChange={selectedTime => {
+              handleExtension(selectedTime.value)
+            }}
+            options={extendedTimeOptions}
+          />
+        </section>
       </div>
     </ReactModal>
   )
