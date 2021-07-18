@@ -37,10 +37,12 @@ function MainView({ setCurrentUser, handleEtaChange }) {
       <Header />
       <Form 
         contacts={data.oneUser.contacts}
+        userInfo={data.oneUser}
         handleEtaChange={handleEtaChange}
       />
     </main>
   )
 }
+
 
 export default MainView;
