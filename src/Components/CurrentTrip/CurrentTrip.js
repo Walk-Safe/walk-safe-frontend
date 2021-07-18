@@ -5,10 +5,11 @@ import AddTime from '../AddTime/AddTime';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink } from 'react-router-dom';
 
-// function CurrentTrip({ user, eta }) {
-function CurrentTrip({ user}) {
-
-  const eta = 0.2;
+function CurrentTrip({ user, eta }) {
+// function CurrentTrip({ user}) {
+  
+  // test eta
+  // const eta = 0.2;
 
   const [etaSeconds, setEtaSeconds] = useState(null);
   const [extension, setExtension] = useState(0);
