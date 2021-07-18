@@ -40,6 +40,7 @@ function CurrentTrip({ user, eta }) {
   useEffect(() => {
     if (extension > 0) {
       setEtaSeconds(extension);
+      // add extension text message function here
     }
   }, [extension])
 
