@@ -71,8 +71,7 @@ function Form({ contacts, handleEtaChange, userInfo }) {
     e.preventDefault();
   }
 
-  if (mutationLoading) return <p className='loading'>Loading...</p>;
-  if (mutationError) return `Error! ${mutationError.message}`;
+
 
   return (
     <form className='trip-form' onSubmit={handleSubmit}>
@@ -117,7 +116,6 @@ function Form({ contacts, handleEtaChange, userInfo }) {
       </button>
       {modalIsOpen && <TripETA modalIsOpen={modalIsOpen} eta={data} tripDetails={data} contact={selectedContact} userName={userInfo} closeModal={closeModal}  />}
       {mutationLoading && <p className='loading'>Loading...</p>}
-      // {mutationError && <p>Error: Please try again</p>}
     </form>
   )
 }
