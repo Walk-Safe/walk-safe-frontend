@@ -33,12 +33,12 @@ function MainView({ setCurrentUser, handleEtaChange }) {
 
   return (
     <main className='main-page'>
-      <NavBar user={data.oneUser.firstName}/>
+      {data && <NavBar user={data.oneUser.firstName}/>}
       <Header />
-      <Form 
+      {data && <Form
         contacts={data.oneUser.contacts}
         handleEtaChange={handleEtaChange}
-      />
+      />}
     </main>
   )
 }

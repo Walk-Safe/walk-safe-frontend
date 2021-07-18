@@ -4,7 +4,7 @@ import { aliasQuery, aliasMutation } from '../utils/graphql-test-utils';
 describe ('Add Contacts Page View', () => {
 
   beforeEach(() => {
-    cy.intercept('POST', 'https://walk-safe-backend.herokuapp.com/graphql', { fixture:'user-data.json'})
+    cy.intercept('POST', 'https://walk-safe-backend.herokuapp.com/graphql', { fixture:'user-data.json'}).as('getUser')
   })
 
   it('should display Header when you visit the add contact page', () => {
@@ -26,7 +26,7 @@ describe ('Add Contacts Page View', () => {
 
     // Must visit after cy.intercept
     cy.visit('http://localhost:3000/')
-    cy.url().should('eq', 'http://localhost:3000/')
-
+    cy.wait('@getUser')
+      .get('.loading').should('exist')
   })
 })
