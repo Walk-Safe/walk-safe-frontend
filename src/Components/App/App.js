@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import LoginView from '../LoginView/LoginView';
 import MainView from '../MainView/MainView';
-<<<<<<< HEAD
-import TripView from '../TripView/TripView';
 import AddContact from '../AddContact/AddContact';
-=======
 import CurrentTrip from '../CurrentTrip/CurrentTrip';
->>>>>>> e96f9f58aa8f1bcbfa85e84ffe722ef573b86a58
+
 
 function App() {
 
@@ -31,11 +28,7 @@ function App() {
           />
         </Route>
         <Route exact path='/trip'>
-<<<<<<< HEAD
-          <TripView
-=======
-          <CurrentTrip 
->>>>>>> e96f9f58aa8f1bcbfa85e84ffe722ef573b86a58
+          <CurrentTrip
             eta={eta}
             user={currentUser}
           />

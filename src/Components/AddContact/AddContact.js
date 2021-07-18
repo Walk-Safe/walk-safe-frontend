@@ -35,7 +35,6 @@ function AddContact({ user }) {
     setPhone(toString(event.target.value));
   }
 
-<<<<<<< HEAD
   return(
     <section className='add-contact'>
       <NavBar user={user.firstName}/>
@@ -80,28 +79,6 @@ function AddContact({ user }) {
         <button onClick={addContact}>Add Contact</button>
       </form>
     </section>
-=======
-  return (
-    <form className='contact-form'>
-      <h1>Add Contact</h1>
-         <input
-           title='first'
-           value={first}
-           onChange={(event) => setFirst(event.target.value)}
-         />
-         <input
-           title='last'
-           value={last}
-           onChange={(event) => setLast(event.target.value)}
-         />
-         <input
-           title='phone'
-           value={phone}
-           onChange={(event) => setPhone(event.target.value)}
-         />
-      <button onClick={addContact}>Add Contact</button>
-    </form>
->>>>>>> e96f9f58aa8f1bcbfa85e84ffe722ef573b86a58
   )
 }
 
