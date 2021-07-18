@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import AddTime from '../AddTime/AddTime';
+import TripCompleteMessage from '../TripCompleteMessage/TripCompleteMessage';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink } from 'react-router-dom';
 
 function CurrentTrip({ user, eta }) {
 // function CurrentTrip({ user}) {
-  
+  console.log(user)
   // test eta
   // const eta = 0.2;
 
@@ -66,6 +67,8 @@ function CurrentTrip({ user, eta }) {
     setTripEnded(true);
     setTripIsActive(false);
     setModalIsOpen(false);
+    let contact = '17083630654'
+    TripCompleteMessage(user, contact)
   }
 
   function closeModal() {

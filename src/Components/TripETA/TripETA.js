@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import { NavLink } from 'react-router-dom';
+import TripStartMessage from '../TripStartMessage/TripStartMessage'
 import etaModalStyles from './jsxStyles/etaModalStyles';
 
 ReactModal.setAppElement('#root');
 
-function TripETA( { modalIsOpen, closeModal, eta } ) {
+function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName } ) {
 
   const [etaHrs, setEtaHrs] = useState(0);
   const [etaMins, setEtaMins] = useState(0);
@@ -42,6 +43,11 @@ function TripETA( { modalIsOpen, closeModal, eta } ) {
     }
   }
 
+  function taskWrapper(){
+    closeModal()
+    TripStartMessage(tripDetails, contact, userName)
+  }
+
   if (!eta) {
     return <></>;
   }
@@ -56,19 +62,19 @@ function TripETA( { modalIsOpen, closeModal, eta } ) {
     >
       <div className='eta-modal'>
         {!etaString && <p className='loading'>Loading...</p>}
-        {etaString && 
+        {etaString &&
           <>
             <p className='eta-message'>
               <span>Your ETA for this trip:</span>
               <span>{etaString}</span>
             </p>
             <NavLink exact to='/trip'>
-              <button onClick={closeModal} className='begin-trip-btn'>BEGIN TRIP</button>
+              <button onClick={taskWrapper} className='begin-trip-btn'>BEGIN TRIP</button>
             </NavLink>
           </>
-        }
-      </div>
-    </ReactModal>
+          }
+        </div>
+      </ReactModal>
   )
 }
 
