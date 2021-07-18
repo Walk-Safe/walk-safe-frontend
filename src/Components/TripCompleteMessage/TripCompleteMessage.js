@@ -1,17 +1,15 @@
-import React from 'react';
 
-function TripEndMessage( contact, userName) {
+export function TripCompleteMessage(contact, user) {
 
-  const sendSms = (event) => {
-    event.preventDefault();
+  const sendSms = () => {
 
     let smsObj = {
-      mobile_number: `${contact.phone}`,
-      message: `${userName.firstName} has confirmed their trip is completed. Thank you!`,
+      mobile_number: '17083630654',
+      message: `${user.firstName} has confirmed their trip is completed. Thank you!`,
     }
 
     fetch('https://walk-safe-backend.herokuapp.com/sms_messages', {
-      method:'POST',
+      method: 'POST',
       headers: {
         'content-type': 'application/json',
         accepts: "application/json"
@@ -22,9 +20,9 @@ function TripEndMessage( contact, userName) {
         .then(resp => console.log(resp))
   }
 
-  return (
-      <button onClick={sendSms}>Submit</button>
-  );
+  return(
+      sendSms()
+  )
 }
 
-export default TripEndMessage;
+export default TripCompleteMessage;
