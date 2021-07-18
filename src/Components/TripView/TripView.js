@@ -2,15 +2,20 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import TripComplete from '../TripComplete/TripComplete'
 import { NavLink } from 'react-router-dom';
+import TripETA from "../TripETA/TripETA";
 
 function TripView({ user, eta }) {
 
   const [etaSeconds, setEtaSeconds] = useState('');
+  const [completeModalIsOpen, setCompleteModalIsOpen] = useState(false);
+
 
   useEffect(() => {
     setEtaSeconds(eta * 60);
   }, [eta]);
+
 
   const minuteSeconds = 60;
   const hourSeconds = 3600;
@@ -37,6 +42,14 @@ function TripView({ user, eta }) {
 
   if (!etaSeconds) {
     return <p className='loading'>Loading...</p>;
+  }
+
+  function openModal() {
+    setCompleteModalIsOpen(true);
+  }
+
+  function closeModal() {
+    completeModalIsOpen(false);
   }
 
   return (
@@ -88,9 +101,10 @@ function TripView({ user, eta }) {
           </CountdownCircleTimer>
         </article>
         <NavLink exact to='/'>
-          <button className='end-walk-btn'>
+          <button onClick={openModal} className='end-walk-btn'>
             END WALK
           </button>
+          {completeModalIsOpen && <TripComplete modalIsOpen={completeModalIsOpen} closeModal={closeModal} />}
         </NavLink>
       </section>
     </main>
