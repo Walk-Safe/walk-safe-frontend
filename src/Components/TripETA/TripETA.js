@@ -20,12 +20,12 @@ const customStyles = {
   },
 };
 
-function TripETA( { modalIsOpen, closeModal, eta, tripInfo, contact } ) {
+function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName } ) {
 
   if (!eta) {
     return <></>;
   }
- console.log(tripInfo, contact)
+
   return (
       <ReactModal
           isOpen={modalIsOpen}
@@ -44,7 +44,7 @@ function TripETA( { modalIsOpen, closeModal, eta, tripInfo, contact } ) {
             </p>
             <NavLink exact to='/trip'>
               <button onClick={closeModal} className='begin-trip-btn'>BEGIN TRIP</button>
-            <TripStartMessage tripDetails={tripInfo} contactName={contact}/>
+            <TripStartMessage tripInfo={tripDetails} contactName={contact} userNameInfo={userName} />
             </NavLink>
           </>
           }
