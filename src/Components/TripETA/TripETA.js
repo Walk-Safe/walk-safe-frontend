@@ -43,6 +43,11 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
     }
   }
 
+  function taskWrapper(){
+    closeModal()
+    TripStartMessage(tripDetails, contact, userName)
+  }
+
   if (!eta) {
     return <></>;
   }
@@ -64,8 +69,7 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
               <span>{etaString}</span>
             </p>
             <NavLink exact to='/trip'>
-              <button onClick={closeModal} className='begin-trip-btn'>BEGIN TRIP</button>
-            <TripStartMessage tripInfo={tripDetails} contactName={contact} userNameInfo={userName} />
+              <button onClick={taskWrapper} className='begin-trip-btn'>BEGIN TRIP</button>
             </NavLink>
           </>
           }
