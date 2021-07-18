@@ -29,7 +29,7 @@ function Form({ contacts, handleEtaChange, userInfo }) {
   const [query, setQuery] = useState('');
   const [endPoint, setEndPoint] = useState('');
   const [startPoint, setStartPoint] = useState('');
-  const [createTrip, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_TRIP, { errorPolicy: 'all' });
+  const [createTrip, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_TRIP, { errorPolicy: 'none' });
 
   useEffect(() => {
     formatContacts()
@@ -37,9 +37,7 @@ function Form({ contacts, handleEtaChange, userInfo }) {
   }, []);
 
   useEffect(() => {
-    if(!data) {
-      return
-    }
+    console.log(data)
     if (data) {
       handleEtaChange(data.createTrip.trip.eta);
     }
@@ -58,7 +56,7 @@ function Form({ contacts, handleEtaChange, userInfo }) {
 
   function sendTripData() {
     openModal();
-    createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}});
+    createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}}).catch(err => console.log(err));
   }
 
   function openModal() {
