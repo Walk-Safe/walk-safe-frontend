@@ -9,7 +9,7 @@ import addTimeDropdownStyles from './jsxStyles/dropdownStyles';
 
 ReactModal.setAppElement('#root');
 
-function AddTime( { setExtention, modalIsOpen, closeModal } ) {
+function AddTime( { setExtension, setEtaSeconds, modalIsOpen, closeModal } ) {
 
   const [backupActive, setBackupActive] = useState(true);
   const [ emergency, setEmergency] = useState(false);
@@ -22,8 +22,9 @@ function AddTime( { setExtention, modalIsOpen, closeModal } ) {
 
   function handleExtension(timeAmt) {
     setSelectedTime(timeAmt);
-    setExtention(timeAmt);
+    setExtension(timeAmt);
     setBackupActive(false);
+    setEtaSeconds(null);
     closeModal();
   }
 
