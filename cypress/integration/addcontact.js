@@ -27,6 +27,5 @@ describe ('Add Contacts Page View', () => {
     // Must visit after cy.intercept
     cy.visit('http://localhost:3000/')
     cy.wait('@getUser')
-      .get('.loading').should('exist')
   })
 })
