@@ -1,52 +1,29 @@
-import React from 'react';
 
 function TripNotCompleteMessage() {
-  // const [sms, setSms] = useState('');
-  // const [contactNumber, setContactNumber] = useState('');
 
-  const sendSms = (event) => {
-    event.preventDefault();
+  const sendSms = () => {
 
     let smsObj = {
       mobile_number: '17083630654',
       message: `{user.firstName + user.lastName} has not confirmed their trip is complete. Please contact them now.`,
     }
 
-    // let smsObjTripEnd = {
-    //   mobile_number: '1' + contactNumber,
-    //   message: sms,
-    // }
-    //
-    // let smsObjTripNotComplete = {
-    //   mobile_number: '1' + contactNumber,
-    //   message: sms,
-    // }
-
     fetch('https://walk-safe-backend.herokuapp.com/sms_messages', {
-      method:'POST',
+      method: 'POST',
       headers: {
         'content-type': 'application/json',
         accepts: "application/json"
       },
       body: JSON.stringify(smsObj)
     })
-        .then(resp => resp.json())
+        .then(result => result.text())
         .then(resp => console.log(resp))
   }
-  //
-  // const handleChange = (event) => {
-  //   if (event.target.name === 'number') {
-  //     setContactNumber(event.target.value);
-  //   } else if (event.target.name === 'sms') {
-  //     setSms(event.target.value);
-  //   }
-  // }
 
-  return (
-
-      <button onClick={sendSms}>Submit</button>
-
-  );
+  return(
+      sendSms()
+  )
 }
+
 
 export default TripNotCompleteMessage;
