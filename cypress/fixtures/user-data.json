@@ -1,0 +1,10 @@
+{
+  "firstName": "Taylor",
+  "lastName": "Smith",
+  "username": "tsmith",
+  "contacts": {
+    "firstName": "Britney",
+    "lastName": "Smith",
+    "phoneNumber": "+17572345678"
+  }
+}
