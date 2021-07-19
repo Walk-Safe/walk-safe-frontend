@@ -23,7 +23,6 @@ const CREATE_TRIP = gql `
 function Form({ contacts, handleEtaChange, userInfo }) {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [disabled, setDisabled] = useState(true);
   const [query, setQuery] = useState('');
   const [endPoint, setEndPoint] = useState('');
   const [startPoint, setStartPoint] = useState('');
@@ -61,13 +60,16 @@ function Form({ contacts, handleEtaChange, userInfo }) {
     }
     openModal();
     createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}}).catch(err => console.log(err));
+    clearForm();
   }
 
-  // function checkForm() {
-  //   if(!endPoint || !startPoint || !selectedContact || !travelMode){
-  //     return console.log('no')
-  //   }
-  // }
+  function clearForm() {
+    setEndPoint('');
+    setStartPoint('');
+    setQuery('');
+    setTravelMode('');
+    setSelectedContact('');
+  }
 
   function openModal() {
     setModalIsOpen(true);
