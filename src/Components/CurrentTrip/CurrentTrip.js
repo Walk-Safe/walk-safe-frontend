@@ -3,6 +3,8 @@ import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import AddTime from '../AddTime/AddTime';
 import TripCompleteMessage from '../TripCompleteMessage/TripCompleteMessage';
+import TripExtendedMessage from "../TripExtendedMessage/TripExtendedMessage";
+import TripNotCompleteMessage from "../TripNotCompleteMessage/TripNotComplete";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink } from 'react-router-dom';
 
@@ -28,7 +30,8 @@ function CurrentTrip({ user, eta }) {
   const getTimeSeconds = (time) => (minuteSeconds - time) || 0;
   const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) || 0;
   const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) || 0;
-  
+  // const notCompletedTrip = TripNotCompleteMessage(user);
+
   useEffect(() => {
     if (eta > 0) {
       setEtaSeconds(eta * 60);
@@ -41,7 +44,7 @@ function CurrentTrip({ user, eta }) {
   useEffect(() => {
     if (extension > 0) {
       setEtaSeconds(extension);
-      // add extension text message function here
+      TripExtendedMessage(user, extension)
     }
   }, [extension])
 
@@ -53,7 +56,7 @@ function CurrentTrip({ user, eta }) {
 
   useEffect(() => {
     if (!tripIsActive && tripEnded) {
-      // trigger "Trip Complete" routing here
+      TripCompleteMessage(user)
     }
   }, [tripEnded]);
 
@@ -67,8 +70,6 @@ function CurrentTrip({ user, eta }) {
     setTripEnded(true);
     setTripIsActive(false);
     setModalIsOpen(false);
-    let contact = '17083630654'
-    TripCompleteMessage(user, contact)
   }
 
   function closeModal() {
@@ -159,7 +160,8 @@ function CurrentTrip({ user, eta }) {
         setExtension={setExtension}
         setEtaSeconds={setEtaSeconds}
         modalIsOpen={modalIsOpen} 
-        closeModal={closeModal} 
+        closeModal={closeModal}
+        // tripNotComplete={notCompletedTrip}
       />
     </main>
   )
