@@ -1,11 +1,11 @@
 
-function TripNotCompleteMessage() {
+function TripNotCompleteMessage(user, contact) {
 
   const sendSms = () => {
 
     let smsObj = {
-      mobile_number: '17083630654',
-      message: `{user.firstName + user.lastName} has not confirmed their trip is complete. Please contact them now.`,
+      mobile_number: `${contact.phone}`,
+      message: `${user.firstName} has not confirmed their trip is complete. Please contact them now.`,
     }
 
     fetch('https://walk-safe-backend.herokuapp.com/sms_messages', {
