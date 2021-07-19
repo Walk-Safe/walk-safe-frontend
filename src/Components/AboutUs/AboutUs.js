@@ -11,25 +11,22 @@ function AboutUs({ user }) {
   function buildDevCard(dev) {
     return (
       <article className='dev-card'>
-        <div class="github-card user-card">
-          <div class="header User"></div>
-          <a class="avatar" href={`https://github.com/${dev.ghName}`} target="_top">
-            <img src={`https://avatars.githubusercontent.com/u/${dev.id}?v=4&amp;s=80`} alt={dev.fullName}/>
+        <div className='pic-container'>
+          <a className='pic-link' href={`https://github.com/${dev.ghName}`} target='_top'>
+            <img className='dev-pic' src={`https://avatars.githubusercontent.com/u/${dev.id}?v=4`} alt={dev.fullName}/>
           </a>
-          <div class="content">
-            <a href={`https://github.com/${dev.ghName}?tab=repositories`} target="_top">
-              <h1>{dev.fullName}</h1>
-            </a>
-          </div>
         </div>
+        <a className='name-link' href={`https://github.com/${dev.ghName}?tab=repositories`} target='_top'>
+          <h1 className='dev-name'>{dev.fullName}</h1>
+        </a>
       </article>
     )
   }
 
   useEffect(() => {
-    // if (devNames) {
+    if (devNames) {
       populateCards();
-    // }
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -51,19 +48,23 @@ function AboutUs({ user }) {
 
   return (
     <main className='about-us-page'>
-      {user && <NavBar user={user.firstName}/>}
+      <NavBar nameToggle={false} user={user.firstName}/>
       <Header />
       <div className='bio-container'>
         <p className='bio-text'>
-          BIO TEXT
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </p>
       </div>
-        <section className='team-grid'>
-          <h3>Front End</h3>
+      <section className='team-grid'>
+        <h3 className='row-title'>Front End</h3>
+        <div className='card-row'>
           {feDevCards}
-          <h3>Back End</h3>
+        </div>
+        <h3 className='row-title'>Back End</h3>
+        <div className='card-row'>
           {beDevCards}
-        </section>
+        </div>
+      </section>
     </main>
   )
 }
