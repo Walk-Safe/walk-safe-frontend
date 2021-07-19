@@ -1,7 +1,6 @@
 function TripStartMessage (tripDetails, contact, userName) {
-  console.log(contact)
   let textInformation = tripDetails.createTrip.trip
-  console.log(textInformation)
+
   const sendSms = () => {
 
     let smsObj = {
