@@ -23,12 +23,16 @@ const CREATE_TRIP = gql `
 function Form({ contacts, handleEtaChange, userInfo }) {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [formattedContacts, setFormattedContacts] = useState([]);
-  const [selectedContact, setSelectedContact] = useState('');
-  const [travelMode, setTravelMode] = useState('');
   const [query, setQuery] = useState('');
   const [endPoint, setEndPoint] = useState('');
   const [startPoint, setStartPoint] = useState('');
+  const [state, setState] = useState({
+    selectedContact: '',
+    travelMode: ''
+  })
+  const [formattedContacts, setFormattedContacts] = useState([]);
+  // const [selectedContact, setSelectedContact] = useState('');
+  // const [travelMode, setTravelMode] = useState('');
   const [createTrip, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_TRIP, { errorPolicy: 'none' });
 
   useEffect(() => {
@@ -56,7 +60,15 @@ function Form({ contacts, handleEtaChange, userInfo }) {
 
   function sendTripData() {
     openModal();
-    createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}}).catch(err => console.log(err));
+    createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": state.travelMode.value}}).catch(err => console.log(err));
+  }
+
+  const handleChange = (e) => {
+    console.log(e.target.name)
+    setState({
+      ...state,
+      [e.target.name]: e.target.value
+    });
   }
 
   function openModal() {
@@ -98,23 +110,25 @@ function Form({ contacts, handleEtaChange, userInfo }) {
       <Select
         className='dropdown select-transport'
         placeholder='Select transportation type'
-        value={travelMode}
-        defaultValue={travelMode}
-        onChange={setTravelMode}
+        name="travelMode"
+        value={state.travelMode}
+        defaultValue={state.travelMode}
+        onChange={handleChange}
         options={transportOptions}
       />
       <Select
         className='dropdown select-contact'
         placeholder='Select contact'
-        value={selectedContact}
-        defaultValue={selectedContact}
-        onChange={setSelectedContact}
+        name="selectedContact"
+        value={state.selectedContact}
+        defaultValue={state.selectedContact}
+        onChange={handleChange}
         options={formattedContacts}
       />
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
-      {modalIsOpen && <TripETA modalIsOpen={modalIsOpen} eta={data} tripDetails={data} contact={selectedContact} userName={userInfo} closeModal={closeModal}  />}
+      {modalIsOpen && <TripETA modalIsOpen={modalIsOpen} eta={data} tripDetails={data} contact={state.selectedContact} userName={userInfo} closeModal={closeModal}  />}
       {mutationLoading && <p className='loading'>Loading...</p>}
     </form>
   )
