@@ -56,17 +56,18 @@ function Form({ contacts, handleEtaChange, userInfo }) {
   }
 
   function sendTripData() {
+    if(!endPoint || !startPoint || !selectedContact || !travelMode){
+      return <p>Complete Form</p>
+    }
     openModal();
     createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}}).catch(err => console.log(err));
   }
 
-  function checkForm() {
-    if(endPoint && startPoint && selectedContact && travelMode){
-    console.log('yay')
-    } else {
-      return console.log('boo')
-    }
-  }
+  // function checkForm() {
+  //   if(!endPoint || !startPoint || !selectedContact || !travelMode){
+  //     return console.log('no')
+  //   }
+  // }
 
   function openModal() {
     setModalIsOpen(true);
@@ -83,7 +84,7 @@ function Form({ contacts, handleEtaChange, userInfo }) {
 
 
   return (
-    <form className='trip-form' onSubmit={handleSubmit}>
+    <form className='trip-form' onSubmit={handleSubmit} >
     {mutationError && <pre>Bad: {mutationError.graphQLErrors.map(({ message }, i) => (
         <span key={i}>{message}</span>
       ))}
@@ -94,7 +95,6 @@ function Form({ contacts, handleEtaChange, userInfo }) {
           options={{types: ['address']}}
           placeholder='Starting address'
           className='location-input start-point'
-          onClick={checkForm}
           required
       />
       <Autocomplete
@@ -103,7 +103,6 @@ function Form({ contacts, handleEtaChange, userInfo }) {
           options={{types: ['address']}}
           placeholder='Final address'
           className='location-input end-point'
-          onClick={checkForm}
           required
       />
       <Select
@@ -122,7 +121,7 @@ function Form({ contacts, handleEtaChange, userInfo }) {
         onChange={setSelectedContact}
         options={formattedContacts}
       />
-      <button onClick={sendTripData} disabled={disabled} className='submit-trip-btn'>
+      <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
       {modalIsOpen && <TripETA modalIsOpen={modalIsOpen} eta={data} tripDetails={data} contact={selectedContact} userName={userInfo} closeModal={closeModal}  />}
