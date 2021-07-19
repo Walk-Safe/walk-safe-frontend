@@ -19,7 +19,7 @@ function NavBar({user}) {
           <NavLink exact to='/addcontact' className='menu-item'>
             <span>Add Contact</span>
           </NavLink>
-          <NavLink exact to='/' className='menu-item'>
+          <NavLink exact to='/about' className='menu-item'>
             <span>About Us</span>
           </NavLink>
         </Menu>
