@@ -26,9 +26,9 @@
   justify-content: center;
   margin: 2em;
   padding: 3%;
-  width: 70%;
-  height: 55%;
-  background-color: rgba(248, 248, 255, 0.678);
+  width: 60%;
+  height: 50%;
+  background-color: rgba(162, 212, 247, 0.938);
   box-shadow: $shadow-heavy;
   border-radius: 5px;
 }
@@ -49,7 +49,8 @@
   font-size: 1.5em;
   font-weight: 700;
   letter-spacing: 0.3em;
-  color: rgb(33, 82, 147);
+  color: rgb(239, 244, 250);
+  text-shadow: 1px 1px 3px rgb(37, 34, 34);
 }
 
 .dev-card {
@@ -88,7 +89,7 @@
 .dev-name {
   color: black;
   font-family: $tourney;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.3vw;
   letter-spacing: 0.1em;
 }
