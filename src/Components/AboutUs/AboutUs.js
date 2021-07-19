@@ -17,6 +17,21 @@ function AboutUs({ user }) {
           <article className='dev-card'>
             TEAM MEMBER #1
           </article>
+          <article className='dev-card'>
+            TEAM MEMBER #2
+          </article>
+          <article className='dev-card'>
+            TEAM MEMBER #3
+          </article>
+          <article className='dev-card'>
+            TEAM MEMBER #4
+          </article>
+          <article className='dev-card'>
+            TEAM MEMBER #5
+          </article>
+          <article className='dev-card'>
+            TEAM MEMBER #6
+          </article>
         </section>
     </main>
   )

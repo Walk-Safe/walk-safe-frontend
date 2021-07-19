@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   width: 70%;
-  height: 25%;
+  height: 20%;
   background-color: ghostwhite;
 }
 
@@ -22,9 +22,11 @@
 
 .team-grid {
   display: flex;
-  justify-content: flex-start;
+  flex-flow: row wrap;
+  justify-content: center;
   align-items: center;
   background-color: ghostwhite;
+  padding: 3%;
   width: 70%;
   height: 50%;
 }
@@ -34,7 +36,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 1em;
   width: 30%;
-  height: 45%;
+  height: 40%;
   background-color: gray;
 }
