@@ -56,7 +56,6 @@ function CurrentTrip({ user, eta }) {
 
   useEffect(() => {
     if (!tripIsActive && tripEnded) {
-      TripCompleteMessage(user)
     }
   }, [tripEnded]);
 
@@ -70,6 +69,7 @@ function CurrentTrip({ user, eta }) {
     setTripEnded(true);
     setTripIsActive(false);
     setModalIsOpen(false);
+    TripCompleteMessage(user)
   }
 
   function closeModal() {
