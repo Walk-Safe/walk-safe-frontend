@@ -9,10 +9,7 @@ import TripNotCompleteMessage from "../TripNotCompleteMessage/TripNotComplete";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink } from 'react-router-dom';
 
-function CurrentTrip({ user, eta }) {
-// function CurrentTrip({ user}) {
-
-  // const eta = 0.2;
+function CurrentTrip({ user, eta, contact }) {
 
   const [etaSeconds, setEtaSeconds] = useState(null);
   const [extension, setExtension] = useState(0);
@@ -32,7 +29,7 @@ function CurrentTrip({ user, eta }) {
   const getTimeSeconds = (time) => (minuteSeconds - time) || 0;
   const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) || 0;
   const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) || 0;
-  // const notCompletedTrip = TripNotCompleteMessage(user);
+  const endTripSMS = TripCompleteMessage(user, contact)
 
   useEffect(() => {
     if (eta > 0) {
@@ -47,7 +44,7 @@ function CurrentTrip({ user, eta }) {
   useEffect(() => {
     if (extension > 0) {
       setEtaSeconds(extension);
-      TripExtendedMessage(user, extension)
+      TripExtendedMessage(user, extension, contact)
     }
   }, [extension])
 
@@ -60,7 +57,7 @@ function CurrentTrip({ user, eta }) {
   useEffect(() => {
     if (!tripIsActive && tripEnded) {
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // TripCompleteMessage(user,contact)
   }, [tripEnded]);
 
   useEffect(() => {
@@ -73,7 +70,7 @@ function CurrentTrip({ user, eta }) {
   useEffect(() => {
     if (emergency) {
       setAlertModalIsOpen(true);
-      // invoke function to send Alert message here
+     TripNotCompleteMessage(user, contact)
     }
   }, [emergency])
 
@@ -81,8 +78,7 @@ function CurrentTrip({ user, eta }) {
     setTripEnded(true);
     setTripIsActive(false);
     setEtaModalIsOpen(false);
-    TripCompleteMessage(user,)
-
+    TripCompleteMessage(contact, user)
   }
 
   function closeEtaModal() {
@@ -172,16 +168,6 @@ function CurrentTrip({ user, eta }) {
           </button>
         </NavLink>
       </section>
-<<<<<<< HEAD
-      {/* {!tripIsActive && <AddTime modalIsOpen={modalIsOpen} closeModal={closeModal} />} */}
-      <AddTime 
-        setExtension={setExtension}
-        setEtaSeconds={setEtaSeconds}
-        modalIsOpen={modalIsOpen} 
-        closeModal={closeModal}
-        // tripNotComplete={notCompletedTrip}
-      />
-=======
       {!tripIsActive &&
         <AddTime 
           setExtension={setExtension}
@@ -189,6 +175,8 @@ function CurrentTrip({ user, eta }) {
           modalIsOpen={etaModalIsOpen} 
           closeModal={closeEtaModal}
           setEmergency={setEmergency}
+          contactInfo={contact}
+          userInfo={user}
         />
       }
       {emergency &&
@@ -198,7 +186,6 @@ function CurrentTrip({ user, eta }) {
           closeModal={closeAlertModal} 
         />
       }
->>>>>>> c1a4d307a692131886b70afaa6c6a023e542bc23
     </main>
   )
 }
