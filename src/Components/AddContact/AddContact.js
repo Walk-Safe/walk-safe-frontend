@@ -36,7 +36,7 @@ function AddContact({ user }) {
 
   return (
     <section className='add-contact'>
-      {user && <NavBar user={user.firstName}/>} 
+      {user && <NavBar nameToggle='true' user={user.firstName}/>} 
       <Header />
       <form className='contact-form'>
         <h2>Add Contact</h2>
