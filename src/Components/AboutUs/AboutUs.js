@@ -10,9 +10,9 @@ function AboutUs({ user }) {
 
   function buildDevCard(dev) {
     return (
-      <article className='dev-card'>
-        <div className='pic-container'>
-          <a className='pic-link' href={`https://github.com/${dev.ghName}`} target='_top'>
+      <article key={dev.id} className='dev-card'>
+        <div className='pic-container grow'>
+          <a className='pic-link' href={`https://github.com/${dev.ghName}`}>
             <img className='dev-pic' src={`https://avatars.githubusercontent.com/u/${dev.id}?v=4`} alt={dev.fullName}/>
           </a>
         </div>
@@ -52,7 +52,7 @@ function AboutUs({ user }) {
       <Header />
       <div className='bio-container'>
         <p className='bio-text'>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </p>
       </div>
       <section className='team-grid'>
