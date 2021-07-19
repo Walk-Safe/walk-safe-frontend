@@ -8,7 +8,6 @@ const addTimeModalStyles = {
     width: '50%',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    backgroundColor: '27849b',
     overflow: 'visible',
     position: 'absolute'
   },

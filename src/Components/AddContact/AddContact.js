@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
-import { NavLink } from 'react-router-dom';
 import { gql, useMutation } from '@apollo/client';
 
 const CREATE_CONTACT = gql`

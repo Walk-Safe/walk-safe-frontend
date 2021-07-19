@@ -5,7 +5,6 @@ import MainView from '../MainView/MainView';
 import AddContact from '../AddContact/AddContact';
 import CurrentTrip from '../CurrentTrip/CurrentTrip';
 
-
 function App() {
 
   const [eta, setETA] = useState('');
@@ -35,7 +34,7 @@ function App() {
         </Route>
         <Route exact path='/addcontact'>
           <AddContact
-          user={currentUser}
+            user={currentUser}
           />
         </Route>
       </div>
