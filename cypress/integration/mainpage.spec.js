@@ -3,7 +3,7 @@ import { aliasQuery, aliasMutation } from '../utils/graphql-test-utils';
 describe('Show main view of walk-safe App', () => {
 
 beforeEach(() => {
-    cy.intercept('POST', 'http://localhost:3000/graphql', (req) => {
+    cy.intercept('POST', 'https://walk-safe-backend.herokuapp.com/graphql', (req) => {
       // Queries
       aliasQuery(req, 'GetUser')
 
@@ -13,8 +13,8 @@ beforeEach(() => {
   })
 
   it('Should be able to visit the main page', () => {
-    cy.visit('http://localhost:3000')
-    cy.url().should('eq', 'http://localhost:3000/')
+    cy.visit('https://walk-safe-frontend.herokuapp.com/')
+    cy.url().should('eq', 'https://walk-safe-frontend.herokuapp.com/')
   });
 
   it('Should display title on main page view', () => {
