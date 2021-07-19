@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select';
 import ReactModal from 'react-modal';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
@@ -9,27 +9,17 @@ import addTimeDropdownStyles from './jsxStyles/dropdownStyles';
 
 ReactModal.setAppElement('#root');
 
-function AddTime( { setExtension, setEtaSeconds, modalIsOpen, closeModal, tripNotComplete } ) {
+function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, closeModal } ) {
 
-  const [backupActive, setBackupActive] = useState(true);
-  const [emergency, setEmergency] = useState(false);
   const [selectedTime, setSelectedTime] = useState('');
 
-  useEffect(() => {
-    if (emergency && !backupActive) {
-      tripNotComplete()
-    }
-  }, [emergency])
-
   function handleExpiration() {
-    setBackupActive(false);
     setEmergency(true);
   }
 
   function handleExtension(timeAmt) {
     setSelectedTime(timeAmt);
     setExtension(timeAmt);
-    setBackupActive(false);
     setEtaSeconds(null);
     closeModal();
   }

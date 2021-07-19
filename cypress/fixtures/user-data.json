@@ -1,0 +1,15 @@
+{
+    "data": {
+      "oneUser": {
+            "firstName": "Taylor",
+            "lastName": "Smith",
+            "username": "tsmith",
+            "contacts": [
+                {
+                    "firstName": "John",
+                    "phoneNumber": "+1445567880"
+                }
+            ]
+        }    
+    }
+}

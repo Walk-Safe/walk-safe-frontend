@@ -1,6 +1,6 @@
-const addTimeModalStyles = {
+const alertModalStyles = {
   content: {
-    top: '45%',
+    top: '50%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
@@ -8,9 +8,11 @@ const addTimeModalStyles = {
     width: '50%',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    backgroundColor: 'ghostwhite',
     overflow: 'visible',
-    position: 'absolute'
+    position: 'absolute',
+    border: '1px solid #bcc5ca'
   },
 };
 
-export default addTimeModalStyles;
+export default alertModalStyles;

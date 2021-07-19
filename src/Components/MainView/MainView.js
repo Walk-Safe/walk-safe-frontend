@@ -26,6 +26,7 @@ function MainView({ setCurrentUser, handleEtaChange }) {
    if (data) {
      setCurrentUser(data.oneUser);
    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [data]);
 
  if (loading) return <p className='loading'>Loading...</p>;
@@ -33,13 +34,13 @@ function MainView({ setCurrentUser, handleEtaChange }) {
 
   return (
     <main className='main-page'>
-      <NavBar user={data.oneUser.firstName}/>
+      {data && <NavBar user={data.oneUser.firstName}/>}
       <Header />
-      <Form 
+      {data && <Form
         contacts={data.oneUser.contacts}
         userInfo={data.oneUser}
         handleEtaChange={handleEtaChange}
-      />
+      />}
     </main>
   )
 }

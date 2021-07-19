@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import AddTime from '../AddTime/AddTime';
+import Alert from '../Alert/Alert';
 import TripCompleteMessage from '../TripCompleteMessage/TripCompleteMessage';
 import TripExtendedMessage from "../TripExtendedMessage/TripExtendedMessage";
 import TripNotCompleteMessage from "../TripNotCompleteMessage/TripNotComplete";
@@ -10,18 +11,19 @@ import { NavLink } from 'react-router-dom';
 
 function CurrentTrip({ user, eta }) {
 // function CurrentTrip({ user}) {
-  console.log(user)
-  // test eta
+
   // const eta = 0.2;
 
   const [etaSeconds, setEtaSeconds] = useState(null);
   const [extension, setExtension] = useState(0);
   const [tripIsActive, setTripIsActive] = useState(true);
   const [tripEnded, setTripEnded] = useState(false);
+  const [emergency, setEmergency] = useState(false);
   const [hoursActive, setHoursActive ] = useState(true)
-  const [minutesActive, setMinutesActive ] = useState(true)
-  const [secondsActive, setSecondsActive ] = useState(true)
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [minutesActive, setMinutesActive ] = useState(true);
+  const [secondsActive, setSecondsActive ] = useState(true);
+  const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
+  const [alertModalIsOpen, setAlertModalIsOpen] = useState(true);
 
   const minuteSeconds = 60;
   const hourSeconds = 3600;
@@ -39,6 +41,7 @@ function CurrentTrip({ user, eta }) {
     if (extension > 0) {
       setEtaSeconds(extension);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [eta]);
 
   useEffect(() => {
@@ -57,23 +60,37 @@ function CurrentTrip({ user, eta }) {
   useEffect(() => {
     if (!tripIsActive && tripEnded) {
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tripEnded]);
 
   useEffect(() => {
     if (!tripIsActive && !tripEnded) {
-      setModalIsOpen(true);
+      setEtaModalIsOpen(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tripIsActive]);
+
+  useEffect(() => {
+    if (emergency) {
+      setAlertModalIsOpen(true);
+      // invoke function to send Alert message here
+    }
+  }, [emergency])
 
   function endTrip() {
     setTripEnded(true);
     setTripIsActive(false);
-    setModalIsOpen(false);
-    TripCompleteMessage(user)
+    setEtaModalIsOpen(false);
+    TripCompleteMessage(user,)
+
   }
 
-  function closeModal() {
-    setModalIsOpen(false);
+  function closeEtaModal() {
+    setEtaModalIsOpen(false);
+  }
+
+  function closeAlertModal() {
+    setAlertModalIsOpen(false);
   }
 
   const timerProps = {
@@ -155,6 +172,7 @@ function CurrentTrip({ user, eta }) {
           </button>
         </NavLink>
       </section>
+<<<<<<< HEAD
       {/* {!tripIsActive && <AddTime modalIsOpen={modalIsOpen} closeModal={closeModal} />} */}
       <AddTime 
         setExtension={setExtension}
@@ -163,6 +181,24 @@ function CurrentTrip({ user, eta }) {
         closeModal={closeModal}
         // tripNotComplete={notCompletedTrip}
       />
+=======
+      {!tripIsActive &&
+        <AddTime 
+          setExtension={setExtension}
+          setEtaSeconds={setEtaSeconds}
+          modalIsOpen={etaModalIsOpen} 
+          closeModal={closeEtaModal}
+          setEmergency={setEmergency}
+        />
+      }
+      {emergency &&
+        <Alert
+          setEmergency={setEmergency}
+          modalIsOpen={alertModalIsOpen}
+          closeModal={closeAlertModal} 
+        />
+      }
+>>>>>>> c1a4d307a692131886b70afaa6c6a023e542bc23
     </main>
   )
 }

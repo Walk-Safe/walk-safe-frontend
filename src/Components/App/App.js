@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import LoginView from '../LoginView/LoginView';
 import MainView from '../MainView/MainView';
+import AddContact from '../AddContact/AddContact';
 import CurrentTrip from '../CurrentTrip/CurrentTrip';
 
 function App() {
@@ -26,8 +27,13 @@ function App() {
           />
         </Route>
         <Route exact path='/trip'>
-          <CurrentTrip 
+          <CurrentTrip
             eta={eta}
+            user={currentUser}
+          />
+        </Route>
+        <Route exact path='/addcontact'>
+          <AddContact
             user={currentUser}
           />
         </Route>
