@@ -15,10 +15,6 @@ function App() {
     setETA(time);
   }
 
-  const handleCurrentContact = (contact) => {
-    setCurrentContact(contact)
-  }
-
   return (
     <Router>
       <div className='App'>
