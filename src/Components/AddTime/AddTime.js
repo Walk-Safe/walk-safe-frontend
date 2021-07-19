@@ -6,10 +6,10 @@ import { NavLink } from 'react-router-dom';
 import extendedTimeOptions from '../../assets/extendedTimeOptions';
 import addTimeModalStyles from './jsxStyles/addTimeModalStyles';
 import addTimeDropdownStyles from './jsxStyles/dropdownStyles';
-
+import TripCompleteMessage from "../TripCompleteMessage/TripCompleteMessage";
 ReactModal.setAppElement('#root');
 
-function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, closeModal } ) {
+function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, closeModal, endTripMessage, contactInfo, userInfo } ) {
 
   const [selectedTime, setSelectedTime] = useState('');
 
@@ -22,6 +22,11 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
     setExtension(timeAmt);
     setEtaSeconds(null);
     closeModal();
+  }
+
+  function handleEndTrip() {
+    TripCompleteMessage(contactInfo,userInfo)
+    closeModal()
   }
 
   const timerProps = {
@@ -69,7 +74,7 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
         </p>
         <section className='add-time-response'>
           <NavLink exact to='/'>
-            <button onClick={closeModal} className='end-trip-btn'>
+            <button onClick={handleEndTrip} className='end-trip-btn'>
               END TRIP
             </button>
           </NavLink>
