@@ -6,7 +6,7 @@ import alertModalStyles from './jsxStyles/alertModalStyles';
 
 ReactModal.setAppElement('#root');
 
-function AlertMessage({ setEmergency, modalIsOpen, closeModal }) {
+function Alert({ setEmergency, modalIsOpen, closeModal }) {
 
   function handleModalClose() {
     setEmergency(false);
@@ -50,4 +50,4 @@ function AlertMessage({ setEmergency, modalIsOpen, closeModal }) {
   )
 }
 
-export default AlertMessage;
+export default Alert;

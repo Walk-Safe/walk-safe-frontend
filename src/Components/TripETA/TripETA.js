@@ -22,6 +22,7 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
     if (etaMins) {
       buildEtaString();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [etaMins]);
 
   function reduceEta(etaNum) {
@@ -44,8 +45,8 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
   }
 
   function taskWrapper(){
-    closeModal()
-    TripStartMessage(tripDetails, contact, userName)
+    closeModal();
+    TripStartMessage(tripDetails, contact, userName);
   }
 
   if (!eta) {

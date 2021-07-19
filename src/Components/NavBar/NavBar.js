@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
-import AddContact from '../AddContact/AddContact';
 
 function NavBar({user}) {
   return (
@@ -15,7 +14,7 @@ function NavBar({user}) {
           className='hamburger-menu'
         >
           <NavLink exact to='/' className='menu-item'>
-            <span>Plan New Trip</span>
+            <span>Plan Trip</span>
           </NavLink>
           <NavLink exact to='/addcontact' className='menu-item'>
             <span>Add Contact</span>
