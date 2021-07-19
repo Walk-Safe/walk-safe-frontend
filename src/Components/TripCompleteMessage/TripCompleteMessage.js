@@ -2,10 +2,10 @@
 export function TripCompleteMessage(contact, user) {
 
   const sendSms = () => {
-
+    console.log(contact, user)
     let smsObj = {
-      mobile_number: '17083630654',
-      message: `${user} has confirmed their trip is completed. Thank you!`,
+      mobile_number: `${contact.phone}`,
+      message: `${user.firstName} has confirmed their trip is completed. Thank you!`,
     }
 
     fetch('https://walk-safe-backend.herokuapp.com/sms_messages', {
