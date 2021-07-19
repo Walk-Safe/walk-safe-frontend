@@ -1,11 +1,11 @@
 
-export function TripExtendedMessage(user, extension) {
+export function TripExtendedMessage(user, extension, contact) {
 
   const sendSms = () => {
 
     let smsObj = {
-      mobile_number: '17083630654',
-      message: `${user.firstName} has confirmed their trip is completed. Thank you!`,
+      mobile_number: `${contact.phone}`,
+      message: `${user.firstName} has extended their trip by ${extension} minutes. Please be on the look out for the trip completed confirmation`,
     }
 
     fetch('https://walk-safe-backend.herokuapp.com/sms_messages', {
