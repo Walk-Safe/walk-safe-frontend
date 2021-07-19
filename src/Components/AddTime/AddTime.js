@@ -9,7 +9,7 @@ import addTimeDropdownStyles from './jsxStyles/dropdownStyles';
 
 ReactModal.setAppElement('#root');
 
-function AddTime( { setExtension, setEtaSeconds, modalIsOpen, closeModal } ) {
+function AddTime( { setExtension, setEtaSeconds, modalIsOpen, closeModal, tripNotComplete } ) {
 
   const [backupActive, setBackupActive] = useState(true);
   const [emergency, setEmergency] = useState(false);
@@ -17,7 +17,7 @@ function AddTime( { setExtension, setEtaSeconds, modalIsOpen, closeModal } ) {
 
   useEffect(() => {
     if (emergency && !backupActive) {
-      // route to ALERT! display
+      tripNotComplete()
     }
   }, [emergency])
 
