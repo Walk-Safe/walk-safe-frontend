@@ -34,9 +34,9 @@ function AddContact({ user }) {
     setPhone(toString(event.target.value));
   }
 
-  return(
+  return (
     <section className='add-contact'>
-      <NavBar user={user.firstName}/>
+      {user && <NavBar user={user.firstName}/>} 
       <Header />
       <form className='contact-form'>
         <h2>Add Contact</h2>
