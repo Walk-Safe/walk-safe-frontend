@@ -47,3 +47,35 @@
     background-color: rgb(116, 187, 235);
   }
 }
+
+@media screen and (max-width: 360px) {
+
+  .eta-modal a {
+    height: 17%;
+    width: 35%;
+  }
+
+  .eta-message {
+    font-size: 1.48rem;
+  }
+
+  .eta-message span:nth-of-type(1n) {
+      font-size: 1em;
+      margin:0.4em
+    }
+
+  .eta-message span:nth-of-type(2n) {
+    font-size: 1.15em;
+    font-weight: 500;
+    margin: 0.3em;
+  }
+
+  .begin-trip-btn {
+    width: 202%;
+    height: 100%;
+    font-size: 1em;
+    margin-left: -1.8em;
+  }
+
+  }
+
