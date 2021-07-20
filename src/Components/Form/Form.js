@@ -127,6 +127,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
         value={travelMode}
         defaultValue={travelMode}
         onChange={setTravelMode}
+        onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
         options={transportOptions}
       />
       <Select
@@ -135,6 +136,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
         value={selectedContact}
         defaultValue={selectedContact}
         onChange={setContactForApp}
+        onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
         options={formattedContacts}
       />
       <button onClick={sendTripData} className='submit-trip-btn'>
