@@ -1,3 +1,4 @@
+import Popup from "react-popup";
 
 export function TripCompleteMessage(contact, user) {
 
@@ -16,8 +17,16 @@ export function TripCompleteMessage(contact, user) {
       },
       body: JSON.stringify(smsObj)
     })
-        .then(result => result.text())
-        .then(resp => console.log(resp))
+        .then(response => {
+          if(response.status === 201) {
+            console.log(response.status)
+            Popup.alert(`Trip complete text message successfully sent to ${contact.value}! Thank you for using Walk Safe!`)
+            return response.text();
+          } else {
+            console.log("API ERROR")
+            Popup.alert(`Trip complete notification to your contact was unsuccessful, please contact ${contact.value}.`)
+          }
+        })
   }
 
   return(
