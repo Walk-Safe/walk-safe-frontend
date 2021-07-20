@@ -1,0 +1,96 @@
+.about-us-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+.bio-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 15%;
+}
+
+.bio-text {
+  font-style: $roboto;
+  font-size: 1em;
+}
+
+.team-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2em;
+  padding: 3%;
+  width: 60%;
+  height: 50%;
+  background-color: rgba(162, 212, 247, 0.938);
+  box-shadow: $shadow-heavy;
+  border-radius: 5px;
+}
+
+.card-row {
+  display: flex;
+  flex-direction: row;
+  height: 45%;
+}
+
+.row-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-transform: uppercase;
+  margin: 0.75em auto 0.3em auto;
+  font-family: $tourney;
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: rgb(239, 244, 250);
+  text-shadow: 1px 1px 3px rgb(37, 34, 34);
+}
+
+.dev-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+  padding: 2px;
+  height: 90%;
+  width: 30%;
+  border: 1px solid black;
+}
+
+.pic-container {
+  width: 70%;
+  height: 75%;
+  box-shadow: $shadow-heavy;
+}
+
+.pic-link {
+  width: 100%;
+  height: 100%;
+}
+
+.dev-pic {
+  width: 100%;
+  height: 100%;
+}
+
+.name-link {
+  text-decoration: none;
+  margin-top: 0.8em;
+}
+
+.dev-name {
+  color: black;
+  font-family: $tourney;
+  font-weight: 500;
+  font-size: 1.3vw;
+  letter-spacing: 0.1em;
+}
+

@@ -4,11 +4,13 @@ import LoginView from '../LoginView/LoginView';
 import MainView from '../MainView/MainView';
 import AddContact from '../AddContact/AddContact';
 import CurrentTrip from '../CurrentTrip/CurrentTrip';
+import AboutUs from '../AboutUs/AboutUs';
 
 function App() {
 
   const [eta, setETA] = useState('');
-  const [ currentUser, setCurrentUser] = useState('');
+  const [currentUser, setCurrentUser] = useState('');
+  const [currentContact, setCurrentContact] = useState('');
 
   const handleEtaChange = (time) => {
     setETA(time);
@@ -24,16 +26,23 @@ function App() {
           <MainView
             handleEtaChange={handleEtaChange}
             setCurrentUser={setCurrentUser}
+            setCurrentContact={setCurrentContact}
           />
         </Route>
         <Route exact path='/trip'>
           <CurrentTrip
             eta={eta}
             user={currentUser}
+            contact={currentContact}
           />
         </Route>
         <Route exact path='/addcontact'>
           <AddContact
+            user={currentUser}
+          />
+        </Route>
+        <Route exact path='/about'>
+          <AboutUs
             user={currentUser}
           />
         </Route>

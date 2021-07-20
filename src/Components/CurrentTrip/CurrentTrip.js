@@ -4,13 +4,12 @@ import Header from '../Header/Header';
 import AddTime from '../AddTime/AddTime';
 import Alert from '../Alert/Alert';
 import TripCompleteMessage from '../TripCompleteMessage/TripCompleteMessage';
+import TripExtendedMessage from "../TripExtendedMessage/TripExtendedMessage";
+import TripNotCompleteMessage from "../TripNotCompleteMessage/TripNotComplete";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink } from 'react-router-dom';
 
-function CurrentTrip({ user, eta }) {
-// function CurrentTrip({ user}) {
-
-  // const eta = 0.2;
+function CurrentTrip({ user, eta, contact }) {
 
   const [etaSeconds, setEtaSeconds] = useState(null);
   const [extension, setExtension] = useState(0);
@@ -30,7 +29,7 @@ function CurrentTrip({ user, eta }) {
   const getTimeSeconds = (time) => (minuteSeconds - time) || 0;
   const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) || 0;
   const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) || 0;
-  
+
   useEffect(() => {
     if (eta > 0) {
       setEtaSeconds(eta * 60);
@@ -44,6 +43,7 @@ function CurrentTrip({ user, eta }) {
   useEffect(() => {
     if (extension > 0) {
       setEtaSeconds(extension);
+      TripExtendedMessage(user, extension, contact)
     }
   }, [extension])
 
@@ -55,9 +55,8 @@ function CurrentTrip({ user, eta }) {
 
   useEffect(() => {
     if (!tripIsActive && tripEnded) {
-      // trigger "Trip Complete" routing here
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // TripCompleteMessage(user,contact)
   }, [tripEnded]);
 
   useEffect(() => {
@@ -70,7 +69,7 @@ function CurrentTrip({ user, eta }) {
   useEffect(() => {
     if (emergency) {
       setAlertModalIsOpen(true);
-      // invoke function to send Alert message here
+     TripNotCompleteMessage(user, contact)
     }
   }, [emergency])
 
@@ -78,8 +77,7 @@ function CurrentTrip({ user, eta }) {
     setTripEnded(true);
     setTripIsActive(false);
     setEtaModalIsOpen(false);
-    let contact = '17083630654';
-    TripCompleteMessage(user, contact)
+    TripCompleteMessage(contact, user)
   }
 
   function closeEtaModal() {
@@ -111,7 +109,7 @@ function CurrentTrip({ user, eta }) {
 
   return (
     <main className='trip-page'>
-      <NavBar user={user.firstName}/>
+      <NavBar nameToggle='true' user={user.firstName}/>
       <Header />
       <section className='trip-container'>
         {!etaSeconds && <p className='loading'>Loading...</p>}
@@ -176,6 +174,8 @@ function CurrentTrip({ user, eta }) {
           modalIsOpen={etaModalIsOpen} 
           closeModal={closeEtaModal}
           setEmergency={setEmergency}
+          contactInfo={contact}
+          userInfo={user}
         />
       }
       {emergency &&

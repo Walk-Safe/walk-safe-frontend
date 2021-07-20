@@ -20,7 +20,7 @@ const CREATE_TRIP = gql `
 }
 `
 
-function Form({ contacts, handleEtaChange, userInfo }) {
+function Form({ contacts, handleEtaChange, userInfo, setContact }) {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [valid, setValidCheck] = useState(false);
@@ -53,6 +53,11 @@ function Form({ contacts, handleEtaChange, userInfo }) {
       return { value: name, label: name, phone: number };
     })
     setFormattedContacts(formatted);
+  }
+
+  function setContactForApp(selectedContact) {
+    setSelectedContact(selectedContact)
+    setContact(selectedContact)
   }
 
   function sendTripData() {
@@ -124,7 +129,7 @@ function Form({ contacts, handleEtaChange, userInfo }) {
         placeholder='Select contact'
         value={selectedContact}
         defaultValue={selectedContact}
-        onChange={setSelectedContact}
+        onChange={setContactForApp}
         options={formattedContacts}
       />
       <button onClick={sendTripData} className='submit-trip-btn'>

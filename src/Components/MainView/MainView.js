@@ -19,7 +19,7 @@ query GetUser {
 }
 `
 
-function MainView({ setCurrentUser, handleEtaChange }) {
+function MainView({ setCurrentUser, setCurrentContact, handleEtaChange }) {
  const { loading, error, data } = useQuery(GET_USER);
 
  useEffect(() => {
@@ -34,12 +34,13 @@ function MainView({ setCurrentUser, handleEtaChange }) {
 
   return (
     <main className='main-page'>
-      {data && <NavBar user={data.oneUser.firstName}/>}
+      {data && <NavBar nameToggle='true' user={data.oneUser.firstName}/>}
       <Header />
       {data && <Form
         contacts={data.oneUser.contacts}
         userInfo={data.oneUser}
         handleEtaChange={handleEtaChange}
+        setContact={setCurrentContact}
       />}
     </main>
   )

@@ -69,9 +69,9 @@ function AddContact({ user }) {
     setPhone(toString(event.target.value));
   }
 
-  return(
+  return (
     <section className='add-contact'>
-      <NavBar user={user.firstName}/>
+      {user && <NavBar nameToggle='true' user={user.firstName}/>} 
       <Header />
       <form className='contact-form'>
         {valid && <p className='form-error'>Complete Fields With Valid Data</p>}
