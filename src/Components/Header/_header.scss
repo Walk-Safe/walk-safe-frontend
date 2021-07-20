@@ -11,3 +11,11 @@
   font-size: 2.2em;
   text-shadow: 1px 1px 3px rgb(53, 38, 38);
 }
+
+@media screen and (max-width: 360px) {
+  .app-header {
+    font-size: 1.65em;
+    height: 13%;
+    letter-spacing: 0.25em;
+  }
+}
