@@ -15,6 +15,7 @@ const CREATE_TRIP = gql `
       eta
       travelMode
     }
+    errors
   }
 }
 `
@@ -22,13 +23,14 @@ const CREATE_TRIP = gql `
 function Form({ contacts, handleEtaChange, userInfo, setContact }) {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [formattedContacts, setFormattedContacts] = useState([]);
-  const [selectedContact, setSelectedContact] = useState('');
-  const [travelMode, setTravelMode] = useState('');
+  const [valid, setValidCheck] = useState(false);
   const [query, setQuery] = useState('');
   const [endPoint, setEndPoint] = useState('');
   const [startPoint, setStartPoint] = useState('');
-  const [createTrip, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_TRIP);
+  const [formattedContacts, setFormattedContacts] = useState([]);
+  const [selectedContact, setSelectedContact] = useState('');
+  const [travelMode, setTravelMode] = useState('');
+  const [createTrip, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_TRIP, { errorPolicy: 'none' });
 
   useEffect(() => {
     formatContacts()
@@ -36,6 +38,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
   }, []);
 
   useEffect(() => {
+    console.log(data)
     if (data) {
       handleEtaChange(data.createTrip.trip.eta);
     }
@@ -58,8 +61,22 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
   }
 
   function sendTripData() {
+    if(!startPoint|| !endPoint || !selectedContact || !travelMode){
+      console.log(mutationError)
+      return setValidCheck(true);
+    }
+    setValidCheck(false);
     openModal();
-    createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}});
+    createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}}).catch(err => console.log(err));
+    clearForm();
+  }
+
+  function clearForm() {
+    setEndPoint('');
+    setStartPoint('');
+    setQuery('');
+    setTravelMode('');
+    setSelectedContact('');
   }
 
   function openModal() {
@@ -74,8 +91,15 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
     e.preventDefault();
   }
 
+
+
   return (
-    <form className='trip-form' onSubmit={handleSubmit}>
+    <form className='trip-form' onSubmit={handleSubmit} >
+    {valid && <p>Complete form fields with Valid Data</p>}
+    {mutationError && <pre>Bad: {mutationError.graphQLErrors.map(({ message }, i) => (
+        <span key={i}>{message}</span>
+      ))}
+      </pre>}
       <Autocomplete
           onPlaceSelected={(place) => setStartPoint(place.formatted_address)}
           onChange={event => setQuery(event.target.value)}
@@ -113,7 +137,6 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
       </button>
       {modalIsOpen && <TripETA modalIsOpen={modalIsOpen} eta={data} tripDetails={data} contact={selectedContact} userName={userInfo} closeModal={closeModal}  />}
       {mutationLoading && <p className='loading'>Loading...</p>}
-      {mutationError && <p>Error: Please try again</p>}
     </form>
   )
 }

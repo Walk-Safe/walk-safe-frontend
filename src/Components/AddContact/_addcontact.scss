@@ -10,12 +10,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 40%;
     width: 40%;
     padding: 0.5em;
     border: 3px solid rgba(41, 19, 6, 0.522);
     border-radius: 5px;
     background-color: darkslategray;
+    box-shadow: $shadow-heavy;
 
   input {
     text-align: center;
@@ -30,9 +32,33 @@
     width: 40%;
     height: 15%;
     padding: 3px;
-    margin: 0.5em;
+    margin: 1.5em auto 0.75em auto;
     border-radius: 5px;
+    color: ghostwhite;
+    background-color: cornflowerblue;
+    font-size: 1rem;
+    letter-spacing: 2.5px;
+
+    &:hover {
+      color: rgb(34, 34, 49);
+      background-color: rgb(160, 192, 252);
+    }
   }
+}
+
+.phone-number {
+  input {
+  height: 40%;
+  }
+}
+
+h2, h3 {
+  color: ghostwhite;
+  letter-spacing: 2.5px;
+}
+
+.form-error {
+  color: red;
 }
 
 .phone-number {

@@ -4,7 +4,9 @@ import LoginView from '../LoginView/LoginView';
 import MainView from '../MainView/MainView';
 import AddContact from '../AddContact/AddContact';
 import CurrentTrip from '../CurrentTrip/CurrentTrip';
+import AboutUs from '../AboutUs/AboutUs';
 import Popup from "react-popup";
+
 
 function App() {
 
@@ -40,6 +42,11 @@ function App() {
         </Route>
         <Route exact path='/addcontact'>
           <AddContact
+            user={currentUser}
+          />
+        </Route>
+        <Route exact path='/about'>
+          <AboutUs
             user={currentUser}
           />
         </Route>

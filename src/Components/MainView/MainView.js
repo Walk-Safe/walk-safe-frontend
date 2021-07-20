@@ -34,7 +34,7 @@ function MainView({ setCurrentUser, setCurrentContact, handleEtaChange }) {
 
   return (
     <main className='main-page'>
-      {data && <NavBar user={data.oneUser.firstName}/>}
+      {data && <NavBar nameToggle='true' user={data.oneUser.firstName}/>}
       <Header />
       {data && <Form
         contacts={data.oneUser.contacts}

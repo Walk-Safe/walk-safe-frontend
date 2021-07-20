@@ -109,7 +109,7 @@ function CurrentTrip({ user, eta, contact }) {
 
   return (
     <main className='trip-page'>
-      <NavBar user={user.firstName}/>
+      <NavBar nameToggle='true' user={user.firstName}/>
       <Header />
       <section className='trip-container'>
         {!etaSeconds && <p className='loading'>Loading...</p>}

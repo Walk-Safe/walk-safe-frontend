@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 
-function NavBar({user}) {
+function NavBar({ nameToggle, user }) {
+
+  const [displayName, setDisplayName] = useState(null);
+
+  useEffect(() => {
+    if (nameToggle) {
+      setDisplayName(nameToggle);
+    }
+  }, []);
+
   return (
     <nav className='navbar'>
-      <div className='welcome-container'>
-        <h2 className='welcome-msg'>Welcome, {user}</h2>
-      </div>
+      {displayName && 
+        <div className='welcome-container'>
+          <h2 className='welcome-msg'>Welcome, {user}</h2>
+        </div>
+      }
         <Menu
           right
           width={'20%'}
@@ -19,7 +30,7 @@ function NavBar({user}) {
           <NavLink exact to='/addcontact' className='menu-item'>
             <span>Add Contact</span>
           </NavLink>
-          <NavLink exact to='/' className='menu-item'>
+          <NavLink exact to='/about' className='menu-item'>
             <span>About Us</span>
           </NavLink>
         </Menu>
