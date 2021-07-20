@@ -32,7 +32,7 @@ function AddContact({ user }) {
       return setValidCheck(true);
     }
     if(checkPhoneNum()){
-      return 
+      return
     }
     setValidCheck(false);
     setPhoneVerify(false);
@@ -74,8 +74,8 @@ function AddContact({ user }) {
       <NavBar user={user.firstName}/>
       <Header />
       <form className='contact-form'>
-        {valid && <p>Complete Fields With Valid Data</p>}
-        {verify && <p>Enter valid phone number</p>}
+        {valid && <p className='form-error'>Complete Fields With Valid Data</p>}
+        {verify && <p className='form-error'>Enter valid phone number</p>}
         <h2>Add Contact</h2>
            <input
              title='firstName'
