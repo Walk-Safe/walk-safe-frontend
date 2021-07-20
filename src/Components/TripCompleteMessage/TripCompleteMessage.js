@@ -2,9 +2,9 @@
 export function TripCompleteMessage(contact, user) {
 
   const sendSms = () => {
-
+    console.log(contact, user)
     let smsObj = {
-      mobile_number: '17083630654',
+      mobile_number: `${contact.phone}`,
       message: `${user.firstName} has confirmed their trip is completed. Thank you!`,
     }
 

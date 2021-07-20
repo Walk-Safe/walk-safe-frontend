@@ -1,11 +1,11 @@
 
-function TripNotCompleteMessage(user, contact) {
+export function TripExtendedMessage(user, extension, contact) {
 
   const sendSms = () => {
 
     let smsObj = {
       mobile_number: `${contact.phone}`,
-      message: `${user.firstName} has not confirmed their trip is complete. Please contact them now.`,
+      message: `${user.firstName} has extended their trip by ${extension} minutes. Please be on the look out for the trip completed confirmation`,
     }
 
     fetch('https://walk-safe-backend.herokuapp.com/sms_messages', {
@@ -25,5 +25,4 @@ function TripNotCompleteMessage(user, contact) {
   )
 }
 
-
-export default TripNotCompleteMessage;
+export default TripExtendedMessage;

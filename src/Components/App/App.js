@@ -8,7 +8,8 @@ import CurrentTrip from '../CurrentTrip/CurrentTrip';
 function App() {
 
   const [eta, setETA] = useState('');
-  const [ currentUser, setCurrentUser] = useState('');
+  const [currentUser, setCurrentUser] = useState('');
+  const [currentContact, setCurrentContact] = useState('');
 
   const handleEtaChange = (time) => {
     setETA(time);
@@ -24,12 +25,14 @@ function App() {
           <MainView
             handleEtaChange={handleEtaChange}
             setCurrentUser={setCurrentUser}
+            setCurrentContact={setCurrentContact}
           />
         </Route>
         <Route exact path='/trip'>
           <CurrentTrip
             eta={eta}
             user={currentUser}
+            contact={currentContact}
           />
         </Route>
         <Route exact path='/addcontact'>
