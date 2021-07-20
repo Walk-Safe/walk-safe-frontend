@@ -1,5 +1,8 @@
+import Popup from 'react-popup'
+
 function TripStartMessage (tripDetails, contact, userName) {
-  let textInformation = tripDetails.createTrip.trip
+
+  const textInformation = tripDetails.createTrip.trip
 
   const sendSms = () => {
 
@@ -16,11 +19,17 @@ function TripStartMessage (tripDetails, contact, userName) {
       },
       body: JSON.stringify(smsObj)
     })
-        .then(result => result.text())
-        .then(resp => console.log(resp))
+        .then(response => {
+          if(response.status === 201) {
+            Popup.alert(`Start trip text message successfully sent to ${contact.value}!`)
+            return response.text();
+        } else {
+            Popup.alert(`Start trip notification to ${contact.value} was unsuccessful, please restart your trip and try again.`)
+          }
+  })
   }
 
-  return(
+return(
       sendSms()
   )
 }
