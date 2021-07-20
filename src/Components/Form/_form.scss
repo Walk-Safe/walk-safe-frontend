@@ -56,3 +56,33 @@
   padding: 0.5em;
   color: black;
 }
+
+@media screen and (max-width: 651px) {
+
+  .location-input {
+    text-align: center;
+    width: 71%;
+    padding: 5px;
+    margin: 0.5em;
+    font-size: .8em;
+  }
+
+  .dropdown {
+    width: 81%;
+    padding: 0.5em;
+    font-size: .8em;
+  }
+
+}
+
+@media screen and (max-width: 360px) {
+  .trip-form {
+    height: 52%;
+    width: 80%;
+    margin: 1.3em;
+  }
+
+  .trip-form button {
+    width: 56%;
+  }
+}
