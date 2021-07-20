@@ -45,6 +45,7 @@ function CurrentTrip({ user, eta, contact }) {
       setEtaSeconds(extension);
       TripExtendedMessage(user, extension, contact)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [extension])
 
   useEffect(() => {
@@ -55,8 +56,9 @@ function CurrentTrip({ user, eta, contact }) {
 
   useEffect(() => {
     if (!tripIsActive && tripEnded) {
+      // TripCompleteMessage(user,contact)
     }
-    // TripCompleteMessage(user,contact)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tripEnded]);
 
   useEffect(() => {
@@ -69,8 +71,9 @@ function CurrentTrip({ user, eta, contact }) {
   useEffect(() => {
     if (emergency) {
       setAlertModalIsOpen(true);
-     TripNotCompleteMessage(user, contact)
+      TripNotCompleteMessage(user, contact)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [emergency])
 
   function endTrip() {

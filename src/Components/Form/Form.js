@@ -61,7 +61,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
   }
 
   function sendTripData() {
-    if(!startPoint|| !endPoint || !selectedContact || !travelMode){
+    if(!startPoint || !endPoint || !selectedContact || !travelMode){
       console.log(mutationError)
       return setValidCheck(true);
     }
@@ -90,8 +90,6 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
   function handleSubmit(e) {
     e.preventDefault();
   }
-
-
 
   return (
     <form className='trip-form' onSubmit={handleSubmit} >
@@ -135,7 +133,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
-      {modalIsOpen && <TripETA modalIsOpen={modalIsOpen} eta={data} tripDetails={data} contact={selectedContact} userName={userInfo} closeModal={closeModal}  />}
+      {modalIsOpen && <TripETA modalIsOpen={modalIsOpen} eta={data.createTrip.trip.eta} tripDetails={data} contact={selectedContact} userName={userInfo} closeModal={closeModal}  />}
       {mutationLoading && <p className='loading'>Loading...</p>}
     </form>
   )
