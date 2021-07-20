@@ -13,7 +13,11 @@ function App() {
   const [currentContact, setCurrentContact] = useState('');
 
   const handleEtaChange = (time) => {
-    setETA(time);
+    if (time > 0) {
+      setETA(time);
+    } else {
+      setETA(0.5);
+    }
   }
 
   return (
@@ -31,6 +35,7 @@ function App() {
         </Route>
         <Route exact path='/trip'>
           <CurrentTrip
+            handleEtaChange={handleEtaChange}
             eta={eta}
             user={currentUser}
             contact={currentContact}
