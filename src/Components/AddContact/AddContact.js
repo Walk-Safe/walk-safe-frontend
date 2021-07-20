@@ -18,6 +18,7 @@ const CREATE_CONTACT = gql`
 `
 
 function AddContact({ user }) {
+  const [valid, setValidCheck] = useState(false);
   const [firstName, setFirst] = useState('')
   const [lastName, setLast] = useState('')
   const [countryCode, setCountry] = useState('')
@@ -27,8 +28,21 @@ function AddContact({ user }) {
 
   function addContact(e) {
     e.preventDefault();
+    if(!firstName || !lastName || !countryCode || !areaCode || !phoneNumber){
+      return setValidCheck(true);
+    }
+    setValidCheck(false);
     let number = `+${countryCode}${areaCode}${phoneNumber}`;
     createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: number}});
+    clearForm();
+  }
+
+  function clearForm() {
+    setFirst('');
+    setLast('');
+    setCountry('');
+    setArea('');
+    setPhone('');
   }
 
   function modifyNumberInput(event) {
@@ -40,6 +54,7 @@ function AddContact({ user }) {
       <NavBar user={user.firstName}/>
       <Header />
       <form className='contact-form'>
+        {valid && <p>Complete Fields With Valid Data</p>}
         <h2>Add Contact</h2>
            <input
              title='firstName'

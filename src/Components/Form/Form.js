@@ -23,7 +23,7 @@ const CREATE_TRIP = gql `
 function Form({ contacts, handleEtaChange, userInfo }) {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [form, setFormCheck] = useState(false);
+  const [valid, setValidCheck] = useState(false);
   const [query, setQuery] = useState('');
   const [endPoint, setEndPoint] = useState('');
   const [startPoint, setStartPoint] = useState('');
@@ -58,9 +58,9 @@ function Form({ contacts, handleEtaChange, userInfo }) {
   function sendTripData() {
     if(!startPoint|| !endPoint || !selectedContact || !travelMode){
       console.log(mutationError)
-      return setFormCheck(true);
+      return setValidCheck(true);
     }
-    setFormCheck(false);
+    setValidCheck(false);
     openModal();
     createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}}).catch(err => console.log(err));
     clearForm();
@@ -90,7 +90,7 @@ function Form({ contacts, handleEtaChange, userInfo }) {
 
   return (
     <form className='trip-form' onSubmit={handleSubmit} >
-    {form && <p>Complete form fields with Valid Data</p>}
+    {valid && <p>Complete form fields with Valid Data</p>}
     {mutationError && <pre>Bad: {mutationError.graphQLErrors.map(({ message }, i) => (
         <span key={i}>{message}</span>
       ))}
