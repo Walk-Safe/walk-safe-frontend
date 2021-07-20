@@ -32,9 +32,11 @@ function AddContact({ user }) {
     if(!firstName || !lastName || !countryCode || !areaCode || !phoneNumber){
       return setValidCheck(true);
     }
+    if(checkPhoneNum()){
+      return 
+    }
     setValidCheck(false);
     setPhoneVerify(false);
-    checkPhoneNum();
     let number = `+${countryCode}${areaCode}${phoneNumber}`;
     createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: number}});
     clearForm();
@@ -51,6 +53,7 @@ function AddContact({ user }) {
       setPhoneVerify(true)
       return true
     } else {
+      setPhoneVerify(false)
       return false
     }
   }
@@ -73,6 +76,7 @@ function AddContact({ user }) {
       <Header />
       <form className='contact-form'>
         {valid && <p>Complete Fields With Valid Data</p>}
+        {verify && <p>Enter valid phone number</p>}
         <h2>Add Contact</h2>
            <input
              title='firstName'
