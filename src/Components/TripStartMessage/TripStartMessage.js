@@ -21,7 +21,7 @@ function TripStartMessage (tripDetails, contact, userName) {
     })
         .then(response => {
           if(response.status === 201) {
-            Popup.alert(`Start trip text message successfully sent to ${contact.value}!`)
+            Popup.alert(`Start trip notification successfully sent to ${contact.value}!`)
             return response.text();
         } else {
             Popup.alert(`Start trip notification to ${contact.value} was unsuccessful, please restart your trip and try again.`)
