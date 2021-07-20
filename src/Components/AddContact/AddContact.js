@@ -112,7 +112,7 @@ function AddContact({ user }) {
            </div>
         {mutationLoading && <p className='loading'>Loading...</p>}
         {mutationError && <p>Error: Please try again</p>}
-        <button onClick={addContact}>Add Contact</button>
+        <button onClick={addContact}>ADD CONTACT</button>
       </form>
     </section>
   )
