@@ -35,7 +35,6 @@ function App() {
         </Route>
         <Route exact path='/trip'>
           <CurrentTrip
-            handleEtaChange={handleEtaChange}
             eta={eta}
             user={currentUser}
             contact={currentContact}

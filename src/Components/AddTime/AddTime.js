@@ -14,7 +14,6 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
   const [selectedTime, setSelectedTime] = useState('');
 
   useEffect(() => {
-    console.log("modalIsOpen: ", modalIsOpen);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -23,7 +22,6 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
   }
 
   function handleExtension(selection) {
-    
     setSelectedTime(selection.value);
     setExtension(selection);
     setEtaSeconds(null);
