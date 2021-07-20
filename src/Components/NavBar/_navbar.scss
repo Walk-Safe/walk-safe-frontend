@@ -98,3 +98,31 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+
+@media screen and (max-width: 360px) {
+  .welcome-msg  {
+    padding-top: 43px;
+    font-size: 1.8em;
+  }
+
+  .bm-burger-button {
+    width: 29px;
+    height: 31px;
+    top: 2.5em;
+  }
+
+  .bm-menu {
+    margin-top: 0;
+    padding: 0.1em 0.1em 0;
+  }
+
+  .menu-item {
+    font-size: 0.93rem;
+    margin: 3em auto 3em auto;
+  }
+
+  .bm-item-list {
+    padding: 0.1em;
+
+  }
+}
