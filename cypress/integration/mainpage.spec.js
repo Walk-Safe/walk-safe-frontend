@@ -77,17 +77,17 @@ beforeEach(() => {
   })
 
   it('Should be able to select option from dropdown menu for transportation options', () => {
-    cy.get('[class*="select-transport"]')
+    cy.get('.select-transport')
     .type('{downarrow}')
     .type("{enter}")
-    .get('[class*="select-transport"]').should('have.value', 'driving')
+    .get('.select-transport').contains('Driving')
   })
 
   it('Should be able to select option from dropdown menu for contact options', () => {
-    cy.get('[class*="select-contact"]')
+    cy.get('.select-contact')
     .type('{downarrow}')
     .type("{enter}")
-    .get('[class*="select-contact"]').should('have.value', 'Taylor Anderson')
+    .get('.select-contact').contains('Taylor Andersen')
   })
 
   // it('Should be able to click start trip button', () => {
