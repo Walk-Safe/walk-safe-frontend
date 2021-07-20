@@ -1,0 +1,58 @@
+.alert-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(223, 74, 74);
+  font-family: $roboto;
+  font-weight: 500;
+}
+
+.alert-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1%;
+  width: 95%;
+}
+
+.alert-exit-link {
+  text-decoration: none;
+}
+
+.alert-exit-btn {
+  width: 100%;
+  height: 100%;
+  color: rgb(0, 0, 0);
+
+  &:active {
+    color: rgb(255, 255, 255);
+    background-color: rgb(116, 187, 235);
+  }
+}
+
+.alert-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.20em;
+  height: 35%;
+  width: 100%;
+  font-size: 4rem;
+  color: white;
+  text-shadow: 0 1px 2px rgb(37, 34, 34);
+}
+
+.alert-message {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 80%;
+  height: 35%;
+  margin: 1em;
+  font-size: 2.5rem;
+  color:rgb(255, 255, 255);
+  text-shadow: 0 1px 2px rgb(37, 34, 34);
+}

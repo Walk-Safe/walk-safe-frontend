@@ -26,6 +26,7 @@ function MainView({ setCurrentUser, handleEtaChange }) {
    if (data) {
      setCurrentUser(data.oneUser);
    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [data]);
 
  if (loading) return <p className='loading'>Loading...</p>;
