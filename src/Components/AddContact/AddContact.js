@@ -18,7 +18,8 @@ const CREATE_CONTACT = gql`
 `
 
 function AddContact({ user }) {
-  const [valid, setValidCheck] = useState(false);
+  const [valid, setValidCheck] = useState(false)
+  const [verify, setPhoneVerify] = useState(false)
   const [firstName, setFirst] = useState('')
   const [lastName, setLast] = useState('')
   const [countryCode, setCountry] = useState('')
@@ -32,9 +33,26 @@ function AddContact({ user }) {
       return setValidCheck(true);
     }
     setValidCheck(false);
+    setPhoneVerify(false);
+    checkPhoneNum();
     let number = `+${countryCode}${areaCode}${phoneNumber}`;
     createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: number}});
     clearForm();
+  }
+
+  function checkPhoneNum() {
+    if(countryCode.length === 0){
+      setPhoneVerify(true)
+      return true
+    } else if(areaCode.length !== 3){
+      setPhoneVerify(true)
+      return true
+    } else if(phoneNumber.length !== 7){
+      setPhoneVerify(true)
+      return true
+    } else {
+      return false
+    }
   }
 
   function clearForm() {
