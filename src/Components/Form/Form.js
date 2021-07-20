@@ -79,6 +79,9 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
     setSelectedContact('');
   }
 
+  // function handleEnter(e) {
+  //   if(e.key === 'Enter')
+  // }
   function openModal() {
     setModalIsOpen(true);
   }
@@ -105,6 +108,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
           onChange={event => setQuery(event.target.value)}
           options={{types: ['address']}}
           placeholder='Starting address'
+          onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
           className='location-input start-point'
           required
       />
@@ -113,6 +117,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
           onChange={event => setQuery(event.target.value)}
           options={{types: ['address']}}
           placeholder='Final address'
+          onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
           className='location-input end-point'
           required
       />
