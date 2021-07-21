@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import { gql, useMutation } from '@apollo/client';
+import Popup from "react-popup";
 
 const CREATE_CONTACT = gql`
  mutation CreateContact($firstName: String!, $lastName: String!, $phoneNumber: String!){
@@ -39,6 +40,7 @@ function AddContact({ user }) {
     let number = `+${countryCode}${areaCode}${phoneNumber}`;
     createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: number}});
     clearForm();
+    Popup.alert('Contact information has been added!')
   }
 
   function checkPhoneNum() {
