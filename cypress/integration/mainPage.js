@@ -1,18 +1,13 @@
 import { aliasQuery, aliasMutation } from '../utils/graphql-test-utils';
-// Cypress.env('host');
-// Cypress.env('api_server');
 
 describe('Main View', () => {
 
 beforeEach(() => {
-  // Cypress.env('host');
-  // Cypress.env('api_server');
-  // cy.request(Cypress.env('https://walk-safe-backend-staging.herokuapp.com/'));
+
     cy.intercept('POST', 'https://walk-safe-backend.herokuapp.com/', (req) => {
-      // Queries
+
       aliasQuery(req, 'GetUser')
 
-      // Mutations
       aliasMutation(req, 'CreateTrip')
     })
   })
