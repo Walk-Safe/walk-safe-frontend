@@ -3,6 +3,7 @@ import ReactModal from 'react-modal';
 import { NavLink } from 'react-router-dom';
 import TripStartMessage from '../TripStartMessage/TripStartMessage'
 import etaModalStyles from './jsxStyles/etaModalStyles';
+import EtaModalWidthMediaQuery from './jsxStyles/etaModalMediaQueries';
 
 ReactModal.setAppElement('#root');
 
@@ -13,6 +14,8 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
   const [etaSecs, setEtaSecs] = useState(0);
   const [etaString, setEtaString] = useState('');
   const [loading, setLoading] = useState(true);
+  const [width, setWidth]   = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
 
   useEffect(() => {
     if (eta) {
@@ -24,6 +27,17 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
     buildEtaString();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [etaHrs, etaMins, etaSecs]);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+    EtaModalWidthMediaQuery(width);
+  }
 
   function reduceEta(etaNum) {
     if (etaNum > 60) {
@@ -71,6 +85,7 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
       style={etaModalStyles}
+      width={EtaModalWidthMediaQuery(width)}
       contentLabel='trip ETA modal'
       preventScroll={true}
       shouldCloseOnOverlayClick={false}
