@@ -7,6 +7,7 @@ html,
 body,
 #root {
   height: 100%;
+  background-color: #ACFACA
 }
 
 .App {
@@ -82,12 +83,13 @@ body,
   border: 3px solid #395148;
 }
 
-//.mm-popup__box__footer__left-space {
-//  float: left;
-//}
-//
-//.mm-popup__box__footer__left-space .mm-popup__btn {
-//  margin-right: 5px;
-//}
+@media screen and (max-width: 360px) {
+  .app-header {
+    font-size: 1.65em;
+    height: 13%;
+    letter-spacing: 0.25em;
+  }
+
+}
 
 

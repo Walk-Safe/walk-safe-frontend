@@ -25,6 +25,7 @@
 }
 
 @media screen and (max-width: 930px) {
+
   .trip-container {
     width: 50%;
     height: 100%;
@@ -70,3 +71,29 @@
     background-color: rgb(252, 230, 160);
   }
 }
+
+@media screen and (max-width: 360px) {
+  //.app-header {
+  //  font-size: 1em;
+  //  letter-spacing: 0.25em;
+  //}
+
+  .welcome-msg {
+    font-size: 1.5em;
+  }
+
+    .trip-container {
+      margin-top: 0.3em
+    }
+
+    .timers-container {
+      height: 86%;
+    }
+
+  .end-walk-btn {
+    margin-top: 1.1em;
+    width: 100%;
+    height: 73%;
+    font-size: 1.2rem;
+  }
+  }

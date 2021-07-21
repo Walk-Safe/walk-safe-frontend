@@ -24,12 +24,12 @@ function App() {
 
   return (
     <Router>
+      <Popup />
       <div className='App'>
         <Route exact path='/login'>
           <LoginView />
         </Route>
         <Route exact path='/'>
-          <Popup />
           <MainView
             setTripIsActive={setTripIsActive}
             handleEtaChange={handleEtaChange}
@@ -38,7 +38,6 @@ function App() {
           />
         </Route>
         <Route exact path='/trip'>
-          <Popup />
           <CurrentTrip
             tripIsActive={tripIsActive}
             setTripIsActive={setTripIsActive}
