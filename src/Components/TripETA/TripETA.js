@@ -6,7 +6,7 @@ import etaModalStyles from './jsxStyles/etaModalStyles';
 
 ReactModal.setAppElement('#root');
 
-function TripETA( { modalIsOpen, closeModal, eta, setEta, tripDetails, contact, userName } ) {
+function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName } ) {
 
   const [etaHrs, setEtaHrs] = useState(0);
   const [etaMins, setEtaMins] = useState(0);
@@ -43,7 +43,7 @@ function TripETA( { modalIsOpen, closeModal, eta, setEta, tripDetails, contact, 
     } else if (etaSecs > 0 && etaMins < 1) {
       const seconds = etaMins * 60;
       setEtaString(`${seconds} seconds`);
-    } else if (etaMins === 0 && etaSecs === 0) {
+    } else if (eta && etaMins === 0 && etaSecs === 0) {
       setEtaString('30 seconds');
     } else {
       setEtaString(`${etaMins} minutes`);
@@ -62,6 +62,7 @@ function TripETA( { modalIsOpen, closeModal, eta, setEta, tripDetails, contact, 
       style={etaModalStyles}
       contentLabel='trip ETA modal'
       preventScroll={true}
+      shouldCloseOnOverlayClick={false}
     >
       <div className='eta-modal'>
         {!etaString && <p className='loading'>Loading...</p>}

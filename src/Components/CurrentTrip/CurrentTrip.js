@@ -35,12 +35,16 @@ function CurrentTrip({ user, eta, contact }) {
       setEtaSeconds(eta * 60);
       beginTrip();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [eta]);
+
+  useEffect(() => {
     if (extension.value > 0) {
       setEtaSeconds(extension.value);
       beginTrip();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [eta, extension])
+  }, [extension]);
 
   useEffect(() => {
     if (!hoursActive && !minutesActive && !secondsActive) {

@@ -55,6 +55,7 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
       style={addTimeModalStyles}
       contentLabel='add time modal'
       preventScroll={true}
+      shouldCloseOnOverlayClick={false}
     >
       <div className='add-time-modal'>
         <p className='timeout-message'>
