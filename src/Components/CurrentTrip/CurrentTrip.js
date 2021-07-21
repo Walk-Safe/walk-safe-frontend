@@ -47,7 +47,7 @@ function CurrentTrip({ user, eta, contact }) {
   }, [extension]);
 
   useEffect(() => {
-    if (!hoursActive && !minutesActive && !secondsActive) {
+    if (!tripIsActive && !hoursActive && !minutesActive && !secondsActive) {
       setTripIsActive(false);
       setExtension(0);
       setEtaSeconds(null);
