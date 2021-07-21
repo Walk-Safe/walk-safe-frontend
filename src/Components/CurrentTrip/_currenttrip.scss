@@ -70,3 +70,13 @@
     background-color: rgb(252, 230, 160);
   }
 }
+
+@media screen and (max-width: 360px) {
+  .trip-container {
+    margin-top: 0.3em
+  }
+
+  .timers-container {
+    height:86%;
+  }
+}

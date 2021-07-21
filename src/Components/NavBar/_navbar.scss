@@ -106,6 +106,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 
   .bm-burger-button {
+    position: fixed;
     width: 29px;
     height: 31px;
     top: 2.5em;
