@@ -6,7 +6,7 @@ import etaModalStyles from './jsxStyles/etaModalStyles';
 
 ReactModal.setAppElement('#root');
 
-function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName } ) {
+function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName, setTripIsActive } ) {
 
   const [etaHrs, setEtaHrs] = useState(0);
   const [etaMins, setEtaMins] = useState(0);
@@ -16,7 +16,6 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
 
   useEffect(() => {
     if (eta) {
-      console.log(eta.createTrip.trip.eta);
       reduceEta(eta.createTrip.trip.eta);
     }
   }, [eta]);
@@ -61,8 +60,9 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
     }
   }
 
-  function taskWrapper(){
+  function taskWrapper() {
     closeModal();
+    setTripIsActive(true);
     TripStartMessage(tripDetails, contact, userName);
   }
 
