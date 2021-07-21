@@ -9,16 +9,15 @@ import TripNotCompleteMessage from "../TripNotCompleteMessage/TripNotComplete";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink, Redirect } from 'react-router-dom';
 
-function CurrentTrip({ user, eta, contact }) {
+function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
 
   const [etaSeconds, setEtaSeconds] = useState(null);
-  const [extension, setExtension] = useState(0);
-  const [tripIsActive, setTripIsActive] = useState(true);
+  const [extension, setExtension] = useState({});
   const [tripEnded, setTripEnded] = useState(false);
   const [emergency, setEmergency] = useState(false);
-  const [hoursActive, setHoursActive ] = useState(false)
-  const [minutesActive, setMinutesActive ] = useState(false);
-  const [secondsActive, setSecondsActive ] = useState(false);
+  const [hoursActive, setHoursActive ] = useState(true)
+  const [minutesActive, setMinutesActive ] = useState(true);
+  const [secondsActive, setSecondsActive ] = useState(true);
   const [extensionModalIsOpen, setExtensionModalIsOpen] = useState(false);
   const [alertModalIsOpen, setAlertModalIsOpen] = useState(false);
 
@@ -31,16 +30,20 @@ function CurrentTrip({ user, eta, contact }) {
   const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) || 0;
 
   useEffect(() => {
-    if (eta > 0) {
-      setEtaSeconds(eta * 60);
+    if (eta > 0 && !extension.value) {
       beginTrip();
+      setEtaSeconds(eta * 60);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [eta]);
+
+  useEffect(() => {
     if (extension.value > 0) {
       setEtaSeconds(extension.value);
       beginTrip();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [eta, extension])
+  }, [extension, tripIsActive]);
 
   useEffect(() => {
     if (!hoursActive && !minutesActive && !secondsActive) {
@@ -56,13 +59,6 @@ function CurrentTrip({ user, eta, contact }) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tripIsActive]);
-
-  useEffect(() => {
-    if (!tripIsActive && tripEnded) {
-      // TripCompleteMessage(user,contact)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tripEnded]);
 
   useEffect(() => {
     if (extension.value > 0) {
@@ -91,6 +87,7 @@ function CurrentTrip({ user, eta, contact }) {
     setHoursActive(true);
     setMinutesActive(true);
     setSecondsActive(true);
+    setExtensionModalIsOpen(false);
     setAlertModalIsOpen(false);
   }
 
@@ -193,7 +190,8 @@ function CurrentTrip({ user, eta, contact }) {
         </NavLink>
       </section>
       {extensionModalIsOpen &&
-        <AddTime 
+        <AddTime
+          setTripIsActive={setTripIsActive}
           setExtension={setExtension}
           setEtaSeconds={setEtaSeconds}
           modalIsOpen={extensionModalIsOpen}

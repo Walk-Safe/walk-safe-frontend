@@ -7,9 +7,9 @@ import CurrentTrip from '../CurrentTrip/CurrentTrip';
 import AboutUs from '../AboutUs/AboutUs';
 import Popup from "react-popup";
 
-
 function App() {
 
+  const [tripIsActive, setTripIsActive] = useState(false);
   const [eta, setETA] = useState('');
   const [currentUser, setCurrentUser] = useState('');
   const [currentContact, setCurrentContact] = useState('');
@@ -31,6 +31,7 @@ function App() {
         </Route>
         <Route exact path='/'>
           <MainView
+            setTripIsActive={setTripIsActive}
             handleEtaChange={handleEtaChange}
             setCurrentUser={setCurrentUser}
             setCurrentContact={setCurrentContact}
@@ -38,6 +39,8 @@ function App() {
         </Route>
         <Route exact path='/trip'>
           <CurrentTrip
+            tripIsActive={tripIsActive}
+            setTripIsActive={setTripIsActive}
             eta={eta}
             user={currentUser}
             contact={currentContact}
