@@ -1,7 +1,7 @@
 import { aliasQuery, aliasMutation } from '../utils/graphql-test-utils';
 
 
-describe('Main View', () => {
+describe('Current Trip User Story', () => {
 
 beforeEach(() => {
     cy.intercept('POST', 'https://walk-safe-backend.herokuapp.com/', (req) => {
@@ -12,9 +12,9 @@ beforeEach(() => {
     })
   })
 
-  describe('Should show main view of walk-safe App', () => {
+  describe('Should be able to start a new trip', () => {
 
-    it('Should be able to type into the search input and see that value in the start point input', () => {
+    it('Should be able to complete form and start a new trip', () => {
       cy.visit('http://localhost:3000/')
       cy.get('.start-point').type('2343 Quitman St Denver')
           .wait(200)
@@ -37,6 +37,17 @@ beforeEach(() => {
             .click()
           .get('.begin-trip-btn')
             .click()
+    })
+
+    it('Should be able to see a countdown timer once the trip has started', () => {
+      cy.get('.timer-wrapper').eq(0)
+        .contains('hours')
+        .get('.timer-wrapper').eq(1)
+          .contains('minutes')
+        .get('.timer-wrapper').eq(2)
+          .contains('seconds')
+        .get('.end-walk-btn')
+          .contains('END TRIP')
     })
   })
 })
