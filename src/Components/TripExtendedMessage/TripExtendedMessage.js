@@ -19,11 +19,9 @@ export function TripExtendedMessage(user, extension, contact) {
     })
         .then(response => {
           if(response.status === 201) {
-            console.log(response.status)
             Popup.alert(`Trip extended notification successfully sent to ${contact.value}!`)
             return response.text();
           } else {
-            console.log("API ERROR")
             Popup.alert(`Trip extended notification to your contact was unsuccessful, please contact ${contact.value}.`)
           }
         })
