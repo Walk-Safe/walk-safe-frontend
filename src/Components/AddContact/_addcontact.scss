@@ -64,3 +64,12 @@ h2, h3 {
 .phone-number {
   display: flex;
 }
+
+
+@media screen and (max-width: 360px) {
+
+  .contact-form {
+    height: 60%;
+    width: 80%;
+  }
+}
