@@ -10,6 +10,7 @@ function NavBar({ nameToggle, user }) {
     if (nameToggle) {
       setDisplayName(nameToggle);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

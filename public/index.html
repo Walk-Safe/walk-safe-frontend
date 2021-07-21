@@ -21,6 +21,10 @@
       type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxwntV6ATE5J6P2XobNF597RegYrTQex4&libraries=places"
     ></script>
+    <script>
+      // See https://github.com/facebook/react/issues/20829#issuecomment-802088260
+      if (!crossOriginIsolated) SharedArrayBuffer = ArrayBuffer;
+    </script>
     <title></title>
   </head>
   <body>

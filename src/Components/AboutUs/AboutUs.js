@@ -34,11 +34,16 @@ function AboutUs({ user }) {
     const feCards = devNames.map(dev => {
       if (devNames.indexOf(dev) < 3) {
         return buildDevCard(dev);
+      } else {
+        return undefined;
       }
     });
     const beCards = devNames.map(dev => {
-      if (devNames.indexOf(dev) > 2)
-      return buildDevCard(dev);
+      if (devNames.indexOf(dev) > 2) {
+        return buildDevCard(dev);
+      } else {
+        return undefined;
+      }
     });
     setFEDevCards(feCards);
     setBEDevCards(beCards);
