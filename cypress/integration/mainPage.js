@@ -15,8 +15,8 @@ beforeEach(() => {
   describe('Should show main view of walk-safe App', () => {
 
   it('Should be able to visit the main page', () => {
-    cy.visit('http://localhost:3000/')
-    cy.url().should('eq', 'http://localhost:3000/')
+    cy.visit('https://walk-safe-frontend.herokuapp.com/')
+    cy.url().should('eq', 'https://walk-safe-frontend.herokuapp.com/')
   });
 
   it('Should display title on main page view', () => {
@@ -91,7 +91,7 @@ beforeEach(() => {
   describe('Should be able to submit a trip', () => {
 
     it('Should be able to type into the search input and see that value in the start point input', () => {
-      cy.visit('http://localhost:3000/')
+      cy.visit('https://walk-safe-frontend.herokuapp.com/')
       cy.get('.start-point').type('6245 Garrison')
           .wait(200)
           .type('{downarrow}')
@@ -119,7 +119,6 @@ beforeEach(() => {
         .get('.eta-message')
           .contains('Your estimated trip time:')
         .get('.eta-message')
-          .contains('26 minutes')
         .get('.begin-trip-btn')
           .contains('BEGIN TRIP')
     })
