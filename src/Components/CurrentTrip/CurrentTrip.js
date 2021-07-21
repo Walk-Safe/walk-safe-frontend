@@ -55,7 +55,7 @@ function CurrentTrip({ user, eta, contact }) {
   }, [hoursActive, minutesActive, secondsActive]);
 
   useEffect(() => {
-    if (!tripIsActive && !tripEnded && !emergency) {
+    if (eta === 0 && !tripIsActive && !tripEnded && !emergency) {
       setExtensionModalIsOpen(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
