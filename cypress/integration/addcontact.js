@@ -51,7 +51,7 @@ beforeEach(() => {
       .get('input[title="countryCode"]').type(1)
       .get('input[title="areaCode"]').type(720)
       .get('input[title="phoneNumber"]').type(1234567)
-      .find('.add-contact-btn').click()
+      .get('.add-contact-btn').click()
     });
 
     it('Shows the new contact when you visit the new trip form', () => {
