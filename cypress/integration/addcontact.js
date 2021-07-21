@@ -13,8 +13,8 @@ beforeEach(() => {
   describe('Should navigate to a AddContact view via hamburger navigation', () => {
 
     it('Should be able to visit the main page', () => {
-      cy.visit('http://localhost:3000/')
-      cy.url().should('eq', 'http://localhost:3000/')
+      cy.visit('https://walk-safe-frontend.herokuapp.com/')
+      cy.url().should('eq', 'https://walk-safe-frontend.herokuapp.com/')
     });
 
     it('Should open AddContact page through the navigation menu', () => {
@@ -51,14 +51,14 @@ beforeEach(() => {
       .get('input[title="countryCode"]').type(1)
       .get('input[title="areaCode"]').type(720)
       .get('input[title="phoneNumber"]').type(1234567)
-      .get('.add-contact-btn').click()
+      .find('.add-contact-btn').click()
     });
 
     it('Shows the new contact when you visit the new trip form', () => {
       cy.get('#react-burger-menu-btn').click()
         .get('.menu-item').eq(0)
           .click()
-        cy.visit('http://localhost:3000/')
+        cy.visit('https://walk-safe-frontend.herokuapp.com/')
         .get('.select-contact').click()
           .contains('CY Test')
     });

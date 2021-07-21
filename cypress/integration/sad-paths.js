@@ -15,7 +15,7 @@ beforeEach(() => {
   describe('Should alert the users contact if their trip time expires', () => {
 
   it('Should display an option to add more time to current ETA once that expires', () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('https://walk-safe-frontend.herokuapp.com/')
     cy.get('.start-point').type('2343 Quitman St Denver')
         .wait(200)
         .type('{downarrow}')

@@ -15,7 +15,7 @@ beforeEach(() => {
   describe('Should be able to start a new trip', () => {
 
     it('Should be able to complete form and start a new trip', () => {
-      cy.visit('http://localhost:3000/')
+      cy.visit('https://walk-safe-frontend.herokuapp.com/')
       cy.get('.start-point').type('2343 Quitman St Denver')
           .wait(200)
           .type('{downarrow}')
