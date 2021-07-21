@@ -71,7 +71,7 @@ function AddContact({ user }) {
 
   return (
     <section className='add-contact'>
-      {user && <NavBar nameToggle='true' user={user.firstName}/>} 
+      {user && <NavBar nameToggle='true' user={user.firstName}/>}
       <Header />
       <form className='contact-form'>
         {valid && <p className='form-error'>Complete Fields With Valid Data</p>}
@@ -112,7 +112,7 @@ function AddContact({ user }) {
            </div>
         {mutationLoading && <p className='loading'>Loading...</p>}
         {mutationError && <p>Error: Please try again</p>}
-        <button onClick={addContact}>ADD CONTACT</button>
+        <button className='add-contact-btn' onClick={addContact}>ADD CONTACT</button>
       </form>
     </section>
   )
