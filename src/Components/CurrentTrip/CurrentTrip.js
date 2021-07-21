@@ -7,7 +7,7 @@ import TripCompleteMessage from '../TripCompleteMessage/TripCompleteMessage';
 import TripExtendedMessage from "../TripExtendedMessage/TripExtendedMessage";
 import TripNotCompleteMessage from "../TripNotCompleteMessage/TripNotComplete";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 
 function CurrentTrip({ user, eta, contact }) {
 
@@ -16,11 +16,11 @@ function CurrentTrip({ user, eta, contact }) {
   const [tripIsActive, setTripIsActive] = useState(true);
   const [tripEnded, setTripEnded] = useState(false);
   const [emergency, setEmergency] = useState(false);
-  const [hoursActive, setHoursActive ] = useState(true)
-  const [minutesActive, setMinutesActive ] = useState(true);
-  const [secondsActive, setSecondsActive ] = useState(true);
-  const [etaModalIsOpen, setEtaModalIsOpen] = useState(false);
-  const [alertModalIsOpen, setAlertModalIsOpen] = useState(true);
+  const [hoursActive, setHoursActive ] = useState(false)
+  const [minutesActive, setMinutesActive ] = useState(false);
+  const [secondsActive, setSecondsActive ] = useState(false);
+  const [extensionModalIsOpen, setExtensionModalIsOpen] = useState(false);
+  const [alertModalIsOpen, setAlertModalIsOpen] = useState(false);
 
   const minuteSeconds = 60;
   const hourSeconds = 3600;
@@ -33,55 +33,76 @@ function CurrentTrip({ user, eta, contact }) {
   useEffect(() => {
     if (eta > 0) {
       setEtaSeconds(eta * 60);
+      beginTrip();
     }
-    if (extension > 0) {
-      setEtaSeconds(extension);
+    if (extension.value > 0) {
+      setEtaSeconds(extension.value);
+      beginTrip();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [eta]);
-
-  useEffect(() => {
-    if (extension > 0) {
-      setEtaSeconds(extension);
-      TripExtendedMessage(user, extension, contact)
-    }
-  }, [extension])
+  }, [eta, extension])
 
   useEffect(() => {
     if (!hoursActive && !minutesActive && !secondsActive) {
       setTripIsActive(false);
-    }
+      setExtension(0);
+      setEtaSeconds(null);
+    };
   }, [hoursActive, minutesActive, secondsActive]);
 
   useEffect(() => {
-    if (!tripIsActive && tripEnded) {
-    }
-    // TripCompleteMessage(user,contact)
-  }, [tripEnded]);
-
-  useEffect(() => {
-    if (!tripIsActive && !tripEnded) {
-      setEtaModalIsOpen(true);
+    if (!tripIsActive && !tripEnded && !emergency) {
+      setExtensionModalIsOpen(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tripIsActive]);
 
   useEffect(() => {
+    if (!tripIsActive && tripEnded) {
+      // TripCompleteMessage(user,contact)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tripEnded]);
+
+  useEffect(() => {
+    if (extension.value > 0) {
+      setEtaSeconds(extension.value);
+      TripExtendedMessage(user, extension, contact)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [extension])
+
+  useEffect(() => {
     if (emergency) {
       setAlertModalIsOpen(true);
-     TripNotCompleteMessage(user, contact)
+      setExtensionModalIsOpen(false);
+      setEtaSeconds(null);
+      setExtension(0);
+      setTripEnded(true);
+      TripNotCompleteMessage(user, contact)
     }
-  }, [emergency])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [emergency]);
+
+  function beginTrip() {
+    setTripIsActive(true);
+    setTripEnded(false);
+    setEmergency(false);
+    setHoursActive(true);
+    setMinutesActive(true);
+    setSecondsActive(true);
+    setAlertModalIsOpen(false);
+  }
 
   function endTrip() {
     setTripEnded(true);
     setTripIsActive(false);
-    setEtaModalIsOpen(false);
+    setExtensionModalIsOpen(false);
     TripCompleteMessage(contact, user)
   }
 
-  function closeEtaModal() {
-    setEtaModalIsOpen(false);
+  function closeExtensionModal() {
+    setExtensionModalIsOpen(false);
   }
 
   function closeAlertModal() {
@@ -103,7 +124,11 @@ function CurrentTrip({ user, eta, contact }) {
     )
   }
 
-  if (!etaSeconds) {
+  if (!emergency && tripEnded) {
+    return <Redirect to='/'/>;
+  }
+
+  if (!emergency && !tripIsActive && !tripEnded && extension.value === 0) {
     return <p className='loading'>Loading...</p>;
   }
 
@@ -167,12 +192,12 @@ function CurrentTrip({ user, eta, contact }) {
           </button>
         </NavLink>
       </section>
-      {!tripIsActive &&
+      {extensionModalIsOpen &&
         <AddTime 
           setExtension={setExtension}
           setEtaSeconds={setEtaSeconds}
-          modalIsOpen={etaModalIsOpen} 
-          closeModal={closeEtaModal}
+          modalIsOpen={extensionModalIsOpen}
+          closeModal={closeExtensionModal}
           setEmergency={setEmergency}
           contactInfo={contact}
           userInfo={user}

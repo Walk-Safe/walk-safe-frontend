@@ -6,10 +6,11 @@ import etaModalStyles from './jsxStyles/etaModalStyles';
 
 ReactModal.setAppElement('#root');
 
-function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName } ) {
+function TripETA( { modalIsOpen, closeModal, eta, setEta, tripDetails, contact, userName } ) {
 
   const [etaHrs, setEtaHrs] = useState(0);
   const [etaMins, setEtaMins] = useState(0);
+  const [etaSecs, setEtaSecs] = useState(0);
   const [etaString, setEtaString] = useState('');
 
   useEffect(() => {
@@ -19,16 +20,16 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
   }, [eta]);
 
   useEffect(() => {
-    if (etaMins) {
-      buildEtaString();
-    }
+    buildEtaString();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [etaMins]);
+  }, [etaHrs, etaMins, etaSecs]);
 
   function reduceEta(etaNum) {
     if (etaNum > 60) {
       setEtaHrs((etaNum / 60) - etaNum % 60);
       setEtaMins(etaNum % 60);
+    } else if (etaNum < 1) {
+      setEtaSecs(etaNum * 60);
     } else {
       setEtaMins(etaNum);
     }
@@ -39,6 +40,11 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
       setEtaString(`${etaHrs} hours and ${etaMins} minutes`);
     } else if (etaHrs === 1) {
       setEtaString(`${etaHrs} hour and ${etaMins} minutes`);
+    } else if (etaSecs > 0 && etaMins < 1) {
+      const seconds = etaMins * 60;
+      setEtaString(`${seconds} seconds`);
+    } else if (etaMins === 0 && etaSecs === 0) {
+      setEtaString('30 seconds');
     } else {
       setEtaString(`${etaMins} minutes`);
     }
@@ -47,10 +53,6 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
   function taskWrapper(){
     closeModal();
     TripStartMessage(tripDetails, contact, userName);
-  }
-
-  if (!eta) {
-    return <></>;
   }
 
   return (
@@ -66,7 +68,7 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
         {etaString &&
           <>
             <p className='eta-message'>
-              <span>Your ETA for this trip:</span>
+              <span>Your estimated trip time:</span>
               <span>{etaString}</span>
             </p>
             <NavLink exact to='/trip'>

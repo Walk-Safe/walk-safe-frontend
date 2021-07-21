@@ -15,7 +15,11 @@ function App() {
   const [currentContact, setCurrentContact] = useState('');
 
   const handleEtaChange = (time) => {
-    setETA(time);
+    if (time > 0) {
+      setETA(time);
+    } else {
+      setETA(0.5);
+    }
   }
 
   return (
