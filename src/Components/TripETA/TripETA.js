@@ -26,7 +26,7 @@ function TripETA( { modalIsOpen, closeModal, eta, setEta, tripDetails, contact, 
 
   function reduceEta(etaNum) {
     if (etaNum > 60) {
-      setEtaHrs((etaNum / 60) - etaNum % 60);
+      setEtaHrs(Math.floor(etaNum / 60));
       setEtaMins(etaNum % 60);
     } else if (etaNum < 1) {
       setEtaSecs(etaNum * 60);
