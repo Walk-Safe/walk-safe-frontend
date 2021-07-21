@@ -20,7 +20,7 @@ const CREATE_TRIP = gql `
 }
 `
 
-function Form({ contacts, handleEtaChange, userInfo, setContact }) {
+function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive }) {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [valid, setValidCheck] = useState(false);
@@ -132,7 +132,18 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
-      {modalIsOpen && <TripETA modalIsOpen={modalIsOpen} eta={data} setEta={handleEtaChange} tripDetails={data} contact={selectedContact} userName={userInfo} closeModal={closeModal}  />}
+      {modalIsOpen && 
+        <TripETA 
+          modalIsOpen={modalIsOpen} 
+          eta={data} 
+          setEta={handleEtaChange} 
+          tripDetails={data} 
+          contact={selectedContact} 
+          userName={userInfo} 
+          closeModal={closeModal}
+          setTripIsActive={setTripIsActive}
+        />
+      }
       {mutationLoading && <p className='loading'>Loading...</p>}
     </form>
   )
