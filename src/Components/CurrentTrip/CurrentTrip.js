@@ -8,6 +8,7 @@ import TripExtendedMessage from "../TripExtendedMessage/TripExtendedMessage";
 import TripNotCompleteMessage from "../TripNotCompleteMessage/TripNotComplete";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink, Redirect } from 'react-router-dom';
+import TimerMediaQuery from './mediaQueries';
 
 function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
 
@@ -20,6 +21,8 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
   const [secondsActive, setSecondsActive ] = useState(true);
   const [extensionModalIsOpen, setExtensionModalIsOpen] = useState(false);
   const [alertModalIsOpen, setAlertModalIsOpen] = useState(false);
+  const [width, setWidth]   = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
 
   const minuteSeconds = 60;
   const hourSeconds = 3600;
@@ -79,6 +82,17 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [emergency]);
+  
+  useEffect(() => {
+      window.addEventListener("resize", updateDimensions);
+      return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+    TimerMediaQuery(width);
+  }
 
   function beginTrip() {
     setTripIsActive(true);
@@ -106,12 +120,6 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
     setAlertModalIsOpen(false);
   }
 
-  const timerProps = {
-    isPlaying: true,
-    size: 180,
-    strokeWidth: 6,
-  };
-
   const renderTime = (unit, time) => {
     return (
       <div className='timer-wrapper'>
@@ -138,8 +146,10 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
         {etaSeconds && 
           <article className='timers-container'>
             <CountdownCircleTimer
-              {...timerProps}
+              isPlaying={true}
+              strokeWidth={6}
               className={'timer hours-timer'}
+              size={TimerMediaQuery(width)}
               colors={[["#4687FA"]]}
               duration={daySeconds}
               initialRemainingTime={etaSeconds % daySeconds}
@@ -151,8 +161,10 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
               {({ elapsedTime }) => renderTime('hours', getTimeHours(daySeconds - elapsedTime))}
             </CountdownCircleTimer>
             <CountdownCircleTimer
-              {...timerProps}
+              isPlaying={true}
+              strokeWidth={6}
               className={'timer minutes-timer'}
+              size={TimerMediaQuery(width)}
               colors={[["#FF2727"]]}
               duration={hourSeconds}
               initialRemainingTime={etaSeconds % hourSeconds}
@@ -164,8 +176,10 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
               {({ elapsedTime }) => renderTime('minutes', getTimeMinutes(hourSeconds - elapsedTime))}
             </CountdownCircleTimer>
             <CountdownCircleTimer
-              {...timerProps}
+              isPlaying={true}
+              strokeWidth={6}
               className={'timer seconds-timer'}
+              size={TimerMediaQuery(width)}
               colors={[
                 ['#FEBA17', 0.25],
                 ['#E3FD23', 0.25],
