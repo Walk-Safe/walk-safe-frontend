@@ -91,6 +91,7 @@ function CurrentTrip({ user, eta, contact }) {
     setHoursActive(true);
     setMinutesActive(true);
     setSecondsActive(true);
+    setExtensionModalIsOpen(false);
     setAlertModalIsOpen(false);
   }
 
