@@ -82,8 +82,12 @@ body,
   border: 3px solid #395148;
 }
 
-@media screen and (max-width: 600px) {
-
+@media screen and (max-width: 360px) {
+  .app-header {
+    font-size: 1.65em;
+    height: 13%;
+    letter-spacing: 0.25em;
+  }
 
 }
 
