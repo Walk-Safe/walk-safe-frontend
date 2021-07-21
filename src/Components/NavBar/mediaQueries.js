@@ -1,6 +1,6 @@
 export default function DropdownWidthMediaQuery(width) {
   if (width < 360) {
-    return '70%';
+    return '80%';
   } else {
     return '20%';
   }
