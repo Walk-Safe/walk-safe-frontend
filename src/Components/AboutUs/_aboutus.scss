@@ -94,3 +94,13 @@
   letter-spacing: 0.1em;
 }
 
+@media screen and (max-width: 360px) {
+  .bio-text {
+    font-size: .7em;
+    padding-top: 1.5em;
+  }
+
+  .team-grid {
+  width: 88%;
+}
+}
