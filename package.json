@@ -13,10 +13,10 @@
     "google-maps-react": "^2.0.6",
     "graphql": "^15.5.1",
     "node-sass": "^6.0.1",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "react": "^17.0.2",
     "react-burger-menu": "^3.0.6",
     "react-countdown-circle-timer": "^2.5.3",
+    "react-dom": "^17.0.2",
     "react-google-autocomplete": "^2.4.0",
     "react-google-maps": "^9.4.5",
     "react-google-places-autocomplete": "^3.3.1",
@@ -56,7 +56,7 @@
     ]
   },
   "devDependencies": {
-    "@ubilabs/google-maps-react-hooks": "^1.4.9",
+    "@ubilabs/google-maps-react-hooks": "^1.5.0",
     "cypress": "^7.7.0",
     "start-server-and-test": "^1.12.6"
   }
