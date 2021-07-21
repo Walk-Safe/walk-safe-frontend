@@ -61,7 +61,6 @@
   background-color: rgb(83, 150, 196);
   border: 1px solid rgba(63, 51, 51, 0.616);
   border-radius: 5px;
-  width: 100%;
 
   &:active {
     color: rgb(255, 255, 255);
@@ -77,4 +76,35 @@
   border: 1px solid rgba(158, 136, 136, 0.616);
   border-radius: 5px;
   width: 45%;
+}
+
+@media screen and (max-width: 360px) {
+
+  .timeout-message {
+    font-size: 1.3rem;
+
+    span:nth-of-type(1n) {
+      font-size: 0.8em;
+      margin: 0.3em;
+    }
+
+    span:nth-of-type(2n) {
+      font-size: .75em;
+    }
+  }
+
+  .warning-message {
+    font-size: 1vw;
+  }
+
+  .extend-time {
+    font-size: .4em;
+    letter-spacing: 0;
+  }
+
+  .end-trip-btn {
+    font-size: 1em;
+    letter-spacing: 0;
+  }
+
 }
