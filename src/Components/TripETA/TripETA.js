@@ -6,11 +6,13 @@ import etaModalStyles from './jsxStyles/etaModalStyles';
 
 ReactModal.setAppElement('#root');
 
-function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName } ) {
+function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName, setTripIsActive } ) {
 
   const [etaHrs, setEtaHrs] = useState(0);
   const [etaMins, setEtaMins] = useState(0);
+  const [etaSecs, setEtaSecs] = useState(0);
   const [etaString, setEtaString] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (eta) {
@@ -19,18 +21,20 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
   }, [eta]);
 
   useEffect(() => {
-    if (etaMins) {
-      buildEtaString();
-    }
+    buildEtaString();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [etaMins]);
+  }, [etaHrs, etaMins, etaSecs]);
 
   function reduceEta(etaNum) {
     if (etaNum > 60) {
-      setEtaHrs((etaNum / 60) - etaNum % 60);
+      setEtaHrs(Math.floor(etaNum / 60));
       setEtaMins(etaNum % 60);
-    } else {
+    } else if (etaNum > 0 && etaNum < 1) {
+      setEtaSecs(etaNum * 60);
+    } else if (etaNum >= 1 && etaNum < 60) {
       setEtaMins(etaNum);
+    } else {
+      setEtaMins(0.5);
     }
   }
 
@@ -38,19 +42,28 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
     if (etaHrs > 1) {
       setEtaString(`${etaHrs} hours and ${etaMins} minutes`);
     } else if (etaHrs === 1) {
-      setEtaString(`${etaHrs} hour and ${etaMins} minutes`);
-    } else {
+      setEtaString(`1 hour and ${etaMins} minutes`);
+    } else if (etaSecs > 0 && etaMins < 1) {
+      const seconds = etaMins * 60;
+      setEtaString(`${seconds} seconds`);
+    } else if (etaMins >= 1 && etaMins < 60) {
       setEtaString(`${etaMins} minutes`);
+    } else {
+      setEtaString('30 seconds');
+    }
+    determineLoading();
+  }
+
+  function determineLoading() {
+    if (etaHrs > 0 || etaMins > 0 || etaSecs > 0) {
+      setLoading(false);
     }
   }
 
-  function taskWrapper(){
+  function taskWrapper() {
     closeModal();
+    setTripIsActive(true);
     TripStartMessage(tripDetails, contact, userName);
-  }
-
-  if (!eta) {
-    return <></>;
   }
 
   return (
@@ -60,22 +73,25 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
       style={etaModalStyles}
       contentLabel='trip ETA modal'
       preventScroll={true}
+      shouldCloseOnOverlayClick={false}
     >
-      <div className='eta-modal'>
-        {!etaString && <p className='loading'>Loading...</p>}
-        {etaString &&
-          <>
-            <p className='eta-message'>
-              <span>Your ETA for this trip:</span>
-              <span>{etaString}</span>
-            </p>
-            <NavLink exact to='/trip'>
-              <button onClick={taskWrapper} className='begin-trip-btn'>BEGIN TRIP</button>
-            </NavLink>
-          </>
-          }
+      {loading && 
+        <div className='eta-modal'>
+          <p className='loading'>Loading...</p>
         </div>
-      </ReactModal>
+      }
+      {!loading && 
+        <div className='eta-modal'>
+          <p className='eta-message'>
+            <span>Your estimated trip time:</span>
+            <span>{etaString}</span>
+          </p>
+          <NavLink exact to='/trip'>
+            <button onClick={taskWrapper} className='begin-trip-btn'>BEGIN TRIP</button>
+          </NavLink>
+        </div>
+      }
+    </ReactModal>
   )
 }
 

@@ -28,10 +28,10 @@ function AddContact({ user }) {
 
   function addContact(e) {
     e.preventDefault();
-    if(!firstName || !lastName || !countryCode || !areaCode || !phoneNumber){
+    if (!firstName || !lastName || !countryCode || !areaCode || !phoneNumber){
       return setValidCheck(true);
     }
-    if(checkPhoneNum()){
+    if (checkPhoneNum()){
       return
     }
     setValidCheck(false);
@@ -42,18 +42,18 @@ function AddContact({ user }) {
   }
 
   function checkPhoneNum() {
-    if(countryCode.length === 0){
-      setPhoneVerify(true)
-      return true
-    } else if(areaCode.length !== 3){
-      setPhoneVerify(true)
-      return true
-    } else if(phoneNumber.length !== 7){
-      setPhoneVerify(true)
-      return true
+    if (countryCode.length === 0) {
+      setPhoneVerify(true);
+      return true;
+    } else if(areaCode.length !== 3) {
+      setPhoneVerify(true);
+      return true;
+    } else if(phoneNumber.length !== 7) {
+      setPhoneVerify(true);
+      return true;
     } else {
-      setPhoneVerify(false)
-      return false
+      setPhoneVerify(false);
+      return false;
     }
   }
 

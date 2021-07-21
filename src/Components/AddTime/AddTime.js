@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import ReactModal from 'react-modal';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
@@ -13,20 +13,24 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
 
   const [selectedTime, setSelectedTime] = useState('');
 
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   function handleExpiration() {
     setEmergency(true);
   }
 
-  function handleExtension(timeAmt) {
-    setSelectedTime(timeAmt);
-    setExtension(timeAmt);
+  function handleExtension(selection) {
+    setSelectedTime(selection.value);
+    setExtension(selection);
     setEtaSeconds(null);
     closeModal();
   }
 
   function handleEndTrip() {
-    TripCompleteMessage(contactInfo,userInfo)
-    closeModal()
+    TripCompleteMessage(contactInfo,userInfo);
+    closeModal();
   }
 
   const timerProps = {
@@ -51,6 +55,7 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
       style={addTimeModalStyles}
       contentLabel='add time modal'
       preventScroll={true}
+      shouldCloseOnOverlayClick={false}
     >
       <div className='add-time-modal'>
         <p className='timeout-message'>
@@ -85,7 +90,7 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
             value={selectedTime}
             defaultValue={selectedTime}
             onChange={selectedTime => {
-              handleExtension(selectedTime.value)
+              handleExtension(selectedTime)
             }}
             options={extendedTimeOptions}
           />

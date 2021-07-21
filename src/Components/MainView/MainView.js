@@ -19,7 +19,7 @@ query GetUser {
 }
 `
 
-function MainView({ setCurrentUser, setCurrentContact, handleEtaChange }) {
+function MainView({ setCurrentUser, setCurrentContact, handleEtaChange, setTripIsActive }) {
  const { loading, error, data } = useQuery(GET_USER);
 
  useEffect(() => {
@@ -41,6 +41,7 @@ function MainView({ setCurrentUser, setCurrentContact, handleEtaChange }) {
         userInfo={data.oneUser}
         handleEtaChange={handleEtaChange}
         setContact={setCurrentContact}
+        setTripIsActive={setTripIsActive}
       />}
     </main>
   )
