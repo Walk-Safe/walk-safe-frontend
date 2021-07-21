@@ -5,6 +5,8 @@ import MainView from '../MainView/MainView';
 import AddContact from '../AddContact/AddContact';
 import CurrentTrip from '../CurrentTrip/CurrentTrip';
 import AboutUs from '../AboutUs/AboutUs';
+import Popup from "react-popup";
+
 
 function App() {
 
@@ -27,6 +29,7 @@ function App() {
           <LoginView />
         </Route>
         <Route exact path='/'>
+          <Popup />
           <MainView
             handleEtaChange={handleEtaChange}
             setCurrentUser={setCurrentUser}
@@ -34,6 +37,7 @@ function App() {
           />
         </Route>
         <Route exact path='/trip'>
+          <Popup />
           <CurrentTrip
             eta={eta}
             user={currentUser}

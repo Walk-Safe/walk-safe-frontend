@@ -67,16 +67,16 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
     setValidCheck(false);
     openModal();
     createTrip( {variables: {"startPoint": startPoint, "endPoint": endPoint, "travelMode": travelMode.value}}).catch(err => console.log(err));
-    clearForm();
+    // clearForm();
   }
 
-  function clearForm() {
-    setEndPoint('');
-    setStartPoint('');
-    setQuery('');
-    setTravelMode('');
-    setSelectedContact('');
-  }
+  // function clearForm() {
+  //   setEndPoint('');
+  //   setStartPoint('');
+  //   setQuery('');
+  //   setTravelMode('');
+  //   setSelectedContact('');
+  // }
 
   function openModal() {
     setModalIsOpen(true);
