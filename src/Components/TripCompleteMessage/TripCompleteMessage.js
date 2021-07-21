@@ -1,8 +1,8 @@
+import Popup from "react-popup";
 
 export function TripCompleteMessage(contact, user) {
 
   const sendSms = () => {
-    console.log(contact, user)
     let smsObj = {
       mobile_number: `${contact.phone}`,
       message: `${user.firstName} has confirmed their trip is completed. Thank you!`,
@@ -16,8 +16,14 @@ export function TripCompleteMessage(contact, user) {
       },
       body: JSON.stringify(smsObj)
     })
-        .then(result => result.text())
-        .then(resp => console.log(resp))
+        .then(response => {
+          if(response.status === 201) {
+            Popup.alert(`Trip complete notification successfully sent to ${contact.value}! Thank you for using Walk Safe!`)
+            return response.text();
+          } else {
+            Popup.alert(`Trip complete notification to your contact was unsuccessful, please contact ${contact.value}.`)
+          }
+        })
   }
 
   return(

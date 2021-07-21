@@ -1,3 +1,4 @@
+import Popup from "react-popup";
 
 export function TripExtendedMessage(user, extension, contact) {
 
@@ -16,8 +17,16 @@ export function TripExtendedMessage(user, extension, contact) {
       },
       body: JSON.stringify(smsObj)
     })
-        .then(result => result.text())
-        .then(resp => console.log(resp))
+        .then(response => {
+          if(response.status === 201) {
+            console.log(response.status)
+            Popup.alert(`Trip extended notification successfully sent to ${contact.value}!`)
+            return response.text();
+          } else {
+            console.log("API ERROR")
+            Popup.alert(`Trip extended notification to your contact was unsuccessful, please contact ${contact.value}.`)
+          }
+        })
   }
 
   return(
