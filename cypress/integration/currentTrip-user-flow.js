@@ -49,5 +49,11 @@ beforeEach(() => {
         .get('.end-walk-btn')
           .contains('END TRIP')
     })
+
+    it('Can end the trip when the End Trip button is selected', () => {
+        cy.get('.end-walk-btn')
+          .click()
+          .get('.trip-form').should('be.visible')
+    })
   })
 })
