@@ -19,11 +19,9 @@ function TripNotCompleteMessage(user, contact) {
     })
         .then(response => {
           if(response.status === 201) {
-            console.log(response.status)
             Popup.alert(`${contact.value} has been notified you did not complete your trip. Please contact them.`)
             return response.text();
           } else {
-            console.log("API ERROR")
             Popup.alert(`Trip not complete notification to your contact was unsuccessful, please contact ${contact.value}.`)
           }
         })
