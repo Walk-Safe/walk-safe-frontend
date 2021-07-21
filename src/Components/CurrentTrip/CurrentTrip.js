@@ -31,9 +31,9 @@ function CurrentTrip({ user, eta, contact }) {
   const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) || 0;
 
   useEffect(() => {
+    beginTrip();
     if (eta > 0) {
       setEtaSeconds(eta * 60);
-      beginTrip();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [eta]);
