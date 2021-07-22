@@ -77,6 +77,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
       setExtensionModalIsOpen(false);
       setEtaSeconds(null);
       setExtension(0);
+      // THIS IS CAUSING THE CONSOLE 'MEMORY LEAK' ERROR
       setTripEnded(true);
       TripNotCompleteMessage(user, contact)
     }
