@@ -48,7 +48,7 @@ function Alert({ setEmergency, modalIsOpen, closeModal }) {
             {...timerProps}
             className={'timer alert-timer'}
             colors={[['#000000', 1]]}
-            duration={10}
+            duration={20}
             onComplete={handleModalClose}
           >
           </CountdownCircleTimer>

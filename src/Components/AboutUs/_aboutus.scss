@@ -10,19 +10,18 @@
 .bio-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
   border: 1px solid black;
-  padding: 1%;
-  width: 80%;
+  padding: 0.5em;
+  width: 85%;
   height: 20%;
 }
 
 .bio-text {
   font-style: $roboto;
   font-size: 1em;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 0.5em;
 }
 
 .team-grid {
@@ -33,7 +32,7 @@
   padding: 3%;
   width: 60%;
   height: 45%;
-  background-color: rgba(162, 212, 247, 0.938);
+  background-color: rgba(142, 219, 250, 0.883);
   box-shadow: $shadow-heavy;
   border-radius: 5px;
 }
@@ -49,7 +48,7 @@
   flex-direction: row;
   justify-content: center;
   text-transform: uppercase;
-  margin: 0.75em auto 0.3em auto;
+  margin: 1em auto 0.3em auto;
   font-family: $tourney;
   font-size: 1.5em;
   font-weight: 700;
@@ -99,27 +98,52 @@
   letter-spacing: 0.1em;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 651px) {
+  .bio-container {
+    height: 30%;
+    padding: 0.5em;
+  }
+
   .bio-text {
-    font-size: .7em;
-    padding-top: 1.5em;
+    font-style: $roboto;
+    font-size: 0.6em;
   }
 
   .team-grid {
-    width: 88%;
+    margin: 1em;
+    padding: 2% auto 1% auto;
+    width: 85%;
+    height: 40%;
+  }
+
+  .row-title {
+    font-size: 1em;
+  }
+
+  .name-link {
+    margin-top: 0.6em;
+  }
+
+  .dev-card {
+    margin: 0.25em;
+    height: 80%;
+    width: 30%;
+  }
+
+  .dev-name {
+    font-size: 0.3em;
   }
 }
 
 @media screen and (max-width: 376px) {
+  .bio-container {
+    height: 27%;
+    padding: 0.5em;
+  }
+
   .bio-text {
     font-style: $roboto;
     font-size: 0.5em;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
-  .bio-container {
-    height: 25%;
   }
 
   .team-grid {
@@ -139,16 +163,12 @@
   }
 
   .dev-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin: 0.5em;
-    padding: 1px;
     height: 70%;
     width: 30%;
-    border: 1px solid black;
   }
+
+
 }
 
 
