@@ -48,17 +48,6 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
     closeModal();
   }
 
-  const customStyles = {
-    control: (base) => ({
-      ...base,
-      height: 20,
-      minHeight: 35,
-      backgroundColor: '#c6fc80bd',
-      paddingLeft: '3px',
-      paddingBottom: '3px'
-    })
-  };
-
   const renderTime = (unit, time) => {
     return (
       <div className='backup-timer'>
@@ -116,7 +105,6 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
               handleExtension(selectedTime)
             }}
             options={extendedTimeOptions}
-            styles={customStyles}
           />
         </section>
       </div>
