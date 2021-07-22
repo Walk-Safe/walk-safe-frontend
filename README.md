@@ -51,22 +51,12 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 <table>
     <tr>
         <td> Caroline Eubanks <a href="https://github.com/cmeubanks">GH</td>
+        <td> Bryan Hohn <a href="https://github.com/bhohnco">GH</td>
+        <td> Peter Muellerleile <a href="https://github.com/pcmueller">GH</td>    
     </tr>
     <tr>
         <td><img src="https://avatars.githubusercontent.com/u/73092355?v=4" alt="C. Eubanks" width="125" height="auto" /></td>
-    </tr>
-
-    <tr>
-        <td> Bryan Hohn <a href="https://github.com/bhohnco">GH</td>
-    </tr>
-    <tr>
         <td><img src="https://avatars.githubusercontent.com/u/71860165?v=4" alt="B. Hohn" width="125" height="auto" /></td>
-    </tr>
-
-    <tr>
-        <td> Peter Muellerleile <a href="https://github.com/pcmueller">GH</td>
-    </tr>
-    <tr>
         <td><img src="https://avatars.githubusercontent.com/u/51062974?v=4" alt="P. Muellerleile" width="125" height="auto" /></td>
     </tr>
 </table>
