@@ -107,7 +107,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
     setTripEnded(true);
     setTripIsActive(false);
     setExtensionModalIsOpen(false);
-    TripCompleteMessage(contact, user)
+    TripCompleteMessage(contact, user);
   }
 
   function closeExtensionModal() {

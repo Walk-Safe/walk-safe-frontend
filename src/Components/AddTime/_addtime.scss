@@ -68,7 +68,13 @@
 }
 
 @media screen and (max-width: 930px) {
+  .timeout-message {
+    font-size: 1.5rem;
+  }
 
+  .warning-message {
+    font-size: 0.75em;
+  }
 }
 
 @media screen and (max-width: 651px) {

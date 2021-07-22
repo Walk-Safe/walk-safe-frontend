@@ -20,17 +20,17 @@ body,
   max-height: 100%;
   background-color: rgba(171, 250, 202, 0.664);
   font-family: $roboto;
-
 }
 
 .mm-popup__box {
-  width: 350px;
+  width: 375px;
   position: fixed;
-  top: 30%;
+  top: 35%;
   left: 50%;
-  margin-left: -175px;
-  background-color: rgba(166, 244, 196, 0.664);
-  box-shadow: 0px 5px 20px 0px rgba(126,137,140,0.20);
+  margin-left: -205px;
+  padding: 1em;
+  background-color: rgba(141, 196, 241, 0.966);
+  box-shadow: $shadow-heavy;
   border-radius: 5px;
   border: 3px solid #395148;
   color: #395148;
@@ -56,11 +56,13 @@ body,
   text-align: center;
   padding: 20px;
   line-height: 1.4;
-  font-size: 20px;
-  color: #395148;
+  font-size: 23px;
+  color: rgb(17, 17, 22);
   //background: rgba(166, 244, 196, 0.664);
   position: relative;
   z-index: 2;
+  white-space: pre-wrap;
+  text-shadow: 0 2px 2px rgb(226, 235, 243);
 }
 
 .mm-popup__box__body p {
@@ -69,7 +71,7 @@ body,
 
 .mm-popup__box__footer {
   overflow: hidden;
-  padding: 0px 20px 20px;
+  padding: 0px 10px 10px;
 }
 
 .mm-popup__box__footer__right-space {
@@ -81,4 +83,9 @@ body,
   height: 40px;
   width: 45px;
   border: 3px solid #395148;
+}
+
+.mm-popup__close {
+  outline: none;
+  border: none;
 }
