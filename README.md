@@ -96,6 +96,7 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 * Application in Use Mobile
 
 ** User Trip Start to Finish
+
 ![](https://user-images.githubusercontent.com/71860165/126676707-62728def-5de4-4d36-b43c-3b278629c8ae.gif)
 
 *** User Alert Countdown Mobile
