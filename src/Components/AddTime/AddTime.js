@@ -23,6 +23,7 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
   useEffect(() => {
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updateDimensions = () => {
@@ -47,9 +48,20 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
     closeModal();
   }
 
+  const customStyles = {
+    control: (base) => ({
+      ...base,
+      height: 20,
+      minHeight: 35,
+      backgroundColor: '#c6fc80bd',
+      paddingLeft: '3px',
+      paddingBottom: '3px'
+    })
+  };
+
   const renderTime = (unit, time) => {
     return (
-      <div className='timer-wrapper'>
+      <div className='backup-timer'>
         <div className='time-amt'>{Math.floor(time)}</div>
         <div className='time-unit'>{unit}</div>
       </div>
@@ -104,6 +116,7 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
               handleExtension(selectedTime)
             }}
             options={extendedTimeOptions}
+            styles={customStyles}
           />
         </section>
       </div>

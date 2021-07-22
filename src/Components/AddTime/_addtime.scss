@@ -22,6 +22,10 @@
   font-size: 1.25vw;
 }
 
+.backup-timer {
+  text-align: center;
+}
+
 .add-time-response {
   display: flex;
   justify-content: space-evenly;
@@ -32,7 +36,6 @@
   // END TRIP button size
   a {
     width: 45%;
-    height: 78%;
   }
 }
 
@@ -56,7 +59,7 @@
   display: flex;
   padding: 0;
   flex-direction: column;
-  background-color: rgba(198, 252, 128, 0.74);
+  background-color: #c6fc80bd;
   font-size: 1vw;
   border: 1px solid rgba(158, 136, 136, 0.616);
   border-radius: 5px;
@@ -112,20 +115,34 @@
 
 @media screen and (max-width: 376px) {
   .timeout-message {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .warning-message {
-    font-size: 1vw;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 0.25em;
+  }
+
+  .backup-timer {
+    font-size: 0.8rem;
+  }
+
+  .add-time-response {
+    height: 30%;
+    justify-content: space-center;
+    padding: 0;
   }
 
   .end-trip-modal-btn {
-    font-size: 1em;
+    height: 3em;
+    font-size: 0.8em;
     letter-spacing: 0;
   }
 
   .extend-time {
-    font-size: .4em;
+    font-size: 0.8em;
     letter-spacing: 0;
+    margin: 0;
   }
 }
