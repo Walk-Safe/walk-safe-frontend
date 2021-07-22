@@ -96,16 +96,13 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 * Application in Use Mobile
 
 ** User Trip Start to Finish
-![Watch the video](https://user-images.githubusercontent.com/71860165/126582985-59801333-2159-440b-b0f0-c139975dad29.mov)
+![](https://user-images.githubusercontent.com/71860165/126676707-62728def-5de4-4d36-b43c-3b278629c8ae.gif)
 
 *** User Alert Countdown Mobile
 
-![Watch the video](https://user-images.githubusercontent.com/71860165/126582893-43874f48-dbc5-4125-bcf4-8b2438fee103.mov)
+![Watch the video](https://user-images.githubusercontent.com/71860165/126676754-a320792f-2a9a-4538-a60c-2dcf11b25e76.gif)
 
 *** User Extend Trip Mobile
 
-![Watch the video](https://user-images.githubusercontent.com/71860165/126582932-8193123a-1fda-4577-b85d-440188ab8606.mov)
+![Watch the video](https://user-images.githubusercontent.com/71860165/126676737-106e3af6-9d6f-4d4c-b9a1-c3a131376f83.gif)
 
-*** User Text Error Fail
-
-![Watch the video](https://user-images.githubusercontent.com/71860165/126584248-523e360b-59a3-469c-a61b-9dd1c989ef17.mov)
