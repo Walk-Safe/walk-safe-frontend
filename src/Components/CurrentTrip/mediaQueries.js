@@ -6,7 +6,7 @@ export default function getMainTimerSize(width) {
     return 130;
   } 
   if (width < 930) {
-    return 180;
+    return 160;
   } 
   if (width < 1025)  {
     return 250;
