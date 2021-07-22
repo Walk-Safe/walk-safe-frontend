@@ -5,7 +5,7 @@
   justify-content: space-evenly;
   height: 45%;
   width: 40%;
-  padding-top: 2em;
+  padding-top: 1em;
   padding-bottom: 1em;
   margin: 4em;
   border-radius: 5px;
@@ -16,7 +16,6 @@
     width: 40%;
     height: 15%;
     padding: 3px;
-    margin: 1.5em auto 0.75em auto;
     border-radius: 5px;
     color: ghostwhite;
     background-color: cornflowerblue;
@@ -44,7 +43,7 @@
   width: 60%;
   height: 8%;
   padding: 5px;
-  margin: 0.5em;
+  margin: 0.25em;
   border-radius: 5px;
   font-size: 1em;
 }
@@ -53,7 +52,7 @@
   display: flex;
   flex-direction: column;
   width: 65%;
-  padding: 0.5em;
+  padding: 5px;
   color: black;
 }
 
@@ -65,13 +64,11 @@
   }
 
   .location-input {
-    height: 6%;
     font-size: 1.25em;
   }
 
   .dropdown {
     width: 65%;
-    padding: 0.5em;
     font-size: 1.25em;
   }
 
@@ -92,25 +89,24 @@
   }
 
   .dropdown {
-    padding: 0.5em;
     font-size: 1.25em;
   }
 }
 
 @media screen and (max-width: 651px) {
   .trip-form {
-    width: 70%;
+    width: 75%;
   }
 
   .location-input {
-    width: 69%;
+    width: 72%;
     height: 7%;
     margin: 0.1em;
     font-size: 1em;
   }
 
   .dropdown {
-    width: 81%;
+    width: 78%;
     padding: 0.2em;
     font-size: .8em;
   }
@@ -137,7 +133,7 @@
   }
 
   .dropdown {
-    width: 75%;
+    width: 74%;
     padding: 0.25em;
     font-size: 0.75em;
   }
@@ -158,15 +154,21 @@
     margin-top: 1.5em;
   }
 
+  .location-input {
+    width: 72%;
+    margin: 0.1em;
+    font-size: 0.75em;
+  }
+
   .dropdown {
-    width: 81%;
-    padding: 0.5em;
+    width: 78%;
     font-size: .7em;
   }
 
   .trip-form button {
     font-size: 1em;
     margin: 0.5em;
-    width: 70%;
+    width: 63%;
+    height: 11%;
   }
 }

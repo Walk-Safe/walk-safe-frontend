@@ -147,6 +147,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
     top: 2.5em;
     right: 2em;
   }
+
+  .menu-item {
+    font-size: 1.75rem;
+  }
 }
 
 @media screen and (max-width: 651px) {

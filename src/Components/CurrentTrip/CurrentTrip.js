@@ -53,6 +53,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
       setExtension(0);
       setEtaSeconds(null);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hoursActive, minutesActive, secondsActive]);
 
   useEffect(() => {
@@ -76,6 +77,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
       setExtensionModalIsOpen(false);
       setEtaSeconds(null);
       setExtension(0);
+      // THIS IS CAUSING THE CONSOLE 'MEMORY LEAK' ERROR
       setTripEnded(true);
       TripNotCompleteMessage(user, contact)
     }
@@ -85,6 +87,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
   useEffect(() => {
       window.addEventListener("resize", updateDimensions);
       return () => window.removeEventListener("resize", updateDimensions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updateDimensions = () => {
@@ -107,7 +110,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
     setTripEnded(true);
     setTripIsActive(false);
     setExtensionModalIsOpen(false);
-    TripCompleteMessage(contact, user)
+    TripCompleteMessage(contact, user);
   }
 
   function closeExtensionModal() {
