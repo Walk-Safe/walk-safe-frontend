@@ -5,7 +5,7 @@ const etaModalStyles = {
     right: 'auto',
     bottom: 'auto',
     height: '40%',
-    width: '45%',
+    minWidth: '50%',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     overflow: 'visible',

@@ -12,10 +12,46 @@
   text-shadow: 1px 1px 3px rgb(53, 38, 38);
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 1025px) {
   .app-header {
-    font-size: 1.65em;
-    height: 13%;
+    font-size: 2.75em;
+    height: 10%;
+    margin-bottom: 1.5em;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .app-header {
+    font-size: 2em;
+    height: 10%;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+}
+
+@media screen and (max-width: 651px) {
+  .app-header {
+    font-size: 1.5em;
+    height: 10%;
     letter-spacing: 0.25em;
+    margin-top: 0em;
+    margin-bottom: 0.5em;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .app-header {
+    font-size: 1.3em;
+    height: 10%;
+    letter-spacing: 0.25em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .app-header {
+    font-size: 1.25em;
+    height: 13%;
   }
 }

@@ -56,9 +56,9 @@ function AboutUs({ user }) {
       <NavBar nameToggle={false} user={user.firstName}/>
       <Header />
       <div className='bio-container'>
-        <p className='bio-text'>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        </p>
+        <p className='bio-text'>{`There's a sense of security one feels as you are walking with friends, family, and even colleagues. The reality of our daily lives doesn't always allow for this luxury, nor does the innate desire for independence. Walk Safe was born from the simple idea of keeping your community close when your journey takes you far.`}</p>
+        <p className='bio-text'>{`The concept may be something you've already engrained in a part of your daily routine: texting a loved one that youve made it home safe. What if, for whatever reason, you weren't able to send that reassuring text?`}</p>
+        <p className='bio-text'>{`That's where the team at Walk Safe has your back. Not only will our technology inform your community of trips, we will keep them updated from start to finish. Every successfully completed trip results in that reassuring text to your loved one. If something goes wrong, our algorithm will take care of alerting your community first. Our custom, curated messages utilizing user geolocation data provides the necessary toolkit to empower individuals to take that solo journey, whatever the distance may be.`}</p>
       </div>
       <section className='team-grid'>
         <h3 className='row-title'>Front End</h3>

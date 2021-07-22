@@ -14,7 +14,7 @@ const addTimeDropdownStyles = {
       justifySelf: 'center',
       fontSize: '1.5em',
       textJustify: 'center',
-      marginLeft: '17%',
+      marginLeft: '4%',
       letterSpacing: '3px',
       color: '#2b2f30'
     }

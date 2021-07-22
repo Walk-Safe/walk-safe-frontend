@@ -9,6 +9,7 @@
 
 .bio-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 70%;
@@ -18,6 +19,8 @@
 .bio-text {
   font-style: $roboto;
   font-size: 1em;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .team-grid {
