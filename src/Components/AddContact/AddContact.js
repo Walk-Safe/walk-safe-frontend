@@ -18,18 +18,19 @@ const CREATE_CONTACT = gql`
 `
 
 function AddContact({ user }) {
-  const [valid, setValidCheck] = useState(false)
-  const [verify, setPhoneVerify] = useState(false)
-  const [firstName, setFirst] = useState('')
-  const [lastName, setLast] = useState('')
-  const [countryCode, setCountry] = useState('')
-  const [areaCode, setArea] = useState('')
-  const [phoneNumber, setPhone] = useState('')
-  const [createContact, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_CONTACT)
+  const [valid, setValidCheck] = useState(false);
+  const [verify, setPhoneVerify] = useState(false);
+  const [firstName, setFirst] = useState('');
+  const [lastName, setLast] = useState('');
+  const [countryCode, setCountry] = useState('');
+  const [areaCode, setArea] = useState('');
+  const [phoneNumber, setPhone] = useState('');
+  // const [createContact, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_CONTACT);
+  const [createContact, { loading: mutationLoading, error: mutationError }] = useMutation(CREATE_CONTACT);
 
   function addContact(e) {
     e.preventDefault();
-    if (!firstName || !lastName || !countryCode || !areaCode || !phoneNumber){
+    if (!firstName || !lastName || !countryCode || !areaCode || !phoneNumber) {
       return setValidCheck(true);
     }
     if (checkPhoneNum()){
@@ -47,10 +48,10 @@ function AddContact({ user }) {
     if (countryCode.length === 0) {
       setPhoneVerify(true);
       return true;
-    } else if(areaCode.length !== 3) {
+    } else if (areaCode.length !== 3) {
       setPhoneVerify(true);
       return true;
-    } else if(phoneNumber.length !== 7) {
+    } else if (phoneNumber.length !== 7) {
       setPhoneVerify(true);
       return true;
     } else {
@@ -67,9 +68,9 @@ function AddContact({ user }) {
     setPhone('');
   }
 
-  function modifyNumberInput(event) {
-    setPhone(toString(event.target.value));
-  }
+  // function modifyNumberInput(event) {
+  //   setPhone(toString(event.target.value));
+  // }
 
   return (
     <section className='add-contact'>

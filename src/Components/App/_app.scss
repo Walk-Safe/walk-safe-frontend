@@ -23,11 +23,13 @@ body,
 }
 
 .mm-popup__box {
-  width: 375px;
+  width: 30%;
+  height: 25%;
   position: fixed;
-  top: 35%;
+  top: 50%;
   left: 50%;
-  margin-left: -205px;
+  transform: translate(-50%, -50%);
+  margin-right: -50%;
   padding: 1em;
   background-color: rgba(141, 196, 241, 0.966);
   box-shadow: $shadow-heavy;
@@ -53,10 +55,10 @@ body,
 }
 
 .mm-popup__box__body {
+  font-size: 1.4rem;
   text-align: center;
   padding: 20px;
   line-height: 1.4;
-  font-size: 23px;
   color: rgb(17, 17, 22);
   //background: rgba(166, 244, 196, 0.664);
   position: relative;

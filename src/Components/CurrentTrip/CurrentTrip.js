@@ -53,6 +53,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
       setExtension(0);
       setEtaSeconds(null);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hoursActive, minutesActive, secondsActive]);
 
   useEffect(() => {
@@ -85,6 +86,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
   useEffect(() => {
       window.addEventListener("resize", updateDimensions);
       return () => window.removeEventListener("resize", updateDimensions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updateDimensions = () => {

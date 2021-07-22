@@ -24,7 +24,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [valid, setValidCheck] = useState(false);
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
   const [endPoint, setEndPoint] = useState('');
   const [startPoint, setStartPoint] = useState('');
   const [formattedContacts, setFormattedContacts] = useState([]);
@@ -44,6 +44,13 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
+  const customStyles = {
+    control: base => ({
+      ...base,
+      height: 45,
+      minHeight: 35
+    })
+  };
 
   function formatContacts() {
     const formatted = contacts.map(contact => {
@@ -70,17 +77,6 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
     // clearForm();
   }
 
-  // function clearForm() {
-  //   setEndPoint('');
-  //   setStartPoint('');
-  //   setQuery('');
-  //   setTravelMode('');
-  //   setSelectedContact('');
-  // }
-
-  // function handleEnter(e) {
-  //   if(e.key === 'Enter')
-  // }
   function openModal() {
     setModalIsOpen(true);
   }
@@ -102,7 +98,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
       </pre>}
       <Autocomplete
           onPlaceSelected={(place) => setStartPoint(place.formatted_address)}
-          onChange={event => setQuery(event.target.value)}
+          // onChange={event => setQuery(event.target.value)}
           options={{types: ['address']}}
           placeholder='Starting address'
           onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
@@ -111,7 +107,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
       />
       <Autocomplete
           onPlaceSelected={(place) => setEndPoint(place.formatted_address)}
-          onChange={event => setQuery(event.target.value)}
+          // onChange={event => setQuery(event.target.value)}
           options={{types: ['address']}}
           placeholder='Final address'
           onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
@@ -126,6 +122,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
         onChange={setTravelMode}
         onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
         options={transportOptions}
+        styles={customStyles}
       />
       <Select
         className='dropdown select-contact'
@@ -135,6 +132,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
         onChange={setContactForApp}
         onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
         options={formattedContacts}
+        styles={customStyles}
       />
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
