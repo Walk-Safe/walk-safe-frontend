@@ -21,6 +21,6 @@ export function getExtendedTimerWidth(width) {
     return 250;
   } 
   else {
-    return 300;
+    return 200;
   }
 }
