@@ -37,6 +37,11 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 
 ## Learning Goals
 
+- GraphQL + Apollo
+- Utilize a GoogleMaps API
+- Utilize an SMS Messaging API
+- Create an UI/UX friendly application
+- Create an engaging & useful application
 
 
 *Minimum Viable Product (MVP)*:  MVP:
