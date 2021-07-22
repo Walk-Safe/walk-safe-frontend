@@ -31,7 +31,7 @@
 
   // END TRIP button size
   a {
-    width: 45%;
+    width: 40%;
     height: 78%;
   }
 }
@@ -54,12 +54,13 @@
 
 .extend-time {
   display: flex;
+  padding: 0;
   flex-direction: column;
   background-color: rgba(198, 252, 128, 0.74);
   font-size: 1vw;
   border: 1px solid rgba(158, 136, 136, 0.616);
   border-radius: 5px;
-  width: 45%;
+  width: 47%;
 }
 
 @media screen and (max-width: 1025px) {
