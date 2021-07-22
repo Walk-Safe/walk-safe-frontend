@@ -16,6 +16,21 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 
 ## Walkthrough
 
+1) Visit https://walk-safe-frontend.herokuapp.com/ and view the main page of the application
+2) Navigate to the "hamburger" menu, click the hamburger to expand navigation options
+3) Select the "Add Contact" option and navigate to the Add Contact page
+4) Enter your contact's information into the form: name, and full phone number (including country code!)
+5) After you have submitted your contact, navigate back to the "New Trip" view through the hamburger menu
+6) Create your trip in the form:
+        - Enter your start and end address and select the autocompleted version provided by GoogleMaps
+        - Select your transportation type
+        - Select the contact you want to keep informed of your trip status
+        - Submit Trip!
+7) After you submit your trip, you will be provided an ETA. Your trip starts once you have confirmed that ETA by clicking "Start Trip"
+8) A countdown timer will now appear based on the ETA of your trip, at any point in time (once you have made it to your destination, you may select "End Trip" and your contact will be alerted you have made it safely to your destination
+9) Should your ETA expire before you have made it to your desination, an alert will pop up with the option to extend your trip time
+9a) If you select more trip time, your contact will be alerted you have extended your trip
+9b) *If you fail to extend your trip and your ETA has expired, your contact will be immediately alerted that you have not safely arrived to your destination and to contact you*
 
 
 ## Learning Goals
