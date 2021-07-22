@@ -29,7 +29,9 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 7) After you submit your trip, you will be provided an ETA. Your trip starts once you have confirmed that ETA by clicking "Start Trip"
 8) A countdown timer will now appear based on the ETA of your trip, at any point in time (once you have made it to your destination, you may select "End Trip" and your contact will be alerted you have made it safely to your destination
 9) Should your ETA expire before you have made it to your desination, an alert will pop up with the option to extend your trip time
+
 9a) If you select more trip time, your contact will be alerted you have extended your trip
+
 9b) *If you fail to extend your trip and your ETA has expired, your contact will be immediately alerted that you have not safely arrived to your destination and to contact you*
 
 
@@ -37,7 +39,12 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 
 
 
-*Minimum Viable Product (MVP)*:  
+*Minimum Viable Product (MVP)*:  MVP:
+#### 1 user flow:
+- Main Page
+- Add Contacts Page
+- CurrentTrip Page
+- Sad path: user doesn't end trip
 
 
 ## Notable Features
