@@ -7,6 +7,7 @@
   align-items: center;
   height: 15%;
   width: 100%;
+  margin-bottom: 0.5em;
   color: cornflowerblue;
   font-size: 2.2em;
   text-shadow: 1px 1px 3px rgb(53, 38, 38);
@@ -14,9 +15,9 @@
 
 @media screen and (max-width: 1025px) {
   .app-header {
-    font-size: 2.75em;
+    font-size: 2.8em;
     height: 10%;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
   }
 }
 
@@ -24,7 +25,7 @@
   .app-header {
     font-size: 2em;
     height: 10%;
-    margin-top: 0;
+    margin-top: 0.5em;
     margin-bottom: 0.5em;
   }
 }
@@ -35,23 +36,23 @@
     height: 10%;
     letter-spacing: 0.25em;
     margin-top: 0em;
-    margin-bottom: 0.25em;
+    margin-bottom: 0.5em;
   }
 }
 
 @media screen and (max-width: 376px) {
   .app-header {
     font-size: 1.1em;
-    height: 10%;
+    height: 5%;
     letter-spacing: 0.25em;
     margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.75em;
   }
 }
 
 @media screen and (max-width: 321px) {
   .app-header {
-    font-size: 1.25em;
-    height: 13%;
+    font-size: 0.8em;
+    height: 5%;
   }
 }
