@@ -18,16 +18,10 @@
   background-color: rgba(86, 165, 249, 0.686);
   box-shadow: $shadow-heavy;
 
+  // END TRIP button size
   a {
     width: 40%;
     height: 20%;
-  }
-}
-
-@media screen and (max-width: 930px) {
-  .trip-container {
-    width: 50%;
-    height: 100%;
   }
 }
 
@@ -38,16 +32,16 @@
   align-items: center;
   height: 50%;
   width: 100%;
+  padding: 0.5em;
 }
 
-@media screen and (max-width: 930px) {
-  .timers-container {
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100%;
-    width: 100%;
-  }
+.timers-container > div {
+  margin: 0.5em;
+}
+
+.timers-container > svg {
+  width: 100%;
+  height: 100%;
 }
 
 .timer-wrapper {
@@ -55,7 +49,7 @@
   font-size: 2em;
 }
 
-.end-walk-btn {
+.end-trip-btn {
   width: 100%;
   height: 100%;
   font-size: 1.5rem;
@@ -71,28 +65,111 @@
   }
 }
 
-@media screen and (max-width: 360px) {
-  //.app-header {
-  //  font-size: 1em;
-  //  letter-spacing: 0.25em;
-  //}
+@media screen and (max-width: 1025px) and (min-height: 1300px) {
+  .trip-container {
+    width: 80%;
+    height: 50%;
+    margin-top: 2em;
+  }
 
-  // .welcome-msg {
-  //   font-size: 1.5em;
-  // }
+  .timer-wrapper {
+    font-size: 2.5em;
+  }
 
-    .trip-container {
-      margin-top: 0.3em
-    }
+  .end-trip-btn {
+    font-size: 2em;
+  }
+}
 
-    .timers-container {
-      height: 86%;
-    }
+@media screen and (max-width: 930px) {
+  .trip-container {
+    width: 60%;
+    height: 70%;
+    padding: 0.2em;
+    margin: 0.1em;
+  }
 
-  .end-walk-btn {
-    margin-top: 1.1em;
+  .timers-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
     width: 100%;
-    height: 73%;
-    font-size: 1.2rem;
   }
+
+  .trip-container {
+    // END TRIP button size
+    a {
+      margin: 1em;
+      width: 60%;
+      height: 4em;
+    }
   }
+
+  .timer-wrapper {
+    font-size: 1.5em;
+  }
+
+  .end-trip-btn {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 651px) {
+  .trip-container {
+    width: 70%;
+    height: 68%;
+    padding: 1em;
+    margin: 0.1em;
+  }
+
+  .trip-container {
+    a {
+      margin-top: 1em;
+      width: 60%;
+      height: 4em;
+    }
+  }
+
+  .timers-container {
+    height: 85%;
+  }
+
+  .timer-wrapper {
+    font-size: 1.5em;
+  }
+
+  .end-trip-btn {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .trip-container {
+    width: 70%;
+    height: 67%;
+    margin: 0.1em;
+  }
+
+  .trip-container {
+    a {
+      width: 60%;
+      height: 4em;
+    }
+  }
+
+  .timers-container {
+    padding-top: 1em;
+    height: 85%;
+  }
+
+  .timer-wrapper {
+    font-size: 1.5em;
+  }
+
+  .end-trip-btn {
+    font-size: 1em;
+    margin-top: 0.5em;
+
+  }
+}

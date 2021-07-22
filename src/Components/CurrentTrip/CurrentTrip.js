@@ -8,7 +8,7 @@ import TripExtendedMessage from "../TripExtendedMessage/TripExtendedMessage";
 import TripNotCompleteMessage from "../TripNotCompleteMessage/TripNotComplete";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink, Redirect } from 'react-router-dom';
-import TimerMediaQuery from './mediaQueries';
+import getMainTimerSize from './mediaQueries';
 
 function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
 
@@ -21,8 +21,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
   const [secondsActive, setSecondsActive ] = useState(true);
   const [extensionModalIsOpen, setExtensionModalIsOpen] = useState(false);
   const [alertModalIsOpen, setAlertModalIsOpen] = useState(false);
-  const [width, setWidth]   = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
+  const [width, setWidth] = useState(window.innerWidth);
 
   const minuteSeconds = 60;
   const hourSeconds = 3600;
@@ -90,8 +89,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
 
   const updateDimensions = () => {
     setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-    TimerMediaQuery(width);
+    getMainTimerSize(width);
   }
 
   function beginTrip() {
@@ -149,7 +147,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
               isPlaying={true}
               strokeWidth={6}
               className={'timer hours-timer'}
-              size={TimerMediaQuery(width)}
+              size={getMainTimerSize(width)}
               colors={[["#4687FA"]]}
               duration={daySeconds}
               initialRemainingTime={etaSeconds % daySeconds}
@@ -164,7 +162,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
               isPlaying={true}
               strokeWidth={6}
               className={'timer minutes-timer'}
-              size={TimerMediaQuery(width)}
+              size={getMainTimerSize(width)}
               colors={[["#FF2727"]]}
               duration={hourSeconds}
               initialRemainingTime={etaSeconds % hourSeconds}
@@ -179,7 +177,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
               isPlaying={true}
               strokeWidth={6}
               className={'timer seconds-timer'}
-              size={TimerMediaQuery(width)}
+              size={getMainTimerSize(width)}
               colors={[
                 ['#FEBA17', 0.25],
                 ['#E3FD23', 0.25],
@@ -198,7 +196,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
           </article>
         }
         <NavLink exact to='/'>
-          <button onClick={endTrip} className='end-walk-btn'>
+          <button onClick={endTrip} className='end-trip-btn'>
             END TRIP
           </button>
         </NavLink>

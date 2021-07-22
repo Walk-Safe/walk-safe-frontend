@@ -8,11 +8,6 @@
   background-color: ghostwhite;
   font-family: $roboto;
   font-weight: 500;
-
-  a {
-    height: 20%;
-    width: 30%;
-  }
 }
 
 .timeout-message {
@@ -20,18 +15,6 @@
   flex-direction: column;
   font-size: 2rem;
   text-align: center;
-
-  span:nth-of-type(1n) {
-    font-size: 1.2em;
-    font-weight: 500;
-    margin: 0.5em;
-  }
-
-  span:nth-of-type(2n) {
-    font-size: 1.25em;
-    font-style: italic;
-    color: rgb(10, 91, 106);
-  }
 }
 
 .warning-message {
@@ -46,13 +29,14 @@
   width: 90%;
   height: 15%;
 
+  // END TRIP button size
   a {
     width: 45%;
     height: 78%;
   }
 }
 
-.end-trip-btn {
+.end-trip-modal-btn {
   height: 100%;
   width: 100%;
   font-size: 1.5vw;
@@ -78,33 +62,63 @@
   width: 45%;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 1025px) {
 
+}
+
+@media screen and (max-width: 930px) {
+
+}
+
+@media screen and (max-width: 651px) {
   .timeout-message {
     font-size: 1.3rem;
+  }
 
-    span:nth-of-type(1n) {
-      font-size: 0.8em;
-      margin: 0.3em;
-    }
+  .warning-message {
+    font-size: 1em;
+  }
 
-    span:nth-of-type(2n) {
-      font-size: .75em;
+  .add-time-response {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    // END TRIP button size
+    a {
+      width: 60%;
     }
+  }
+
+  .end-trip-modal-btn {
+    font-size: 0.75em;
+    letter-spacing: 0;
+  }
+
+  .extend-time {
+    width: 60%;
+    font-size: 0.5em;
+    letter-spacing: 0;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .timeout-message {
+    font-size: 1.3rem;
   }
 
   .warning-message {
     font-size: 1vw;
   }
 
-  .extend-time {
-    font-size: .4em;
-    letter-spacing: 0;
-  }
-
-  .end-trip-btn {
+  .end-trip-modal-btn {
     font-size: 1em;
     letter-spacing: 0;
   }
 
+  .extend-time {
+    font-size: .4em;
+    letter-spacing: 0;
+  }
 }

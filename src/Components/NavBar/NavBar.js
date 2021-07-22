@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
-import DropdownWidthMediaQuery from './mediaQueries';
+import getDropdownWidth from './mediaQueries';
 
 function NavBar({ nameToggle, user }) {
 
   const [displayName, setDisplayName] = useState(null);
   const [width, setWidth]   = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
 
   useEffect(() => {
     if (nameToggle) {
@@ -20,12 +19,11 @@ function NavBar({ nameToggle, user }) {
 
   const updateDimensions = () => {
     setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-    DropdownWidthMediaQuery(width);
+   getDropdownWidth(width);
   }
 
   return (
-    <nav className='navbar'>
+    <nav className='navbar trip-nav'>
       {displayName && 
         <div className='welcome-container'>
           <h2 className='welcome-msg'>Welcome, {user}</h2>
@@ -33,7 +31,7 @@ function NavBar({ nameToggle, user }) {
       }
         <Menu
           right
-          width={DropdownWidthMediaQuery(width)}
+          width={getDropdownWidth(width)}
           className='hamburger-menu'
         >
           <NavLink exact to='/' className='menu-item'>
@@ -50,6 +48,5 @@ function NavBar({ nameToggle, user }) {
 
   )
 }
-
 
 export default NavBar;

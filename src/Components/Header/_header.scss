@@ -22,26 +22,30 @@
 
 @media screen and (max-width: 769px) {
   .app-header {
-    font-size: 2.25em;
+    font-size: 2em;
     height: 10%;
-    margin-top: 0.5em;
-    margin-bottom: 1em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
   }
 }
 
 @media screen and (max-width: 651px) {
   .app-header {
-    font-size: 1.6em;
-    height: 13%;
+    font-size: 1.5em;
+    height: 10%;
     letter-spacing: 0.25em;
+    margin-top: 0em;
+    margin-bottom: 0.5em;
   }
 }
 
 @media screen and (max-width: 376px) {
   .app-header {
-    font-size: 1.6em;
-    height: 13%;
+    font-size: 1.3em;
+    height: 10%;
     letter-spacing: 0.25em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
   }
 }
 

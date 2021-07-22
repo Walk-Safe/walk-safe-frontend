@@ -54,6 +54,25 @@
   }
 }
 
+@media screen and (max-width: 651px) {
+  .eta-modal a {
+    height: 15%;
+    width: 45%;
+    font-size: .75em;
+  }
+  
+  .eta-message span:nth-of-type(1n) {
+    font-size: 0.75em;
+    margin-bottom: 0.7em
+  }
+
+  .eta-message span:nth-of-type(2n) {
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 0.1em;
+  }
+}
+
 @media screen and (max-width: 376px) {
   .eta-modal a {
     height: 20%;
