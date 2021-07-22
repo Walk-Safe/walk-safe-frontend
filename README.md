@@ -16,13 +16,35 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 
 ## Walkthrough
 
+1) Visit https://walk-safe-frontend.herokuapp.com/ and view the main page of the application
+2) Navigate to the "hamburger" menu, click the hamburger to expand navigation options
+3) Select the "Add Contact" option and navigate to the Add Contact page
+4) Enter your contact's information into the form: name, and full phone number (including country code!)
+5) After you have submitted your contact, navigate back to the "New Trip" view through the hamburger menu
+6) Create your trip in the form:
+        - Enter your start and end address and select the autocompleted version provided by GoogleMaps
+        - Select your transportation type
+        - Select the contact you want to keep informed of your trip status
+        - Submit Trip!
+7) After you submit your trip, you will be provided an ETA. Your trip starts once you have confirmed that ETA by clicking "Start Trip"
+8) A countdown timer will now appear based on the ETA of your trip, at any point in time (once you have made it to your destination, you may select "End Trip" and your contact will be alerted you have made it safely to your destination
+9) Should your ETA expire before you have made it to your desination, an alert will pop up with the option to extend your trip time
+
+9a) If you select more trip time, your contact will be alerted you have extended your trip
+
+9b) *If you fail to extend your trip and your ETA has expired, your contact will be immediately alerted that you have not safely arrived to your destination and to contact you*
 
 
 ## Learning Goals
 
 
 
-*Minimum Viable Product (MVP)*:  
+*Minimum Viable Product (MVP)*:  MVP:
+#### 1 user flow:
+- Main Page
+- Add Contacts Page
+- CurrentTrip Page
+- Sad path: user doesn't end trip
 
 
 ## Notable Features
@@ -96,16 +118,14 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 * Application in Use Mobile
 
 ** User Trip Start to Finish
-![Watch the video](https://user-images.githubusercontent.com/71860165/126582985-59801333-2159-440b-b0f0-c139975dad29.mov)
+
+![](https://user-images.githubusercontent.com/71860165/126676707-62728def-5de4-4d36-b43c-3b278629c8ae.gif)
 
 *** User Alert Countdown Mobile
 
-![Watch the video](https://user-images.githubusercontent.com/71860165/126582893-43874f48-dbc5-4125-bcf4-8b2438fee103.mov)
+![Watch the video](https://user-images.githubusercontent.com/71860165/126676754-a320792f-2a9a-4538-a60c-2dcf11b25e76.gif)
 
 *** User Extend Trip Mobile
 
-![Watch the video](https://user-images.githubusercontent.com/71860165/126582932-8193123a-1fda-4577-b85d-440188ab8606.mov)
+![Watch the video](https://user-images.githubusercontent.com/71860165/126676737-106e3af6-9d6f-4d4c-b9a1-c3a131376f83.gif)
 
-*** User Text Error Fail
-
-![Watch the video](https://user-images.githubusercontent.com/71860165/126584248-523e360b-59a3-469c-a61b-9dd1c989ef17.mov)
