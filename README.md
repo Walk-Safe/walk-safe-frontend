@@ -57,14 +57,14 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
     </tr>
 
     <tr>
-        <td> Bryan Hohn <a href="">GH</td>
+        <td> Bryan Hohn <a href="bhohnco">GH</td>
     </tr>
     <tr>
         <td><img src="" alt="B. Hohn" width="125" height="auto" /></td>
     </tr>
 
     <tr>
-        <td> Peter Muellerleile <a href="">GH</td>
+        <td> Peter Muellerleile <a href="https://github.com/pcmueller">GH</td>
     </tr>
     <tr>
         <td><img src="" alt="P. Muellerleile" width="125" height="auto" /></td>
