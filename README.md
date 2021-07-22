@@ -67,6 +67,7 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
         <td>JavaScript</td>
         <td>React</td>
         <td>React Router</td>
+        <td>GraphQL</td>
         <td>Hooks</td>
         <td>HTML</td>
         <td>CSS</td>
@@ -79,6 +80,7 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
         <td><img src="https://user-images.githubusercontent.com/73092355/119360616-074c6580-bc68-11eb-8ac1-f1ca05b87bf8.png" alt="javascript" width="100" height="auto" /></td>
         <td><img src="https://user-images.githubusercontent.com/73092355/119361040-74f89180-bc68-11eb-845a-29ec9f93f095.png" alt="react" width="100" height="auto" /></td>
         <td><img src="https://user-images.githubusercontent.com/73092355/119361186-9d808b80-bc68-11eb-97ee-05bde2700716.png" alt="react router" width="100" height="auto" /></td>
+        <td><img src="https://github.com/devicons/devicon/blob/master/icons/graphql/graphql-plain.svg" alt="graphql" width="100" height="auto" /></td>
         <td><img src="https://raw.githubusercontent.com/alDuncanson/react-hooks-snippets/master/icon.png" alt="react hooks" width="100" height="auto" /></td>
         <td><img src="https://user-images.githubusercontent.com/73092355/119402191-d553f700-bc99-11eb-8cd3-6ef44023d530.png" alt="HTML" width="100" height="auto" /></td>
         <td><img src="https://user-images.githubusercontent.com/73092355/119402395-1e0bb000-bc9a-11eb-9173-30403b8848d1.png" alt="css" width="100" height="auto" /></td>
