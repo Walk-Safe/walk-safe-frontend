@@ -91,3 +91,14 @@ body,
   outline: none;
   border: none;
 }
+
+@media screen and (max-width: 376px) {
+  .mm-popup__box {
+    width: 60%;
+    height: 30%;
+  }
+
+  .mm-popup__box__body {
+    font-size: 1.2rem;
+  }
+}

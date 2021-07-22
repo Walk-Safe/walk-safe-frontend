@@ -35,6 +35,7 @@
 
   // END TRIP button size
   a {
+    height: 3.5em;
     width: 45%;
   }
 }
@@ -103,13 +104,11 @@
 
   .end-trip-modal-btn {
     font-size: 0.75em;
-    letter-spacing: 0;
   }
 
   .extend-time {
     width: 60%;
     font-size: 0.5em;
-    letter-spacing: 0;
   }
 }
 
@@ -137,12 +136,11 @@
   .end-trip-modal-btn {
     height: 3em;
     font-size: 0.8em;
-    letter-spacing: 0;
+    letter-spacing: 3px;
   }
 
   .extend-time {
-    font-size: 0.8em;
-    letter-spacing: 0;
+    font-size: 0.7em;
     margin: 0;
   }
 }
