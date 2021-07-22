@@ -12,7 +12,10 @@
 
 ## Description
 
-Created to empower individuals to walk alone, Walk Safe brings a user's community along from the trip. Utilizing Geolocation and SMS messaging APIs, we keep a user's community informed of their trip status from start to finish. Should an unforeseen trip interruption arise, Walk Safe will immediately alert the user's contact. We've got your back. 
+Created to empower individuals to walk alone, Walk Safe brings a user's community along from the trip. Utilizing Geolocation and SMS messaging APIs, we keep a user's community informed of their trip status from start to finish. Should an unforeseen trip interruption arise, Walk Safe will immediately alert the user's contact. We've got your back.
+
+## Walkthrough
+
 
 
 ## Learning Goals
@@ -43,12 +46,6 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 2. Enter `npm i` in your terminal
 3. Enter `npm start` in your terminal
 4. To view cypress tests open separate tab an enter `npx cypress run`
-
-
-## Walkthrough
-
-
-
 
 ## Front End Authors
 <table>
