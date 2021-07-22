@@ -20,7 +20,7 @@ export function getExtendedTimerWidth(width) {
   } else if (width < 930) {
     return 150;
   } else if (width < 1025)  {
-    return 200;
+    return 160;
   } else {
     return 180;
   }

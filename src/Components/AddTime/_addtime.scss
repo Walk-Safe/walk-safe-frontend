@@ -68,7 +68,13 @@
 }
 
 @media screen and (max-width: 1025px) {
+  .end-trip-modal-btn {
+    height: 3em;
+  }
 
+  .add-time-response {
+    // height: 3em;
+  }
 }
 
 @media screen and (max-width: 930px) {
@@ -129,7 +135,7 @@
 
   .add-time-response {
     height: 30%;
-    justify-content: space-center;
+    justify-content: center;
     padding: 0;
   }
 

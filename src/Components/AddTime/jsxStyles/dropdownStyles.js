@@ -1,7 +1,6 @@
 const addTimeDropdownStyles = {
-  control: (base) => ({
-    ...base,
-    height: 20,
+  control: () => ({
+    height: 30,
     minHeight: 35,
     backgroundColor: '#c6fc80bd',
     display: 'flex',

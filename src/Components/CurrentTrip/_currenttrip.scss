@@ -81,6 +81,22 @@
   }
 }
 
+@media screen and (max-width: 1025px) {
+  .trip-container {
+    width: 80%;
+    height: 50%;
+    margin-top: 2em;
+  }
+
+  .timer-wrapper {
+    font-size: 2.5em;
+  }
+
+  .end-trip-btn {
+    font-size: 2em;
+  }
+}
+
 @media screen and (max-width: 930px) {
   .trip-container {
     width: 70%;
@@ -175,5 +191,9 @@
     width: 65%;
     height: 60%;
     margin: 0.1em;
+  }
+
+  .timer-wrapper {
+    font-size: 1em;
   }
 }
