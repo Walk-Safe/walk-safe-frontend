@@ -8,3 +8,10 @@
   text-shadow: 1px 1px 3px rgb(53, 38, 38);
   color: cornflowerblue;
 }
+
+@media screen and (max-width: 376px) {
+  .loading {
+    font-size: 1em;
+    letter-spacing: 0.25em;
+  }
+}

@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
 import { NavLink } from 'react-router-dom';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import alertModalStyles from './jsxStyles/alertModalStyles';
+import getAlertWidth from './jsxStyles/mediaQueries';
 
 ReactModal.setAppElement('#root');
 
 function Alert({ setEmergency, modalIsOpen, closeModal }) {
+
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+  
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+    getAlertWidth(width);
+  }
 
   function handleModalClose() {
     setEmergency(false);
@@ -23,6 +36,7 @@ function Alert({ setEmergency, modalIsOpen, closeModal }) {
     <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
+      width={getAlertWidth(width)}
       style={alertModalStyles}
       contentLabel='alert modal'
       preventScroll={true}

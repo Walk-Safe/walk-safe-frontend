@@ -5,7 +5,6 @@ const alertModalStyles = {
     right: 'auto',
     bottom: 'auto',
     height: '50%',
-    width: '50%',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     backgroundColor: 'ghostwhite',
