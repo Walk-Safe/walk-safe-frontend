@@ -12,8 +12,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 70%;
-  height: 15%;
+  border: 1px solid black;
+  padding: 1%;
+  width: 80%;
+  height: 20%;
 }
 
 .bio-text {
@@ -30,7 +32,7 @@
   margin: 2em;
   padding: 3%;
   width: 60%;
-  height: 50%;
+  height: 45%;
   background-color: rgba(162, 212, 247, 0.938);
   box-shadow: $shadow-heavy;
   border-radius: 5px;
@@ -107,3 +109,46 @@
     width: 88%;
   }
 }
+
+@media screen and (max-width: 376px) {
+  .bio-text {
+    font-style: $roboto;
+    font-size: 0.5em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .bio-container {
+    height: 25%;
+  }
+
+  .team-grid {
+    margin: 1em;
+    padding: 2%;
+    width: 80%;
+    height: 40%;
+  }
+
+  .row-title {
+    font-size: 0.8em;
+    margin: 0.5em auto 0.1em auto;
+  }
+
+  .name-link {
+    margin-top: 0.4em;
+  }
+
+  .dev-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em;
+    padding: 1px;
+    height: 70%;
+    width: 30%;
+    border: 1px solid black;
+  }
+}
+
+
