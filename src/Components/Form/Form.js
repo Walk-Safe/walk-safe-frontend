@@ -20,6 +20,18 @@ const CREATE_TRIP = gql `
 }
 `
 
+// const GET_USER = gql`
+// query GetUser {
+//   oneUser(id: 2) {
+//     contacts {
+//       firstName
+//       lastName
+//       phoneNumber
+//     }
+//   }
+// }
+// `
+
 function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive }) {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -30,7 +42,8 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
   const [formattedContacts, setFormattedContacts] = useState([]);
   const [selectedContact, setSelectedContact] = useState('');
   const [travelMode, setTravelMode] = useState('');
-  const [createTrip, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_TRIP, { errorPolicy: 'none' });
+  const [createTrip, { loading: mutationLoading, error: mutationError, data: newTripData }] = useMutation(CREATE_TRIP, { errorPolicy: 'none' });
+  // const { loading, error, data } = useQuery(GET_USER);
 
   useEffect(() => {
     formatContacts()
@@ -38,11 +51,12 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
   }, []);
 
   useEffect(() => {
-    if (data) {
-      handleEtaChange(data.createTrip.trip.eta);
+    console.log(newTripData)
+    if (newTripData) {
+      handleEtaChange(newTripData.createTrip.trip.eta);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+  }, [newTripData]);
 
   const customStyles = {
     control: base => ({
@@ -137,14 +151,14 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
-      {modalIsOpen && 
-        <TripETA 
-          modalIsOpen={modalIsOpen} 
-          eta={data} 
-          setEta={handleEtaChange} 
-          tripDetails={data} 
-          contact={selectedContact} 
-          userName={userInfo} 
+      {modalIsOpen &&
+        <TripETA
+          modalIsOpen={modalIsOpen}
+          eta={newTripData}
+          setEta={handleEtaChange}
+          tripDetails={newTripData}
+          contact={selectedContact}
+          userName={userInfo}
           closeModal={closeModal}
           setTripIsActive={setTripIsActive}
         />
