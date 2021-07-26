@@ -68,7 +68,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
   };
 
   function formatContacts() {
-    const formatted = contacts.map(contact => {
+    const formatted = contactData.oneUser.contacts.map(contact => {
       const name = `${contact.firstName} ${contact.lastName}`
       const number= contact.phoneNumber;
       return { value: name, label: name, phone: number };
