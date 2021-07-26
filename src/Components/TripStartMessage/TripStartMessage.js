@@ -1,6 +1,10 @@
-import Popup from 'react-popup'
+import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 function TripStartMessage (tripDetails, contact, userName) {
+
+  const notifySuccess = () => toast.success(`Trip started notification successfully sent to ${contact.value}`);
+  const notifyError = () => toast.error(`Trip started notification sent to ${contact.value} was unsuccessful, please restart your trip and try again`);
 
   const textInformation = tripDetails.createTrip.trip
 
@@ -21,10 +25,10 @@ function TripStartMessage (tripDetails, contact, userName) {
     })
       .then(response => {
         if(response.status === 201) {
-          Popup.alert(`'Trip started' notification successfully sent to \n${contact.value}.`)
+          notifySuccess()
           return response.text();
         } else {
-          Popup.alert(`'Trip started' notification sent to ${contact.value} was unsuccessful, \nplease restart your trip and try again.`)
+          notifyError()
         }
       })
   }
