@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import transportOptions from '../../assets/travelModeData';
 import Autocomplete from 'react-google-autocomplete';
-import { gql, useMutation } from '@apollo/client';
+import { gql, useMutation, useQuery } from '@apollo/client';
 import TripETA from '../TripETA/TripETA';
 
 const CREATE_TRIP = gql `
@@ -20,17 +20,17 @@ const CREATE_TRIP = gql `
 }
 `
 
-// const GET_USER = gql`
-// query GetUser {
-//   oneUser(id: 2) {
-//     contacts {
-//       firstName
-//       lastName
-//       phoneNumber
-//     }
-//   }
-// }
-// `
+const GET_USER = gql`
+query GetUser {
+  oneUser(id: 2) {
+    contacts {
+      firstName
+      lastName
+      phoneNumber
+    }
+  }
+}
+`
 
 function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive }) {
 
@@ -43,7 +43,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
   const [selectedContact, setSelectedContact] = useState('');
   const [travelMode, setTravelMode] = useState('');
   const [createTrip, { loading: mutationLoading, error: mutationError, data: newTripData }] = useMutation(CREATE_TRIP, { errorPolicy: 'none' });
-  // const { loading, error, data } = useQuery(GET_USER);
+  const { loading: queryLoading, error: queryError, data: contactData } = useQuery(GET_USER);
 
   useEffect(() => {
     formatContacts()
@@ -52,6 +52,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
 
   useEffect(() => {
     console.log(newTripData)
+    console.log('contact', contactData)
     if (newTripData) {
       handleEtaChange(newTripData.createTrip.trip.eta);
     }
@@ -106,7 +107,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
   return (
     <form className='trip-form' onSubmit={handleSubmit} >
     {valid && <p>Complete form fields with Valid Data</p>}
-    {mutationError && <pre>Bad: {mutationError.graphQLErrors.map(({ message }, i) => (
+    {mutationError || queryError && <pre>Bad: {mutationError.graphQLErrors.map(({ message }, i) => (
         <span key={i}>{message}</span>
       ))}
       </pre>}
@@ -163,7 +164,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
           setTripIsActive={setTripIsActive}
         />
       }
-      {mutationLoading && <p className='loading'>Loading...</p>}
+      {mutationLoading || queryLoading && <p className='loading'>Loading...</p>}
     </form>
   )
 }
