@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import { gql, useMutation } from '@apollo/client';
-import Popup from "react-popup";
+import {toast} from "react-toastify";
 
 const CREATE_CONTACT = gql`
  mutation CreateContact($firstName: String!, $lastName: String!, $phoneNumber: String!){
@@ -27,9 +27,11 @@ function AddContact({ user }) {
   const [phoneNumber, setPhone] = useState('');
   // const [createContact, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_CONTACT);
   const [createContact, { loading: mutationLoading, error: mutationError }] = useMutation(CREATE_CONTACT);
+  const addedContactAlert = () => toast.success(`${firstName} ${lastName} contact information has been added`);
 
   function addContact(e) {
     e.preventDefault();
+
     if (!firstName || !lastName || !countryCode || !areaCode || !phoneNumber) {
       return setValidCheck(true);
     }
@@ -41,7 +43,7 @@ function AddContact({ user }) {
     let number = `+${countryCode}${areaCode}${phoneNumber}`;
     createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: number}});
     clearForm();
-    Popup.alert('Contact information has been added!')
+    addedContactAlert()
   }
 
   function checkPhoneNum() {
