@@ -1,6 +1,14 @@
-import Popup from 'react-popup';
+import { toast } from 'react-toastify';
+
 
 export function TripCompleteMessage(contact, user) {
+
+  const notifySuccess = () => toast.success(`Trip completed notification successfully sent to ${contact.value}. Thank you for using Walk Safe`, {
+    position: toast.POSITION.TOP_CENTER
+  });
+  const notifyError = () => toast.error(`Trip completed notification was unsuccessful, please contact ${contact.value} directly`, {
+    position: toast.POSITION.TOP_CENTER
+  });
 
   const sendSms = () => {
     let smsObj = {
@@ -18,10 +26,10 @@ export function TripCompleteMessage(contact, user) {
     })
       .then(response => {
         if (response.status === 201) {
-          Popup.alert(`'Trip completed' notification successfully sent to \n${contact.value}. \nThank you for using Walk Safe!`)
+          notifySuccess()
           return response.text();
         } else {
-          Popup.alert(`'Trip completed' notification was unsuccessful, \nplease contact ${contact.value} directly.`)
+          notifyError()
         }
       })
   }
