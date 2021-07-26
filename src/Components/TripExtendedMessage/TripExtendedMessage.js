@@ -1,6 +1,9 @@
-import Popup from "react-popup";
+import {toast} from "react-toastify";
 
 export function TripExtendedMessage(user, extension, contact) {
+
+  const notifySuccess = () => toast.success(`Trip extended' notification successfully sent to ${contact.value}`);
+  const notifyError = () => toast.error(`Trip extended' notification was unsuccessful, please contact ${contact.value} directly`);
 
   const sendSms = () => {
 
@@ -19,10 +22,10 @@ export function TripExtendedMessage(user, extension, contact) {
     })
       .then(response => {
         if (response.status === 201) {
-          Popup.alert(`'Trip extended' notification successfully sent to ${contact.value}!`)
+          notifySuccess()
           return response.text();
         } else {
-          Popup.alert(`'Trip extended' notification was unsuccessful, \nplease contact ${contact.value} directly.`)
+          notifyError()
         }
       })
   }
