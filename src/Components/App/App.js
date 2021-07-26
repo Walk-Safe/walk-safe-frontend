@@ -5,7 +5,8 @@ import MainView from '../MainView/MainView';
 import AddContact from '../AddContact/AddContact';
 import CurrentTrip from '../CurrentTrip/CurrentTrip';
 import AboutUs from '../AboutUs/AboutUs';
-import Popup from "react-popup";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -24,8 +25,18 @@ function App() {
 
   return (
     <Router>
-      <Popup />
       <div className='App'>
+        <ToastContainer
+            classname='toast-container'
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={true}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover />
         <Route exact path='/login'>
           <LoginView />
         </Route>
