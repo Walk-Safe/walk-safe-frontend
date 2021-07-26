@@ -23,7 +23,6 @@ function Alert({ setEmergency, modalIsOpen, closeModal }) {
   }
 
   function handleModalClose() {
-    setEmergency(false);
     closeModal();
   }
 
