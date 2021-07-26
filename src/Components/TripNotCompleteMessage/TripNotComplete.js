@@ -1,6 +1,10 @@
-import Popup from "react-popup";
+import {toast} from "react-toastify";
+
 
 function TripNotCompleteMessage(user, contact) {
+
+  const notifySuccess = () => toast.success(`${contact.value} has been notified that you did not complete your trip in time. Please contact them as soon as possible`);
+  const notifyError = () => toast.error(`Trip not complete notification was unsuccessful, please contact ${contact.value} directly`);
 
   const sendSms = () => {
 
@@ -19,10 +23,10 @@ function TripNotCompleteMessage(user, contact) {
     })
         .then(response => {
           if(response.status === 201) {
-            Popup.alert(`${contact.value} has been notified that you did not complete your trip in time. \nPlease contact them as soon as possible.`)
+            notifySuccess()
             return response.text();
           } else {
-            Popup.alert(`'Trip not complete' notification was unsuccessful, \nplease contact ${contact.value} directly.`)
+            notifyError()
           }
         })
   }
