@@ -17,8 +17,8 @@
   // box-shadow: 1px 1px 3px black;
   margin-top: 0.5em;
   padding: 0.5em;
-  width: 85%;
-  height: 30%;
+  width: 75%;
+  height: 33%;
   overflow: scroll;
   overscroll-behavior: contain;
 }
@@ -33,10 +33,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 3%;
-  padding: 2%;
-  width: 60%;
-  height: 37%;
+  margin: 2%;
+  padding: 5px;
+  width: 55%;
+  height: 43%;
   background-color: rgba(142, 219, 250, 0.883);
   box-shadow: $shadow-heavy;
   border-radius: 5px;
@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  height: 43%;
+  height: 37%;
 }
 
 .row-title {
@@ -54,10 +54,11 @@
   flex-direction: row;
   justify-content: center;
   text-transform: uppercase;
-  margin: 2% auto 1% auto;
-  max-height: 5%;
+  margin: 1% auto 1% auto;
+  padding: 1%;
+  max-height: 3%;
   font-family: $tourney;
-  font-size: 1.5em;
+  font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.3em;
   color: rgb(239, 244, 250);
@@ -72,13 +73,13 @@
   background-color: ghostwhite;
   padding: 1%;
   max-height: 97%;
-  width: 28%;
+  width: 25%;
   border: 1px solid black;
 }
 
 .pic-container {
-  width: 65%;
-  height: 65%;
+  width: 55%;
+  height: 75%;
   box-shadow: $shadow-heavy;
 }
 
@@ -94,14 +95,14 @@
 
 .name-link {
   text-decoration: none;
-  margin-top: 12%;
+  margin: 7% auto 1% auto;
 }
 
 .dev-name {
   color: black;
   font-family: $tourney;
   font-weight: 500;
-  font-size: 0.5em;
+  font-size: 0.9rem;
   letter-spacing: 0.1em;
 }
 
