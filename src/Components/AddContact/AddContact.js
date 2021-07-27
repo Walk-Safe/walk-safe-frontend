@@ -26,7 +26,31 @@ function AddContact({ user }) {
   const [areaCode, setArea] = useState('');
   const [phoneNumber, setPhone] = useState('');
   // const [createContact, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_CONTACT);
-  const [createContact, { loading: mutationLoading, error: mutationError }] = useMutation(CREATE_CONTACT);
+  const [createContact, { loading: mutationLoading, error: mutationError }] = useMutation(CREATE_CONTACT, {
+    update(cache, { data: { createContact } }) {
+      cache.modify({
+        fields: {
+          contacts(existingContacts = []) {
+            const newContactRef = cache.writeFragment({
+              data: createContact,
+              fragment: gql`
+                fragment NewContact on Contact {
+                  contact {
+                    id
+                    firstName
+                    lastName
+                    phoneNumber
+                  }
+                }
+                `
+            });
+            return [...existingContacts, newContactRef];
+          }
+        }
+      });
+    }
+  });
+  
   const addedContactAlert = () => toast.success(`${firstName} ${lastName} contact information has been added`);
 
   function addContact(e) {

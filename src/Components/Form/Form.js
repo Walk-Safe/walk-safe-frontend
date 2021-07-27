@@ -52,12 +52,19 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
 
   useEffect(() => {
     console.log(newTripData)
-    console.log('contact', contactData)
     if (newTripData) {
       handleEtaChange(newTripData.createTrip.trip.eta);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newTripData]);
+
+  useEffect(() => {
+    console.log('contact', contactData)
+    if (contactData) {
+      formatContacts();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [contactData]);
 
   const customStyles = {
     control: base => ({
@@ -107,7 +114,11 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
   return (
     <form className='trip-form' onSubmit={handleSubmit} >
     {valid && <p>Complete form fields with Valid Data</p>}
-    {mutationError || queryError && <pre>Bad: {mutationError.graphQLErrors.map(({ message }, i) => (
+    {mutationError && <pre>Bad: {mutationError.graphQLErrors.map(({ message }, i) => (
+        <span key={i}>{message}</span>
+      ))}
+      </pre>}
+    {queryError && <pre>Bad: {queryError.graphQLErrors.map(({ message }, i) => (
         <span key={i}>{message}</span>
       ))}
       </pre>}
@@ -164,7 +175,8 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
           setTripIsActive={setTripIsActive}
         />
       }
-      {mutationLoading || queryLoading && <p className='loading'>Loading...</p>}
+      {mutationLoading && <p className='loading'>Loading...</p>}
+      {queryLoading && <p className='loading'>Loading...</p>}
     </form>
   )
 }
