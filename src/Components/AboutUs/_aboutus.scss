@@ -11,9 +11,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  border: 3px solid rgba(11, 15, 22, 0.294);
-  background-color: rgb(238, 245, 235);
+  justify-content: space-evenly;
+  border: 1px solid rgba(11, 15, 22, 0.294);
+  background-color: rgba(242, 249, 248, 0.836);
   // box-shadow: 1px 1px 3px black;
   margin-top: 0.5em;
   padding: 0.5em;
@@ -33,8 +33,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2em;
-  padding: 3%;
+  margin: 3%;
+  padding: 2%;
   width: 60%;
   height: 37%;
   background-color: rgba(142, 219, 250, 0.883);
@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  height: 45%;
+  height: 43%;
 }
 
 .row-title {
@@ -54,7 +54,8 @@
   flex-direction: row;
   justify-content: center;
   text-transform: uppercase;
-  margin: 1em auto 0.3em auto;
+  margin: 2% auto 1% auto;
+  max-height: 5%;
   font-family: $tourney;
   font-size: 1.5em;
   font-weight: 700;
@@ -69,22 +70,21 @@
   align-items: center;
   justify-content: center;
   background-color: ghostwhite;
-  margin: 0.1em;
-  padding: 5px;
-  height: 90%;
+  padding: 1%;
+  max-height: 97%;
   width: 28%;
   border: 1px solid black;
 }
 
 .pic-container {
-  width: 55%;
-  height: 75%;
+  width: 65%;
+  height: 65%;
   box-shadow: $shadow-heavy;
 }
 
 .pic-link {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 80%;
 }
 
 .dev-pic {
@@ -94,53 +94,44 @@
 
 .name-link {
   text-decoration: none;
-  margin-top: 0.8em;
+  margin-top: 12%;
 }
 
 .dev-name {
   color: black;
   font-family: $tourney;
   font-weight: 500;
-  font-size: 1.1vw;
+  font-size: 0.5em;
   letter-spacing: 0.1em;
 }
 
 @media screen and (max-width: 1025px) {
   .bio-container {
-    width: 85%;
-    height: 37%;
-    padding: 0.5em;
-    margin-bottom: 1em;
+    width: 80%;
+    height: 32%;
   }
 
   .bio-text {
     font-size: 1.3em;
-    margin: 0.5em;
+    margin: 1%;
   }
 
   .team-grid {
-    margin: 1.5em;
-    padding: 2% auto 1% auto;
     width: 80%;
     height: 38%;
   }
 
   .row-title {
-    font-size: 1.4em;
-  }
-
-  .name-link {
-    margin-top: 0.8em;
+    font-size: 1.5em;
   }
 
   .dev-card {
-    margin: 1.3em;
-    height: 80%;
-    width: 27%;
+    margin: 2%;
+    width: 25%;
   }
 
   .dev-name {
-    font-size: 1em;
+    font-size: 1rem;
   }
 }
 
@@ -148,109 +139,87 @@
   .bio-container {
     width: 80%;
     height: 30%;
-    padding: 0.5em;
   }
 
   .bio-text {
-    font-size: 1em;
+    font-size: 0.8em;
   }
 
   .team-grid {
-    margin: 1em;
-    padding: 2% auto 1% auto;
     width: 75%;
     height: 40%;
   }
 
   .row-title {
-    font-size: 1.1em;
-    margin: 1em auto 0 auto;
-  }
-
-  .name-link {
-    margin-top: 0.8em;
+    font-size: 1em;
   }
 
   .dev-card {
-    margin: 0.8em;
     height: 80%;
-    width: 29%;
+    width: 25%;
   }
 
   .dev-name {
-    font-size: 0.8em;
+    font-size: 0.7em;
   }
 }
 
 
 @media screen and (max-width: 651px) {
   .bio-container {
-    width: 75%;
-    height: 37%;
-    padding: 0.75em;
+    width: 80%;
+    height: 32%;
   }
 
   .bio-text {
-    font-size: 0.8em;
+    font-size: 0.7em;
   }
 
   .team-grid {
-    margin: 1em;
-    padding: 1% auto 2% auto;
-    width: 75%;
-    height: 33%;
+    width: 80%;
+    height: 37%;
   }
 
   .row-title {
     font-size: 0.9em;
   }
 
-  .name-link {
-    margin-top: 0.6em;
-  }
-
   .dev-card {
-    margin: 0.25em 0.3em 0.25em 0.3em;
     height: 80%;
     width: 29%;
   }
 
   .dev-name {
-    font-size: 0.3em;
+    font-size: 0.6rem;
   }
 }
 
 @media screen and (max-width: 376px) {
   .bio-container {
-    width: 75%;
-    height: 36%;
-    padding: 0.5em;
+    width: 80%;
+    height: 32%;
   }
 
   .bio-text {
-    font-size: 13px;
+    font-size: 10px;
   }
 
   .team-grid {
-    margin: 0.25em;
-    padding: 5% 2% 2% 2%;
     width: 80%;
-    height: 35%;
+    height: 37%;
   }
 
   .row-title {
-    font-size: 0.8em;
-    margin: 0.5em auto 0.1em auto;
-  }
-
-  .name-link {
-    margin-top: 0.4em;
+    font-size: 0.7em;
   }
 
   .dev-card {
-    margin: 0.5em;
     height: 70%;
     width: 30%;
+  }
+
+  .dev-name {
+    font-size: 0.4rem;
   }
 }
 
@@ -261,27 +230,19 @@
   }
 
   .bio-text {
-    font-size: 8px;
+    font-size: 0.5rem;
   }
 
   .team-grid {
-    margin: 1em;
-    padding: 2%;
-    width: 85%;
-    height: 35%;
+    width: 80%;
+    height: 40%;
   }
 
   .row-title {
-    font-size: 0.6em;
-    margin: 0.5em auto 0.1em auto;
-  }
-
-  .name-link {
-    margin-top: 0.4em;
+    font-size: 0.7em;
   }
 
   .dev-card {
-    margin: 0.5em;
     height: 70%;
     width: 30%;
   }
