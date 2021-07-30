@@ -115,14 +115,14 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
           required
       />
       <Select
-        className='dropdown select-transport'
-        placeholder='Select transportation type'
-        value={travelMode}
-        defaultValue={travelMode}
-        onChange={setTravelMode}
-        onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
-        options={transportOptions}
-        styles={customStyles}
+          className='dropdown select-transport'
+          placeholder='Select transportation type'
+          value={travelMode}
+          defaultValue={travelMode}
+          onChange={setTravelMode}
+          onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
+          options={transportOptions}
+          styles={customStyles}
       />
       <Select
         className='dropdown select-contact'
