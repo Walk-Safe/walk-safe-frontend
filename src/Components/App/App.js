@@ -5,6 +5,8 @@ import MainView from '../MainView/MainView';
 import AddContact from '../AddContact/AddContact';
 import CurrentTrip from '../CurrentTrip/CurrentTrip';
 import AboutUs from '../AboutUs/AboutUs';
+import { ThemeProvider } from "styled-components";
+import { darkTheme, lightTheme, GlobalStyles, CheckBoxWrapper, CheckBox, CheckBoxLabel} from '../../theme'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -14,6 +16,11 @@ function App() {
   const [eta, setETA] = useState('');
   const [currentUser, setCurrentUser] = useState('');
   const [currentContact, setCurrentContact] = useState('');
+  const [theme, setTheme] = useState("light");
+
+  const switchTheme = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
 
   const handleEtaChange = (time) => {
     if (time > 0) {
@@ -25,7 +32,13 @@ function App() {
 
   return (
     <Router>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
       <div className='App'>
+        <CheckBoxWrapper>
+          <CheckBox id="checkbox" type="checkbox" />
+          <CheckBoxLabel onClick={switchTheme} htmlFor="checkbox" />
+        </CheckBoxWrapper>
         <ToastContainer
             classname='toast-container'
             position="top-center"
@@ -68,6 +81,7 @@ function App() {
           />
         </Route>
       </div>
+      </ThemeProvider>
     </Router>
   );
 }
