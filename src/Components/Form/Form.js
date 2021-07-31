@@ -116,7 +116,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
       />
       <Select
           className='dropdown select-transport'
-          placeholder='Select transportation type'
+          placeholder='Select travel mode'
           value={travelMode}
           defaultValue={travelMode}
           onChange={setTravelMode}
