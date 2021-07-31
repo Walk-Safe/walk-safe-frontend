@@ -10,7 +10,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink, Redirect } from 'react-router-dom';
 import getMainTimerSize from './mediaQueries';
 
-function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
+function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive, switchTheme }) {
 
   const [etaSeconds, setEtaSeconds] = useState(null);
   const [extension, setExtension] = useState({});
@@ -145,7 +145,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
 
   return (
     <main className='trip-page'>
-      <NavBar nameToggle='true' user={user.firstName}/>
+      <NavBar nameToggle='true' user={user.firstName} switchTheme={switchTheme} />
       <Header />
       <section className='trip-container'>
         {!etaSeconds && <p className='loading'>Loading...</p>}

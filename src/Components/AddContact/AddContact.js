@@ -17,7 +17,7 @@ const CREATE_CONTACT = gql`
  }
 `
 
-function AddContact({ user }) {
+function AddContact({ user, switchTheme }) {
   const [valid, setValidCheck] = useState(false);
   const [verify, setPhoneVerify] = useState(false);
   const [firstName, setFirst] = useState('');
@@ -76,7 +76,7 @@ function AddContact({ user }) {
 
   return (
     <section className='add-contact'>
-      <NavBar nameToggle='true' user={user.firstName}/>
+      <NavBar nameToggle='true' user={user.firstName} switchTheme={switchTheme} />
       <Header />
       <form className='contact-form'>
         {valid && <p className='form-error'>Complete Fields With Valid Data</p>}

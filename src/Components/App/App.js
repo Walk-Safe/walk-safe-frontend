@@ -6,7 +6,7 @@ import AddContact from '../AddContact/AddContact';
 import CurrentTrip from '../CurrentTrip/CurrentTrip';
 import AboutUs from '../AboutUs/AboutUs';
 import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme, GlobalStyles, CheckBoxWrapper, CheckBox, CheckBoxLabel} from '../../theme'
+import { darkTheme, lightTheme, GlobalStyles } from '../../theme';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -35,10 +35,6 @@ function App() {
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles />
       <div className='App'>
-        <CheckBoxWrapper>
-          <CheckBox id="checkbox" type="checkbox" />
-          <CheckBoxLabel onClick={switchTheme} htmlFor="checkbox" />
-        </CheckBoxWrapper>
         <ToastContainer
             classname='toast-container'
             position="top-center"
@@ -55,6 +51,7 @@ function App() {
         </Route>
         <Route exact path='/'>
           <MainView
+            switchTheme={switchTheme}
             setTripIsActive={setTripIsActive}
             handleEtaChange={handleEtaChange}
             setCurrentUser={setCurrentUser}
@@ -63,6 +60,7 @@ function App() {
         </Route>
         <Route exact path='/trip'>
           <CurrentTrip
+            switchTheme={switchTheme}
             tripIsActive={tripIsActive}
             setTripIsActive={setTripIsActive}
             eta={eta}
@@ -72,11 +70,13 @@ function App() {
         </Route>
         <Route exact path='/addcontact'>
           <AddContact
+            switchTheme={switchTheme}
             user={currentUser}
           />
         </Route>
         <Route exact path='/about'>
           <AboutUs
+            switchTheme={switchTheme}
             user={currentUser}
           />
         </Route>

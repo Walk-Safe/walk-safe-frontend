@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
+import { CheckBox, CheckBoxLabel, CheckBoxWrapper } from '../../theme';
 import getDropdownWidth from './mediaQueries';
 
-function NavBar({ nameToggle, user }) {
+function NavBar({ nameToggle, user, switchTheme }) {
 
   const [displayName, setDisplayName] = useState(null);
   const [width, setWidth]   = useState(window.innerWidth);
@@ -29,6 +30,10 @@ function NavBar({ nameToggle, user }) {
           <h2 className='welcome-msg'>Welcome, {user}</h2>
         </div>
       }
+        <CheckBoxWrapper>
+          <CheckBox id="checkbox" type="checkbox" />
+          <CheckBoxLabel onClick={switchTheme} htmlFor="checkbox" />
+        </CheckBoxWrapper>
         <Menu
           right
           width={getDropdownWidth(width)}
