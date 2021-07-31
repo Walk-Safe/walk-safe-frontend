@@ -11,10 +11,11 @@
 .welcome-msg {
   padding: 1.25em;
   align-self: flex-start;
-  color:rgba(1, 15, 15, 0.712);
+  color:#6E6355;
   font-size: 2.5em;
-  font-family: $roboto;
+  font-family: $julius;
   font-style: italic;
+  font-weight: bold;
   letter-spacing: 4px;
 }
 
@@ -24,7 +25,7 @@
   text-decoration: none;
   text-transform: uppercase;
   color: ghostwhite;
-  font-style: $roboto;
+  font-style: $julius;
   font-size: 1.75rem;
   margin: 2.5em auto 2.5em auto;
 
@@ -80,7 +81,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: rgba(37, 104, 124, 0.768);
+  background: #9DC7E4;
+  opacity: 0.9;
   padding: 2.5em 1.5em 0;
 }
 
