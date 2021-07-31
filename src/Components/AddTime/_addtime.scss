@@ -20,9 +20,11 @@
 .warning-message {
   font-style: italic;
   font-size: 1.25vw;
+  text-align: center;
 }
 
 .backup-timer {
+  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -94,6 +96,10 @@
 
   .warning-message {
     font-size: 1em;
+  }
+
+  .backup-timer {
+    font-size: 1rem;
   }
 
   .add-time-response {
