@@ -16,7 +16,7 @@ export function getExtendedTimerWidth(width) {
   if (width < 376) {
     return 80;
   } else if (width < 651) {
-    return 100;
+    return 120;
   } else if (width < 930) {
     return 150;
   } else if (width < 1025)  {

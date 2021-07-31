@@ -97,8 +97,8 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
       {!loading && 
         <div className='eta-modal'>
           <p className='eta-message'>
-            <span>Your estimated trip time:</span>
-            <span>{etaString}</span>
+            <span className='eta-text'>Your estimated trip time:</span>
+            <span className='eta-num'>{etaString}</span>
           </p>
           <NavLink exact to='/trip'>
             <button onClick={taskWrapper} className='begin-trip-btn'>BEGIN TRIP</button>

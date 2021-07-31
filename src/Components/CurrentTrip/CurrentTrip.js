@@ -74,15 +74,20 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
   useEffect(() => {
     if (emergency) {
       setAlertModalIsOpen(true);
-      setExtensionModalIsOpen(false);
       setEtaSeconds(null);
       setExtension(0);
-      // THIS IS CAUSING THE CONSOLE 'MEMORY LEAK' ERROR
-      setTripEnded(true);
-      TripNotCompleteMessage(user, contact)
+      TripNotCompleteMessage(user, contact);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [emergency]);
+
+  useEffect(() => {
+    if (!alertModalIsOpen && emergency) {
+      setTripEnded(true);
+      setEmergency(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [alertModalIsOpen]);
   
   useEffect(() => {
       window.addEventListener("resize", updateDimensions);
@@ -129,13 +134,13 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
       </div>
     )
   }
+  
+  if (!emergency && !tripIsActive && !tripEnded && extension.value === 0) {
+    return <p className='loading'>Loading...</p>;
+  }
 
   if (!emergency && tripEnded) {
     return <Redirect to='/'/>;
-  }
-
-  if (!emergency && !tripIsActive && !tripEnded && extension.value === 0) {
-    return <p className='loading'>Loading...</p>;
   }
 
   return (
@@ -204,7 +209,7 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
           </button>
         </NavLink>
       </section>
-      {extensionModalIsOpen &&
+      {/* {extensionModalIsOpen && */}
         <AddTime
           setTripIsActive={setTripIsActive}
           setExtension={setExtension}
@@ -215,14 +220,14 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive }) {
           contactInfo={contact}
           userInfo={user}
         />
-      }
-      {emergency &&
+      {/* // } */}
+      {/* {emergency && */}
         <Alert
           setEmergency={setEmergency}
           modalIsOpen={alertModalIsOpen}
           closeModal={closeAlertModal} 
         />
-      }
+      {/* } */}
     </main>
   )
 }
