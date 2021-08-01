@@ -17,19 +17,23 @@ export const CheckBoxLabel = styled.label`
   width: 42px;
   height: 26px;
   border-radius: 15px;
-  background: #0626a2;
+  background-image: url(https://i.postimg.cc/857jHw2q/Screenshot-2020-04-16-at-1-07-06-PM.png);
+  transition: background-image .90s;
+  background-size: cover;
+  color:#0626a2;
   cursor: pointer;
-  border-color: #ffffff;
+   border-color: #0626a2;
   &::after {
     content: '';
     display: block;
     border-radius: 50%;
+    border-color: #F8CB05;
     width: 18px;
     height: 18px;
     margin: 3px;
-    background: #ffffff;
+    background: #F7CA33;
     box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
-    transition: 0.2s;
+    transition: 0.9s;
   }
 `;
 
@@ -39,18 +43,22 @@ export const CheckBox = styled.input`
   border-radius: 15px;
   width: 42px;
   height: 26px;
-  border-color: #ffffff;
+  border-color: #0626a2;
   &:checked + ${CheckBoxLabel} {
-    background: #F8CB05;
+    background-image: url(https://i.postimg.cc/Hn0nstVK/Screenshot-2020-04-16-at-1-07-19-PM.png);
+    transition: background-image .90s;
     &::after {
       content: '';
       display: block;
-      border-color: #ffffff;
+      border-color: #F8CB05
+      color:#F8CB05;
       border-radius: 50%;
+      background: #ECF0F3;
       width: 18px;
       height: 18px;
-      margin-left: 21px;
-      transition: 0.2s;
+      margin-left: 3px;
+      transform: translate(100%);
+      transition: all .9s;
     }
   }
 `;
