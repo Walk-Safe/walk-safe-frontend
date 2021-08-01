@@ -6,7 +6,7 @@
   width: 100%;
   height: 100%;
   background-color: ghostwhite;
-  font-family: $julius;
+  font-family: $roboto;
   font-weight: 500;
 }
 
@@ -72,10 +72,6 @@
 @media screen and (max-width: 1025px) {
   .end-trip-modal-btn {
     height: 3em;
-  }
-
-  .add-time-response {
-    // height: 3em;
   }
 }
 

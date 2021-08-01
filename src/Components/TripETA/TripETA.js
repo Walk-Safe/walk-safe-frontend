@@ -96,13 +96,13 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
       }
       {!loading && 
         <div className='eta-modal'>
-          <p className='eta-message'>
+          <article className='modal-contents'>
             <span className='eta-text'>Your estimated trip time:</span>
             <span className='eta-num'>{etaString}</span>
-          </p>
-          <NavLink exact to='/trip'>
-            <button onClick={taskWrapper} className='begin-trip-btn'>BEGIN TRIP</button>
-          </NavLink>
+            <NavLink exact to='/trip'>
+              <button onClick={taskWrapper} className='begin-trip-btn'>BEGIN TRIP</button>
+            </NavLink>
+          </article>
         </div>
       }
     </ReactModal>

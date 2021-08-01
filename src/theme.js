@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components"
-import styled from "styled-components";
+import { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components';
 
 export const CheckBoxWrapper = styled.div`
   position: relative;
@@ -21,7 +21,7 @@ export const CheckBoxLabel = styled.label`
   cursor: pointer;
   border-color: #ffffff;
   &::after {
-    content: "";
+    content: '';
     display: block;
     border-radius: 50%;
     width: 18px;
@@ -43,7 +43,7 @@ export const CheckBox = styled.input`
   &:checked + ${CheckBoxLabel} {
     background: #F8CB05;
     &::after {
-      content: "";
+      content: '';
       display: block;
       border-color: #ffffff;
       border-radius: 50%;
@@ -56,26 +56,26 @@ export const CheckBox = styled.input`
 `;
 
 export const darkTheme = {
-  body: "#212128",
-  welcomeMsg: "#8b8884",
-  textColor: "#fff",
-  textShadow: "#a8a09d",
-  navBarColor: "#9DC7E4",
-  headingColor: "#9DC7E4",
-  backgroundColor: "#9DC7E4",
-  formBackground: "#8b8884",
-  buttonTextColor: "#686868",
+  body: '#212128',
+  welcomeMsg: '#8b8884',
+  textColor: '#fff',
+  textShadow: '#a8a09d',
+  navBarColor: '#9DC7E4',
+  headingColor: '#9DC7E4',
+  backgroundColor: '#9DC7E4',
+  formBackground: '#8b8884',
+  buttonTextColor: '#000000',
 }
 export const lightTheme = {
-  body: "#EEEEEE",
-  welcomeMsg: "#6E6355",
-  textColor: "#000",
-  textShadow: "#6E6355FF",
-  navBarColor: "#2383D4",
-  headingColor: "#2483d4",
-  buttonBackgroundColor: "#2483d4",
-  formBackground: "#6E6355",
-  buttonTextColor: "#ececec",
+  body: '#EEEEEE',
+  welcomeMsg: '#6E6355',
+  textColor: '#000',
+  textShadow: '#6E6355FF',
+  navBarColor: '#2383D4',
+  headingColor: '#2483d4',
+  buttonBackgroundColor: '#2483d4',
+  formBackground: '#6E6355',
+  buttonTextColor: '#ececec',
   // lightShadow: $shadow-heavy,
 }
 

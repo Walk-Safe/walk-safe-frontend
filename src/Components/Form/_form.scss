@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 45%;
+  height: 50%;
   width: 40%;
   padding-top: 1em;
   padding-bottom: 1em;
@@ -59,6 +59,19 @@
   color: black;
 }
 
+.css-g1d714-ValueContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.css-1wa3eu0-placeholder {
+  padding-left: 10%;
+}
+
+.invalid-form {
+  color: ghostwhite;
+}
+
 @media screen and (max-width: 1025px) {
   .trip-form {
     height: 55%;
@@ -91,8 +104,9 @@
     padding-top: 1em;
   }
 
-  .dropdown {
-    font-size: 1.25em;
+  .location-input {
+    height: 7%;
+    margin: 0.1em;
   }
 
   .trip-form button {
@@ -113,19 +127,18 @@
     width: 72%;
     height: 7%;
     margin: 0.1em;
-    font-size: 1em;
+    font-size: 0.8em;
   }
 
   .dropdown {
     width: 78%;
-    padding: 0.2em;
-    font-size: .8em;
+    font-size: 0.8em;
   }
 
   .trip-form button {
     margin: 0.25em;
     width: 60%;
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
 }
 
@@ -142,8 +155,7 @@
   }
 
   .dropdown {
-    width: 74%;
-    padding: 0.25em;
+    width: 76%;
     font-size: 0.75em;
   }
 
