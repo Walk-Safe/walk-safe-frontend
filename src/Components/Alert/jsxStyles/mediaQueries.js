@@ -4,7 +4,7 @@ export default function getAlertWidth(width) {
   } else if (width < 651) {
     return '70%';
   } else if (width < 1025)  {
-    return '70%';
+    return '50%';
   } else {
     return '50%';
   }

@@ -211,7 +211,6 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive, switch
           </NavLink>
         </div>
       </section>
-      {/* {extensionModalIsOpen && */}
         <AddTime
           setTripIsActive={setTripIsActive}
           setExtension={setExtension}
@@ -222,14 +221,11 @@ function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive, switch
           contactInfo={contact}
           userInfo={user}
         />
-      {/* // } */}
-      {/* {emergency && */}
         <Alert
           setEmergency={setEmergency}
           modalIsOpen={alertModalIsOpen}
           closeModal={closeAlertModal} 
         />
-      {/* } */}
     </main>
   )
 }
