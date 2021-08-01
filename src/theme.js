@@ -1,14 +1,19 @@
-import {createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components"
 import styled from "styled-components";
 
 export const CheckBoxWrapper = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 50%;
+  max-height: 50%;
 `;
 
 export const CheckBoxLabel = styled.label`
-  position: absolute;
-  top: 1.5em;
-  left: 5.9em;
+  position: relative;
+  // top: 1.75em;
+  // left: 5.9em;
   width: 42px;
   height: 26px;
   border-radius: 15px;
@@ -81,21 +86,25 @@ export const GlobalStyles = createGlobalStyle`
   transition: .3s ease;
  }
  .welcome-msg {
- color: ${props => props.theme.welcomeMsg};
+  color: ${props => props.theme.welcomeMsg};
  }
  .app-header{
-   color: ${props => props.theme.headingColor};
-   text-shadow: ${props => props.theme.textShadow};
+  color: ${props => props.theme.headingColor};
+  text-shadow: ${props => props.theme.textShadow};
  }
  .trip-form{
-   background-color: ${props => props.theme.formBackground};
-   box-shadow: $shadow-heavy;
+  background-color: ${props => props.theme.formBackground};
+  box-shadow: $shadow-heavy;
  button {
-   background-color: ${props => props.theme.buttonBackgroundColor};
-   color: ${props => props.theme.buttonTextColor};
+  background-color: ${props => props.theme.buttonBackgroundColor};
+  color: ${props => props.theme.buttonTextColor};
  }
  .bm-menu {
- background-color: ${props => props.theme.headingColor};
+  background-color: ${props => props.theme.headingColor};
+ }
+
+ .bm-overlay {
+  background: rgba(0, 0, 0, 0);
  }
  
 `

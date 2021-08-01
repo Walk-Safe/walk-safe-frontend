@@ -13,8 +13,8 @@ function NavBar({ nameToggle, user, switchTheme }) {
     if (nameToggle) {
       setDisplayName(nameToggle);
     }
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -25,20 +25,20 @@ function NavBar({ nameToggle, user, switchTheme }) {
 
   return (
     <nav className='navbar trip-nav'>
-      {displayName && 
-        <div className='welcome-container'>
+      <div className='welcome-container'>
+        {displayName && 
           <h2 className='welcome-msg'>Welcome, {user}</h2>
-        </div>
-      }
-        <CheckBoxWrapper>
-          <CheckBox id="checkbox" type="checkbox" />
-          <CheckBoxLabel onClick={switchTheme} htmlFor="checkbox" />
+        }
+      </div>
+      <div className='nav-section'>
+        <CheckBoxWrapper className='themeToggle'>
+          <CheckBox id='checkbox' type='checkbox' />
+          <CheckBoxLabel onClick={switchTheme} htmlFor='checkbox' />
         </CheckBoxWrapper>
         <Menu
           right
           width={getDropdownWidth(width)}
-          className='hamburger-menu'
-        >
+          className='hamburger-menu' >
           <NavLink exact to='/' className='menu-item'>
             <span>Plan Trip</span>
           </NavLink>
@@ -49,6 +49,7 @@ function NavBar({ nameToggle, user, switchTheme }) {
             <span>About Us</span>
           </NavLink>
         </Menu>
+      </div>
     </nav>
 
   )
