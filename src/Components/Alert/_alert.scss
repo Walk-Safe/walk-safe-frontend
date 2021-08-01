@@ -4,10 +4,10 @@
   align-items: center;
   justify-content: space-evenly;
   height: 100%;
-  width: 100%;
   background-color: rgb(223, 74, 74);
   font-family: $roboto;
   font-weight: 500;
+  padding-bottom: 0.5em;
 }
 
 .alert-nav {
@@ -55,4 +55,43 @@
   font-size: 2.5rem;
   color:rgb(255, 255, 255);
   text-shadow: 0 1px 2px rgb(37, 34, 34);
+}
+
+@media screen and (max-width: 1025px) {
+  .alert-title {
+    font-size: 2.5rem;
+  }
+
+  .alert-message {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .alert-title {
+    font-size: 2.3rem;
+  }
+
+  .alert-message {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 651px) {
+  .alert-title {
+    font-size: 2rem;
+  }
+
+  .alert-message {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .alert-title {
+    font-size: 2rem;
+  }
+  .alert-message {
+    font-size: 1rem;
+  }
 }

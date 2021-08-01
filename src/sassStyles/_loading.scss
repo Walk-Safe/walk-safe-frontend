@@ -1,7 +1,17 @@
 .loading {
-  color: cornflowerblue;
+  display: flex;
+  align-self: center;
+  justify-self: center;
   font-size: 1.5em;
   letter-spacing: 0.5em;
   text-transform: uppercase;
   text-shadow: 1px 1px 3px rgb(53, 38, 38);
+  color: cornflowerblue;
+}
+
+@media screen and (max-width: 651px) {
+  .loading {
+    font-size: 1em;
+    letter-spacing: 0.25em;
+  }
 }

@@ -8,19 +8,20 @@ import TripExtendedMessage from "../TripExtendedMessage/TripExtendedMessage";
 import TripNotCompleteMessage from "../TripNotCompleteMessage/TripNotComplete";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { NavLink, Redirect } from 'react-router-dom';
+import getMainTimerSize from './mediaQueries';
 
-function CurrentTrip({ user, eta, contact }) {
+function CurrentTrip({ user, eta, contact, tripIsActive, setTripIsActive, switchTheme }) {
 
   const [etaSeconds, setEtaSeconds] = useState(null);
-  const [extension, setExtension] = useState(0);
-  const [tripIsActive, setTripIsActive] = useState(true);
+  const [extension, setExtension] = useState({});
   const [tripEnded, setTripEnded] = useState(false);
   const [emergency, setEmergency] = useState(false);
-  const [hoursActive, setHoursActive ] = useState(false)
-  const [minutesActive, setMinutesActive ] = useState(false);
-  const [secondsActive, setSecondsActive ] = useState(false);
+  const [hoursActive, setHoursActive ] = useState(true)
+  const [minutesActive, setMinutesActive ] = useState(true);
+  const [secondsActive, setSecondsActive ] = useState(true);
   const [extensionModalIsOpen, setExtensionModalIsOpen] = useState(false);
   const [alertModalIsOpen, setAlertModalIsOpen] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
 
   const minuteSeconds = 60;
   const hourSeconds = 3600;
@@ -31,16 +32,20 @@ function CurrentTrip({ user, eta, contact }) {
   const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) || 0;
 
   useEffect(() => {
-    if (eta > 0) {
-      setEtaSeconds(eta * 60);
+    if (eta > 0 && !extension.value) {
       beginTrip();
+      setEtaSeconds(eta * 60);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [eta]);
+
+  useEffect(() => {
     if (extension.value > 0) {
       setEtaSeconds(extension.value);
       beginTrip();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [eta, extension])
+  }, [extension, tripIsActive]);
 
   useEffect(() => {
     if (!hoursActive && !minutesActive && !secondsActive) {
@@ -48,6 +53,7 @@ function CurrentTrip({ user, eta, contact }) {
       setExtension(0);
       setEtaSeconds(null);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hoursActive, minutesActive, secondsActive]);
 
   useEffect(() => {
@@ -56,13 +62,6 @@ function CurrentTrip({ user, eta, contact }) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tripIsActive]);
-
-  useEffect(() => {
-    if (!tripIsActive && tripEnded) {
-      // TripCompleteMessage(user,contact)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tripEnded]);
 
   useEffect(() => {
     if (extension.value > 0) {
@@ -75,14 +74,31 @@ function CurrentTrip({ user, eta, contact }) {
   useEffect(() => {
     if (emergency) {
       setAlertModalIsOpen(true);
-      setExtensionModalIsOpen(false);
       setEtaSeconds(null);
       setExtension(0);
-      setTripEnded(true);
-      TripNotCompleteMessage(user, contact)
+      TripNotCompleteMessage(user, contact);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [emergency]);
+
+  useEffect(() => {
+    if (!alertModalIsOpen && emergency) {
+      setTripEnded(true);
+      setEmergency(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [alertModalIsOpen]);
+  
+  useEffect(() => {
+      window.addEventListener("resize", updateDimensions);
+      return () => window.removeEventListener("resize", updateDimensions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+    getMainTimerSize(width);
+  }
 
   function beginTrip() {
     setTripIsActive(true);
@@ -91,6 +107,7 @@ function CurrentTrip({ user, eta, contact }) {
     setHoursActive(true);
     setMinutesActive(true);
     setSecondsActive(true);
+    setExtensionModalIsOpen(false);
     setAlertModalIsOpen(false);
   }
 
@@ -98,7 +115,7 @@ function CurrentTrip({ user, eta, contact }) {
     setTripEnded(true);
     setTripIsActive(false);
     setExtensionModalIsOpen(false);
-    TripCompleteMessage(contact, user)
+    TripCompleteMessage(contact, user);
   }
 
   function closeExtensionModal() {
@@ -109,12 +126,6 @@ function CurrentTrip({ user, eta, contact }) {
     setAlertModalIsOpen(false);
   }
 
-  const timerProps = {
-    isPlaying: true,
-    size: 180,
-    strokeWidth: 6,
-  };
-
   const renderTime = (unit, time) => {
     return (
       <div className='timer-wrapper'>
@@ -123,26 +134,28 @@ function CurrentTrip({ user, eta, contact }) {
       </div>
     )
   }
+  
+  if (!emergency && !tripIsActive && !tripEnded && extension.value === 0) {
+    return <p className='loading'>Loading...</p>;
+  }
 
   if (!emergency && tripEnded) {
     return <Redirect to='/'/>;
   }
 
-  if (!emergency && !tripIsActive && !tripEnded && extension.value === 0) {
-    return <p className='loading'>Loading...</p>;
-  }
-
   return (
     <main className='trip-page'>
-      <NavBar nameToggle='true' user={user.firstName}/>
+      <NavBar nameToggle='true' user={user.firstName} switchTheme={switchTheme} />
       <Header />
       <section className='trip-container'>
         {!etaSeconds && <p className='loading'>Loading...</p>}
         {etaSeconds && 
           <article className='timers-container'>
             <CountdownCircleTimer
-              {...timerProps}
+              isPlaying={true}
+              strokeWidth={6}
               className={'timer hours-timer'}
+              size={getMainTimerSize(width)}
               colors={[["#4687FA"]]}
               duration={daySeconds}
               initialRemainingTime={etaSeconds % daySeconds}
@@ -154,8 +167,10 @@ function CurrentTrip({ user, eta, contact }) {
               {({ elapsedTime }) => renderTime('hours', getTimeHours(daySeconds - elapsedTime))}
             </CountdownCircleTimer>
             <CountdownCircleTimer
-              {...timerProps}
+              isPlaying={true}
+              strokeWidth={6}
               className={'timer minutes-timer'}
+              size={getMainTimerSize(width)}
               colors={[["#FF2727"]]}
               duration={hourSeconds}
               initialRemainingTime={etaSeconds % hourSeconds}
@@ -167,8 +182,10 @@ function CurrentTrip({ user, eta, contact }) {
               {({ elapsedTime }) => renderTime('minutes', getTimeMinutes(hourSeconds - elapsedTime))}
             </CountdownCircleTimer>
             <CountdownCircleTimer
-              {...timerProps}
+              isPlaying={true}
+              strokeWidth={6}
               className={'timer seconds-timer'}
+              size={getMainTimerSize(width)}
               colors={[
                 ['#FEBA17', 0.25],
                 ['#E3FD23', 0.25],
@@ -186,14 +203,17 @@ function CurrentTrip({ user, eta, contact }) {
             </CountdownCircleTimer>
           </article>
         }
-        <NavLink exact to='/'>
-          <button onClick={endTrip} className='end-walk-btn'>
-            END TRIP
-          </button>
-        </NavLink>
+        <div className='end-trip-btn-container'>
+          <NavLink exact to='/'>
+            <button onClick={endTrip} className='end-trip-btn'>
+              END TRIP
+            </button>
+          </NavLink>
+        </div>
       </section>
-      {extensionModalIsOpen &&
-        <AddTime 
+      {/* {extensionModalIsOpen && */}
+        <AddTime
+          setTripIsActive={setTripIsActive}
           setExtension={setExtension}
           setEtaSeconds={setEtaSeconds}
           modalIsOpen={extensionModalIsOpen}
@@ -202,14 +222,14 @@ function CurrentTrip({ user, eta, contact }) {
           contactInfo={contact}
           userInfo={user}
         />
-      }
-      {emergency &&
+      {/* // } */}
+      {/* {emergency && */}
         <Alert
           setEmergency={setEmergency}
           modalIsOpen={alertModalIsOpen}
           closeModal={closeAlertModal} 
         />
-      }
+      {/* } */}
     </main>
   )
 }

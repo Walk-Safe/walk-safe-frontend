@@ -6,16 +6,31 @@ import { NavLink } from 'react-router-dom';
 import extendedTimeOptions from '../../assets/extendedTimeOptions';
 import addTimeModalStyles from './jsxStyles/addTimeModalStyles';
 import addTimeDropdownStyles from './jsxStyles/dropdownStyles';
-import TripCompleteMessage from "../TripCompleteMessage/TripCompleteMessage";
+import TripCompleteMessage from '../TripCompleteMessage/TripCompleteMessage';
+import { getAddTimeModalWidth, getExtendedTimerWidth } from './jsxStyles/mediaQueries';
+
 ReactModal.setAppElement('#root');
 
 function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, closeModal, endTripMessage, contactInfo, userInfo } ) {
 
   const [selectedTime, setSelectedTime] = useState('');
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+    getAddTimeModalWidth(width);
+    getExtendedTimerWidth(width);
+  }
 
   function handleExpiration() {
     setEmergency(true);
@@ -33,15 +48,9 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
     closeModal();
   }
 
-  const timerProps = {
-    isPlaying: true,
-    size: 180,
-    strokeWidth: 6,
-  };
-
   const renderTime = (unit, time) => {
     return (
-      <div className='timer-wrapper'>
+      <div className='backup-timer'>
         <div className='time-amt'>{Math.floor(time)}</div>
         <div className='time-unit'>{unit}</div>
       </div>
@@ -52,16 +61,20 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
     <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
+      width={getAddTimeModalWidth(width)}
       style={addTimeModalStyles}
       contentLabel='add time modal'
       preventScroll={true}
+      shouldCloseOnOverlayClick={false}
     >
       <div className='add-time-modal'>
         <p className='timeout-message'>
           You've surpassed your ETA, <br></br>do you need more time?
         </p>
           <CountdownCircleTimer
-            {...timerProps}
+            isPlaying={true}
+            strokeWidth={6}
+            size={getExtendedTimerWidth(width)}
             className={'timer backup-timer'}
             colors={[
               ['#24CE21', 0.33],
@@ -78,7 +91,7 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
         </p>
         <section className='add-time-response'>
           <NavLink exact to='/'>
-            <button onClick={handleEndTrip} className='end-trip-btn'>
+            <button onClick={handleEndTrip} className='end-trip-modal-btn'>
               END TRIP
             </button>
           </NavLink>

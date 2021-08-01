@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
 import { NavLink } from 'react-router-dom';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import alertModalStyles from './jsxStyles/alertModalStyles';
+import getAlertWidth from './jsxStyles/mediaQueries';
 
 ReactModal.setAppElement('#root');
 
 function Alert({ setEmergency, modalIsOpen, closeModal }) {
 
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+    getAlertWidth(width);
+  }
+
   function handleModalClose() {
-    setEmergency(false);
     closeModal();
   }
 
@@ -24,6 +37,7 @@ function Alert({ setEmergency, modalIsOpen, closeModal }) {
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
       style={alertModalStyles}
+      width={getAlertWidth(width)}
       contentLabel='alert modal'
       preventScroll={true}
     >
@@ -32,8 +46,8 @@ function Alert({ setEmergency, modalIsOpen, closeModal }) {
           <CountdownCircleTimer
             {...timerProps}
             className={'timer alert-timer'}
-            colors={[['#000', 100]]}
-            duration={10}
+            colors={[['#000000', 1]]}
+            duration={20}
             onComplete={handleModalClose}
           >
           </CountdownCircleTimer>

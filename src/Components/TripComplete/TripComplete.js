@@ -36,7 +36,7 @@ function TripComplete( { modalIsOpen, closeModal } ) {
       >
         <div className='complete-modal'>
             <p className='complete-message'>
-              <span>Your trip is complete! Contact.Name has been notified you made it safely to your destination. </span>
+              <span>Your trip is complete! Contact.Name has been notified that you made it safely to your destination. </span>
             </p>
           <div className='modal-timeout' /></div>
             <NavLink exact to='/'>

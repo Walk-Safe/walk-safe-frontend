@@ -2,29 +2,55 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 15%;
+  height: 10%;
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50%;
+  height: 90%;
+  padding: 1em auto 1em 1em;
 }
 
 .welcome-msg {
-  padding: 1em;
-  align-self: flex-start;
-  color:rgba(1, 15, 15, 0.712);
+  margin-left: 1em;
+  color:#6E6355;
   font-size: 2.5em;
-  font-family: $roboto;
+  font-family: $julius;
   font-style: italic;
+  font-weight: bold;
   letter-spacing: 4px;
+  line-height: 1.5;
 }
 
-// BURGER
+// toggle & burger container
+
+.nav-section {
+  display: flex;
+  justify-content: space-around;
+  width: 15%;
+  height: 90%;
+  padding: 2em 0.5em 0.5em 0.5em;
+}
+
+.theme-toggle {
+  width: 50%;
+  margin: 0.25em;
+}
+
+// burger
 
 .menu-item {
   text-decoration: none;
   text-transform: uppercase;
   color: ghostwhite;
-  font-style: $roboto;
+  font-style: $julius;
   font-size: 1.75rem;
-  margin: 2em auto 2em auto;
+  margin: 2.5em auto 2.5em auto;
 
   &:hover {
     color: $light-blue;
@@ -38,11 +64,15 @@
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+  position: relative;
+  // display: flex;
+  // justify-self: center;
+  // align-self: center;
+  // margin-top: 1em;
   width: 36px;
   height: 30px;
-  right: 2em;
-  top: 3em;
+  // top: 3%;
+  // right: 2%;
 }
 
 /* Color/shape of burger icon bars */
@@ -78,7 +108,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: rgba(37, 104, 124, 0.768);
+  background: #2383D4;
+  opacity: 0.9;
   padding: 2.5em 1.5em 0;
 }
 
@@ -96,5 +127,121 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Styling of overlay */
 .bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+@media screen and (max-width: 1025px) {
+  .welcome-container {
+    width: 50%;
+  }
+
+  .nav-section {
+    width: 30%;
+  }
+
+  .welcome-msg {
+    font-size: 3em;
+  }
+
+  .bm-menu-wrap {
+    margin-top: 10em;
+  }
+
+  .bm-menu {
+    padding: 0.2em 0.1em 0;
+  }
+
+  .menu-item {
+    font-size: 2.5rem;
+    margin: 2.5em auto 2.5em auto;
+  }
+
+  .bm-item-list {
+    padding: 1.5em;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .welcome-container {
+    width: 50%;
+  }
+
+  .nav-section {
+    width: 30%;
+  }
+
+  .welcome-msg {
+    font-size: 2em;
+  }
+
+  .bm-burger-button {
+    width: 25px;
+    height: 25px;
+  }
+
+  .menu-item {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 651px) {
+  .welcome-container {
+    width: 40%;
+  }
+
+  .nav-section {
+    width: 40%;
+  }
+
+  .welcome-msg {
+    font-size: 1.4em;
+  }
+
+  .bm-menu-wrap {
+    margin-top: 6.5em;
+  }
+
+  .bm-menu {
+    margin-top: 0;
+    padding: 0.1em 0.1em 0;
+  }
+
+  .menu-item {
+    font-size: 1.5rem;
+    margin: 2.5em auto 2.5em auto;
+  }
+
+  .bm-item-list {
+    padding: 1em;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .navbar {
+    height: 10%;
+  }
+   .welcome-container {
+     width: 40%;
+   }
+
+   .nav-section {
+     width: 50%;
+   }
+ 
+  .welcome-msg  {
+    font-size: 1.2em;
+  }
+
+  .bm-burger-button {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .welcome-msg {
+    font-size: 1em;
+  }
 }

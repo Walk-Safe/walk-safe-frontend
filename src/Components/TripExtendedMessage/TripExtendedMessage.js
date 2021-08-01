@@ -1,12 +1,15 @@
-import Popup from "react-popup";
+import {toast} from "react-toastify";
 
 export function TripExtendedMessage(user, extension, contact) {
+
+  const notifySuccess = () => toast.success(`Trip extended notification successfully sent to ${contact.value}`);
+  const notifyError = () => toast.error(`Trip extended' notification was unsuccessful, please contact ${contact.value} directly`);
 
   const sendSms = () => {
 
     let smsObj = {
       mobile_number: `${contact.phone}`,
-      message: `${user.firstName} has extended their trip by ${extension.label}. Please be on the lookout for the 'trip completed' confirmation message.`,
+      message: `${user.firstName} has extended their trip by ${extension.label}. Please be on the lookout for a 'trip completed' confirmation message.`,
     }
 
     fetch('https://walk-safe-backend.herokuapp.com/sms_messages', {
@@ -17,20 +20,18 @@ export function TripExtendedMessage(user, extension, contact) {
       },
       body: JSON.stringify(smsObj)
     })
-        .then(response => {
-          if(response.status === 201) {
-            console.log(response.status)
-            Popup.alert(`Trip extended notification successfully sent to ${contact.value}!`)
-            return response.text();
-          } else {
-            console.log("API ERROR")
-            Popup.alert(`Trip extended notification to your contact was unsuccessful, please contact ${contact.value}.`)
-          }
-        })
+      .then(response => {
+        if (response.status === 201) {
+          notifySuccess()
+          return response.text();
+        } else {
+          notifyError()
+        }
+      })
   }
 
-  return(
-      sendSms()
+  return (
+    sendSms()
   )
 }
 

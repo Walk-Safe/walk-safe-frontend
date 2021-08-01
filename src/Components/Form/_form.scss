@@ -3,29 +3,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 45%;
+  height: 50%;
   width: 40%;
-  padding-top: 2em;
+  padding-top: 1em;
   padding-bottom: 1em;
-  margin: 4em;
+  margin: 3em 3em 3em 3em;
   border-radius: 5px;
-  background-color: darkslategray;
+  background-color: #6E6355;
   box-shadow: $shadow-heavy;
 
   button {
     width: 40%;
     height: 15%;
     padding: 3px;
-    margin: 1.5em auto 0.75em auto;
     border-radius: 5px;
-    color: ghostwhite;
-    background-color: cornflowerblue;
+    color: #0000009a;
+    background-color: #9DC7E4;
     font-size: 1rem;
+    font-family: $julius;
     letter-spacing: 2.5px;
+    box-shadow: $shadow-heavy;
 
     &:hover {
       color: rgb(34, 34, 49);
-      background-color: rgb(160, 192, 252);
+      background-color: rgb(98, 150, 246);
     }
   }
 }
@@ -41,18 +42,154 @@
 
 .location-input {
   text-align: center;
+  font-family: $julius;
   width: 60%;
   height: 8%;
   padding: 5px;
-  margin: 0.5em;
-  border-radius: 5px;
+  margin: 0.25em;
   font-size: 1em;
 }
 
 .dropdown {
   display: flex;
   flex-direction: column;
+  font-family: $julius!important;
   width: 65%;
-  padding: 0.5em;
+  padding: 5px;
   color: black;
+}
+
+.css-g1d714-ValueContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.css-1wa3eu0-placeholder {
+  padding-left: 10%;
+}
+
+.invalid-form {
+  color: ghostwhite;
+}
+
+@media screen and (max-width: 1025px) {
+  .trip-form {
+    height: 55%;
+    width: 60%;
+    // margin: 3em 3em 3em 3em;
+  }
+
+  .location-input {
+    font-size: 1em;
+  }
+
+  .dropdown {
+    width: 65%;
+    font-size: 1em;
+  }
+
+  .trip-form button {
+    margin-top: 0;
+    font-size: 1.2em;
+    width: 60%;
+    height: 13%;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .trip-form {
+    height: 55%;
+    width: 75%;
+    margin: 4em 3em 3em 3em;
+    padding-top: 1em;
+  }
+
+  .location-input {
+    height: 7%;
+    margin: 0.1em;
+  }
+
+  .trip-form button {
+    margin-top: 0;
+    font-size: 1em;
+    width: 60%;
+    height: 13%;
+  }
+}
+
+@media screen and (max-width: 651px) {
+  .trip-form {
+    width: 75%;
+    margin: 2em 3em 2em 3em;
+  }
+
+  .location-input {
+    width: 72%;
+    height: 7%;
+    margin: 0.1em;
+    font-size: 0.8em;
+  }
+
+  .dropdown {
+    width: 78%;
+    font-size: 0.8em;
+  }
+
+  .trip-form button {
+    margin: 0.25em;
+    width: 60%;
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .trip-form {
+    width: 80%;
+  }
+
+  .location-input {
+    padding: 5px;
+    width: 68%;
+    margin: 0.1em;
+    font-size: 0.75em;
+  }
+
+  .dropdown {
+    width: 76%;
+    font-size: 0.75em;
+  }
+
+  .trip-form button {
+    font-size: 0.8em;
+    margin: 0.5em auto 0 auto;
+    width: 65%;
+    height: 15%;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .trip-form {
+    width: 80%;
+    padding: 1%;
+    height: 60%;
+    margin-top: 2em;
+  }
+
+  .location-input {
+    width: 72%;
+    margin: 0.1em;
+    font-size: 0.75em;
+  }
+
+  .dropdown {
+    width: 78%;
+    font-size: .7em;
+  }
+
+  .trip-form button {
+    font-size: 0.7em;
+    margin: 0.5em;
+    width: 63%;
+    height: 11%;
+  }
 }

@@ -20,11 +20,11 @@ const CREATE_TRIP = gql `
 }
 `
 
-function Form({ contacts, handleEtaChange, userInfo, setContact }) {
+function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive }) {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [valid, setValidCheck] = useState(false);
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
   const [endPoint, setEndPoint] = useState('');
   const [startPoint, setStartPoint] = useState('');
   const [formattedContacts, setFormattedContacts] = useState([]);
@@ -44,6 +44,13 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
+  const customStyles = {
+    control: base => ({
+      ...base,
+      height: 45,
+      minHeight: 35
+    })
+  };
 
   function formatContacts() {
     const formatted = contacts.map(contact => {
@@ -70,14 +77,6 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
     // clearForm();
   }
 
-  // function clearForm() {
-  //   setEndPoint('');
-  //   setStartPoint('');
-  //   setQuery('');
-  //   setTravelMode('');
-  //   setSelectedContact('');
-  // }
-
   function openModal() {
     setModalIsOpen(true);
   }
@@ -92,34 +91,38 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
 
   return (
     <form className='trip-form' onSubmit={handleSubmit} >
-    {valid && <p>Complete form fields with Valid Data</p>}
+    {valid && <p className='invalid-form' >Enter valid form data</p>}
     {mutationError && <pre>Bad: {mutationError.graphQLErrors.map(({ message }, i) => (
         <span key={i}>{message}</span>
       ))}
       </pre>}
       <Autocomplete
           onPlaceSelected={(place) => setStartPoint(place.formatted_address)}
-          onChange={event => setQuery(event.target.value)}
+          // onChange={event => setQuery(event.target.value)}
           options={{types: ['address']}}
           placeholder='Starting address'
+          onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
           className='location-input start-point'
           required
       />
       <Autocomplete
           onPlaceSelected={(place) => setEndPoint(place.formatted_address)}
-          onChange={event => setQuery(event.target.value)}
+          // onChange={event => setQuery(event.target.value)}
           options={{types: ['address']}}
           placeholder='Final address'
+          onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
           className='location-input end-point'
           required
       />
       <Select
         className='dropdown select-transport'
-        placeholder='Select transportation type'
+        placeholder='Select travel mode'
         value={travelMode}
         defaultValue={travelMode}
         onChange={setTravelMode}
+        onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
         options={transportOptions}
+        styles={customStyles}
       />
       <Select
         className='dropdown select-contact'
@@ -127,12 +130,25 @@ function Form({ contacts, handleEtaChange, userInfo, setContact }) {
         value={selectedContact}
         defaultValue={selectedContact}
         onChange={setContactForApp}
+        onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
         options={formattedContacts}
+        styles={customStyles}
       />
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
-      {modalIsOpen && <TripETA modalIsOpen={modalIsOpen} eta={data} setEta={handleEtaChange} tripDetails={data} contact={selectedContact} userName={userInfo} closeModal={closeModal}  />}
+      {modalIsOpen && 
+        <TripETA 
+          modalIsOpen={modalIsOpen} 
+          eta={data} 
+          setEta={handleEtaChange} 
+          tripDetails={data} 
+          contact={selectedContact} 
+          userName={userInfo} 
+          closeModal={closeModal}
+          setTripIsActive={setTripIsActive}
+        />
+      }
       {mutationLoading && <p className='loading'>Loading...</p>}
     </form>
   )

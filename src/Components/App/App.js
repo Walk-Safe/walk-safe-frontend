@@ -5,14 +5,22 @@ import MainView from '../MainView/MainView';
 import AddContact from '../AddContact/AddContact';
 import CurrentTrip from '../CurrentTrip/CurrentTrip';
 import AboutUs from '../AboutUs/AboutUs';
-import Popup from "react-popup";
-
+import { ThemeProvider } from "styled-components";
+import { darkTheme, lightTheme, GlobalStyles } from '../../theme';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
+  const [tripIsActive, setTripIsActive] = useState(false);
   const [eta, setETA] = useState('');
   const [currentUser, setCurrentUser] = useState('');
   const [currentContact, setCurrentContact] = useState('');
+  const [theme, setTheme] = useState("light");
+
+  const switchTheme = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
 
   const handleEtaChange = (time) => {
     if (time > 0) {
@@ -24,21 +32,37 @@ function App() {
 
   return (
     <Router>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
       <div className='App'>
+        <ToastContainer
+            classname='toast-container'
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={true}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover />
         <Route exact path='/login'>
           <LoginView />
         </Route>
         <Route exact path='/'>
-          <Popup />
           <MainView
+            switchTheme={switchTheme}
+            setTripIsActive={setTripIsActive}
             handleEtaChange={handleEtaChange}
             setCurrentUser={setCurrentUser}
             setCurrentContact={setCurrentContact}
           />
         </Route>
         <Route exact path='/trip'>
-          <Popup />
           <CurrentTrip
+            switchTheme={switchTheme}
+            tripIsActive={tripIsActive}
+            setTripIsActive={setTripIsActive}
             eta={eta}
             user={currentUser}
             contact={currentContact}
@@ -46,15 +70,18 @@ function App() {
         </Route>
         <Route exact path='/addcontact'>
           <AddContact
+            switchTheme={switchTheme}
             user={currentUser}
           />
         </Route>
         <Route exact path='/about'>
           <AboutUs
+            switchTheme={switchTheme}
             user={currentUser}
           />
         </Route>
       </div>
+      </ThemeProvider>
     </Router>
   );
 }

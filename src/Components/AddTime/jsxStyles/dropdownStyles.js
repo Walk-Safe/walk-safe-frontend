@@ -1,8 +1,9 @@
 const addTimeDropdownStyles = {
   control: () => ({
+    height: 30,
+    minHeight: 35,
+    backgroundColor: '#c6fc80bd',
     display: 'flex',
-    minHeight: '30px',
-    height: '55px',
   }),
   input: () => ({
     color: 'transparent',
@@ -12,9 +13,8 @@ const addTimeDropdownStyles = {
       ...defaultStyles,
       alignSelf: 'center',
       justifySelf: 'center',
-      fontSize: '1.5em',
       textJustify: 'center',
-      marginLeft: '17%',
+      marginLeft: '4%',
       letterSpacing: '3px',
       color: '#2b2f30'
     }
