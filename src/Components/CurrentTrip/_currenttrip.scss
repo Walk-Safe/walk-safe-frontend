@@ -245,6 +245,15 @@
   .timer-wrapper {
     font-size: 1em;
   }
+
+  .trip-container a {
+    width: 55%;
+    height: 90%;
+  }
+
+  .end-trip-btn {
+    font-size: 0.8em;
+  }
 }
 
 @media screen and (max-width: 321px) {

@@ -36,8 +36,8 @@ function Alert({ setEmergency, modalIsOpen, closeModal }) {
     <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
-      width={getAlertWidth(width)}
       style={alertModalStyles}
+      style={{content: { ...alertModalStyles, width: getAlertWidth(width) }}}
       contentLabel='alert modal'
       preventScroll={true}
     >
