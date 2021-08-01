@@ -15,8 +15,8 @@
   background-color: #9DC7E4;
   font-family: $julius;
   font-weight: 500;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 85%;
   padding: 5%;
 
   a {
@@ -51,18 +51,37 @@
   }
 }
 
-@media screen and (max-width: 769px) {
-  .eta-modal a {
-    height: 15%;
-    width: 40%;
-  }
-
+@media screen and (max-width: 1025px) {
   .eta-text {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 
   .eta-num {
+    font-size: 2em;
+  }
+
+  .eta-modal a {
+    height: 20%;
+    width: 40%;
+  }
+
+  .begin-trip-btn {
     font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .eta-text {
+    font-size: 1.5em;
+  }
+  
+  .eta-num {
+    font-size: 1.5em;
+  }
+
+  .eta-modal a {
+    height: 15%;
+    width: 40%;
   }
 
   .begin-trip-btn {
@@ -72,17 +91,18 @@
 
 
 @media screen and (max-width: 651px) {
-  .eta-modal a {
-    height: 15%;
-    width: 55%;
-  }
-
+  
   .eta-text {
     font-size: 1.25em;
   }
-
+  
   .eta-num {
     font-size: 1.3em;
+  }
+
+  .eta-modal a {
+    height: 15%;
+    width: 55%;
   }
 
   .begin-trip-btn {
@@ -104,8 +124,13 @@
     font-weight: 500;
   }
 
+  .eta-modal a {
+    height: 17%;
+    width: 50%;
+  }
+
   .begin-trip-btn {
-    font-size: 1em;
+    font-size: 0.8em;
   }
 }
 

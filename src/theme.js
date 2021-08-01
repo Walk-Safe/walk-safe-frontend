@@ -20,7 +20,7 @@ export const CheckBoxLabel = styled.label`
   background-image: url(https://i.postimg.cc/857jHw2q/Screenshot-2020-04-16-at-1-07-06-PM.png);
   transition: background-image .90s;
   background-size: cover;
-  color:#0626a2;
+  color: #0626a2;
   cursor: pointer;
    border-color: #0626a2;
   &::after {
@@ -74,6 +74,7 @@ export const darkTheme = {
   formBackground: '#8b8884',
   buttonTextColor: '#000000',
 }
+
 export const lightTheme = {
   body: '#EEEEEE',
   welcomeMsg: '#6E6355',
@@ -84,7 +85,6 @@ export const lightTheme = {
   buttonBackgroundColor: '#2483d4',
   formBackground: '#6E6355',
   buttonTextColor: '#ececec',
-  // lightShadow: $shadow-heavy,
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -110,9 +110,7 @@ export const GlobalStyles = createGlobalStyle`
  .bm-menu {
   background-color: ${props => props.theme.headingColor};
  }
-
  .bm-overlay {
   background: rgba(0, 0, 0, 0);
  }
- 
 `

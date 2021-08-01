@@ -14,7 +14,7 @@ export function getAddTimeModalWidth(width) {
 
 export function getExtendedTimerWidth(width) {
   if (width < 376) {
-    return 80;
+    return 120;
   } else if (width < 651) {
     return 120;
   } else if (width < 930) {
@@ -22,6 +22,6 @@ export function getExtendedTimerWidth(width) {
   } else if (width < 1025)  {
     return 160;
   } else {
-    return 180;
+    return 200;
   }
 }
