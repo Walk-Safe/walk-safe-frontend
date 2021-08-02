@@ -12,8 +12,6 @@ export const CheckBoxWrapper = styled.div`
 
 export const CheckBoxLabel = styled.label`
   position: relative;
-  // top: 1.75em;
-  // left: 5.9em;
   width: 42px;
   height: 26px;
   border-radius: 15px;
@@ -27,11 +25,11 @@ export const CheckBoxLabel = styled.label`
     content: '';
     display: block;
     border-radius: 50%;
-    border-color: #F8CB05;
+    border-color: #f8cc0588;
     width: 18px;
     height: 18px;
     margin: 3px;
-    background: #F7CA33;
+    background: #f7c93380;
     box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
     transition: 0.9s;
   }
@@ -53,7 +51,7 @@ export const CheckBox = styled.input`
       border-color: #F8CB05
       color:#F8CB05;
       border-radius: 50%;
-      background: #ECF0F3;
+      background: #ecf0f38e;
       width: 18px;
       height: 18px;
       margin-left: 3px;
