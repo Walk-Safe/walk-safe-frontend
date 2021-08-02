@@ -50,7 +50,7 @@ function AddContact({ user }) {
       });
     }
   });
-  
+
   const addedContactAlert = () => toast.success(`${firstName} ${lastName} contact information has been added`);
 
   function addContact(e) {
