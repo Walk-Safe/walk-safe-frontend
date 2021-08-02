@@ -90,13 +90,13 @@
   input {
     text-align: center;
     width: 30%;
-    height: 40%;
+    height: 35%;
     padding: 5px;
     margin: 0.5em;
+    margin-top: 0;
     border-radius: 5px;
   }
 }
-
 
 .phone-number {
   display: flex;
@@ -104,12 +104,14 @@
   justify-content: center;
   align-items: center;
   height: 25%;
+  margin-top: 2%;
 
   input {
     text-align: center;
     height: 50%;
     width: 25%;
     margin: 1%;
+    margin-top: 0;
     border-radius: 5px;
   }
 }
@@ -117,6 +119,7 @@
 .form-error {
   height: 5%;
   text-align: center;
+  font-size: 1.25em;
   color: red;
 }
 
@@ -138,6 +141,10 @@
 
   .contact-form {
     width: 85%;
+  }
+
+  .form-error {
+    font-size: 1.5em;
   }
 
   .contact-form-label h3 {
@@ -177,6 +184,10 @@
 @media screen and (max-width: 769px) {
   .contact-container {
     height: 60%;
+  }
+
+  .form-error {
+    font-size: 1.25em;
   }
 
   .add-contact-title h2 {
@@ -226,6 +237,10 @@
     width: 80%;
   }
 
+  .form-error {
+    font-size: 0.75em;
+  }
+
   .contact-form-label h3 {
     font-size: 1em;
     letter-spacing: 1.2px;
@@ -257,6 +272,10 @@
     height: 55%;
   }
 
+  .form-error {
+    font-size: 0.5em;
+  }
+
   .add-contact-title h2 {
     font-size: 1em;
     letter-spacing: 2.5px;
@@ -269,6 +288,8 @@
   
   .contact-name input {
     font-size: 0.75em;
+    width: 35%;
+    height: 33%;
   }
   
   .phone-number input {
@@ -289,6 +310,7 @@
 
   .contact-name input {
     font-size: 0.70em;
+    width: 30%;
   }
 
   .phone-number input {

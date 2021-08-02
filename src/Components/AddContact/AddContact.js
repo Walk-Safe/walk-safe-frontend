@@ -36,9 +36,9 @@ function AddContact({ user, switchTheme }) {
       return setValidCheck(true);
     }
 
-    if (checkPhoneNum()){
-      return
-    }
+    // if (checkPhoneNum()) {
+    //   return
+    // }
 
     setValidCheck(false);
     setPhoneVerify(false);
