@@ -2,7 +2,7 @@ import {toast} from "react-toastify";
 
 export function TripExtendedMessage(user, extension, contact) {
 
-  const notifySuccess = () => toast.success(`Trip extended' notification successfully sent to ${contact.value}`);
+  const notifySuccess = () => toast.success(`Trip extended notification successfully sent to ${contact.value}`);
   const notifyError = () => toast.error(`Trip extended' notification was unsuccessful, please contact ${contact.value} directly`);
 
   const sendSms = () => {

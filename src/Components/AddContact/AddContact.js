@@ -17,7 +17,7 @@ const CREATE_CONTACT = gql`
  }
 `
 
-function AddContact({ user }) {
+function AddContact({ user, switchTheme }) {
   const [valid, setValidCheck] = useState(false);
   const [verify, setPhoneVerify] = useState(false);
   const [firstName, setFirst] = useState('');
@@ -100,12 +100,13 @@ function AddContact({ user }) {
 
   return (
     <section className='add-contact'>
-      {user && <NavBar nameToggle='true' user={user.firstName}/>}
+      <NavBar nameToggle='true' user={user.firstName} switchTheme={switchTheme} />
       <Header />
       <form className='contact-form'>
         {valid && <p className='form-error'>Complete Fields With Valid Data</p>}
         {verify && <p className='form-error'>Enter valid phone number</p>}
         <h2>Add Contact</h2>
+          <div className='contact-name'>
            <input
              title='firstName'
              placeholder='First Name'
@@ -118,6 +119,7 @@ function AddContact({ user }) {
              value={lastName}
              onChange={(event) => setLast(event.target.value)}
            />
+          </div>
            <h3>Phone Number</h3>
            <div className='phone-number'>
              <input

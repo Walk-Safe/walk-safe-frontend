@@ -7,19 +7,18 @@ html,
 body,
 #root {
   height: 100%;
-  background-color: #ACFACA
+  //background-color: #EEEEEE;
 }
 
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
   max-height: 100%;
-  background-color: rgba(171, 250, 202, 0.664);
-  font-family: $roboto;
+  // background-color: #EEEEEE;
+  font-family: $julius;
 }
 
 .toast-container {
@@ -32,7 +31,7 @@ body,
   margin-right: -50%;
 }
 
-.mm-popup__box {
+.toast-container {
   width: 30%;
   height: 25%;
   position: fixed;
@@ -40,107 +39,4 @@ body,
   left: 50%;
   transform: translate(-50%, -50%);
   margin-right: -50%;
-  padding: 1em;
-  background-color: rgba(141, 196, 241, 0.966);
-  box-shadow: $shadow-heavy;
-  border-radius: 5px;
-  border: 3px solid #395148;
-  color: #395148;
-  font-weight: bold;
-  overflow: hidden;
-  z-index: 1001;
-}
-
-.mm-popup__box__header {
-  padding: 15px 20px;
-  background: #98E2D2;
-  color: #395148;
-}
-
-.mm-popup__box__header__title {
-  margin: 0;
-  font-size: 16px;
-  text-align: left;
-  font-weight: 600;
-}
-
-.mm-popup__box__body {
-  font-size: 1.4rem;
-  text-align: center;
-  padding: 20px;
-  line-height: 1.4;
-  color: rgb(17, 17, 22);
-  //background: rgba(166, 244, 196, 0.664);
-  position: relative;
-  z-index: 2;
-  white-space: pre-wrap;
-  text-shadow: 0 2px 2px rgb(226, 235, 243);
-}
-
-.mm-popup__box__body p {
-  margin: 0 0 5px;
-}
-
-.mm-popup__box__footer {
-  overflow: hidden;
-  padding: 0px 10px 10px;
-}
-
-.mm-popup__box__footer__right-space {
-  float: right;
-}
-
-.mm-popup__box__footer__right-space .mm-popup__btn {
-  margin-left: 5px;
-  height: 40px;
-  width: 45px;
-  border: 3px solid #395148;
-}
-
-.mm-popup__close {
-  outline: none;
-  border: none;
-}
-
-@media screen and (max-width: 1025px) {
-  .mm-popup__box {
-    width: 50%;
-    height: 25%;
-  }
-
-}
-
-@media screen and (max-width: 930px) {
-  .mm-popup__box {
-    width: 60%;
-    height: 25%;
-  }
-
-  .mm-popup__box__body {
-    font-size: 1.3rem;
-  }
-}
-
-@media screen and (max-width: 651px) {
-  .mm-popup__box {
-    width: 60%;
-    height: 32%;
-  }
-  .mm-popup__box__body {
-    font-size: 1.2rem;
-  }
-}
-
-@media screen and (max-width: 376px) {
-  .mm-popup__box {
-    width: 60%;
-    height: 38%;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .mm-popup__box {
-    width: 60%;
-    height: 35%;
-  }
 }

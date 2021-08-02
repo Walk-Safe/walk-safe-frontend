@@ -19,22 +19,26 @@ query GetUser {
 }
 `
 
-function MainView({ setCurrentUser, setCurrentContact, handleEtaChange, setTripIsActive }) {
+function MainView({ setCurrentUser, setCurrentContact, handleEtaChange, setTripIsActive, switchTheme }) {
  const { loading, error, data } = useQuery(GET_USER);
 
- useEffect(() => {
-   if (data) {
-     setCurrentUser(data.oneUser);
-   }
+useEffect(() => {
+  if (data) {
+    setCurrentUser(data.oneUser);
+  }
   // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [data]);
+}, [data]);
 
- if (loading) return <p className='loading'>Loading...</p>;
- if (error) return `Error! ${error.message}`;
+if (loading) return (
+  <main className='main-page'>
+    <p className='loading'>Loading...</p>
+  </main>
+);
 
+if (error) return `Error! ${error.message}`;
   return (
     <main className='main-page'>
-      {data && <NavBar nameToggle='true' user={data.oneUser.firstName}/>}
+      {data && <NavBar nameToggle='true' user={data.oneUser.firstName} switchTheme={switchTheme} />}
       <Header />
       {data && <Form
         contacts={data.oneUser.contacts}

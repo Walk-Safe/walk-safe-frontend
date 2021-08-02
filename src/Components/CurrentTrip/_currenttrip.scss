@@ -2,26 +2,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   height: 100%;
   width: 100%;
+  padding-bottom: 1em;
 }
 
 .trip-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  margin-top: 4em;
+  justify-content: space-around;
+  margin: 3em auto 3em auto;
   padding: 1em;
   width: 55%;
   height: 45%;
-  background-color: rgba(86, 165, 249, 0.686);
+  background-color: #9DC7E4;
   box-shadow: $shadow-heavy;
 
-  // END TRIP button size
   a {
-    width: 40%;
-    height: 20%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    width: 50%;
+    height: 95%;
   }
 }
 
@@ -30,9 +34,16 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  height: 50%;
   width: 100%;
-  padding: 0.5em;
+  height: 80%;
+}
+
+.end-trip-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
 }
 
 .timers-container > div {
@@ -46,7 +57,10 @@
 
 .timer-wrapper {
   text-align: center;
+  font-family: $roboto;
   font-size: 2em;
+  text-transform: uppercase;
+  text-shadow: 0.5px 0.5px 1px rgba(75, 76, 94, 0.493);
 }
 
 .end-trip-btn {
@@ -54,6 +68,7 @@
   height: 100%;
   font-size: 1.5rem;
   letter-spacing: 0.20em;
+  align-self: center;
   color: ghostwhite;
   border: 1px solid ghostwhite;
   background-color: rgba(243, 156, 85, 0.829);
@@ -84,71 +99,131 @@
 @media screen and (max-width: 1025px) {
   .trip-container {
     width: 80%;
-    height: 50%;
+    height: 40%;
     margin-top: 2em;
   }
 
+  .timers-container {
+    width: 100%;
+    height: 70%;
+  }
+
   .timer-wrapper {
-    font-size: 2.5em;
+    font-size: 2em;
+  }
+
+  .end-trip-btn-container {
+    height: 20%;
+    margin-bottom: 3em;
+  }
+
+  .trip-container {
+    a {
+      width: 30%;
+    }
   }
 
   .end-trip-btn {
-    font-size: 2em;
+    font-size: 1.7em;
   }
 }
 
 @media screen and (max-width: 930px) {
   .trip-container {
-    width: 70%;
-    height: 60%;
+    width: 80%;
+    height: 40%;
+    padding: 0.2em;
+    margin-top: 2em;
+  }
+  
+  .timers-container {
+    width: 80%;
+    height: 70%;
+  }
+  
+  .timer-wrapper {
+    font-size: 1.5em;
+  }
+  
+  .end-trip-btn-container {
+    height: 20%;
+    margin-bottom: 3em;
+  }
+  
+  .trip-container {
+    a {
+      width: 30%;
+    }
+  }
+
+  .end-trip-btn {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .trip-container {
+    width: 80%;
+    height: 50%;
     padding: 0.2em;
     margin-top: 2em;
   }
 
-  .trip-container {
-    // END TRIP button size
-    a {
-      margin: 1em;
-      width: 30%;
-      height: 4em;
-    }
+  .timers-container {
+    width: 80%;
+    height: 70%;
   }
 
   .timer-wrapper {
     font-size: 1.5em;
   }
 
-  .end-trip-btn {
-    font-size: 1em;
-  }
-}
-
-@media screen and (max-width: 651px) {
-  .trip-container {
-    width: 70%;
-    height: 68%;
-    padding: 1em;
-    margin: 0.1em;
+  .end-trip-btn-container {
+    height: 20%;
+    margin-bottom: 1em;
   }
 
   .trip-container {
     a {
-      margin-top: 1em;
-      width: 60%;
-      height: 4em;
+      width: 30%;
     }
+  }
+
+  .end-trip-btn {
+    font-size: 1.2em;
+  }
+}
+
+
+@media screen and (max-width: 651px) {
+  .trip-container {
+    width: 70%;
+    height: 65%;
+    padding: 1em;
+    margin: 0.1em;
   }
 
   .timers-container {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 85%;
+    height: 70%;
     width: 100%;
   }
 
   .timer-wrapper {
-    font-size: 1.5em;
+    font-size: 1.2em;
+  }
+
+  .end-trip-btn-container {
+    height: 12%;
+    margin-bottom: 0;
+  }
+
+  .trip-container {
+    a {
+      width: 45%;
+    }
   }
 
   .end-trip-btn {
@@ -159,41 +234,39 @@
 @media screen and (max-width: 376px) {
   .trip-container {
     width: 70%;
-    height: 67%;
-    margin: 0.1em;
-  }
-
-  .trip-container {
-    a {
-      width: 60%;
-      height: 4em;
-    }
+    height: 65%;
+    margin-top: 1em;
   }
 
   .timers-container {
-    padding-top: 1em;
-    height: 85%;
+    height: 80%;
   }
 
   .timer-wrapper {
-    font-size: 1.5em;
-  }
-
-  .end-trip-btn {
     font-size: 1em;
-    margin-top: 0.5em;
-
   }
 }
 
 @media screen and (max-width: 321px) {
   .trip-container {
     width: 65%;
-    height: 60%;
     margin: 0.1em;
   }
 
   .timer-wrapper {
     font-size: 1em;
+  }
+
+  .timers-container {
+    height: 80%;
+  }
+
+  .end-trip-btn-container {
+    height: 10%;
+  }
+
+  .trip-container a {
+    width: 60%;
+    height: 100%;
   }
 }

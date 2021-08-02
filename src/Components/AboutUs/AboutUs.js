@@ -3,7 +3,7 @@ import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import devNames from '../../assets/devNames';
 
-function AboutUs({ user }) {
+function AboutUs({ user, switchTheme }) {
 
   let [ feDevCards, setFEDevCards ] = useState([]);
   let [ beDevCards, setBEDevCards ] = useState([]);
@@ -53,7 +53,7 @@ function AboutUs({ user }) {
 
   return (
     <main className='about-us-page'>
-      <NavBar nameToggle={false} user={user.firstName}/>
+      <NavBar nameToggle={false} user={user.firstName} switchTheme={switchTheme} />
       <Header />
       <div className='bio-container'>
         <p className='bio-text'>{`There's a sense of security one feels as you are walking with friends, family, and even colleagues. The reality of our daily lives doesn't always allow for this luxury, nor does the innate desire for independence. Walk Safe was born from the simple idea of keeping your community close when your journey takes you far.`}</p>

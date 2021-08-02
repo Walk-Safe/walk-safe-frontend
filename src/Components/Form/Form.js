@@ -113,7 +113,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
 
   return (
     <form className='trip-form' onSubmit={handleSubmit} >
-    {valid && <p>Complete form fields with Valid Data</p>}
+    {valid && <p className='invalid-form' >Enter valid form data</p>}
     {mutationError && <pre>Bad: {mutationError.graphQLErrors.map(({ message }, i) => (
         <span key={i}>{message}</span>
       ))}
@@ -142,7 +142,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
       />
       <Select
         className='dropdown select-transport'
-        placeholder='Select transportation type'
+        placeholder='Select travel mode'
         value={travelMode}
         defaultValue={travelMode}
         onChange={setTravelMode}
