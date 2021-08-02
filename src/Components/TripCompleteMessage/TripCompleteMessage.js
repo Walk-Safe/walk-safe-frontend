@@ -3,8 +3,8 @@ import { toast } from 'react-toastify';
 
 export function TripCompleteMessage(contact, user) {
 
-  const notifySuccess = () => toast.success(`Trip completed notification successfully sent to ${contact.value}. Thank you for using Walk Safe!`);
-  const notifyError = () => toast.error(`Trip completed notification was unsuccessful, please contact ${contact.value} directly.`);
+  const notifySuccess = () => toast.success(`Trip completed notification successfully sent to ${contact.value}, thank you for using Walk Safe`);
+  const notifyError = () => toast.error(`Trip completed notification was unsuccessful, please contact ${contact.value} directly`);
 
   const sendSms = () => {
     let smsObj = {
