@@ -12,26 +12,25 @@ export const CheckBoxWrapper = styled.div`
 
 export const CheckBoxLabel = styled.label`
   position: relative;
-  // top: 1.75em;
-  // left: 5.9em;
   width: 42px;
   height: 26px;
   border-radius: 15px;
   background-image: url(https://i.postimg.cc/857jHw2q/Screenshot-2020-04-16-at-1-07-06-PM.png);
   transition: background-image .90s;
   background-size: cover;
-  color:#0626a2;
+  transition: 0.9s;
+  color: #0626a2;
   cursor: pointer;
    border-color: #0626a2;
   &::after {
     content: '';
     display: block;
     border-radius: 50%;
-    border-color: #F8CB05;
+    border-color: #f8cc0588;
     width: 18px;
     height: 18px;
     margin: 3px;
-    background: #F7CA33;
+    background: #f7c93380;
     box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
     transition: 0.9s;
   }
@@ -53,7 +52,7 @@ export const CheckBox = styled.input`
       border-color: #F8CB05
       color:#F8CB05;
       border-radius: 50%;
-      background: #ECF0F3;
+      background: #ecf0f38e;
       width: 18px;
       height: 18px;
       margin-left: 3px;
@@ -73,6 +72,7 @@ export const darkTheme = {
   backgroundColor: '#9DC7E4',
   formBackground: '#8b8884',
   buttonTextColor: '#000000',
+  contactFormInner: '#292931b9',
 }
 export const lightTheme = {
   body: '#EEEEEE',
@@ -84,35 +84,39 @@ export const lightTheme = {
   buttonBackgroundColor: '#2483d4',
   formBackground: '#6E6355',
   buttonTextColor: '#ececec',
+  contactFormInner: '#EEEEEE',
   // lightShadow: $shadow-heavy,
 }
 
 export const GlobalStyles = createGlobalStyle`
  .App {
-  background-color: ${props => props.theme.body};
-  color: ${props => props.theme.textColor};
-  transition: .3s ease;
+    background-color: ${props => props.theme.body};
+    color: ${props => props.theme.textColor};
+    transition: .3s ease;
  }
  .welcome-msg {
-  color: ${props => props.theme.welcomeMsg};
+    color: ${props => props.theme.welcomeMsg};
  }
- .app-header{
-  color: ${props => props.theme.headingColor};
-  text-shadow: ${props => props.theme.textShadow};
+ .app-header {
+    color: ${props => props.theme.headingColor};
+    text-shadow: ${props => props.theme.textShadow};
  }
- .trip-form{
-  background-color: ${props => props.theme.formBackground};
-  box-shadow: $shadow-heavy;
- button {
-  background-color: ${props => props.theme.buttonBackgroundColor};
-  color: ${props => props.theme.buttonTextColor};
+ .trip-form, .contact-container {
+    background-color: ${props => props.theme.formBackground};
+    box-shadow: $shadow-heavy;
+  button {
+      background-color: ${props => props.theme.buttonBackgroundColor};
+      color: ${props => props.theme.buttonTextColor};
+    }
+ }
+ .contact-form {
+    background-color: ${props => props.theme.body};
  }
  .bm-menu {
-  background-color: ${props => props.theme.headingColor};
+    background-color: ${props => props.theme.headingColor};
  }
-
  .bm-overlay {
-  background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0);
  }
  
 `

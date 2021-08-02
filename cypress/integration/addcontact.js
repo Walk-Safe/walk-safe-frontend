@@ -10,7 +10,7 @@ beforeEach(() => {
     })
   })
 
-  describe('Should navigate to a AddContact view via hamburger navigation', () => {
+  describe('Should navigate to a AddContact view via hamburger menu navigation', () => {
 
     it('Should be able to visit the main page', () => {
       cy.visit('https://walk-safe-frontend.herokuapp.com/')

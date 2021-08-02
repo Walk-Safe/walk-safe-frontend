@@ -50,9 +50,11 @@ function AddContact({ user, switchTheme }) {
     if (!firstName || !lastName || !countryCode || !areaCode || !phoneNumber) {
       return setValidCheck(true);
     }
-    if (checkPhoneNum()){
-      return
-    }
+
+    // if (checkPhoneNum()) {
+    //   return
+    // }
+
     setValidCheck(false);
     setPhoneVerify(false);
     let number = `+${countryCode}${areaCode}${phoneNumber}`;
@@ -93,53 +95,64 @@ function AddContact({ user, switchTheme }) {
   // }
 
   return (
-    <section className='add-contact'>
+    <main className='add-contact-page'>
       <NavBar nameToggle='true' user={user.firstName} switchTheme={switchTheme} />
       <Header />
-      <form className='contact-form'>
-        {valid && <p className='form-error'>Complete Fields With Valid Data</p>}
-        {verify && <p className='form-error'>Enter valid phone number</p>}
-        <h2>Add Contact</h2>
-          <div className='contact-name'>
-           <input
-             title='firstName'
-             placeholder='First Name'
-             value={firstName}
-             onChange={(event) => setFirst(event.target.value)}
-           />
-           <input
-             title='lastName'
-             placeholder='Last Name'
-             value={lastName}
-             onChange={(event) => setLast(event.target.value)}
-           />
+      <section className='contact-container'>
+        <div className='add-contact-title'>
+          <h2>Add Contact</h2>
+        </div>
+        <form className='contact-form'>
+          <div className='form-error'>
+            {valid && <p>Complete Fields With Valid Data</p>}
+            {verify && <p className='form-error'>Enter valid phone number</p>}
           </div>
-           <h3>Phone Number</h3>
-           <div className='phone-number'>
-             <input
-               title='countryCode'
-               placeholder='Country Code'
-               value={countryCode}
-               onChange={(event) => setCountry(event.target.value)}
-             />
-             <input
-               title='areaCode'
-               placeholder='Area Code'
-               value={areaCode}
-               onChange={(event) => setArea(event.target.value)}
-             />
-             <input
-               title='phoneNumber'
-               placeholder='Phone Number'
-               value={phoneNumber}
-               onChange={(event) => setPhone(event.target.value)}
-             />
-           </div>
-        {mutationLoading && <p className='loading'>Loading...</p>}
-        {mutationError && <p>Error: Please try again</p>}
-        <button className='add-contact-btn' onClick={addContact}>ADD CONTACT</button>
-      </form>
-    </section>
+          <div className='contact-form-label'>
+            <h3>Name</h3>
+          </div>
+          <div className='contact-name'>
+            <input
+              title='firstName'
+              placeholder='First Name'
+              value={firstName}
+              onChange={(event) => setFirst(event.target.value)}
+            />
+            <input
+              title='lastName'
+              placeholder='Last Name'
+              value={lastName}
+              onChange={(event) => setLast(event.target.value)}
+            />
+          </div>
+          <div className='contact-form-label'>
+            <h3>Phone Number</h3>
+          </div>
+          <div className='phone-number'>
+            <input
+              title='countryCode'
+              placeholder='Country Code'
+              value={countryCode}
+              onChange={(event) => setCountry(event.target.value)}
+            />
+            <input
+              title='areaCode'
+              placeholder='Area Code'
+              value={areaCode}
+              onChange={(event) => setArea(event.target.value)}
+            />
+            <input
+              title='phoneNumber'
+              placeholder='Phone Number'
+              value={phoneNumber}
+              onChange={(event) => setPhone(event.target.value)}
+            />
+          </div>
+          {mutationLoading && <p className='loading'>Loading...</p>}
+          {mutationError && <p>Error: Please try again</p>}
+          <button className='add-contact-btn' onClick={addContact}>SUBMIT</button>
+        </form>
+      </section>
+    </main>
   )
 }
 

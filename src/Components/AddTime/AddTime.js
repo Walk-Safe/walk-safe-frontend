@@ -61,52 +61,53 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
     <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
-      width={getAddTimeModalWidth(width)}
-      style={addTimeModalStyles}
+      style={{content: {...addTimeModalStyles, width: getAddTimeModalWidth(width) }}}
       contentLabel='add time modal'
       preventScroll={true}
       shouldCloseOnOverlayClick={false}
     >
       <div className='add-time-modal'>
-        <p className='timeout-message'>
-          You've surpassed your ETA, <br></br>do you need more time?
-        </p>
-          <CountdownCircleTimer
-            isPlaying={true}
-            strokeWidth={6}
-            size={getExtendedTimerWidth(width)}
-            className={'timer backup-timer'}
-            colors={[
-              ['#24CE21', 0.33],
-              ['#26A7F9', 0.33],
-              ['#FF0000', 0.33],
-            ]}
-            duration={30}
-            onComplete={handleExpiration}
-          >
-            {({ remainingTime }) => renderTime('seconds', remainingTime)}
-          </CountdownCircleTimer>
-        <p className='warning-message'>
-          Your contact will be notified if you do not select an option in the remaining time.
-        </p>
-        <section className='add-time-response'>
-          <NavLink exact to='/'>
-            <button onClick={handleEndTrip} className='end-trip-modal-btn'>
-              END TRIP
-            </button>
-          </NavLink>
-          <Select
-            className='extend-time'
-            placeholder='EXTEND TIME'
-            styles={addTimeDropdownStyles}
-            value={selectedTime}
-            defaultValue={selectedTime}
-            onChange={selectedTime => {
-              handleExtension(selectedTime)
-            }}
-            options={extendedTimeOptions}
-          />
-        </section>
+        <article className='add-time-contents'>
+          <p className='timeout-message'>
+            You've surpassed your ETA, <br></br>do you need more time?
+          </p>
+            <CountdownCircleTimer
+              isPlaying={true}
+              strokeWidth={6}
+              size={getExtendedTimerWidth(width)}
+              className={'timer backup-timer'}
+              colors={[
+                ['#24CE21', 0.33],
+                ['#26A7F9', 0.33],
+                ['#FF0000', 0.33],
+              ]}
+              duration={30}
+              onComplete={handleExpiration}
+            >
+              {({ remainingTime }) => renderTime('seconds', remainingTime)}
+            </CountdownCircleTimer>
+          <p className='warning-message'>
+            Your contact will be notified if you do not select an option in the remaining time.
+          </p>
+          <section className='add-time-response'>
+            <NavLink exact to='/'>
+              <button onClick={handleEndTrip} className='end-trip-modal-btn'>
+                END TRIP
+              </button>
+            </NavLink>
+            <Select
+              className='extend-time'
+              placeholder='EXTEND TIME'
+              styles={addTimeDropdownStyles}
+              value={selectedTime}
+              defaultValue={selectedTime}
+              onChange={selectedTime => {
+                handleExtension(selectedTime)
+              }}
+              options={extendedTimeOptions}
+            />
+          </section>
+        </article>
       </div>
     </ReactModal>
   )
