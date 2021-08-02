@@ -1,50 +1,63 @@
-.add-contact {
+.add-contact-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 100%;
   width: 100%;
+  padding-bottom: 1em;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 55%;
+  width: 55%;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  margin: 3em 3em 3em 3em;
+  border-radius: 5px;
+  box-shadow: $shadow-heavy;
+}
+
+.add-contact-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  margin: 1% auto 2% auto;
 
   h2 {
     color: ghostwhite;
-    font-size: 1.75em;
+    font-size: 2em;
     text-transform: uppercase;
     letter-spacing: 2.5px;
-    margin: 3%;
-  }
-
-  h3 {
-    color: ghostwhite;
-    font-size: 1.25em;
-    letter-spacing: 2.5px;
-    margin-top: 3%;
   }
 }
 
 .contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 40%;
-    width: 50%;
-    padding: 0.5em;
-    border: 3px solid rgba(41, 19, 6, 0.522);
-    border-radius: 5px;
-    background-color: #6E6355;
-    box-shadow: $shadow-heavy;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: 75%;
+  padding: 1em 0.5em 1em 0.5em;
+  border: 1px solid black;
 
   button {
     width: 40%;
     height: 15%;
     padding: 3px;
-    margin: 1.5em auto 0.75em auto;
+    align-self: center;
+    margin: 1.5em;
     border-radius: 5px;
     color: ghostwhite;
     background-color: #9DC7E4;
     font-size: 1rem;
     letter-spacing: 2.5px;
+    box-shadow: $shadow-light;
 
     &:hover {
       color: rgb(34, 34, 49);
@@ -53,22 +66,37 @@
   }
 }
 
+.contact-form-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1% auto 1% auto;
+  width: 100%;
+
+  h3 {
+    font-size: 1.25em;
+    letter-spacing: 2.5px;
+  }
+}
+
 .contact-name {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 30%;
+  height: 25%;
+  margin: 0;
 
   input {
     text-align: center;
-    width: 50%;
-    height: 50%;
+    width: 30%;
+    height: 40%;
     padding: 5px;
     margin: 0.5em;
     border-radius: 5px;
   }
 }
+
 
 .phone-number {
   display: flex;
@@ -80,11 +108,15 @@
   input {
     text-align: center;
     height: 50%;
-    margin: 3%;
+    width: 25%;
+    margin: 1%;
+    border-radius: 5px;
   }
 }
 
 .form-error {
+  height: 5%;
+  text-align: center;
   color: red;
 }
 
@@ -92,20 +124,184 @@
   display: flex;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1025px) {
+  .contact-container {
+    width: 80%;
+    height: 65%;
+    margin: 1em 3em 1em 3em;
+  }
 
+  .add-contact-title h2 {
+    font-size: 2.5em;
+    letter-spacing: 2.5px;
+  }
 
   .contact-form {
-    height: 57%;
-    width: 81%;
-    margin-top: 1em;
+    width: 85%;
+  }
+
+  .contact-form-label h3 {
+    font-size: 2em;
+    letter-spacing: 4px;
+  }
+
+  .add-contact-title {
+    height: 15%;
+  }
+
+  .contact-name input {
+    font-size: 1.6em;
+  }
+
+  .phone-number input {
+    font-size: 1.4em;
+    width: 29%;
+  }
+
+  .contact-form {
+    height: 85%;
+    padding: 0.5em 0.25em 1em 0.25em;
+    justify-content: space-evenly;
+
+    button {
+      width: 40%;
+      height: 15%;
+      padding: 3px;
+      margin: 0.8em;
+      font-size: 1.3em;
+      letter-spacing: 7px;
+    }
   }
 }
 
-
-@media screen and (max-width: 360px) {
-  .contact-form {
+@media screen and (max-width: 769px) {
+  .contact-container {
     height: 60%;
+  }
+
+  .add-contact-title h2 {
+    font-size: 2em;
+  }
+
+  .contact-form-label h3 {
+    font-size: 1.4em;
+    letter-spacing: 1.5px;
+  }
+
+  .contact-name input {
+    font-size: 1.2em;
+  }
+
+  .phone-number input {
+    font-size: 1em;
+    width: 28%;
+  }
+
+  .contact-form {
+    height: 85%;
+    padding: 0.5em 0.25em 1em 0.25em;
+    justify-content: space-evenly;
+
+    button {
+      width: 40%;
+      height: 15%;
+      padding: 3px;
+      margin: 0.8em;
+      font-size: 1.3em;
+      letter-spacing: 7px;
+    }
+  }
+}
+
+@media screen and (max-width: 651px) {
+  .contact-container {
+    width: 85%;
+  }
+
+  .add-contact-title h2 {
+    font-size: 1.5em;
+  }
+
+  .contact-form {
     width: 80%;
+  }
+
+  .contact-form-label h3 {
+    font-size: 1em;
+    letter-spacing: 1.2px;
+  }
+
+  .contact-name input {
+    font-size: 0.8em;
+  }
+
+  .phone-number input {
+    font-size: 0.7em;
+  }
+
+  .contact-form {
+    height: 85%;
+    padding: 0.5em 0.25em 1em 0.25em;
+    justify-content: space-evenly;
+
+    button {
+      width: 50%;
+      font-size: 0.9em;
+      letter-spacing: 2.5px;
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .contact-container {
+    height: 55%;
+  }
+
+  .add-contact-title h2 {
+    font-size: 1em;
+    letter-spacing: 2.5px;
+  }
+
+  .contact-form-label h3 {
+    font-size: 0.9em;
+    letter-spacing: 1px;
+  }
+  
+  .contact-name input {
+    font-size: 0.75em;
+  }
+  
+  .phone-number input {
+    font-size: 0.6em;
+    width: 27%;
+  }
+
+  .contact-form button {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .contact-form-label h3 {
+    font-size: 0.8em;
+    letter-spacing: 1px;
+  }
+
+  .contact-name input {
+    font-size: 0.70em;
+  }
+
+  .phone-number input {
+    font-size: 8px;
+    width: 27%;
+  }
+
+  .contact-form button {
+    font-size: 0.7em;
+    width: 40%;
+    height: 15%;
+    margin: 0.5em;
+    padding: 3px;
+    align-self: center;
   }
 }
