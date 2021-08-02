@@ -18,6 +18,7 @@ export const CheckBoxLabel = styled.label`
   background-image: url(https://i.postimg.cc/857jHw2q/Screenshot-2020-04-16-at-1-07-06-PM.png);
   transition: background-image .90s;
   background-size: cover;
+  transition: 0.9s;
   color: #0626a2;
   cursor: pointer;
    border-color: #0626a2;
