@@ -20,6 +20,9 @@ const CREATE_CONTACT = gql`
 const GET_USER = gql`
 query GetUser {
   oneUser(id: 2) {
+    firstName
+    lastName
+    username
     contacts {
       firstName
       lastName

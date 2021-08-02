@@ -19,22 +19,6 @@ const CREATE_TRIP = gql `
   }
 }
 `
-
-const GET_USER = gql`
-query GetUser {
-  oneUser(id: 2) {
-    firstName
-    lastName
-    username
-    contacts {
-      firstName
-      lastName
-      phoneNumber
-    }
-  }
-}
-`
-
 function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive }) {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -46,7 +30,6 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
   const [selectedContact, setSelectedContact] = useState('');
   const [travelMode, setTravelMode] = useState('');
   const [createTrip, { loading: mutationLoading, error: mutationError, data: newTripData }] = useMutation(CREATE_TRIP, { errorPolicy: 'none' });
-  const { loading: queryLoading, error: queryError, data: contactData } = useQuery(GET_USER);
 
   useEffect(() => {
     formatContacts()
@@ -54,19 +37,11 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
   }, []);
 
   useEffect(() => {
-    console.log(newTripData)
     if (newTripData) {
       handleEtaChange(newTripData.createTrip.trip.eta);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newTripData]);
-
-  useEffect(() => {
-    if (contactData) {
-      formatContacts();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [contactData]);
 
   const customStyles = {
     control: base => ({
@@ -77,7 +52,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
   };
 
   function formatContacts() {
-    const formatted = contactData.oneUser.contacts.map(contact => {
+    const formatted = contacts.map(contact => {
       const name = `${contact.firstName} ${contact.lastName}`
       const number= contact.phoneNumber;
       return { value: name, label: name, phone: number };
@@ -117,10 +92,6 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
     <form className='trip-form' onSubmit={handleSubmit} >
     {valid && <p className='invalid-form' >Enter valid form data</p>}
     {mutationError && <pre>Bad: {mutationError.graphQLErrors.map(({ message }, i) => (
-        <span key={i}>{message}</span>
-      ))}
-      </pre>}
-    {queryError && <pre>Bad: {queryError.graphQLErrors.map(({ message }, i) => (
         <span key={i}>{message}</span>
       ))}
       </pre>}
@@ -178,7 +149,6 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
         />
       }
       {mutationLoading && <p className='loading'>Loading...</p>}
-      {queryLoading && <p className='loading'>Loading...</p>}
     </form>
   )
 }
