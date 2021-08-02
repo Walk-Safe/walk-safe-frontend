@@ -81,7 +81,7 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
                 ['#26A7F9', 0.33],
                 ['#FF0000', 0.33],
               ]}
-              duration={500}
+              duration={30}
               onComplete={handleExpiration}
             >
               {({ remainingTime }) => renderTime('seconds', remainingTime)}

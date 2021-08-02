@@ -36,7 +36,6 @@ function Alert({ setEmergency, modalIsOpen, closeModal }) {
     <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
-      style={alertModalStyles}
       style={{content: { ...alertModalStyles, width: getAlertWidth(width) }}}
       contentLabel='alert modal'
       preventScroll={true}
@@ -48,7 +47,7 @@ function Alert({ setEmergency, modalIsOpen, closeModal }) {
               {...timerProps}
               className={'timer alert-timer'}
               colors={[['#000000', 1]]}
-              duration={500}
+              duration={20}
               onComplete={handleModalClose}
             >
             </CountdownCircleTimer>
