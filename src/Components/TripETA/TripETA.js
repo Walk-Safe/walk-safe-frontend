@@ -83,8 +83,7 @@ function TripETA( { modalIsOpen, closeModal, eta, tripDetails, contact, userName
     <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
-      style={etaModalStyles}
-      width={getEtaModalWidth(width)}
+      style={{content: { ...etaModalStyles, width: getEtaModalWidth(width) }}}
       contentLabel='trip ETA modal'
       preventScroll={true}
       shouldCloseOnOverlayClick={false}

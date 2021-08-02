@@ -9,7 +9,7 @@
   padding-bottom: 1em;
   margin: 3em 3em 3em 3em;
   border-radius: 5px;
-  background-color: #6E6355;
+  // background-color: #6E6355;
   box-shadow: $shadow-heavy;
 
   button {
@@ -145,6 +145,7 @@
 @media screen and (max-width: 376px) {
   .trip-form {
     width: 80%;
+    margin: 1em 3em 1em 3em;
   }
 
   .location-input {
