@@ -23,6 +23,9 @@ const CREATE_TRIP = gql `
 const GET_USER = gql`
 query GetUser {
   oneUser(id: 2) {
+    firstName
+    lastName
+    username
     contacts {
       firstName
       lastName
@@ -59,7 +62,6 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
   }, [newTripData]);
 
   useEffect(() => {
-    console.log('contact', contactData)
     if (contactData) {
       formatContacts();
     }
