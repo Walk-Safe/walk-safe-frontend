@@ -73,8 +73,8 @@ export const darkTheme = {
   backgroundColor: '#9DC7E4',
   formBackground: '#8b8884',
   buttonTextColor: '#000000',
+  contactFormInner: '#292931b9',
 }
-
 export const lightTheme = {
   body: '#EEEEEE',
   welcomeMsg: '#6E6355',
@@ -85,32 +85,39 @@ export const lightTheme = {
   buttonBackgroundColor: '#2483d4',
   formBackground: '#6E6355',
   buttonTextColor: '#ececec',
+  contactFormInner: '#EEEEEE',
+  // lightShadow: $shadow-heavy,
 }
 
 export const GlobalStyles = createGlobalStyle`
  .App {
-  background-color: ${props => props.theme.body};
-  color: ${props => props.theme.textColor};
-  transition: .3s ease;
+    background-color: ${props => props.theme.body};
+    color: ${props => props.theme.textColor};
+    transition: .3s ease;
  }
  .welcome-msg {
-  color: ${props => props.theme.welcomeMsg};
+    color: ${props => props.theme.welcomeMsg};
  }
- .app-header{
-  color: ${props => props.theme.headingColor};
-  text-shadow: ${props => props.theme.textShadow};
+ .app-header {
+    color: ${props => props.theme.headingColor};
+    text-shadow: ${props => props.theme.textShadow};
  }
- .trip-form{
-  background-color: ${props => props.theme.formBackground};
-  box-shadow: $shadow-heavy;
- button {
-  background-color: ${props => props.theme.buttonBackgroundColor};
-  color: ${props => props.theme.buttonTextColor};
+ .trip-form, .contact-container {
+    background-color: ${props => props.theme.formBackground};
+    box-shadow: $shadow-heavy;
+  button {
+      background-color: ${props => props.theme.buttonBackgroundColor};
+      color: ${props => props.theme.buttonTextColor};
+    }
+ }
+ .contact-form {
+    background-color: ${props => props.theme.body};
  }
  .bm-menu {
-  background-color: ${props => props.theme.headingColor};
+    background-color: ${props => props.theme.headingColor};
  }
  .bm-overlay {
-  background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0);
  }
+ 
 `
