@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
-import { gql, useMutation } from '@apollo/client';
+import { gql, useMutation, useQuery } from '@apollo/client';
 import {toast} from "react-toastify";
 
 const CREATE_CONTACT = gql`
@@ -17,6 +17,18 @@ const CREATE_CONTACT = gql`
  }
 `
 
+const GET_USER = gql`
+query GetUser {
+  oneUser(id: 2) {
+    contacts {
+      firstName
+      lastName
+      phoneNumber
+    }
+  }
+}
+`
+
 function AddContact({ user, switchTheme }) {
   const [valid, setValidCheck] = useState(false);
   const [verify, setPhoneVerify] = useState(false);
@@ -26,30 +38,31 @@ function AddContact({ user, switchTheme }) {
   const [areaCode, setArea] = useState('');
   const [phoneNumber, setPhone] = useState('');
   // const [createContact, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_CONTACT);
-  const [createContact, { loading: mutationLoading, error: mutationError }] = useMutation(CREATE_CONTACT, {
-    update(cache, { data: { createContact } }) {
-      cache.modify({
-        fields: {
-          contacts(existingContacts = []) {
-            const newContactRef = cache.writeFragment({
-              data: createContact,
-              fragment: gql`
-                fragment NewContact on Contact {
-                  contact {
-                    id
-                    firstName
-                    lastName
-                    phoneNumber
-                  }
-                }
-                `
-            });
-            return [...existingContacts, newContactRef];
-          }
-        }
-      });
-    }
-  });
+  const [createContact, { loading: mutationLoading, error: mutationError }] = useMutation(CREATE_CONTACT);
+  //   {
+  //   update(cache, { data: { createContact } }) {
+  //     cache.modify({
+  //       fields: {
+  //         contacts(existingContacts = []) {
+  //           const newContactRef = cache.writeFragment({
+  //             data: createContact,
+  //             fragment: gql`
+  //               fragment NewContact on Contact {
+  //                 contact {
+  //                   id
+  //                   firstName
+  //                   lastName
+  //                   phoneNumber
+  //                 }
+  //               }
+  //               `
+  //           });
+  //           return [...existingContacts, newContactRef];
+  //         }
+  //       }
+  //     });
+  //   }
+  // });
 
   const addedContactAlert = () => toast.success(`${firstName} ${lastName} contact information has been added`);
 
