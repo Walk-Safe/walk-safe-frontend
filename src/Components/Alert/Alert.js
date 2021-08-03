@@ -36,29 +36,30 @@ function Alert({ setEmergency, modalIsOpen, closeModal }) {
     <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
-      style={alertModalStyles}
-      width={getAlertWidth(width)}
+      style={{content: { ...alertModalStyles, width: getAlertWidth(width) }}}
       contentLabel='alert modal'
       preventScroll={true}
     >
       <section className='alert-modal'>
-        <div className='alert-nav'>
-          <CountdownCircleTimer
-            {...timerProps}
-            className={'timer alert-timer'}
-            colors={[['#000000', 1]]}
-            duration={20}
-            onComplete={handleModalClose}
-          >
-          </CountdownCircleTimer>
-          <NavLink className='alert-exit-link' exact to='/'>
-            <i type='button' onClick={handleModalClose} className="fas fa-times fa-2x alert-exit-btn"></i>
-          </NavLink>
-        </div>
-        <h2 className='alert-title'>!ALERT!</h2>
-        <p className='alert-message'>
-          Your contact has been notified that your trip was not completed in time.
-        </p>
+        <article className='alert-contents'>
+          <div className='alert-nav'>
+            <CountdownCircleTimer
+              {...timerProps}
+              className={'timer alert-timer'}
+              colors={[['#000000', 1]]}
+              duration={20}
+              onComplete={handleModalClose}
+            >
+            </CountdownCircleTimer>
+            <NavLink className='alert-exit-link' exact to='/'>
+              <i type='button' onClick={handleModalClose} className="fas fa-times fa-2x alert-exit-btn"></i>
+            </NavLink>
+          </div>
+          <h2 className='alert-title'>!ALERT!</h2>
+          <p className='alert-message'>
+            Your contact has been notified that your trip was not completed in time.
+          </p>
+        </article>
       </section>
     </ReactModal>
   )

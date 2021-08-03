@@ -7,7 +7,16 @@
   background-color: rgb(223, 74, 74);
   font-family: $roboto;
   font-weight: 500;
-  padding-bottom: 0.5em;
+}
+
+.alert-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 95%;
+  width: 95%;
+  padding: 5%;
 }
 
 .alert-nav {
@@ -40,7 +49,7 @@
   letter-spacing: 0.20em;
   height: 35%;
   width: 100%;
-  font-size: 4rem;
+  font-size: 4em;
   color: white;
   text-shadow: 0 1px 2px rgb(37, 34, 34);
 }
@@ -52,46 +61,57 @@
   width: 80%;
   height: 35%;
   margin: 1em;
-  font-size: 2.5rem;
+  line-height: 1.5;
+  font-size: 2.5em;
   color:rgb(255, 255, 255);
   text-shadow: 0 1px 2px rgb(37, 34, 34);
 }
 
 @media screen and (max-width: 1025px) {
   .alert-title {
-    font-size: 2.5rem;
+    font-size: 3em;
   }
 
   .alert-message {
-    font-size: 1.5rem;
+    font-size: 2em;
   }
 }
 
 @media screen and (max-width: 930px) {
   .alert-title {
-    font-size: 2.3rem;
+    font-size: 2.3em;
   }
 
   .alert-message {
-    font-size: 1.5rem;
+    font-size: 1.5em;
   }
 }
 
 @media screen and (max-width: 651px) {
   .alert-title {
-    font-size: 2rem;
+    font-size: 2em;
   }
 
   .alert-message {
-    font-size: 1.3rem;
+    font-size: 1.1em;
   }
 }
 
 @media screen and (max-width: 376px) {
   .alert-title {
-    font-size: 2rem;
+    font-size: 2em;
   }
   .alert-message {
-    font-size: 1rem;
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .alert-title {
+    font-size: 1.5em;
+  }
+
+  .alert-message {
+    font-size: 0.9em;
   }
 }
