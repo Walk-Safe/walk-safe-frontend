@@ -85,7 +85,6 @@ export const lightTheme = {
   formBackground: '#6E6355',
   buttonTextColor: '#ececec',
   contactFormInner: '#EEEEEE',
-  // lightShadow: $shadow-heavy,
 }
 
 export const GlobalStyles = createGlobalStyle`
