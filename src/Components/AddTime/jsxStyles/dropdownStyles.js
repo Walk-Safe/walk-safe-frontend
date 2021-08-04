@@ -1,12 +1,17 @@
 const addTimeDropdownStyles = {
   control: () => ({
-    height: 30,
-    minHeight: 35,
-    backgroundColor: '#c6fc80bd',
     display: 'flex',
   }),
   input: () => ({
     color: 'transparent',
+  }),
+  dropdownIndicator: (defaultStyles) => ({
+    ...defaultStyles,
+    color: '#363a4471'
+  }),
+  indicatorSeparator: (defaultStyles) => ({
+    ...defaultStyles,
+    backgroundColor: '#363a4471'
   }),
   placeholder: (defaultStyles) => {
     return {
@@ -16,7 +21,7 @@ const addTimeDropdownStyles = {
       textJustify: 'center',
       marginLeft: '4%',
       letterSpacing: '3px',
-      color: '#2b2f30'
+      color: '#000000'
     }
   },
 };

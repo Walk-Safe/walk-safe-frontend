@@ -57,10 +57,8 @@
 
 .timer-wrapper {
   text-align: center;
-  font-family: $roboto;
   font-size: 2em;
-  text-transform: uppercase;
-  text-shadow: 0.5px 0.5px 1px rgba(75, 76, 94, 0.493);
+  text-shadow: 0.5px 0.5px 0.5px rgba(75, 76, 94, 0.493);
 }
 
 .end-trip-btn {
@@ -248,7 +246,7 @@
   }
 
   .timer-wrapper {
-    font-size: 0.9em;
+    font-size: 1.1em;
   }
 
   .trip-container a {
@@ -264,6 +262,7 @@
 
   .end-trip-btn {
     font-size: 0.8em;
+    text-shadow: 1px 1px rgba(38, 22, 22, 0.459);
   }
 }
 
