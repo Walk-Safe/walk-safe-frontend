@@ -55,6 +55,7 @@ function AboutUs({ user, switchTheme }) {
     <main className='about-us-page'>
       <NavBar nameToggle={false} user={user.firstName} switchTheme={switchTheme} />
       <Header />
+      <h3 className='about-us-title'>About Us</h3>
       <div className='bio-container'>
         <p className='bio-text'>{`There's a sense of security one feels as you are walking with friends, family, and even colleagues. The reality of our daily lives doesn't always allow for this luxury, nor does the innate desire for independence. Walk Safe was born from the simple idea of keeping your community close when your journey takes you far.`}</p>
         <p className='bio-text'>{`The concept may be something you've already engrained in a part of your daily routine: texting a loved one that youve made it home safe. What if, for whatever reason, you weren't able to send that reassuring text?`}</p>
