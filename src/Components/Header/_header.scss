@@ -13,12 +13,16 @@
   font-family: $julius;
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 1300px) {
   .app-header {
     font-size: 2.2em;
     height: 8%;
     margin: 2%;
   }
+}
+
+@media screen and (max-width: 1025px) {
+  //
 }
 
 @media screen and (max-width: 769px) {

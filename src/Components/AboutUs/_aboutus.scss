@@ -22,7 +22,7 @@
   margin-top: 0.5em;
   padding: 0.2em;
   width: 65%;
-  height: 33%;
+  height: 40%;
   overflow: scroll;
   overscroll-behavior: contain;
 }
@@ -37,10 +37,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 3%;
-  padding: 5px;
+  margin: 2%;
+  padding: 1%;
   width: 57%;
-  height: 40%;
+  height: 36%;
   box-shadow: $shadow-heavy;
   border-radius: 5px;
 }
@@ -73,8 +73,8 @@
   justify-content: center;
   background-color: ghostwhite;
   padding: 1%;
-  max-height: 97%;
-  width: 25%;
+  max-height: 95%;
+  width: 23%;
   border: 1px solid black;
 }
 
@@ -104,8 +104,37 @@
   font-family: $roboto;
   text-shadow: 1px 1px 3px rgba(194, 160, 118, 0.741);
   font-weight: 500;
-  font-size: 1.3em;
+  font-size: 1.2em;
   letter-spacing: 0.1em;
+}
+
+@media screen and (max-width: 1300px) {
+  .bio-container {
+    width: 85%;
+    height: 30%;
+  }
+
+  .bio-text {
+    font-size: 0.8em;
+  }
+
+  .team-grid {
+    width: 60%;
+    height: 35%;
+  }
+
+  .row-title {
+    font-size: 1em;
+  }
+
+  .dev-card {
+    height: 80%;
+    width: 20%;
+  }
+
+  .dev-name {
+    font-size: 0.9em;
+  }
 }
 
 @media screen and (max-width: 1025px) {
@@ -183,7 +212,7 @@
   }
 
   .row-title {
-    font-size: 18px;
+    font-size: 19px;
   }
 
   .dev-card {
@@ -192,7 +221,7 @@
   }
 
   .dev-name {
-    font-size: 0.8em;
+    font-size: 1em;
   }
 }
 
@@ -227,7 +256,7 @@
 
 @media screen and (max-width: 376px) {
   .bio-container {
-    width: 83%;
+    width: 88%;
     height: 32%;
     padding: 0.1em;
   }
@@ -238,11 +267,11 @@
   }
 
   .bio-text {
-    font-size: 9.4px;
+    font-size: 9.5px;
   }
 
   .team-grid {
-    width: 85%;
+    width: 88%;
     height: 35%;
   }
 
@@ -260,23 +289,26 @@
   }
 
   .dev-name {
-    font-size: 7px;
+    font-size: 8px;
   }
 }
 
 @media screen and (max-width: 321px) {
   .bio-container {
+    width: 88%;
     height: 30%;
     padding: 0.5em;
   }
 
   .bio-text {
-    font-size: 0.5rem;
+    font-size: 8.1px;
   }
 
   .team-grid {
-    width: 80%;
-    height: 40%;
+    width: 88%;
+    height: 35%;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .row-title {
@@ -289,6 +321,6 @@
   }
 
   .dev-name {
-    font-size: 5px;
+    font-size: 7px;
   }
 }

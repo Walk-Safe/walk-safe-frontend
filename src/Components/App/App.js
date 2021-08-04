@@ -36,16 +36,17 @@ function App() {
         <GlobalStyles />
         <div className='App'>
           <ToastContainer
-              classname='toast-container'
-              position="top-center"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={true}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover />
+            className='toast-container'
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={true}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
           <Route exact path='/login'>
             <LoginView />
           </Route>
