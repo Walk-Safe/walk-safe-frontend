@@ -59,7 +59,7 @@
   text-transform: uppercase;
   margin: 1% auto 1% auto;
   padding: 1%;
-  max-height: 3%;
+  max-height: 4%;
   font-family: $julius;
   font-size: 1.3rem;
   font-weight: 700;
@@ -139,31 +139,34 @@
 
 @media screen and (max-width: 1025px) {
   .bio-container {
-    width: 80%;
-    height: 32%;
+    width: 90%;
+    height: 35%;
   }
 
   .bio-text {
-    font-size: 1.3em;
+    font-size: 0.9em;
     margin: 1%;
   }
 
   .team-grid {
-    width: 80%;
-    height: 38%;
+    width: 75%;
+    height: 35%;
+    padding-bottom: 2%;
   }
 
   .row-title {
-    font-size: 1.5em;
+    font-size: 1em;
+    margin: 2% auto 0 auto;
   }
 
   .dev-card {
     margin: 2%;
-    width: 25%;
+    height: 75%;
+    width: 19%;
   }
 
   .dev-name {
-    font-size: 1rem;
+    font-size: 0.9em;
   }
 }
 
@@ -198,8 +201,8 @@
 
 @media screen and (max-width: 769px) {
   .bio-container {
-    width: 82%;
-    height: 30%;
+    width: 85%;
+    height: 28%;
   }
 
   .bio-text {
@@ -207,8 +210,9 @@
   }
 
   .team-grid {
-    width: 83%;
-    height: 38%;
+    width: 85%;
+    height: 36%;
+    margin-top: 3%;
   }
 
   .row-title {
@@ -227,8 +231,12 @@
 
 @media screen and (max-width: 651px) {
   .bio-container {
-    width: 80%;
-    height: 32%;
+    width: 90%;
+    height: 33%;
+  }
+
+  .about-us-title {
+    font-size: 1.3em;
   }
 
   .bio-text {
@@ -236,8 +244,8 @@
   }
 
   .team-grid {
-    width: 80%;
-    height: 37%;
+    width: 90%;
+    height: 35%;
   }
 
   .row-title {
