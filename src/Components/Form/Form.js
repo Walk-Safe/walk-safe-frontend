@@ -122,6 +122,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
         onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
         options={transportOptions}
         styles={customStyles}
+        aria-label='select travel mode dropdown menu'
       />
       <Select
         className='dropdown select-contact'
@@ -132,6 +133,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
         onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
         options={formattedContacts}
         styles={customStyles}
+        aria-label='select contact dropdown menu'
       />
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
