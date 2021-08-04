@@ -1,6 +1,5 @@
 import { toast } from 'react-toastify';
 
-
 export function TripCompleteMessage(contact, user) {
 
   const notifySuccess = () => toast.success(`Trip completed notification successfully sent to ${contact.value}, thank you for using Walk Safe`);
