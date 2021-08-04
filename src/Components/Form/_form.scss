@@ -9,7 +9,6 @@
   padding-bottom: 1em;
   margin: 3em 3em 3em 3em;
   border-radius: 5px;
-  // background-color: #6E6355;
   box-shadow: $shadow-heavy;
 
   button {
@@ -23,10 +22,10 @@
     font-family: $julius;
     letter-spacing: 2.5px;
     box-shadow: $shadow-heavy;
-
+ 
     &:hover {
       color: rgb(34, 34, 49);
-      background-color: rgb(98, 150, 246);
+      background-color: #6296f6;
     }
   }
 }
@@ -48,6 +47,7 @@
   padding: 5px;
   margin: 0.25em;
   font-size: 1em;
+  color: black;
 }
 
 .dropdown {
@@ -66,6 +66,7 @@
 
 .css-1wa3eu0-placeholder {
   padding-left: 10%;
+  color: black;
 }
 
 .invalid-form {
@@ -76,7 +77,6 @@
   .trip-form {
     height: 55%;
     width: 60%;
-    // margin: 3em 3em 3em 3em;
   }
 
   .location-input {

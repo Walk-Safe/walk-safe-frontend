@@ -66,6 +66,7 @@ export const lightTheme = {
   body: '#EEEEEE',
   welcomeMsg: '#6E6355',
   textColor: '#000',
+  textColorOpp: '#fff',
   textShadow: '#6E6355FF',
   navBarColor: '#2383D4',
   headingColor: '#2483d4',
@@ -82,6 +83,7 @@ export const darkTheme = {
   body: '#212128',
   welcomeMsg: '#8b8884',
   textColor: '#fff',
+  textColorOpp: '000',
   textShadow: '#a8a09d',
   navBarColor: '#9DC7E4',
   headingColor: '#9DC7E4',
@@ -106,6 +108,9 @@ export const GlobalStyles = createGlobalStyle`
  .app-header, .about-us-title {
     color: ${props => props.theme.headingColor};
     text-shadow: ${props => props.theme.textShadow};
+ }
+ .menu-item {
+    color: ${props => props.theme.textColorOpp};
  }
  .trip-form, .contact-container {
     background-color: ${props => props.theme.formBackground};
