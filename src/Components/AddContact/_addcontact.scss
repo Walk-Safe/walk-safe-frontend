@@ -6,6 +6,7 @@
   height: 100%;
   width: 100%;
   padding-bottom: 1em;
+  font-family: $julius;
 }
 
 .contact-container {
@@ -58,6 +59,7 @@
     font-size: 1rem;
     letter-spacing: 2.5px;
     box-shadow: $shadow-light;
+    font-family: $julius;
 
     &:hover {
       color: rgb(34, 34, 49);
@@ -95,6 +97,7 @@
     margin: 0.5em;
     margin-top: 0;
     border-radius: 5px;
+    font-family: $julius;
   }
 }
 
@@ -113,6 +116,7 @@
     margin: 1%;
     margin-top: 0;
     border-radius: 5px;
+    font-family: $julius;
   }
 }
 
@@ -251,7 +255,7 @@
   }
 
   .phone-number input {
-    font-size: 0.7em;
+    font-size: 0.5em;
   }
 
   .contact-form {
@@ -293,7 +297,7 @@
   }
   
   .phone-number input {
-    font-size: 0.6em;
+    font-size: 7px;
     width: 27%;
   }
 
@@ -314,7 +318,7 @@
   }
 
   .phone-number input {
-    font-size: 8px;
+    font-size: 6px;
     width: 27%;
   }
 

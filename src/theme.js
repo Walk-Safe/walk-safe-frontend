@@ -62,18 +62,6 @@ export const CheckBox = styled.input`
   }
 `;
 
-export const darkTheme = {
-  body: '#212128',
-  welcomeMsg: '#8b8884',
-  textColor: '#fff',
-  textShadow: '#a8a09d',
-  navBarColor: '#9DC7E4',
-  headingColor: '#9DC7E4',
-  backgroundColor: '#9DC7E4',
-  formBackground: '#8b8884',
-  buttonTextColor: '#000000',
-  contactFormInner: '#292931b9',
-}
 export const lightTheme = {
   body: '#EEEEEE',
   welcomeMsg: '#6E6355',
@@ -85,7 +73,25 @@ export const lightTheme = {
   formBackground: '#6E6355',
   buttonTextColor: '#ececec',
   contactFormInner: '#EEEEEE',
-  // lightShadow: $shadow-heavy,
+  teamGridBackground: '#369bf44d',
+  teamGridText: '#080109dc',
+  border: '1px solid #0b0f164b'
+}
+
+export const darkTheme = {
+  body: '#212128',
+  welcomeMsg: '#8b8884',
+  textColor: '#fff',
+  textShadow: '#a8a09d',
+  navBarColor: '#9DC7E4',
+  headingColor: '#9DC7E4',
+  backgroundColor: '#9DC7E4',
+  formBackground: '#8b8884',
+  buttonTextColor: '#000000',
+  contactFormInner: '#292931b9',
+  teamGridBackground: '#1c7769a4',
+  teamGridText: '#fef7f6',
+  border: '1px solid #f8f8ff'
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -97,7 +103,7 @@ export const GlobalStyles = createGlobalStyle`
  .welcome-msg {
     color: ${props => props.theme.welcomeMsg};
  }
- .app-header {
+ .app-header, .about-us-title {
     color: ${props => props.theme.headingColor};
     text-shadow: ${props => props.theme.textShadow};
  }
@@ -118,5 +124,13 @@ export const GlobalStyles = createGlobalStyle`
  .bm-overlay {
     background: rgba(0, 0, 0, 0);
  }
- 
+ .bio-container {
+    border: ${props => props.theme.border};
+ }
+ .team-grid {
+    background-color: ${props => props.theme.teamGridBackground};
+ }
+ .row-title {
+    color: ${props => props.theme.teamGridText};
+ }
 `
