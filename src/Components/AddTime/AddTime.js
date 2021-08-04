@@ -68,16 +68,16 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
     >
       <div className='add-time-modal'>
         <article className='add-time-contents'>
-          <p className='timeout-message'>
+          <h1 className='timeout-message'>
             You've surpassed your ETA, <br></br>do you need more time?
-          </p>
+          </h1>
             <CountdownCircleTimer
               isPlaying={true}
               strokeWidth={6}
               size={getExtendedTimerWidth(width)}
               className={'timer backup-timer'}
               colors={[
-                ['#24CE21', 0.33],
+                ['#b35fdd', 0.33],
                 ['#26A7F9', 0.33],
                 ['#FF0000', 0.33],
               ]}
@@ -91,8 +91,11 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
           </p>
           <section className='add-time-response'>
             <NavLink exact to='/'>
-              <button onClick={handleEndTrip} className='end-trip-modal-btn'>
-                END TRIP
+              <button 
+                onClick={handleEndTrip} 
+                className='end-trip-modal-btn' 
+                aria-label='end trip button'>
+                  END TRIP
               </button>
             </NavLink>
             <Select
@@ -105,6 +108,7 @@ function AddTime( { setExtension, setEmergency, setEtaSeconds, modalIsOpen, clos
                 handleExtension(selectedTime)
               }}
               options={extendedTimeOptions}
+              aria-label='extend time dropdown menu'
             />
           </section>
         </article>
