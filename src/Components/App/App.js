@@ -34,53 +34,53 @@ function App() {
     <Router>
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles />
-      <div className='App'>
-        <ToastContainer
-            classname='toast-container'
-            position="top-center"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={true}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover />
-        <Route exact path='/login'>
-          <LoginView />
-        </Route>
-        <Route exact path='/'>
-          <MainView
-            switchTheme={switchTheme}
-            setTripIsActive={setTripIsActive}
-            handleEtaChange={handleEtaChange}
-            setCurrentUser={setCurrentUser}
-            setCurrentContact={setCurrentContact}
-          />
-        </Route>
-        <Route exact path='/trip'>
-          <CurrentTrip
-            switchTheme={switchTheme}
-            tripIsActive={tripIsActive}
-            setTripIsActive={setTripIsActive}
-            eta={eta}
-            user={currentUser}
-            contact={currentContact}
-          />
-        </Route>
-        <Route exact path='/addcontact'>
-          <AddContact
-            switchTheme={switchTheme}
-            user={currentUser}
-          />
-        </Route>
-        <Route exact path='/about'>
-          <AboutUs
-            switchTheme={switchTheme}
-            user={currentUser}
-          />
-        </Route>
-      </div>
+        <div className='App'>
+          <ToastContainer
+              classname='toast-container'
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={true}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover />
+          <Route exact path='/login'>
+            <LoginView />
+          </Route>
+          <Route exact path='/'>
+            <MainView
+              switchTheme={switchTheme}
+              setTripIsActive={setTripIsActive}
+              handleEtaChange={handleEtaChange}
+              setCurrentUser={setCurrentUser}
+              setCurrentContact={setCurrentContact}
+            />
+          </Route>
+          <Route exact path='/trip'>
+            <CurrentTrip
+              switchTheme={switchTheme}
+              tripIsActive={tripIsActive}
+              setTripIsActive={setTripIsActive}
+              eta={eta}
+              user={currentUser}
+              contact={currentContact}
+            />
+          </Route>
+          <Route exact path='/addcontact'>
+            <AddContact
+              switchTheme={switchTheme}
+              user={currentUser}
+            />
+          </Route>
+          <Route exact path='/about'>
+            <AboutUs
+              switchTheme={switchTheme}
+              user={currentUser}
+            />
+          </Route>
+        </div>
       </ThemeProvider>
     </Router>
   );

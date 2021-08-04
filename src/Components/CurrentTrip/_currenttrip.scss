@@ -72,6 +72,7 @@
   color: ghostwhite;
   border: 1px solid ghostwhite;
   background-color: rgba(243, 156, 85, 0.829);
+  font-family: $julius;
 
   &:hover {
     color: rgb(75, 75, 134);
@@ -235,7 +236,7 @@
 
 @media screen and (max-width: 376px) {
   .trip-container {
-    width: 60%;
+    width: 65%;
     height: 70%;
     margin: 0.5em;
     justify-content: space-evenly;
@@ -247,7 +248,7 @@
   }
 
   .timer-wrapper {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 
   .trip-container a {

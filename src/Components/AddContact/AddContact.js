@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
-import { gql, useMutation } from '@apollo/client';
+import { gql, useMutation, useQuery } from '@apollo/client';
 import {toast} from "react-toastify";
 
 const CREATE_CONTACT = gql`
@@ -17,6 +17,21 @@ const CREATE_CONTACT = gql`
  }
 `
 
+const GET_USER = gql`
+query GetUser {
+  oneUser(id: 2) {
+    firstName
+    lastName
+    username
+    contacts {
+      firstName
+      lastName
+      phoneNumber
+    }
+  }
+}
+`
+
 function AddContact({ user, switchTheme }) {
   const [valid, setValidCheck] = useState(false);
   const [verify, setPhoneVerify] = useState(false);
@@ -25,7 +40,7 @@ function AddContact({ user, switchTheme }) {
   const [countryCode, setCountry] = useState('');
   const [areaCode, setArea] = useState('');
   const [phoneNumber, setPhone] = useState('');
-  // const [createContact, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_CONTACT);
+  const { loading: queryLoading, error: queryError, data } = useQuery(GET_USER);
   const [createContact, { loading: mutationLoading, error: mutationError }] = useMutation(CREATE_CONTACT);
   const addedContactAlert = () => toast.success(`${firstName} ${lastName} contact information has been added`);
 
@@ -43,7 +58,10 @@ function AddContact({ user, switchTheme }) {
     setValidCheck(false);
     setPhoneVerify(false);
     let number = `+${countryCode}${areaCode}${phoneNumber}`;
-    createContact( {variables: { firstName: firstName, lastName: lastName, phoneNumber: number}});
+    createContact({
+      variables: { firstName: firstName, lastName: lastName, phoneNumber: number},
+      refetchQueries: [{ query: GET_USER }]
+    });
     clearForm();
     addedContactAlert()
   }

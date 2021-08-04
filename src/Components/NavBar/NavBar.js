@@ -32,7 +32,7 @@ function NavBar({ nameToggle, user, switchTheme }) {
       </div>
       <div className='nav-section'>
         <CheckBoxWrapper className='themeToggle'>
-          <CheckBox id='checkbox' type='checkbox' />
+          <CheckBox id='checkbox' type='checkbox' aria-label='day/night mode toggle button' />
           <CheckBoxLabel onClick={switchTheme} htmlFor='checkbox' />
         </CheckBoxWrapper>
         <Menu

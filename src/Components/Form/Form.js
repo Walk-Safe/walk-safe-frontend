@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import transportOptions from '../../assets/travelModeData';
 import Autocomplete from 'react-google-autocomplete';
-import { gql, useMutation } from '@apollo/client';
+import { gql, useMutation, useQuery } from '@apollo/client';
 import TripETA from '../TripETA/TripETA';
 
 const CREATE_TRIP = gql `
@@ -19,7 +19,6 @@ const CREATE_TRIP = gql `
   }
 }
 `
-
 function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive }) {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -30,7 +29,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
   const [formattedContacts, setFormattedContacts] = useState([]);
   const [selectedContact, setSelectedContact] = useState('');
   const [travelMode, setTravelMode] = useState('');
-  const [createTrip, { loading: mutationLoading, error: mutationError, data }] = useMutation(CREATE_TRIP, { errorPolicy: 'none' });
+  const [createTrip, { loading: mutationLoading, error: mutationError, data: newTripData }] = useMutation(CREATE_TRIP, { errorPolicy: 'none' });
 
   useEffect(() => {
     formatContacts()
@@ -38,11 +37,11 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
   }, []);
 
   useEffect(() => {
-    if (data) {
-      handleEtaChange(data.createTrip.trip.eta);
+    if (newTripData) {
+      handleEtaChange(newTripData.createTrip.trip.eta);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+  }, [newTripData]);
 
   const customStyles = {
     control: base => ({
@@ -123,6 +122,7 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
         onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
         options={transportOptions}
         styles={customStyles}
+        aria-label='select travel mode dropdown menu'
       />
       <Select
         className='dropdown select-contact'
@@ -133,18 +133,19 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
         onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
         options={formattedContacts}
         styles={customStyles}
+        aria-label='select contact dropdown menu'
       />
       <button onClick={sendTripData} className='submit-trip-btn'>
         SUBMIT TRIP
       </button>
-      {modalIsOpen && 
-        <TripETA 
-          modalIsOpen={modalIsOpen} 
-          eta={data} 
-          setEta={handleEtaChange} 
-          tripDetails={data} 
-          contact={selectedContact} 
-          userName={userInfo} 
+      {modalIsOpen &&
+        <TripETA
+          modalIsOpen={modalIsOpen}
+          eta={newTripData}
+          setEta={handleEtaChange}
+          tripDetails={newTripData}
+          contact={selectedContact}
+          userName={userInfo}
           closeModal={closeModal}
           setTripIsActive={setTripIsActive}
         />
