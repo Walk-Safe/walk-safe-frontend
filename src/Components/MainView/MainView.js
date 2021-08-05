@@ -20,6 +20,7 @@ query GetUser {
 `
 
 function MainView({ setCurrentUser, setCurrentContact, handleEtaChange, setTripIsActive, switchTheme }) {
+  
  const { loading, error, data } = useQuery(GET_USER);
 
 useEffect(() => {
