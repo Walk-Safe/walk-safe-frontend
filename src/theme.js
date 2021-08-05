@@ -105,7 +105,7 @@ export const GlobalStyles = createGlobalStyle`
  .welcome-msg {
     color: ${props => props.theme.welcomeMsg};
  }
- .app-header, .about-us-title {
+ .app-header, .app-header a, .about-us-title {
     color: ${props => props.theme.headingColor};
     text-shadow: ${props => props.theme.textShadow};
  }
