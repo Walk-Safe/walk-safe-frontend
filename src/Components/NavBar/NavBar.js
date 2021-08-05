@@ -6,17 +6,19 @@ import getDropdownWidth from './mediaQueries';
 
 function NavBar({ nameToggle, user, switchTheme }) {
 
-  const [displayName, setDisplayName] = useState(null);
-  const [width, setWidth]   = useState(window.innerWidth);
+  const [displayName, setDisplayName] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    if (nameToggle) {
-      setDisplayName(nameToggle);
-    }
     window.addEventListener('resize', updateDimensions);
     return () => window.removeEventListener('resize', updateDimensions);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    setDisplayName(nameToggle);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nameToggle])
 
   const updateDimensions = () => {
     setWidth(window.innerWidth);
@@ -26,9 +28,7 @@ function NavBar({ nameToggle, user, switchTheme }) {
   return (
     <nav className='navbar trip-nav'>
       <div className='welcome-container'>
-        {displayName && 
-          <h2 className='welcome-msg'>Welcome, {user}</h2>
-        }
+        {displayName && <h2 className='welcome-msg'>Welcome, {user}</h2>}
       </div>
       <div className='nav-section'>
         <CheckBoxWrapper className='themeToggle'>
@@ -51,7 +51,6 @@ function NavBar({ nameToggle, user, switchTheme }) {
         </Menu>
       </div>
     </nav>
-
   )
 }
 

@@ -12,20 +12,25 @@ function MainView ({ loading, error, currentUser, setCurrentContact, handleEtaCh
     </main>
   );
 
-  if (error) return `Error! ${error.message}`;
-    return (
-      <main className='main-page'>
-        {currentUser && <NavBar nameToggle='true' user={currentUser.firstName} switchTheme={switchTheme} />}
-        <Header />
-        {currentUser && <Form
-          contacts={currentUser.contacts}
-          userInfo={currentUser}
-          handleEtaChange={handleEtaChange}
-          setContact={setCurrentContact}
-          setTripIsActive={setTripIsActive}
-        />}
-      </main>
-    )
+  if (error) return (
+    <main className='main-page'>
+      <p className='loading'>`Error! ${error.message}`</p>
+    </main>
+  );
+
+  return (
+    <main className='main-page'>
+      {currentUser && <NavBar nameToggle='true' user={currentUser.firstName} switchTheme={switchTheme} />}
+      <Header />
+      {currentUser && <Form
+        contacts={currentUser.contacts}
+        userInfo={currentUser}
+        handleEtaChange={handleEtaChange}
+        setContact={setCurrentContact}
+        setTripIsActive={setTripIsActive}
+      />}
+    </main>
+  )
 }
 
 
