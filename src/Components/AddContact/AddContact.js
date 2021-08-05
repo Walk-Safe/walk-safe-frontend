@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import { gql, useMutation, useQuery } from '@apollo/client';
@@ -32,7 +32,9 @@ query GetUser {
 }
 `
 
-function AddContact({ user, switchTheme }) {
+function AddContact({ switchTheme }) {
+
+  const [currentUser, setCurrentUser] = useState('');
   const [valid, setValidCheck] = useState(false);
   const [verify, setPhoneVerify] = useState(false);
   const [firstName, setFirst] = useState('');
@@ -40,9 +42,17 @@ function AddContact({ user, switchTheme }) {
   const [countryCode, setCountry] = useState('');
   const [areaCode, setArea] = useState('');
   const [phoneNumber, setPhone] = useState('');
-  const { loading: queryLoading, error: queryError, data } = useQuery(GET_USER);
-  const [createContact, { loading: mutationLoading, error: mutationError }] = useMutation(CREATE_CONTACT);
   const addedContactAlert = () => toast.success(`${firstName} ${lastName} contact information has been added`);
+  const [createContact, { loading: mutationLoading, error: mutationError }] = useMutation(CREATE_CONTACT);
+  const { loading, error, data } = useQuery(GET_USER);
+  // const { loading: queryLoading, error: queryError, data } = useQuery(GET_USER);
+
+  useEffect(() => {
+    if (data) {
+      setCurrentUser(data.oneUser);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   function addContact(e) {
     e.preventDefault();
@@ -94,9 +104,21 @@ function AddContact({ user, switchTheme }) {
   //   setPhone(toString(event.target.value));
   // }
 
+  if (loading) return (
+    <main className='main-page'>
+      <p className='loading'>Loading...</p>
+    </main>
+  );
+
+  if (error) return (
+    <main className='main-page'>
+      <p className='loading'>`Error! ${error.message}`</p>
+    </main>
+  );
+
   return (
     <main className='add-contact-page'>
-      <NavBar nameToggle='true' user={user.firstName} switchTheme={switchTheme} />
+      <NavBar nameToggle='true' user={currentUser.firstName} switchTheme={switchTheme} />
       <Header />
       <section className='contact-container'>
         <div className='add-contact-title'>
