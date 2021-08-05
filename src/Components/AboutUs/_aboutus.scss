@@ -74,7 +74,7 @@
   background-color: ghostwhite;
   padding: 1%;
   max-height: 95%;
-  width: 23%;
+  width: 20%;
   border: 1px solid black;
 }
 
@@ -104,7 +104,7 @@
   font-family: $roboto;
   text-shadow: 1px 1px 3px rgba(194, 160, 118, 0.741);
   font-weight: 500;
-  font-size: 1.2em;
+  font-size: 1.1em;
   letter-spacing: 0.1em;
 }
 
@@ -137,6 +137,7 @@
   }
 }
 
+// iPad
 @media screen and (max-width: 1025px) {
   .bio-container {
     width: 90%;
@@ -167,6 +168,46 @@
 
   .dev-name {
     font-size: 0.9em;
+  }
+}
+
+// iPad Pro
+@media screen and (max-width: 1025px) and (min-height: 1365px) {
+  .about-us-title {
+    font-size: 2.3em;
+    margin: 0.5em auto 0.1em auto;
+  }
+
+  .bio-container {
+    width: 90%;
+    height: 33%;
+  }
+
+  .bio-text {
+    font-size: 1.45em;
+    margin: 1%;
+  }
+
+  .team-grid {
+    width: 75%;
+    height: 35%;
+    margin-top: 3%;
+    padding-bottom: 2%;
+  }
+
+  .row-title {
+    font-size: 1.6em;
+    margin: 2% auto 0 auto;
+  }
+
+  .dev-card {
+    margin: 2%;
+    height: 75%;
+    width: 23%;
+  }
+
+  .dev-name {
+    font-size: 1.1em;
   }
 }
 
@@ -245,7 +286,7 @@
 
   .team-grid {
     width: 90%;
-    height: 35%;
+    height: 34%;
   }
 
   .row-title {
@@ -263,15 +304,15 @@
 }
 
 @media screen and (max-width: 376px) {
+  .about-us-title {
+    font-size: 1.2em;
+    margin: 0.8em auto 0.1em auto;
+  }
+
   .bio-container {
     width: 88%;
     height: 32%;
     padding: 0.1em;
-  }
-
-  .about-us-title {
-    font-size: 1.2em;
-    margin: 0.8em auto 0.1em auto;
   }
 
   .bio-text {
@@ -302,6 +343,11 @@
 }
 
 @media screen and (max-width: 321px) {
+  .about-us-title {
+    font-size: 1em;
+    margin: 0.8em auto 0.1em auto;
+  }
+
   .bio-container {
     width: 88%;
     height: 30%;
@@ -320,7 +366,7 @@
   }
 
   .row-title {
-    font-size: 0.7em;
+    font-size: 0.6em;
   }
 
   .dev-card {
