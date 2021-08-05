@@ -3,25 +3,10 @@ import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import devNames from '../../assets/devNames';
 
-function AboutUs({ user, switchTheme }) {
+function AboutUs({ switchTheme }) {
 
-  let [ feDevCards, setFEDevCards ] = useState([]);
-  let [ beDevCards, setBEDevCards ] = useState([]);
-
-  function buildDevCard(dev) {
-    return (
-      <article key={dev.id} className='dev-card'>
-        <div className='pic-container grow'>
-          <a className='pic-link' href={`https://github.com/${dev.ghName}`}>
-            <img className='dev-pic' src={`https://avatars.githubusercontent.com/u/${dev.id}?v=4`} alt={dev.fullName}/>
-          </a>
-        </div>
-        <a className='name-link' href={`https://github.com/${dev.ghName}?tab=repositories`} target='_top'>
-          <h1 className='dev-name'>{dev.fullName}</h1>
-        </a>
-      </article>
-    )
-  }
+  const [ feDevCards, setFEDevCards ] = useState([]);
+  const [ beDevCards, setBEDevCards ] = useState([]);
 
   useEffect(() => {
     if (devNames) {
@@ -49,11 +34,32 @@ function AboutUs({ user, switchTheme }) {
     setBEDevCards(beCards);
   }
 
-  if (beDevCards.length === 0) return <p className='loading'>Loading...</p>;
+  function buildDevCard(dev) {
+    return (
+      <article key={dev.id} className='dev-card'>
+        <div className='pic-container grow'>
+          <a className='pic-link' href={`https://github.com/${dev.ghName}`}>
+            <img className='dev-pic' src={`https://avatars.githubusercontent.com/u/${dev.id}?v=4`} alt={dev.fullName}/>
+          </a>
+        </div>
+        <a className='name-link' href={`https://github.com/${dev.ghName}?tab=repositories`} target='_top'>
+          <h1 className='dev-name'>{dev.fullName}</h1>
+        </a>
+      </article>
+    )
+  }
+
+  if (beDevCards.length === 0) {
+    return (
+      <main className='about-us-page'>
+        <p className='loading'>Loading...</p>
+      </main>
+    )
+  }
 
   return (
     <main className='about-us-page'>
-      <NavBar nameToggle='false' switchTheme={switchTheme} />
+      <NavBar nameToggle={false} switchTheme={switchTheme} />
       <Header />
       <h2 className='about-us-title'>About Us</h2>
       <div className='bio-container'>
