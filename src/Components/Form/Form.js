@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import transportOptions from '../../assets/travelModeData';
 import Autocomplete from 'react-google-autocomplete';
-import { gql, useMutation, useQuery } from '@apollo/client';
+import { gql, useMutation } from '@apollo/client';
 import TripETA from '../TripETA/TripETA';
 
 const CREATE_TRIP = gql `
@@ -23,7 +23,6 @@ function Form({ contacts, handleEtaChange, userInfo, setContact, setTripIsActive
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [valid, setValidCheck] = useState(false);
-  // const [query, setQuery] = useState('');
   const [endPoint, setEndPoint] = useState('');
   const [startPoint, setStartPoint] = useState('');
   const [formattedContacts, setFormattedContacts] = useState([]);

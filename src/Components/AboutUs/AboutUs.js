@@ -53,7 +53,7 @@ function AboutUs({ user, switchTheme }) {
 
   return (
     <main className='about-us-page'>
-      <NavBar nameToggle={false} user={user.firstName} switchTheme={switchTheme} />
+      <NavBar nameToggle='false' switchTheme={switchTheme} />
       <Header />
       <h2 className='about-us-title'>About Us</h2>
       <div className='bio-container'>

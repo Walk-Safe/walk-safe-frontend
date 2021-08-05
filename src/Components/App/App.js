@@ -1,14 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { gql, useQuery } from '@apollo/client';
+import { ThemeProvider } from "styled-components";
+import { darkTheme, lightTheme, GlobalStyles } from '../../theme';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import LoginView from '../LoginView/LoginView';
 import MainView from '../MainView/MainView';
 import AddContact from '../AddContact/AddContact';
 import CurrentTrip from '../CurrentTrip/CurrentTrip';
 import AboutUs from '../AboutUs/AboutUs';
-import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme, GlobalStyles } from '../../theme';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
+const GET_USER = gql`
+query GetUser {
+  oneUser(id: 2) {
+    firstName
+    lastName
+    username
+    contacts {
+      firstName
+      lastName
+      phoneNumber
+    }
+  }
+}
+`
 
 function App() {
 
@@ -17,6 +33,15 @@ function App() {
   const [currentUser, setCurrentUser] = useState('');
   const [currentContact, setCurrentContact] = useState('');
   const [theme, setTheme] = useState("light");
+
+  const { loading, error, data } = useQuery(GET_USER);
+
+  useEffect(() => {
+    if (data) {
+      setCurrentUser(data.oneUser);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   const switchTheme = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -52,10 +77,12 @@ function App() {
           </Route>
           <Route exact path='/'>
             <MainView
+              loading={loading}
+              error={error}
               switchTheme={switchTheme}
               setTripIsActive={setTripIsActive}
               handleEtaChange={handleEtaChange}
-              setCurrentUser={setCurrentUser}
+              currentUser={currentUser}
               setCurrentContact={setCurrentContact}
             />
           </Route>
