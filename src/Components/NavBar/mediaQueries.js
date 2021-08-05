@@ -4,7 +4,7 @@ export default function getDropdownWidth(width) {
   } else if (width < 376) {
     return '60%';
   } else if (width < 651) {
-    return '50%';
+    return '60%';
   } else if (width < 1025)  {
     return '35%';
   } else {
