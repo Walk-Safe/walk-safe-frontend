@@ -120,26 +120,29 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 
 * Application in iPhone 6/7/8 mobile view
 
-<table>
-    <tr>
-        <td>User Trip Form Submission</td>
-        <td>User Trip Start & Countdown Timer</td>
-        <td>Timer Expiration & Trip Extension</td>
-    </tr>
-    </tr>
-        <td><img src="https://media.giphy.com/media/ywCOALjE8R2A31wiIC/giphy.gif" alt="Trip Form Submission" width="auto" height="auto" /></td>
-        <td><img src="https://media.giphy.com/media/Jw0QNQMDwGE4Dexeu7/giphy.gif" alt="User Trip Start & Countdown Timer Display" width="auto" height="auto" /></td>
-        <td><img src="https://media.giphy.com/media/YqrYSyTEo1JFVoLemr/giphy.gif" alt="User Trip Timer Expiration & "Add Time" Extension" width="auto" height="auto" /></td>
-</table>
-
-<table>
-    <tr>
-        <td>Extension End & Alert Scenario</td>
-        <td>"Add Contact" Functionality</td>
-        <td>Light/Dark Mode Toggle</td>
-    </tr>
-    </tr>
-        <td><img src="https://media.giphy.com/media/f408om0XQlUh1ixdCW/giphy.gif" alt="Extension End & Alert Scenario" width="auto" height="auto" /></td>
-        <td><img src="https://media.giphy.com/media/8GN2yFydL5DbYFfmhH/giphy.gif" alt="Add Contact Functionality" width="auto" height="auto" /></td>
-        <td><img src="https://media.giphy.com/media/mYj4wHb4LtRBqmXxKL/giphy.gif" alt="Light/Dark Mode Toggle" width="auto" height="auto" /></td>
-</table>
+<center>
+     <table>
+         <tr>
+             <td>User Trip Form Submission</td>
+             <td>User Trip Start & Countdown Timer</td>
+             <td>Timer Expiration & Trip Extension</td>
+         </tr>
+         </tr>
+             <td><img src="https://media.giphy.com/media/ywCOALjE8R2A31wiIC/giphy.gif" alt="Trip Form Submission" width="auto" height="auto" /></td>
+             <td><img src="https://media.giphy.com/media/Jw0QNQMDwGE4Dexeu7/giphy.gif" alt="User Trip Start & Countdown Timer Display" width="auto" height="auto" /></td>
+             <td><img src="https://media.giphy.com/media/YqrYSyTEo1JFVoLemr/giphy.gif" alt="User Trip Timer Expiration & "Add Time" Extension" width="auto" height="auto" /></td>
+     </table>
+</center>
+<center>
+     <table>
+         <tr>
+             <td>Extension End & Alert Scenario</td>
+             <td>"Add Contact" Functionality</td>
+             <td>Light/Dark Mode Toggle</td>
+         </tr>
+         </tr>
+             <td><img src="https://media.giphy.com/media/f408om0XQlUh1ixdCW/giphy.gif" alt="Extension End & Alert Scenario" width="auto" height="auto" /></td>
+             <td><img src="https://media.giphy.com/media/8GN2yFydL5DbYFfmhH/giphy.gif" alt="Add Contact Functionality" width="auto" height="auto" /></td>
+             <td><img src="https://media.giphy.com/media/mYj4wHb4LtRBqmXxKL/giphy.gif" alt="Light/Dark Mode Toggle" width="auto" height="auto" /></td>
+     </table>
+</center>
