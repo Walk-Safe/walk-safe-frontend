@@ -93,7 +93,7 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
     <tr>
         <td>JavaScript</td>
         <td>React</td>
-        <td>React Router</td>
+        <td>Router</td>
         <td>GraphQL</td>
         <td>Hooks</td>
         <td>HTML</td>
