@@ -1,4 +1,4 @@
-![Title](public/walk-safe-banner.png)
+![Title](public/images/walk-safe-banner.png)
 
 # Walk Safe
 [View Live Application Here](https://walk-safe-frontend.herokuapp.com/)
