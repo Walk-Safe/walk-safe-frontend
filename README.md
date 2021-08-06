@@ -3,7 +3,7 @@
 
 ## Table of Contents
 * [Description](#description)
-* [Learning Goals](#LearningGoals)
+* [Learning Goals](#learninggoals)
 * [Installation](#installation)
 * [Walkthrough](#walkthrough)
 * [Authors](#authors)
