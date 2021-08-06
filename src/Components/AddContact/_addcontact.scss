@@ -108,8 +108,11 @@
   align-items: center;
   height: 25%;
   margin-top: 2%;
+  padding: 5px;
 
   input {
+    display: flex;
+    flex-direction: row;
     text-align: center;
     height: 50%;
     width: 25%;
@@ -117,6 +120,10 @@
     margin-top: 0;
     border-radius: 5px;
     font-family: $julius;
+
+    &::placeholder {
+      font-size: 13px;
+    }
   }
 }
 
@@ -161,12 +168,16 @@
   }
 
   .contact-name input {
-    font-size: 1.6em;
+    font-size: 1.5em;
   }
 
   .phone-number input {
-    font-size: 1.4em;
     width: 29%;
+      font-size: 25px;
+
+    &::placeholder {
+      font-size: 20px;
+    }
   }
 
   .contact-form {
@@ -204,12 +215,16 @@
   }
 
   .contact-name input {
-    font-size: 1.2em;
+    font-size: 1.4em;
+    height: 35%;
   }
 
   .phone-number input {
-    font-size: 1em;
     width: 28%;
+
+    &::placeholder {
+      font-size: 16px;
+    }
   }
 
   .contact-form {
@@ -251,11 +266,17 @@
   }
 
   .contact-name input {
-    font-size: 0.8em;
+    font-size: 0.9em;
+    width: 35%;
   }
 
   .phone-number input {
-    font-size: 0.5em;
+    margin: 2%;
+    font-size: 0.85em;
+
+    &::placeholder {
+      font-size: 8.5px;
+    }
   }
 
   .contact-form {
@@ -297,8 +318,11 @@
   }
   
   .phone-number input {
-    font-size: 7px;
     width: 27%;
+
+    &::placeholder {
+      font-size: 7.5px;
+    }
   }
 
   .contact-form button {
@@ -313,13 +337,17 @@
   }
 
   .contact-name input {
-    font-size: 0.70em;
     width: 30%;
+    font-size: 0.6em;
   }
 
   .phone-number input {
-    font-size: 6px;
     width: 27%;
+    font-size: 0.6em;
+
+    &::placeholder {
+      font-size: 6px;
+    }
   }
 
   .contact-form button {

@@ -61,10 +61,6 @@ function AddContact({ switchTheme }) {
       return setValidCheck(true);
     }
 
-    // if (checkPhoneNum()) {
-    //   return
-    // }
-
     setValidCheck(false);
     setPhoneVerify(false);
     let number = `+${countryCode}${areaCode}${phoneNumber}`;
@@ -76,21 +72,21 @@ function AddContact({ switchTheme }) {
     addedContactAlert()
   }
 
-  function checkPhoneNum() {
-    if (countryCode.length === 0) {
-      setPhoneVerify(true);
-      return true;
-    } else if (areaCode.length !== 3) {
-      setPhoneVerify(true);
-      return true;
-    } else if (phoneNumber.length !== 7) {
-      setPhoneVerify(true);
-      return true;
-    } else {
-      setPhoneVerify(false);
-      return false;
-    }
-  }
+  // function checkPhoneNum() {
+  //   if (countryCode.length === 0) {
+  //     setPhoneVerify(true);
+  //     return true;
+  //   } else if (areaCode.length !== 3) {
+  //     setPhoneVerify(true);
+  //     return true;
+  //   } else if (phoneNumber.length !== 7) {
+  //     setPhoneVerify(true);
+  //     return true;
+  //   } else {
+  //     setPhoneVerify(false);
+  //     return false;
+  //   }
+  // }
 
   function clearForm() {
     setFirst('');
@@ -99,10 +95,6 @@ function AddContact({ switchTheme }) {
     setArea('');
     setPhone('');
   }
-
-  // function modifyNumberInput(event) {
-  //   setPhone(toString(event.target.value));
-  // }
 
   if (loading) return (
     <main className='main-page'>
