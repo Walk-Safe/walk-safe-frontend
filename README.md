@@ -127,7 +127,7 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 
 |Timer Expiration & Trip Extension<!-- .element: style="text-align:center;" -->|Extension End & Alert Scenario<!-- .element: style="text-align:center;" -->|
 |-------|-------|
-|![](https://media.giphy.com/media/YqrYSyTEo1JFVoLemr/giphy.gif)<!-- .element: style="text-align:right;" -->|![](https://media.giphy.com/media/f408om0XQlUh1ixdCW/giphy.gif)<!-- .element: style="text-align:right;" -->|
+|![](https://media.giphy.com/media/ppeuYjyLKjYYoIdPw0/giphy.gif)<!-- .element: style="text-align:right;" -->|![](https://media.giphy.com/media/f408om0XQlUh1ixdCW/giphy.gif)<!-- .element: style="text-align:right;" -->|
 
 
 |"Add Contact" Functionality<!-- .element: style="text-align:center;" -->|Light/Dark Mode Theme Toggle<!-- .element: style="text-align:right;" -->|
