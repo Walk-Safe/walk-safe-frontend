@@ -17,51 +17,48 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 ## Walkthrough
 
 1) Visit https://walk-safe-frontend.herokuapp.com/ and view the main page of the application
-2) Navigate to the "hamburger" menu, click the hamburger to expand navigation options
-3) Select the "Add Contact" option and navigate to the Add Contact page
+2) Navigate to the "hamburger" menu in the upper-right corner and click the icon to open dropdown and expand navigation options
+3) Select the "Add Contact" option to route to the AddContact page
 4) Enter your contact's information into the form: name, and full phone number (including country code!)
-5) After you have submitted your contact, navigate back to the "New Trip" view through the hamburger menu
+5) After you've submitted your contact, navigate back to the "New Trip" view by clicking the "Walk Safe" title or by clicking "Plan Trip" in the dropdown menu
 6) Create your trip in the form:
         - Enter your start and end address and select the autocompleted version provided by GoogleMaps
         - Select your transportation type
         - Select the contact you want to keep informed of your trip status
         - Submit Trip!
-7) After you submit your trip, you will be provided an ETA. Your trip starts once you have confirmed that ETA by clicking "Start Trip"
-8) A countdown timer will now appear based on the ETA of your trip, at any point in time (once you have made it to your destination, you may select "End Trip" and your contact will be alerted you have made it safely to your destination
-9) Should your ETA expire before you have made it to your desination, an alert will pop up with the option to extend your trip time
+7) After you submit your trip, you will be provided an estimated trip time. Your trip will start after you've confirmed by clicking "Start Trip"
+8) A countdown timer will then begin, and if you reach your destination earlier than expected, you may click the "End Trip" button and your contact will be notified that you've made it safely to your destination.
+9) Should your ETA expire before you have made it to your desination, an alert will pop up with the option to extend your trip time:
 
-9a) If you select more trip time, your contact will be alerted you have extended your trip
+9a) If you select more trip time, your contact will be alerted you have extended your trip.
 
-9b) *If you fail to extend your trip and your ETA has expired, your contact will be immediately alerted that you have not safely arrived to your destination and to contact you*
+9b) *If you fail to extend your trip and your ETA has expired, your contact will be instantly alerted that you have not safely arrived to your destination and to contact you immediately*
 
 
 ## Learning Goals
 
 - GraphQL + Apollo
 - Utilize a GoogleMaps API
-- Utilize an SMS Messaging API
+- Implement SMS messaging
 - Create an UI/UX friendly application
 - Create an engaging & useful application
 
-
 *Minimum Viable Product (MVP)*:  MVP:
 #### 1 user flow:
-- Main Page
-- Add Contacts Page
-- CurrentTrip Page
+- Main page
+- AddContact page
+- CurrentTrip page
 - Sad path: user doesn't end trip
-
 
 ## Notable Features
 
-- GoogleMaps Places API to autocomplete start and end point address
-- GoogleMaps API data received from server to determine trip ETA
-- Twilio SMS Messaging API to send start, trip extended, trip end, and alert messaging to user's contact
+- GoogleMaps Places API to autocomplete starting point and end destination addresses
+- GoogleMaps API data received from server to determine estimated trip time
+- Twilio SMS Messaging API to send "trip started", "trip ended", "trip extended", and "alert!" notifications to user's selected contact
 - Apollo + GraphQL to receive contact and trip data from server
-- React Countdown timer to provide visual displays for trip ETA data
+- React countdown-circle-timer to provide visual displays of trip data
 - React + React Hooks to navigate user flow
-- AddContact component enabling user to create custom contacts to send SMS Messaging to
-
+- AddContact component enabling user to create custom contacts to receive automatic SMS messaging notifications
 
 ## Installation
 
