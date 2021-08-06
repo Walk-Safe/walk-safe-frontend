@@ -120,27 +120,27 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 
 * Application in iPhone 6/7/8 mobile view
 
-#### User Trip Start
+#### User Trip Form Submission
 
-![](https://gph.is/g/ZnB1DXJ)
+![](https://media.giphy.com/media/ywCOALjE8R2A31wiIC/giphy.gif)
 
-#### User Trip Countdown Timer
+#### User Trip Start & Countdown Timer Display
 
-![](https://gph.is/g/Zlln1z9)
+![](https://media.giphy.com/media/Jw0QNQMDwGE4Dexeu7/giphy.gif)
 
-#### User Trip Timer Expiration & Extension
+#### User Trip Timer Expiration & "Add Time" Extension
 
-![](https://gph.is/g/ZWbWog7)
+![](https://media.giphy.com/media/YqrYSyTEo1JFVoLemr/giphy.gif)
 
 #### User Trip Extension End & Alert Scenario (sad path)
 
-![](https://gph.is/g/ajlNqMq)
+![](https://media.giphy.com/media/f408om0XQlUh1ixdCW/giphy.gif)
 
-### User "Add Contact" Functionality
+#### User "Add Contact" Functionality
 
-![](https://gph.is/g/ZdyNXk1)
+![](https://media.giphy.com/media/8GN2yFydL5DbYFfmhH/giphy.gif)
 
-### User Light/Dark-Mode Theme Toggle
+#### User Light/Dark-Mode Theme Toggle
 
-![](https://gph.is/g/4bV0dq9)
+![](https://media.giphy.com/media/mYj4wHb4LtRBqmXxKL/giphy.gif)
 
