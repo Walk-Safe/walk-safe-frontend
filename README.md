@@ -23,9 +23,9 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 5) After you've submitted your contact, navigate back to the "New Trip" view by clicking the "Walk Safe" title or by clicking "Plan Trip" in the dropdown menu
 6) Create your trip in the form:
      - Enter your start and end address and select the autocompleted version provided by GoogleMaps
-        - Select your transportation type
-        - Select the contact you want to keep informed of your trip status
-        - Submit Trip!
+     - Select your transportation type
+     - Select the contact you want to keep informed of your trip status
+     - Submit Trip!
 7) After you submit your trip, you will be provided an estimated trip time. Your trip will start after you've confirmed by clicking "Start Trip"
 8) A countdown timer will then begin, and if you reach your destination earlier than expected, you may click the "End Trip" button and your contact will be notified that you've made it safely to your destination.
 9) Should your ETA expire before you have made it to your desination, an alert will pop up with the option to extend your trip time:
