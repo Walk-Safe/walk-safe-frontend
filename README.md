@@ -122,9 +122,9 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 
 <table>
     <tr>
-        <td>#### User Trip Form Submission</td>
-        <td>#### User Trip Start & Countdown Timer</td>
-        <td>#### Timer Expiration & Trip Extension</td>
+        <td>User Trip Form Submission</td>
+        <td>User Trip Start & Countdown Timer</td>
+        <td>Timer Expiration & Trip Extension</td>
     </tr>
     </tr>
         <td><img src="https://media.giphy.com/media/ywCOALjE8R2A31wiIC/giphy.gif" alt="Trip Form Submission" width="auto" height="auto" /></td>
@@ -134,9 +134,9 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 
 <table>
     <tr>
-        <td>#### Extension End & Alert Scenario</td>
-        <td>#### "Add Contact" Functionality</td>
-        <td>#### Light/Dark Mode Toggle</td>
+        <td>Extension End & Alert Scenario</td>
+        <td>"Add Contact" Functionality</td>
+        <td>Light/Dark Mode Toggle</td>
     </tr>
     </tr>
         <td><img src="https://media.giphy.com/media/f408om0XQlUh1ixdCW/giphy.gif" alt="Extension End & Alert Scenario" width="auto" height="auto" /></td>
