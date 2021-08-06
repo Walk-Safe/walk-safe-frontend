@@ -121,11 +121,15 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 
 * Application in iPhone 6/7/8 mobile view
 
-|User Trip Form Submission<!-- .element: style="text-align:center;" -->|User Trip Start & Countdown Timer<!-- .element: style="text-align:center;" -->|Timer Expiration & Trip Extension<!-- .element: style="text-align:center;" -->|
-|-------|-------|-------|
-|![](https://media.giphy.com/media/ywCOALjE8R2A31wiIC/giphy.gif)|![](https://media.giphy.com/media/Jw0QNQMDwGE4Dexeu7/giphy.gif)<!-- .element: style="text-align:center;" -->|![](https://media.giphy.com/media/YqrYSyTEo1JFVoLemr/giphy.gif)<!-- .element: style="text-align:right;" -->|
+|User Trip Form Submission<!-- .element: style="text-align:center;" -->|User Trip Start & Countdown Timer<!-- .element: style="text-align:center;" -->|
+|-------|-------|
+|![](https://media.giphy.com/media/ywCOALjE8R2A31wiIC/giphy.gif)|![](https://media.giphy.com/media/Jw0QNQMDwGE4Dexeu7/giphy.gif)<!-- .element: style="text-align:center;" -->|
+
+|Timer Expiration & Trip Extension<!-- .element: style="text-align:center;" -->|Extension End & Alert Scenario<!-- .element: style="text-align:center;" -->|
+|-------|-------|
+|![](https://media.giphy.com/media/YqrYSyTEo1JFVoLemr/giphy.gif)<!-- .element: style="text-align:right;" -->|![](https://media.giphy.com/media/f408om0XQlUh1ixdCW/giphy.gif)<!-- .element: style="text-align:right;" -->|
 
 
-|Extension End & Alert Scenario<!-- .element: style="text-align:center;" -->|"Add Contact" Functionality<!-- .element: style="text-align:center;" -->|Light/Dark Mode Theme Toggle<!-- .element: style="text-align:right;" -->|
-|-------|-------|-------|
-|![](https://media.giphy.com/media/f408om0XQlUh1ixdCW/giphy.gif)|![](https://media.giphy.com/media/8GN2yFydL5DbYFfmhH/giphy.gif)<!-- .element: style="text-align:center;" -->|![](https://media.giphy.com/media/mYj4wHb4LtRBqmXxKL/giphy.gif)<!-- .element: style="text-align:right;" -->|
+|"Add Contact" Functionality<!-- .element: style="text-align:center;" -->|Light/Dark Mode Theme Toggle<!-- .element: style="text-align:right;" -->|
+|-------|-------|
+|![](https://media.giphy.com/media/8GN2yFydL5DbYFfmhH/giphy.gif)<!-- .element: style="text-align:center;" -->|![](https://media.giphy.com/media/mYj4wHb4LtRBqmXxKL/giphy.gif)<!-- .element: style="text-align:right;" -->|
