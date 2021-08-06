@@ -118,17 +118,29 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 
 ## Demos
 
-* Application in Use Mobile
+* Application in iPhone 6/7/8 mobile view
 
-** User Trip Start to Finish
+#### User Trip Start
 
-![](https://user-images.githubusercontent.com/71860165/126676707-62728def-5de4-4d36-b43c-3b278629c8ae.gif)
+![](https://gph.is/g/ZnB1DXJ)
 
-*** User Alert Countdown Mobile
+#### User Trip Countdown Timer
 
-![Watch the video](https://user-images.githubusercontent.com/71860165/126676754-a320792f-2a9a-4538-a60c-2dcf11b25e76.gif)
+![](https://gph.is/g/Zlln1z9)
 
-*** User Extend Trip Mobile
+#### User Trip Timer Expiration & Extension
 
-![Watch the video](https://user-images.githubusercontent.com/71860165/126676737-106e3af6-9d6f-4d4c-b9a1-c3a131376f83.gif)
+![](https://gph.is/g/ZWbWog7)
+
+#### User Trip Extension End & Alert Scenario (sad path)
+
+![](https://gph.is/g/ajlNqMq)
+
+### User "Add Contact" Functionality
+
+![](https://gph.is/g/ZdyNXk1)
+
+### User Light/Dark-Mode Theme Toggle
+
+![](https://gph.is/g/4bV0dq9)
 
