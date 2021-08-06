@@ -22,7 +22,7 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 4) Enter your contact's information into the form: name, and full phone number (including country code!)
 5) After you've submitted your contact, navigate back to the "New Trip" view by clicking the "Walk Safe" title or by clicking "Plan Trip" in the dropdown menu
 6) Create your trip in the form:
-        - Enter your start and end address and select the autocompleted version provided by GoogleMaps
+     - Enter your start and end address and select the autocompleted version provided by GoogleMaps
         - Select your transportation type
         - Select the contact you want to keep informed of your trip status
         - Submit Trip!
