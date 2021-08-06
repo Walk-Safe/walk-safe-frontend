@@ -120,6 +120,18 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 
 * Application in iPhone 6/7/8 mobile view
 
+<table>
+    <tr>
+        <td>User Trip Form Submission</td>
+        <td>User Trip Start & Countdown Timer Display</td>
+        <td>User Trip Timer Expiration & "Add Time" Extension</td>
+    </tr>
+    </tr>
+        <td><img src="https://media.giphy.com/media/ywCOALjE8R2A31wiIC/giphy.gif" alt="Trip Form Submission" width="auto" height="auto" /></td>
+        <td><img src="https://media.giphy.com/media/Jw0QNQMDwGE4Dexeu7/giphy.gif" alt="User Trip Start & Countdown Timer Display" width="auto" height="auto" /></td>
+        <td><img src="https://media.giphy.com/media/YqrYSyTEo1JFVoLemr/giphy.gif" alt="User Trip Timer Expiration & "Add Time" Extension" width="auto" height="auto" /></td>
+</table>
+
 #### User Trip Form Submission
 
 ![](https://media.giphy.com/media/ywCOALjE8R2A31wiIC/giphy.gif)
