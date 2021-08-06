@@ -21,7 +21,9 @@ const addTimeDropdownStyles = {
       textJustify: 'center',
       marginLeft: '4%',
       letterSpacing: '3px',
-      color: '#000000'
+      color: '#000000',
+      fontFamily: 'Julius Sans One, sans-serif',
+      letterSpacing: '3px',
     }
   },
 };

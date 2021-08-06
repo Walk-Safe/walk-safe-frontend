@@ -16,7 +16,6 @@
   width: 95%;
   height: 95%;
   font-family: $roboto;
-  font-weight: 500;
   background-color: ghostwhite;
 }
 
@@ -35,6 +34,7 @@
   align-items: center;
   font-style: italic;
   font-size: 1.25em;
+  font-weight: 500;
   margin: 0.25em;
   height: 10%;
   white-space: pre-wrap;
@@ -86,8 +86,7 @@
   flex-direction: column;
   justify-content: center;
   font-size: 1.2em;
-  font-family: $julius;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   width: 45%;
   height: 100%;
 }
