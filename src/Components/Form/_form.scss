@@ -10,6 +10,7 @@
   margin: 3em 3em 3em 3em;
   border-radius: 5px;
   box-shadow: $shadow-heavy;
+  letter-spacing: 0.2px;
 
   button {
     width: 40%;
@@ -48,6 +49,13 @@
   margin: 0.25em;
   font-size: 1em;
   color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1.5px;
+
+  &::placeholder {
+    font-family: $julius;
+    letter-spacing: 0.2px;
+  }
 }
 
 .dropdown {
