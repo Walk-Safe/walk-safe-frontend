@@ -23,7 +23,7 @@ const addTimeDropdownStyles = {
       letterSpacing: '3px',
       color: '#000000',
       fontFamily: 'Julius Sans One, sans-serif',
-      letterSpacing: '3px',
+      letterSpacing: '2.5px',
     }
   },
 };
