@@ -57,7 +57,7 @@ Created to empower individuals to walk alone, Walk Safe brings a user's communit
 - Twilio SMS Messaging API to send "trip started", "trip ended", "trip extended", and "alert!" notifications to user's selected contact
 - React Toastify package to display popup windows notifying the user of successful/unsuccesful SMS message delivery
 - Apollo + GraphQL to receive contact and trip data from server
-- React countdown-circle-timer to provide visual displays of trip data
+- React 'countdown-circle-timer' package to provide intuitive visual display of estimated trip time
 - React + React Hooks to navigate user flow
 - AddContact component enabling user to create custom contacts to receive automatic SMS messaging notifications
 
